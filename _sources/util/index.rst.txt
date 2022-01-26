@@ -1,0 +1,6 @@
+===========
+Yield curve
+===========
+
+.. autoclass:: yield_curve.Spot
+    :members:

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>actuarial.math.Partition &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Test</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../test.html">Test</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SUPERCLASS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../superclass/index.html">Superclass</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PROBABILITY &amp; STATISTICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../distribution/index.html">Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copula/index.html">Copula</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yield_curve/index.html">Yield Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../indexation/index.html">Indexation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MATHEMATICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../math/index.html">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../function/index.html">Function</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">UTILITIES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../util/util.html">Util</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XXX</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../XXX/notation.html">Notation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>actuarial.math.Partition</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for actuarial.math.Partition</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">actuarial.superclass</span> <span class="kn">import</span> <span class="n">Base</span><span class="p">,</span> <span class="n">Broadcast</span><span class="p">,</span> <span class="n">Comparison</span>
+<span class="kn">from</span> <span class="nn">actuarial</span> <span class="kn">import</span> <span class="n">util</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<div class="viewcode-block" id="Partition"><a class="viewcode-back" href="../../../math/Partition.html#actuarial.math.Partition">[docs]</a><span class="k">class</span> <span class="nc">Partition</span><span class="p">(</span><span class="n">Base</span><span class="p">,</span> <span class="n">Broadcast</span><span class="p">,</span> <span class="n">Comparison</span><span class="p">):</span>
+    
+    <span class="c1"># Class attributes</span>
+    
+    <span class="n">_print</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;values&quot;</span><span class="p">,</span> <span class="s2">&quot;right_closed&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Initialization</span>
+    
+<div class="viewcode-block" id="Partition.__init__"><a class="viewcode-back" href="../../../math/Partition.html#actuarial.math.Partition.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">right_closed</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        values : array-like</span>
+<span class="sd">            Values :math:`x_0 &lt; x_1 &lt; ... &lt; x_n` of the partition.</span>
+<span class="sd">        right_closed : bool, optional</span>
+<span class="sd">            Indicate whether the subintervals of the partition are right-closed</span>
+<span class="sd">            :math:`(x_i,x_{i+1}]` or left-closed :math:`[x_i,x_{i+1})`.</span>
+<span class="sd">            The default assumes left-closed intervals (False).</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `values` is not along the first axis.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">is_along_axis</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;values&#39; must be along axis 0: its shape is </span><span class="si">{</span><span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            
+        <span class="bp">self</span><span class="o">.</span><span class="n">_values</span> <span class="o">=</span> <span class="n">values</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_right_closed</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">right_closed</span><span class="p">)</span></div>
+        
+    <span class="c1"># Properties</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        array: Values :math:`x_0 &lt; x_1 &lt; ... &lt; x_n` of the partition.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_values</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">min</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        scalar: Minimum value :math:`x_0` of the partition.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ravel</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">max</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        scalar: Maximum value :math:`x_n` of the partition.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ravel</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">length</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        scalar: Length :math:`x_n - x_0` of the partition.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">max</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">min</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">lengths</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        array: Length of each subinterval of the partition.</span>
+<span class="sd">        The length of the i-th subinterval is equal to :math:`x_i - x_{i-1}`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">norm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        scalar: Norm of the partition.</span>
+<span class="sd">        The norm of a partition is the length of the longest subintervals:</span>
+<span class="sd">        :math:`\max\lbrace |x_i - x_{i-1}| : i=1, ..., n \rbrace`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lengths</span><span class="p">)</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">right_closed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        bool: Indicate whether the subintervals of the partition are right-closed</span>
+<span class="sd">        :math:`(x_i,x_{i+1}]` or left-closed :math:`[x_i,x_{i+1})`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_right_closed</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">axis</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        int: Axis along which the values of the partition are (given as a negative integer).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ndim</span>
+    
+    <span class="c1"># Setter</span>
+    
+    <span class="nd">@values</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    
+    <span class="nd">@right_closed</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">right_closed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_right_closed</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    
+    <span class="c1"># Methods</span>
+    
+<div class="viewcode-block" id="Partition.broadcast"><a class="viewcode-back" href="../../../math/Partition.html#actuarial.math.Partition.broadcast">[docs]</a>    <span class="k">def</span> <span class="nf">broadcast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Mimic the broadcast of the values of the partition with input arrays.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        *args : array-like or object with shape attribute</span>
+<span class="sd">            Inputs to broadcast with the values of the partition.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        np.broadcast</span>
+<span class="sd">            Broadcast result.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="n">util</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="Partition.control"><a class="viewcode-back" href="../../../math/Partition.html#actuarial.math.Partition.control">[docs]</a>    <span class="k">def</span> <span class="nf">control</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Control whether the values of the partition are strictly increasing.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        values : array-like or None, optional</span>
+<span class="sd">            Values of the partition to control.</span>
+<span class="sd">            If None, the values of the instance will be used instead.</span>
+<span class="sd">            The default is None.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `values` is not along the first axis.</span>
+<span class="sd">            If `values` is not strictly increasing.            </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="k">if</span> <span class="n">values</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">is_along_axis</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;values&#39; must be along axis 0: its shape is </span><span class="si">{</span><span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&#39;values&#39; must be strictly increasing&quot;</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="Partition.index"><a class="viewcode-back" href="../../../math/Partition.html#actuarial.math.Partition.index">[docs]</a>    <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the partition index associated with input values.</span>
+<span class="sd">        </span>
+<span class="sd">        Note</span>
+<span class="sd">        ----</span>
+<span class="sd">        The partition index associated with a value :math:`x` is the index :math:`i`</span>
+<span class="sd">        satisfying either</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            x_i \leq x &lt; x_{i+1}</span>
+<span class="sd">        </span>
+<span class="sd">        in case of left-closed interval or</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            x_i &lt; x \leq x_{i+1}</span>
+<span class="sd">            </span>
+<span class="sd">        in case of right-closed interval.</span>
+<span class="sd">        </span>
+<span class="sd">        Note that if the value :math:`x` is below :math:`x_0`, the returned index</span>
+<span class="sd">        will be truncated to :math:`i=0`. And if it is above :math:`x_n`, the</span>
+<span class="sd">        returned index will be :math:`i=n`.</span>
+<span class="sd">        Therefore, the returned index is always an integer between 0 and :math:`n`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x : array-like</span>
+<span class="sd">            Values for which interval indices should be provided.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        scalar or array</span>
+<span class="sd">            Scalar or array with an integer dtype and the same shape as `x`.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `x` cannot be broadcast with the instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="n">util</span><span class="o">.</span><span class="n">lower_bound</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">strict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">right_closed</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="Partition.take"><a class="viewcode-back" href="../../../math/Partition.html#actuarial.math.Partition.take">[docs]</a>    <span class="k">def</span> <span class="nf">take</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">indices</span><span class="p">):</span>
+        
+        <span class="c1"># Convert to numpy arrays</span>
+        
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)</span> <span class="k">else</span> <span class="n">indices</span>
+                
+        <span class="c1"># Control if x has a size &gt; 1 along the partition axis</span>
+        
+        <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">ndim</span> <span class="ow">or</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">is_broadcastable</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">indices</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;x&#39; and &#39;indices&#39; cannot be broadcast together: their respective shapes are </span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">indices</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">x</span>
+        
+        <span class="c1"># Take the values of x along the partition axis</span>
+        
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="nb">slice</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">util</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>            
+            <span class="k">if</span> <span class="p">(</span><span class="n">indices</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">ndim</span> <span class="ow">and</span> <span class="n">indices</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">indices</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">ndim</span> <span class="ow">and</span> <span class="n">util</span><span class="o">.</span><span class="n">is_along_axis</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="p">)):</span> <span class="c1"># indices is only along the axis</span>
+                <span class="k">return</span> <span class="n">util</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">indices</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">shape_x</span><span class="p">,</span> <span class="n">shape_indices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="nb">list</span><span class="p">(</span><span class="n">indices</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+                <span class="n">shape_x</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">shape_indices</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="k">pass</span>
+                <span class="n">new_shape_x</span><span class="p">,</span> <span class="n">new_shape_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_shapes</span><span class="p">(</span><span class="n">shape_indices</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_shapes</span><span class="p">(</span><span class="n">shape_x</span><span class="p">,</span> <span class="n">indices</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+                <span class="n">x</span><span class="p">,</span> <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">new_shape_x</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="n">new_shape_indices</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">take_along_axis</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="p">)</span></div>
+    
+    <span class="c1"># Special methods</span>
+    
+<div class="viewcode-block" id="Partition.__call__"><a class="viewcode-back" href="../../../math/Partition.html#actuarial.math.Partition.__call__">[docs]</a>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Identical to the `index` method.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="Partition.__comparison__"><a class="viewcode-back" href="../../../math/Partition.html#actuarial.math.Partition.__comparison__">[docs]</a>    <span class="k">def</span> <span class="nf">__comparison__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">operator</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compare the values of the partition when using comparison operators</span>
+<span class="sd">        (`==`, `!!=`, `&lt;`, `&gt;`, `&lt;=` and `&gt;=`) on the instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="n">operator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="Partition.__contains__"><a class="viewcode-back" href="../../../math/Partition.html#actuarial.math.Partition.__contains__">[docs]</a>    <span class="k">def</span> <span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Indicate whether a value is a point of the partition.</span>
+<span class="sd">        </span>
+<span class="sd">        The `value` argument must be a scalar.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span></div>
+    
+<div class="viewcode-block" id="Partition.__getitem__"><a class="viewcode-back" href="../../../math/Partition.html#actuarial.math.Partition.__getitem__">[docs]</a>    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indices</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a (shallow) copy of the instance where we get a subset of values</span>
+<span class="sd">        in the partition.</span>
+<span class="sd">        </span>
+<span class="sd">        The `indices` argument provides the partition indices to extract.</span>
+<span class="sd">        It must be a slice or 1D array-like of integers or booleans.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">values</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="p">,</span> <span class="n">keepdims</span> <span class="o">=</span> <span class="kc">True</span><span class="p">))</span></div>
+    
+<div class="viewcode-block" id="Partition.__len__"><a class="viewcode-back" href="../../../math/Partition.html#actuarial.math.Partition.__len__">[docs]</a>    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Number of points in the partition (corresponds to :math:`n+1`).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="Partition.__setitem__"><a class="viewcode-back" href="../../../math/Partition.html#actuarial.math.Partition.__setitem__">[docs]</a>    <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Replace the values of the partition.</span>
+<span class="sd">        </span>
+<span class="sd">        The `indices` argument provides the partition indices to replace.</span>
+<span class="sd">        It must be an integer, slice or 1D array-like of integers or booleans.</span>
+<span class="sd">        The `values` argument provides the new points of the partition.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">util</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="p">,</span> <span class="n">keepdims</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="c1"># signal that the values have changed by using the setter</span></div></div>
+        
+        
+        
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Partition</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">])</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">Partition</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">],[</span><span class="mi">9</span><span class="p">]])</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

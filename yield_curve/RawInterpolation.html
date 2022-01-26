@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raw interpolation &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Mixture" href="Mixture.html" />
+    <link rel="prev" title="Linear interpolation" href="LinearInterpolation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Test</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test.html">Test</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SUPERCLASS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../superclass/index.html">Superclass</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PROBABILITY &amp; STATISTICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copula/index.html">Copula</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Yield Curve</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Flat.html">Flat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NelsonSiegel.html">Nelson-Siegel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearInterpolation.html">Linear interpolation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Raw interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mixture.html">Mixture</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../indexation/index.html">Indexation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MATHEMATICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../function/index.html">Function</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">UTILITIES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util/util.html">Util</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XXX</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../XXX/notation.html">Notation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Yield Curve</a> &raquo;</li>
+      <li>Raw interpolation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/yield_curve/RawInterpolation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="raw-interpolation">
+<span id="yield-curve-rawinterpolation"></span><h1>Raw interpolation<a class="headerlink" href="#raw-interpolation" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="actuarial.yield_curve.RawInterpolation">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.yield_curve.</span></span><span class="sig-name descname"><span class="pre">RawInterpolation</span></span><a class="reference internal" href="../_modules/actuarial/yield_curve/RawInterpolation.html#RawInterpolation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.RawInterpolation" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../superclass/Piecewise.html#actuarial.superclass.Piecewise" title="actuarial.superclass.Piecewise.Piecewise"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Piecewise.Piecewise</span></code></a>, <a class="reference internal" href="../superclass/TermStructure.html#actuarial.superclass.TermStructure" title="actuarial.superclass.TermStructure.TermStructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.TermStructure.TermStructure</span></code></a>, <a class="reference internal" href="index.html#actuarial.yield_curve.YieldCurve" title="actuarial.yield_curve.YieldCurve.YieldCurve"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.yield_curve.YieldCurve.YieldCurve</span></code></a></p>
+<p>A raw interpolated yield curve assumes that the instantaneous forward rate
+is constant between two consecutive maturities.</p>
+<p>Given a set of zero-coupon bonds price (discount factors) to interpolate
+<span class="math notranslate nohighlight">\(\lbrace(\tau_i,P_i)\rbrace_{i=0,...,n}\)</span> with initial conditions
+<span class="math notranslate nohighlight">\(\tau_0=0\)</span> and <span class="math notranslate nohighlight">\(P_0=1\)</span>, the raw interpolated zero-coupon bond price
+for a maturity <span class="math notranslate nohighlight">\(\tau \in [\tau_i,\tau_{i+1})\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[P(\tau) = P_i e^{-\mu_i(\tau-\tau_i)}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu_i\)</span> is the constant instantaneous forward rate on the interval
+<span class="math notranslate nohighlight">\([\tau_i,\tau_{i+1})\)</span> given by</p>
+<div class="math notranslate nohighlight">
+\[\mu_i = - \frac{\ln(P_{i+1}) - \ln(P_i)}{\tau_{i+1} - \tau_i}.\]</div>
+<div class="tabbed-set docutils">
+<input checked="checked" id="537a75cc-3507-4de4-acf2-b58e43c650f6" name="7ccff8ac-4272-47b7-8c88-cffb3be4a64b" type="radio">
+</input><label class="tabbed-label" for="537a75cc-3507-4de4-acf2-b58e43c650f6">
+Initialization</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.RawInterpolation.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maturities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'discount_factor'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/yield_curve/RawInterpolation.html#RawInterpolation.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.RawInterpolation.__init__" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maturities</strong> (<em>array-like</em>) – Maturities of the yield curve to interpolate.</p></li>
+<li><p><strong>values</strong> (<em>array-like</em>) – Values of the yield curve to interpolate.</p></li>
+<li><p><strong>kind</strong> (<em>{&quot;capitalization_factor&quot;</em><em>, </em><em>&quot;compound_rate&quot;</em><em>, </em><em>&quot;continuous_rate&quot;</em><em>, </em><em>&quot;discount_factor&quot;</em><em>, </em><em>&quot;simple_rate&quot;}</em>) – Type of yield curve. The default assumes discount factors.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <a class="reference internal" href="#actuarial.yield_curve.RawInterpolation.kind" title="actuarial.yield_curve.RawInterpolation.kind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kind</span></code></a> is not valid.
+    If <a class="reference internal" href="#actuarial.yield_curve.RawInterpolation.maturities" title="actuarial.yield_curve.RawInterpolation.maturities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code></a> is not along the first axis.
+    If <a class="reference internal" href="#actuarial.yield_curve.RawInterpolation.values" title="actuarial.yield_curve.RawInterpolation.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></a> has not the same size as <a class="reference internal" href="#actuarial.yield_curve.RawInterpolation.maturities" title="actuarial.yield_curve.RawInterpolation.maturities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code></a> along the interpolation axis.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="d3ee7d6a-f9d5-4744-a327-66f7ddb0a1e8" name="7ccff8ac-4272-47b7-8c88-cffb3be4a64b" type="radio">
+</input><label class="tabbed-label" for="d3ee7d6a-f9d5-4744-a327-66f7ddb0a1e8">
+Properties</label><div class="tabbed-content docutils">
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.yield_curve.RawInterpolation.maturities">
+<span class="sig-name descname"><span class="pre">maturities</span></span><a class="headerlink" href="#actuarial.yield_curve.RawInterpolation.maturities" title="Permalink to this definition"></a></dt>
+<dd><p>Maturties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.yield_curve.RawInterpolation.values">
+<span class="sig-name descname"><span class="pre">values</span></span><a class="headerlink" href="#actuarial.yield_curve.RawInterpolation.values" title="Permalink to this definition"></a></dt>
+<dd><p>Values associated with the maturities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.yield_curve.RawInterpolation.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><a class="headerlink" href="#actuarial.yield_curve.RawInterpolation.kind" title="Permalink to this definition"></a></dt>
+<dd><p>Type of yield curve.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.yield_curve.RawInterpolation.piecewise_function">
+<span class="sig-name descname"><span class="pre">piecewise_function</span></span><a class="headerlink" href="#actuarial.yield_curve.RawInterpolation.piecewise_function" title="Permalink to this definition"></a></dt>
+<dd><p>Piecewise function used when interpolating the yield
+curve between two consecutive maturities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../function/PiecewiseFunction.html#actuarial.function.PiecewiseFunction" title="actuarial.function.PiecewiseFunction">PiecewiseFunction</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="1624ff90-e309-4b10-bd1e-d8123696fce1" name="7ccff8ac-4272-47b7-8c88-cffb3be4a64b" type="radio">
+</input><label class="tabbed-label" for="1624ff90-e309-4b10-bd1e-d8123696fce1">
+Methods</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.RawInterpolation.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maturities</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/yield_curve/RawInterpolation.html#RawInterpolation.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.RawInterpolation.evaluate" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluate the value of the yield curve for the given maturities.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Let <span class="math notranslate nohighlight">\(\lbrace(\tau_i,P_i)\rbrace_{i=0,...,n}\)</span> be a set of zero-coupon
+bonds price (discount factors) to interpolate. We assume that we have the
+initial condition <span class="math notranslate nohighlight">\(\tau_0=0\)</span> and <span class="math notranslate nohighlight">\(P_0=1\)</span>.</p>
+<p>The raw interpolated zero-coupon bond price at maturity <span class="math notranslate nohighlight">\(\tau \in [\tau_i,\tau_{i+1})\)</span>
+is given by</p>
+<div class="math notranslate nohighlight">
+\[P(\tau) = P_i e^{-\mu_i(\tau-\tau_i)}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu_i\)</span> is the constant instantaneous forward rate on the
+interval <span class="math notranslate nohighlight">\([\tau_i,\tau_{i+1})\)</span> given by</p>
+<div class="math notranslate nohighlight">
+\[\mu_i = - \frac{\ln(P_{i+1}) - \ln(P_i)}{\tau_{i+1} - \tau_i}.\]</div>
+<p>Note that above the maximum maturity <span class="math notranslate nohighlight">\(\tau_n\)</span>, an extrapolation
+method is used. The extrapolation assumes that the instantaneous forward
+rate <span class="math notranslate nohighlight">\(\mu_{n-1}\)</span> calculated for the interval <span class="math notranslate nohighlight">\([\tau_{n-1},\tau_n)\)</span>
+continues to apply above <span class="math notranslate nohighlight">\(\tau_n\)</span>.</p>
+<p>As the raw interpolation is performed on discount factors, the algorithm
+first converts the yield curve to interpolate to discount factors
+(e.g., if compound rates are provided, they are converted to discount factors),
+then peforms the interpolation on these discount factors as described
+in the formula above and finally converts the interpolated discount factors
+to the same type as the yield curve to interpolate (e.g., the interpolated
+discount factors are converted to compound rates).</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>maturities</strong> (<em>array-like</em>) – Maturities for which the yield curve should be evaluated.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Value of the yield curve for the given maturities.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <a class="reference internal" href="#actuarial.yield_curve.RawInterpolation.maturities" title="actuarial.yield_curve.RawInterpolation.maturities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code></a> cannot be broadcast with the instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.RawInterpolation.discount_factor">
+<span class="sig-name descname"><span class="pre">discount_factor</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">maturities1=0</span></em>, <span class="optional">]</span><em class="sig-param"><span class="pre">maturities2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actuarial.yield_curve.RawInterpolation.discount_factor" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the discount factor between two maturities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maturities1</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Starting maturities. The default is 0.</p></li>
+<li><p><strong>maturities2</strong> (<em>array-like</em><em> or </em><em>None</em>) – Ending maturities. If None, the <a class="reference internal" href="#actuarial.yield_curve.RawInterpolation.maturities" title="actuarial.yield_curve.RawInterpolation.maturities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code></a> attribute will be used
+if it exists.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Discount factor between <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> cannot be broadcast with the instance.
+    If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> is None and the instance has no <a class="reference internal" href="#actuarial.yield_curve.RawInterpolation.maturities" title="actuarial.yield_curve.RawInterpolation.maturities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code></a> attribute.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.RawInterpolation.capitalization_factor">
+<span class="sig-name descname"><span class="pre">capitalization_factor</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">maturities1=0</span></em>, <span class="optional">]</span><em class="sig-param"><span class="pre">maturities2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actuarial.yield_curve.RawInterpolation.capitalization_factor" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the capitalization factor between two maturities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maturities1</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Starting maturities. The default is 0.</p></li>
+<li><p><strong>maturities2</strong> (<em>array-like</em><em> or </em><em>None</em>) – Ending maturities. If None, the <a class="reference internal" href="#actuarial.yield_curve.RawInterpolation.maturities" title="actuarial.yield_curve.RawInterpolation.maturities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code></a> attribute will be used
+if it exists.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Capitalization factor between <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> cannot be broadcast with the instance.
+    If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> is None and the instance has no <a class="reference internal" href="#actuarial.yield_curve.RawInterpolation.maturities" title="actuarial.yield_curve.RawInterpolation.maturities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code></a> attribute.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.RawInterpolation.to_discounting">
+<span class="sig-name descname"><span class="pre">to_discounting</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">maturities1=0</span></em>, <span class="optional">]</span><em class="sig-param"><span class="pre">maturities2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actuarial.yield_curve.RawInterpolation.to_discounting" title="Permalink to this definition"></a></dt>
+<dd><p>Return a <a class="reference internal" href="index.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Discounting</span></code></a> instance for the provided maturities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maturities1</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Starting maturities. The default is 0.</p></li>
+<li><p><strong>maturities2</strong> (<em>array-like</em><em> or </em><em>None</em>) – Ending maturities. If None, the <a class="reference internal" href="#actuarial.yield_curve.RawInterpolation.maturities" title="actuarial.yield_curve.RawInterpolation.maturities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code></a> attribute will be used
+if it exists.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Discounting instance containing discount values for the provided
+maturities. If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> is different from 0, the returned discount
+values correspond to discount factors while if <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> is 0,
+they correspond to the <a class="reference internal" href="#actuarial.yield_curve.RawInterpolation.kind" title="actuarial.yield_curve.RawInterpolation.kind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kind</span></code></a> attribute of the instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="index.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting">Discounting</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> cannot be broadcast with the instance.
+    If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> is None and the instance has no <a class="reference internal" href="#actuarial.yield_curve.RawInterpolation.maturities" title="actuarial.yield_curve.RawInterpolation.maturities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code></a> attribute.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="db7faadf-57ce-487a-92c3-37da3a185650" name="7ccff8ac-4272-47b7-8c88-cffb3be4a64b" type="radio">
+</input><label class="tabbed-label" for="db7faadf-57ce-487a-92c3-37da3a185650">
+Special</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="b0748c51-4555-4a4b-b860-912e13b5e52b" name="7ccff8ac-4272-47b7-8c88-cffb3be4a64b" type="radio">
+</input><label class="tabbed-label" for="b0748c51-4555-4a4b-b860-912e13b5e52b">
+Examples</label><div class="tabbed-content docutils">
+<p>To be added.</p>
+</div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="LinearInterpolation.html" class="btn btn-neutral float-left" title="Linear interpolation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Mixture.html" class="btn btn-neutral float-right" title="Mixture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

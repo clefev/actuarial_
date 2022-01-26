@@ -1,0 +1,18 @@
+Truncated distribution
+======================
+
+.. autoclass:: actuarial.distribution::TruncatedDistribution
+
+    .. rubric:: Properties
+    .. autoattribute:: distribution
+    .. autoattribute:: min
+    .. autoattribute:: max
+    .. autoattribute:: cdf_min
+    .. autoattribute:: cdf_max
+
+    .. rubric:: Methods
+    .. automethod:: cdf
+    .. automethod:: pdf
+    .. automethod:: quantile
+    .. automethod:: random
+

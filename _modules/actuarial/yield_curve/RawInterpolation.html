@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>actuarial.yield_curve.RawInterpolation &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Test</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../test.html">Test</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Main</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copula/index.html">Copula</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../distribution/index.html">Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../indexation/index.html">Indexation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yield_curve/index.html">Yield Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../superclass/index.html">Superclass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../function/index.html">Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../util/util.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../XXX/notation.html">Notation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>actuarial.yield_curve.RawInterpolation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for actuarial.yield_curve.RawInterpolation</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">actuarial.yield_curve</span> <span class="kn">import</span> <span class="n">Discounting</span><span class="p">,</span> <span class="n">YieldCurve</span>
+<span class="kn">from</span> <span class="nn">actuarial.superclass</span> <span class="kn">import</span> <span class="n">Piecewise</span><span class="p">,</span> <span class="n">TermStructure</span>
+<span class="kn">from</span> <span class="nn">actuarial.decorator</span> <span class="kn">import</span> <span class="n">memorize</span>
+<span class="kn">from</span> <span class="nn">actuarial.function</span> <span class="kn">import</span> <span class="n">PiecewiseFunction</span>
+
+
+<div class="viewcode-block" id="RawInterpolation"><a class="viewcode-back" href="../../../yield_curve/RawInterpolation.html#actuarial.yield_curve.RawInterpolation">[docs]</a><span class="k">class</span> <span class="nc">RawInterpolation</span><span class="p">(</span><span class="n">Piecewise</span><span class="p">,</span> <span class="n">TermStructure</span><span class="p">,</span> <span class="n">YieldCurve</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A raw interpolated yield curve assumes that the instantaneous forward rate</span>
+<span class="sd">    is constant between two consecutive maturities.</span>
+<span class="sd">    </span>
+<span class="sd">    Given a set of zero-coupon bonds price (discount factors) to interpolate</span>
+<span class="sd">    :math:`\lbrace(\tau_i,P_i)\rbrace_{i=0,...,n}` with initial conditions</span>
+<span class="sd">    :math:`\tau_0=0` and :math:`P_0=1`, the raw interpolated zero-coupon bond price</span>
+<span class="sd">    for a maturity :math:`\tau \in [\tau_i,\tau_{i+1})` is given by</span>
+<span class="sd">        </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        P(\tau) = P_i e^{-\mu_i(\tau-\tau_i)}</span>
+<span class="sd">        </span>
+<span class="sd">    where :math:`\mu_i` is the constant instantaneous forward rate on the interval</span>
+<span class="sd">    :math:`[\tau_i,\tau_{i+1})` given by</span>
+<span class="sd">        </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        \mu_i = - \frac{\ln(P_{i+1}) - \ln(P_i)}{\tau_{i+1} - \tau_i}.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># Class attributes    </span>
+    
+    <span class="n">_print</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;maturities&quot;</span><span class="p">,</span> <span class="s2">&quot;values&quot;</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">)</span> 
+    
+    <span class="c1"># Initialization</span>
+    
+<div class="viewcode-block" id="RawInterpolation.__init__"><a class="viewcode-back" href="../../../yield_curve/RawInterpolation.html#actuarial.yield_curve.RawInterpolation.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;discount_factor&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        maturities : array-like</span>
+<span class="sd">            Maturities of the yield curve to interpolate.</span>
+<span class="sd">        values : array-like</span>
+<span class="sd">            Values of the yield curve to interpolate.</span>
+<span class="sd">        kind : {&quot;capitalization_factor&quot;, &quot;compound_rate&quot;, &quot;continuous_rate&quot;, &quot;discount_factor&quot;, &quot;simple_rate&quot;}</span>
+<span class="sd">            Type of yield curve. The default assumes discount factors.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `kind` is not valid.</span>
+<span class="sd">            If `maturities` is not along the first axis.</span>
+<span class="sd">            If `values` has not the same size as `maturities` along the interpolation axis.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">TermStructure</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+        <span class="n">YieldCurve</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="p">)</span></div>
+        
+    <span class="c1"># Properties</span>
+    
+    <span class="nd">@property</span>
+    <span class="nd">@memorize</span>
+    <span class="k">def</span> <span class="nf">piecewise_function</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        PiecewiseFunction: Piecewise function used when interpolating the yield</span>
+<span class="sd">        curve between two consecutive maturities.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">yield_curve</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">yield_curve</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">&quot;discount_factor&quot;</span><span class="p">)</span> <span class="c1"># convert the yield curve to interpolate to discount factors</span>
+        <span class="n">yield_curve</span><span class="o">.</span><span class="n">prepend</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># prepend a discount factor equal to 1 when the maturity is 0 (initial condition)</span>
+        <span class="k">return</span> <span class="n">PiecewiseFunction</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">yield_curve</span><span class="o">.</span><span class="n">maturities</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">yield_curve</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;exponential&quot;</span><span class="p">)</span> <span class="c1"># interpolate the yield curve (exponential interpolation of the discount factors)</span>
+
+    <span class="c1"># Methods</span>
+    
+<div class="viewcode-block" id="RawInterpolation.evaluate"><a class="viewcode-back" href="../../../yield_curve/RawInterpolation.html#actuarial.yield_curve.RawInterpolation.evaluate">[docs]</a>    <span class="nd">@YieldCurve</span><span class="o">.</span><span class="n">Decorators</span><span class="o">.</span><span class="n">evaluate</span>
+    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Evaluate the value of the yield curve for the given maturities.</span>
+<span class="sd">        </span>
+<span class="sd">        Note</span>
+<span class="sd">        ----</span>
+<span class="sd">        Let :math:`\lbrace(\tau_i,P_i)\rbrace_{i=0,...,n}` be a set of zero-coupon</span>
+<span class="sd">        bonds price (discount factors) to interpolate. We assume that we have the</span>
+<span class="sd">        initial condition :math:`\tau_0=0` and :math:`P_0=1`.</span>
+<span class="sd">        </span>
+<span class="sd">        The raw interpolated zero-coupon bond price at maturity :math:`\tau \in [\tau_i,\tau_{i+1})`</span>
+<span class="sd">        is given by</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            P(\tau) = P_i e^{-\mu_i(\tau-\tau_i)}</span>
+<span class="sd">                        </span>
+<span class="sd">        where :math:`\mu_i` is the constant instantaneous forward rate on the</span>
+<span class="sd">        interval :math:`[\tau_i,\tau_{i+1})` given by</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            \mu_i = - \frac{\ln(P_{i+1}) - \ln(P_i)}{\tau_{i+1} - \tau_i}.</span>
+<span class="sd">        </span>
+<span class="sd">        Note that above the maximum maturity :math:`\tau_n`, an extrapolation</span>
+<span class="sd">        method is used. The extrapolation assumes that the instantaneous forward</span>
+<span class="sd">        rate :math:`\mu_{n-1}` calculated for the interval :math:`[\tau_{n-1},\tau_n)`</span>
+<span class="sd">        continues to apply above :math:`\tau_n`.</span>
+<span class="sd">        </span>
+<span class="sd">        As the raw interpolation is performed on discount factors, the algorithm</span>
+<span class="sd">        first converts the yield curve to interpolate to discount factors</span>
+<span class="sd">        (e.g., if compound rates are provided, they are converted to discount factors),</span>
+<span class="sd">        then peforms the interpolation on these discount factors as described</span>
+<span class="sd">        in the formula above and finally converts the interpolated discount factors</span>
+<span class="sd">        to the same type as the yield curve to interpolate (e.g., the interpolated</span>
+<span class="sd">        discount factors are converted to compound rates).</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        maturities : array-like</span>
+<span class="sd">            Maturities for which the yield curve should be evaluated.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        scalar or array</span>
+<span class="sd">            Value of the yield curve for the given maturities.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `maturities` cannot be broadcast with the instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">discount_factor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">piecewise_function</span><span class="p">(</span><span class="n">maturities</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Discounting</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">maturities</span><span class="p">,</span> <span class="n">discount_factor</span><span class="p">,</span> <span class="s2">&quot;discount_factor&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="p">)</span><span class="o">.</span><span class="n">values</span></div></div>
+    
+    
+    
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

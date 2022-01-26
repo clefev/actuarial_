@@ -1,0 +1,11 @@
+Mixture distribution
+====================
+
+.. autoclass:: actuarial.distribution::MixtureDistribution
+
+    .. rubric:: Methods
+    .. automethod:: cdf
+    .. automethod:: pdf
+    .. automethod:: quantile
+    .. automethod:: random
+

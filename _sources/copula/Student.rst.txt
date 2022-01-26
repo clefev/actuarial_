@@ -1,0 +1,12 @@
+Student
+=======
+
+.. autoclass:: actuarial.copula::Student
+
+    .. rubric:: Properties
+    .. autoattribute:: dim
+
+    .. rubric:: Methods
+    .. automethod:: cdf
+    .. automethod:: pdf
+    .. automethod:: random

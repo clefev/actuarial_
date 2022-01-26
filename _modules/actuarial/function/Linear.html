@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>actuarial.function.Linear &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Test</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../test.html">Test</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Main</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copula/index.html">Copula</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../distribution/index.html">Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../indexation/index.html">Indexation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yield_curve/index.html">Yield Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../superclass/index.html">Superclass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../function/index.html">Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../util/util.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../XXX/notation.html">Notation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>actuarial.function.Linear</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for actuarial.function.Linear</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">actuarial.function</span> <span class="kn">import</span> <span class="n">Function</span>
+<span class="kn">from</span> <span class="nn">actuarial.superclass</span> <span class="kn">import</span> <span class="n">Parametric</span>
+<span class="kn">from</span> <span class="nn">actuarial.parameter</span> <span class="kn">import</span> <span class="n">Array</span><span class="p">,</span> <span class="n">Parameters</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<div class="viewcode-block" id="Linear"><a class="viewcode-back" href="../../../function/Linear.html#actuarial.function.Linear">[docs]</a><span class="k">class</span> <span class="nc">Linear</span><span class="p">(</span><span class="n">Parametric</span><span class="p">,</span> <span class="n">Function</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;    </span>
+<span class="sd">    A **linear function** is a function whose graph is a straight line, that is,</span>
+<span class="sd">    a polynomial function of degree zero or one:</span>
+<span class="sd">        </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        f(x) = ax + b</span>
+<span class="sd">            </span>
+<span class="sd">    where :math:`a` and :math:`b` are respectively the slope and intercept of</span>
+<span class="sd">    the function.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># Class attributes</span>
+    
+    <span class="n">_parametrization</span> <span class="o">=</span> <span class="n">Parameters</span><span class="p">(</span>
+        <span class="n">slope</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(),</span>
+        <span class="n">intercept</span> <span class="o">=</span> <span class="n">Array</span><span class="p">())</span>
+    
+    <span class="c1"># Initialization</span>
+    
+<div class="viewcode-block" id="Linear.__init__"><a class="viewcode-back" href="../../../function/Linear.html#actuarial.function.Linear.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">slope</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">intercept</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        slope : array-like, optional</span>
+<span class="sd">            Slope parameter :math:`a`.</span>
+<span class="sd">            The default is 1.</span>
+<span class="sd">        intercept : array-like, optional</span>
+<span class="sd">            Intercept parameter :math:`b`.</span>
+<span class="sd">            The value of the function in 0 will be equal to this intercept.</span>
+<span class="sd">            The default is 0.</span>
+<span class="sd">            </span>
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the parameters cannot be broadcast together.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">Parametric</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_parametrization</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">))</span></div>
+        
+    <span class="c1"># Methods</span>
+        
+<div class="viewcode-block" id="Linear.evaluate"><a class="viewcode-back" href="../../../function/Linear.html#actuarial.function.Linear.evaluate">[docs]</a>    <span class="nd">@Function</span><span class="o">.</span><span class="n">Decorators</span><span class="o">.</span><span class="n">evaluate</span>
+    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Evaluate the value of the function.</span>
+<span class="sd">        </span>
+<span class="sd">        Note</span>
+<span class="sd">        ----</span>
+<span class="sd">        The value of a linear function is given by</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            f(x) = ax + b</span>
+<span class="sd">            </span>
+<span class="sd">        for all :math:`x \in \mathbb{R}`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x : array-like</span>
+<span class="sd">            Values for which the function should be evaluated.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        scalar or array</span>
+<span class="sd">            Evaluated function. Array with a float dtype and the same shape as</span>
+<span class="sd">            the broadcast of `x` with the function parameters.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `x` cannot be broadcast with the function parameters.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">values</span>
+        <span class="k">return</span> <span class="n">slope</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">intercept</span></div>
+    
+<div class="viewcode-block" id="Linear.derivative"><a class="viewcode-back" href="../../../function/Linear.html#actuarial.function.Linear.derivative">[docs]</a>    <span class="nd">@Function</span><span class="o">.</span><span class="n">Decorators</span><span class="o">.</span><span class="n">derivative</span>
+    <span class="k">def</span> <span class="nf">derivative</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the derivative.</span>
+<span class="sd">        </span>
+<span class="sd">        Note</span>
+<span class="sd">        ----</span>
+<span class="sd">        The derivative of a linear function is constant and equal to its slope</span>
+<span class="sd">        while highest order derivatives are zero:</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            \frac{d^n f(x)}{dx^n} = \begin{cases}</span>
+<span class="sd">                                        a &amp; \text{if } n = 1, \\</span>
+<span class="sd">                                        0 &amp; \text{if } n &gt; 1</span>
+<span class="sd">                                    \end{cases}</span>
+<span class="sd">                                    </span>
+<span class="sd">        for all :math:`x \in \mathbb{R}`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x : array-like</span>
+<span class="sd">            Values for which the derivative should be evaluated.</span>
+<span class="sd">        order : int, optional</span>
+<span class="sd">            Order of the derivative. The default is 1.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        scalar or array</span>
+<span class="sd">            Evaluated derivative. Array with a float dtype and the same shape as</span>
+<span class="sd">            the broadcast of `x` with the function parameters.</span>
+<span class="sd">            </span>
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `x` cannot be broadcast with the function parameters.</span>
+<span class="sd">            If `order` is not a positive integer.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">values</span>
+        
+        <span class="k">if</span> <span class="n">order</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">slope</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="Linear.integrate"><a class="viewcode-back" href="../../../function/Linear.html#actuarial.function.Linear.integrate">[docs]</a>    <span class="nd">@Function</span><span class="o">.</span><span class="n">Decorators</span><span class="o">.</span><span class="n">integrate</span>
+    <span class="k">def</span> <span class="nf">integrate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the definite integral.</span>
+<span class="sd">        </span>
+<span class="sd">        Note</span>
+<span class="sd">        ----</span>
+<span class="sd">        The definite integral of a linear function is given by</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            \int_{x_1}^{x_2} f(x) dx = \frac{1}{2} a (x_2^2 - x_1^2) + b(x_2 - x_1)</span>
+<span class="sd">            </span>
+<span class="sd">        for all :math:`x_1, x_2 \in \mathbb{R}`.</span>
+<span class="sd">            </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        lower : array-like</span>
+<span class="sd">            Lower bound of the definite integral interval.</span>
+<span class="sd">        upper : array-like</span>
+<span class="sd">            Upper bound of the definite integral interval.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        scalar or array</span>
+<span class="sd">            Evaluated integral. Array with a float dtype and the same shape as</span>
+<span class="sd">            the broadcast of `lower` and `upper` with the function parameters.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `lower` and `upper` cannot be broadcast with the function parameters.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">values</span>
+        <span class="k">return</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">slope</span><span class="o">*</span><span class="p">(</span><span class="n">upper</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">lower</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">intercept</span><span class="o">*</span><span class="p">(</span><span class="n">upper</span> <span class="o">-</span> <span class="n">lower</span><span class="p">)</span></div></div>
+    
+    
+    
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
