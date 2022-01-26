@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mixture &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Parametric" href="Parametric.html" />
+    <link rel="prev" title="Dictionary" href="Dictionary.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Test</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test.html">Test</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SUPERCLASS</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Superclass</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Arithmetic.html">Arithmetic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Base.html">Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Broadcast.html">Broadcast</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Comparison.html">Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Dictionary.html">Dictionary</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Mixture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Parametric.html">Parametric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Piecewise.html">Piecewise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TermStructure.html">TermStructure</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PROBABILITY &amp; STATISTICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copula/index.html">Copula</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexation/index.html">Indexation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MATHEMATICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../math/index.html">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../function/index.html">Function</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">UTILITIES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util/util.html">Util</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XXX</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../XXX/notation.html">Notation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Superclass</a> &raquo;</li>
+      <li>Mixture</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/superclass/Mixture.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mixture">
+<span id="superclass-mixture"></span><h1>Mixture<a class="headerlink" href="#mixture" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="actuarial.superclass.Mixture">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.superclass.</span></span><span class="sig-name descname"><span class="pre">Mixture</span></span><a class="reference internal" href="../_modules/actuarial/superclass/Mixture.html#Mixture"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.Mixture" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Superclass for building mixture models.</p>
+<p>A mixture model is described by a collection of weighted components.
+The individual components that are combined to form the mixture model are
+called the <em>mixture components</em> and the weights associated with each component
+are called the <em>mixture weights</em>.</p>
+<p>A mixture distribution is an example of mixture model. The mixture
+components are the individual distributions <span class="math notranslate nohighlight">\(X_k\)</span> and the mixture weights
+are the probabilities <span class="math notranslate nohighlight">\(w_k \in (0,1)\)</span> associated with each distribution.</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="c27d6dc4-d81b-44ca-9c56-473f94d57f5f" name="e057e6ac-ec45-418a-8477-13d97a94602e" type="radio">
+</input><label class="tabbed-label" for="c27d6dc4-d81b-44ca-9c56-473f94d57f5f">
+Initialization</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.Mixture.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">components</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">component_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative_weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/Mixture.html#Mixture.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.Mixture.__init__" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>components</strong> (<em>list</em>) – List containing the mixture components.</p></li>
+<li><p><strong>weights</strong> (<em>list of array-like</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Weights associated with the mixture components.
+The list must have the same length as the number of components.
+The default assumes a weight of 1 associated with each component.</p></li>
+<li><p><strong>component_type</strong> (<em>type</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Type of the mixture components. Each component should have this type.
+If None, components can have any type. The default is None.</p></li>
+<li><p><strong>relative_weights</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the weights are considered as probabilities and are normalized
+to get a sum equal to 1. The default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>TypeError</strong> – If <a class="reference internal" href="#actuarial.superclass.Mixture.components" title="actuarial.superclass.Mixture.components"><code class="xref py py-obj docutils literal notranslate"><span class="pre">components</span></code></a> is not a list or tuple.
+    If the elements of <a class="reference internal" href="#actuarial.superclass.Mixture.components" title="actuarial.superclass.Mixture.components"><code class="xref py py-obj docutils literal notranslate"><span class="pre">components</span></code></a> don’t have the correct type given by <a class="reference internal" href="#actuarial.superclass.Mixture.component_type" title="actuarial.superclass.Mixture.component_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">component_type</span></code></a>.</p></li>
+<li><p><strong>ValueError</strong> – If the length of <a class="reference internal" href="#actuarial.superclass.Mixture.weights" title="actuarial.superclass.Mixture.weights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">weights</span></code></a> is different from the length of <a class="reference internal" href="#actuarial.superclass.Mixture.components" title="actuarial.superclass.Mixture.components"><code class="xref py py-obj docutils literal notranslate"><span class="pre">components</span></code></a>.
+    If the elements of <a class="reference internal" href="#actuarial.superclass.Mixture.components" title="actuarial.superclass.Mixture.components"><code class="xref py py-obj docutils literal notranslate"><span class="pre">components</span></code></a> and <a class="reference internal" href="#actuarial.superclass.Mixture.weights" title="actuarial.superclass.Mixture.weights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">weights</span></code></a> cannot be broadcast together.
+    If negative weights are provided when <a class="reference internal" href="#actuarial.superclass.Mixture.relative_weights" title="actuarial.superclass.Mixture.relative_weights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">relative_weights</span></code></a> is set to True.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="1cb47215-6574-427f-8951-f999d972f67b" name="e057e6ac-ec45-418a-8477-13d97a94602e" type="radio">
+</input><label class="tabbed-label" for="1cb47215-6574-427f-8951-f999d972f67b">
+Abstract</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="6ca9f890-190e-49ea-acd0-3923d5611a94" name="e057e6ac-ec45-418a-8477-13d97a94602e" type="radio">
+</input><label class="tabbed-label" for="6ca9f890-190e-49ea-acd0-3923d5611a94">
+Properties</label><div class="tabbed-content docutils">
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.superclass.Mixture.components">
+<span class="sig-name descname"><span class="pre">components</span></span><a class="headerlink" href="#actuarial.superclass.Mixture.components" title="Permalink to this definition"></a></dt>
+<dd><p>Mixture components.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.superclass.Mixture.weights">
+<span class="sig-name descname"><span class="pre">weights</span></span><a class="headerlink" href="#actuarial.superclass.Mixture.weights" title="Permalink to this definition"></a></dt>
+<dd><p>Weights associated with the mixture components.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list of array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.superclass.Mixture.component_type">
+<span class="sig-name descname"><span class="pre">component_type</span></span><a class="headerlink" href="#actuarial.superclass.Mixture.component_type" title="Permalink to this definition"></a></dt>
+<dd><p>Type of the mixture components. Each component should have
+this type. If None, components can have any type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>type or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.superclass.Mixture.relative_weights">
+<span class="sig-name descname"><span class="pre">relative_weights</span></span><a class="headerlink" href="#actuarial.superclass.Mixture.relative_weights" title="Permalink to this definition"></a></dt>
+<dd><p>Indicate whether the weights should be considered as probabilities
+with sum 1 or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="d57ce28d-ee5c-4885-aa74-86d4b43113b6" name="e057e6ac-ec45-418a-8477-13d97a94602e" type="radio">
+</input><label class="tabbed-label" for="d57ce28d-ee5c-4885-aa74-86d4b43113b6">
+Methods</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.Mixture.broadcast">
+<span class="sig-name descname"><span class="pre">broadcast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/Mixture.html#Mixture.broadcast"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.Mixture.broadcast" title="Permalink to this definition"></a></dt>
+<dd><p>Mimic the broadcast of the mixture components and mixture weights with
+the input arguments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>*args</strong> (<em>array-like</em><em> or </em><em>object with shape attribute</em>) – Inputs to broadcast with the mixture components and weights. If
+no argument is provided, only the mixture components and weights
+are broadcast together.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Broadcast result.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.broadcast</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="ba1909c7-8532-4d43-9185-ef4131b93664" name="e057e6ac-ec45-418a-8477-13d97a94602e" type="radio">
+</input><label class="tabbed-label" for="ba1909c7-8532-4d43-9185-ef4131b93664">
+Special</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.Mixture.__iter__">
+<span class="sig-name descname"><span class="pre">__iter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/Mixture.html#Mixture.__iter__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.Mixture.__iter__" title="Permalink to this definition"></a></dt>
+<dd><p>Iterate over the mixture components and their associated weights.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.Mixture.__len__">
+<span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/Mixture.html#Mixture.__len__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.Mixture.__len__" title="Permalink to this definition"></a></dt>
+<dd><p>Number of mixture components (length of the <a class="reference internal" href="#actuarial.superclass.Mixture.components" title="actuarial.superclass.Mixture.components"><code class="xref py py-obj docutils literal notranslate"><span class="pre">components</span></code></a> attribute).</p>
+</dd></dl>
+
+</div>
+<input id="ad435ee3-bd26-4279-9ea5-951db40a53a4" name="e057e6ac-ec45-418a-8477-13d97a94602e" type="radio">
+</input><label class="tabbed-label" for="ad435ee3-bd26-4279-9ea5-951db40a53a4">
+Examples</label><div class="tabbed-content docutils">
+<p>To be added.</p>
+</div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Dictionary.html" class="btn btn-neutral float-left" title="Dictionary" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Parametric.html" class="btn btn-neutral float-right" title="Parametric" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

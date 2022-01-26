@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gaussian &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Independence" href="Independence.html" />
+    <link rel="prev" title="Countermonotonic" href="Countermonotonic.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Test</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test.html">Test</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SUPERCLASS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../superclass/index.html">Superclass</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PROBABILITY &amp; STATISTICS</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Copula</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Clayton.html">Clayton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Comonotonic.html">Comonotonic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Countermonotonic.html">Countermonotonic</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Gaussian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Independence.html">Independence</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexation/index.html">Indexation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MATHEMATICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../math/index.html">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../function/index.html">Function</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">UTILITIES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util/util.html">Util</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XXX</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../XXX/notation.html">Notation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Copula</a> &raquo;</li>
+      <li>Gaussian</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/copula/Gaussian.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gaussian">
+<span id="copula-gaussian"></span><h1>Gaussian<a class="headerlink" href="#gaussian" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="actuarial.copula.Gaussian">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.copula.</span></span><span class="sig-name descname"><span class="pre">Gaussian</span></span><a class="reference internal" href="../_modules/actuarial/copula/Gaussian.html#Gaussian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.copula.Gaussian" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../superclass/Parametric.html#actuarial.superclass.Parametric" title="actuarial.superclass.Parametric.Parametric"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Parametric.Parametric</span></code></a>, <a class="reference internal" href="index.html#actuarial.copula.Copula" title="actuarial.copula.Copula.Copula"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.copula.Copula.Copula</span></code></a></p>
+<p>The Gaussian copula is the copula that underlies the multivariate normal
+distribution.</p>
+<p>The Gaussian copula is parametrized by a <span class="math notranslate nohighlight">\(d \times d\)</span> correlation
+matrix <span class="math notranslate nohighlight">\(R\)</span>.</p>
+<p>Moreover, the Gaussian copula can lead to particular copulas in the following
+way:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Independence copula if the correlation is set to 0 between all distinct
+variables (i.e. the correlation matrix is equal to the identity matrix).</p></li>
+<li><p>Comonotonic copula if the correlation is set to 1 between all distinct
+variables (i.e. the correlation matrix contains ones everywhere).</p></li>
+<li><p>Countermonotonic copula in the bivariate case where the correlation
+is set to -1 between the two variables.</p></li>
+</ul>
+</div></blockquote>
+<div class="tabbed-set docutils">
+<input checked="checked" id="a6996ba5-576b-45af-8d72-e45a787da6ee" name="8f316a52-f4e6-41e9-befb-1b917ebaf5ad" type="radio">
+</input><label class="tabbed-label" for="a6996ba5-576b-45af-8d72-e45a787da6ee">
+Initialization</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.copula.Gaussian.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">correlation_matrix</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/copula/Gaussian.html#Gaussian.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.copula.Gaussian.__init__" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>correlation_matrix</strong> (<em>array-like</em>) – Correlation matrix <span class="math notranslate nohighlight">\(R\)</span>.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <a class="reference internal" href="#actuarial.copula.Gaussian.correlation_matrix" title="actuarial.copula.Gaussian.correlation_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">correlation_matrix</span></code></a> is not a correlation matrix.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="78c49f9d-7b51-40d8-918c-97d3e13e2f21" name="8f316a52-f4e6-41e9-befb-1b917ebaf5ad" type="radio">
+</input><label class="tabbed-label" for="78c49f9d-7b51-40d8-918c-97d3e13e2f21">
+Properties</label><div class="tabbed-content docutils">
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.copula.Gaussian.dim">
+<span class="sig-name descname"><span class="pre">dim</span></span><a class="headerlink" href="#actuarial.copula.Gaussian.dim" title="Permalink to this definition"></a></dt>
+<dd><p>Dimensionality <span class="math notranslate nohighlight">\(d\)</span> of the copula.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.copula.Gaussian.correlation_matrix">
+<span class="sig-name descname"><span class="pre">correlation_matrix</span></span><a class="headerlink" href="#actuarial.copula.Gaussian.correlation_matrix" title="Permalink to this definition"></a></dt>
+<dd><p>Correlation matrix <span class="math notranslate nohighlight">\(R\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="70774579-ce98-447c-9167-ef6641a7dd4b" name="8f316a52-f4e6-41e9-befb-1b917ebaf5ad" type="radio">
+</input><label class="tabbed-label" for="70774579-ce98-447c-9167-ef6641a7dd4b">
+Methods</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.copula.Gaussian.cdf">
+<span class="sig-name descname"><span class="pre">cdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepdims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/copula/Gaussian.html#Gaussian.cdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.copula.Gaussian.cdf" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluate the cumulative distribution function.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The cdf of the Gaussian copula is given by</p>
+<div class="math notranslate nohighlight">
+\[C(u_1, ..., u_d) = \Phi_R(\Phi^{-1}(u_1), ..., \Phi^{-1}(u_d))\]</div>
+<p>where <span class="math notranslate nohighlight">\((u_1, ..., u_d) \in [0,1]^d\)</span> and <span class="math notranslate nohighlight">\(\Phi_R\)</span> is the joint
+cumulative distribution of a multivariate normal distribution with mean
+vector zero and covariance matrix equal to the correlation matrix <span class="math notranslate nohighlight">\(R\)</span>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u</strong> (<em>array-like</em>) – Values (between 0 and 1) for which the cdf should be evaluated.
+The size along the last axis must be equal to the dimensionality
+of the copula.</p></li>
+<li><p><strong>keepdims</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the last axis which is reduced is left in the result as dimension
+with size one (otherwise, it will be removed). With this option, the
+result will broadcast correctly against the input array.
+The default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Evaluated cdf. Array with a float dtype and the same shape as <code class="xref py py-obj docutils literal notranslate"><span class="pre">u</span></code>
+except that the last axis has a size 1 if <code class="xref py py-obj docutils literal notranslate"><span class="pre">keepdims</span></code> is True or is
+removed if it is False.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the size of <code class="xref py py-obj docutils literal notranslate"><span class="pre">u</span></code> along its last axis is not equal to the dimensionality
+    of the copula or if <code class="xref py py-obj docutils literal notranslate"><span class="pre">u</span></code> contains values that are not between 0 and 1.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.copula.Gaussian.pdf">
+<span class="sig-name descname"><span class="pre">pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepdims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/copula/Gaussian.html#Gaussian.pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.copula.Gaussian.pdf" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluate the probability density function.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The pdf of the Gaussian copula is given by</p>
+<div class="math notranslate nohighlight">
+\[c(u_1, ..., u_d) = \dfrac{\phi_R(\Phi^{-1}(u_1), ..., \Phi^{-1}(u_d))}{\prod_{i=1}^d \phi(\Phi^{-1}(u_i))}\]</div>
+<p>where <span class="math notranslate nohighlight">\((u_1, ..., u_d) \in [0,1]^d\)</span> and <span class="math notranslate nohighlight">\(\phi_R\)</span> is the joint
+density of a multivariate normal distribution with mean vector zero and
+covariance matrix equal to the correlation matrix <span class="math notranslate nohighlight">\(R\)</span>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u</strong> (<em>array-like</em>) – Values (between 0 and 1) for which the pdf should be evaluated.
+The size along the last axis must be equal to the dimensionality
+of the copula.</p></li>
+<li><p><strong>keepdims</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the last axis which is reduced is left in the result as dimension
+with size one (otherwise, it will be removed). With this option, the
+result will broadcast correctly against the input array.
+The default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Evaluated pdf. Array with a float dtype and the same shape as <code class="xref py py-obj docutils literal notranslate"><span class="pre">u</span></code>
+except that the last axis has a size 1 if <code class="xref py py-obj docutils literal notranslate"><span class="pre">keepdims</span></code> is True or is
+removed if it is False.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the size of <code class="xref py py-obj docutils literal notranslate"><span class="pre">u</span></code> along its last axis is not equal to the dimensionality
+    of the copula or if <code class="xref py py-obj docutils literal notranslate"><span class="pre">u</span></code> contains values that are not between 0 and 1.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.copula.Gaussian.random">
+<span class="sig-name descname"><span class="pre">random</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/copula/Gaussian.html#Gaussian.random"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.copula.Gaussian.random" title="Permalink to this definition"></a></dt>
+<dd><p>Draw <em>d</em>-dimensional random samples of joint uniform distributions.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following methodology is used to generate a <em>d</em>-dimensional random
+sample from the Gaussian copula:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Draw a random sample <span class="math notranslate nohighlight">\((x_1, ..., x_d)\)</span> from a multivariate
+normal distribution with mean vector zero and covariance matrix
+equal to the correlation matrix <span class="math notranslate nohighlight">\(R\)</span>.</p></li>
+<li><p>Return <span class="math notranslate nohighlight">\((u_1, ..., u_d) = (\Phi(x_1), ..., \Phi(x_d))\)</span> where
+<span class="math notranslate nohighlight">\(\Phi\)</span> denotes the cumulative distribution function of the
+standard normal distribution.</p></li>
+</ol>
+</div></blockquote>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>size</strong> (<em>int</em><em> or </em><em>tuple of int</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Number of samples to be drawn. Because each sample is <em>d</em>-dimensional,
+the output shape will have an additional axis with size <em>d</em> in last
+position. If None, a single <em>d</em>-dimensional sample is returned.
+The default is None.</p></li>
+<li><p><strong>seed</strong> (<em>int</em><em> or </em><em>array-like of int</em><em> or </em><em>SeedSequence</em><em> or </em><em>Generator</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Seed to use for the random number generator. The default uses the
+random number generator associated with the instance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Random samples. Array of values between 0 and 1 with the same shape
+as <code class="xref py py-obj docutils literal notranslate"><span class="pre">size</span></code> except that an additional axis with size <em>d</em> has been added
+in last position.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="b813552d-f89f-4873-9094-a5c343b5fcee" name="8f316a52-f4e6-41e9-befb-1b917ebaf5ad" type="radio">
+</input><label class="tabbed-label" for="b813552d-f89f-4873-9094-a5c343b5fcee">
+Special</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="0412c9c9-46ab-49fe-a5a5-76cbf5594e30" name="8f316a52-f4e6-41e9-befb-1b917ebaf5ad" type="radio">
+</input><label class="tabbed-label" for="0412c9c9-46ab-49fe-a5a5-76cbf5594e30">
+Technical sheet</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="addcb3f0-7133-44cd-9e7a-df8ec0b23f7c" name="8f316a52-f4e6-41e9-befb-1b917ebaf5ad" type="radio">
+</input><label class="tabbed-label" for="addcb3f0-7133-44cd-9e7a-df8ec0b23f7c">
+Examples</label><div class="tabbed-content docutils">
+<p>To be added.</p>
+</div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Countermonotonic.html" class="btn btn-neutral float-left" title="Countermonotonic" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Independence.html" class="btn btn-neutral float-right" title="Independence" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="TermStructure" href="TermStructure.html" />
+    <link rel="prev" title="Piecewise" href="Piecewise.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Test</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test.html">Test</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SUPERCLASS</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Superclass</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Arithmetic.html">Arithmetic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Base.html">Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Broadcast.html">Broadcast</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Comparison.html">Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Dictionary.html">Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mixture.html">Mixture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Parametric.html">Parametric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Piecewise.html">Piecewise</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TermStructure.html">TermStructure</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PROBABILITY &amp; STATISTICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copula/index.html">Copula</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexation/index.html">Indexation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MATHEMATICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../math/index.html">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../function/index.html">Function</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">UTILITIES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util/util.html">Util</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XXX</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../XXX/notation.html">Notation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Superclass</a> &raquo;</li>
+      <li>Random</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/superclass/Random.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="random">
+<span id="superclass-random"></span><h1>Random<a class="headerlink" href="#random" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="actuarial.superclass.Random">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.superclass.</span></span><span class="sig-name descname"><span class="pre">Random</span></span><a class="reference internal" href="../_modules/actuarial/superclass/Random.html#Random"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.Random" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Superclass for building random models.</p>
+<p>A random model is a model able to generate randomness.
+A probability distribution is an example of random model.
+We can indeed generate random samples from the distribution.</p>
+<p>Each Random instance shares the following features:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The randomness is generated through a <a class="reference internal" href="#actuarial.superclass.Random.random" title="actuarial.superclass.Random.random"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random</span></code></a> method.</p></li>
+<li><p>A random number generator (rng) is associated to each instance and
+accessible through the <a class="reference internal" href="#actuarial.superclass.Random.get_rng" title="actuarial.superclass.Random.get_rng"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_rng</span></code></a> method.</p></li>
+<li><p>The rng associated to the instance can be customized through the
+<a class="reference internal" href="#actuarial.superclass.Random.set_rng" title="actuarial.superclass.Random.set_rng"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_rng</span></code></a> method (e.g., to provide a new rng to the instance or create
+a new one is a custom seed).</p></li>
+</ul>
+</div></blockquote>
+<div class="tabbed-set docutils">
+<input checked="checked" id="fff64286-d06f-4ee9-8f26-7700637794d2" name="5bb3f529-4d19-4980-9cf4-976a8e720349" type="radio">
+</input><label class="tabbed-label" for="fff64286-d06f-4ee9-8f26-7700637794d2">
+Initialization</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="faad3549-d877-4311-b752-33eaac1ca0fa" name="5bb3f529-4d19-4980-9cf4-976a8e720349" type="radio">
+</input><label class="tabbed-label" for="faad3549-d877-4311-b752-33eaac1ca0fa">
+Abstract</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.Random.random">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">random</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/Random.html#Random.random"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.Random.random" title="Permalink to this definition"></a></dt>
+<dd><p>Abstract method to generate randomness.</p>
+</dd></dl>
+
+</div>
+<input id="cd379fb6-ab40-4ca8-ab68-6fd7dd5460db" name="5bb3f529-4d19-4980-9cf4-976a8e720349" type="radio">
+</input><label class="tabbed-label" for="cd379fb6-ab40-4ca8-ab68-6fd7dd5460db">
+Properties</label><div class="tabbed-content docutils">
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.superclass.Random.rng">
+<span class="sig-name descname"><span class="pre">rng</span></span><a class="headerlink" href="#actuarial.superclass.Random.rng" title="Permalink to this definition"></a></dt>
+<dd><p>Random number generator associated with the instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Generator</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.superclass.Random.propagate_rng">
+<span class="sig-name descname"><span class="pre">propagate_rng</span></span><a class="headerlink" href="#actuarial.superclass.Random.propagate_rng" title="Permalink to this definition"></a></dt>
+<dd><p>Indicate whether the random number generator used for this instance
+should be propagated to the other instances in case of nested randomness
+(i.e. when calling other <a class="reference internal" href="#actuarial.superclass.Random" title="actuarial.superclass.Random"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Random</span></code></a> instances to generate randomness).
+If True, other instances should use the same random number generator as
+the one associated with this instance.
+If False, other instances should use their own random number generator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="014c03a0-eacd-4fcd-955e-587764121398" name="5bb3f529-4d19-4980-9cf4-976a8e720349" type="radio">
+</input><label class="tabbed-label" for="014c03a0-eacd-4fcd-955e-587764121398">
+Methods</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.Random.get_rng">
+<span class="sig-name descname"><span class="pre">get_rng</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/Random.html#Random.get_rng"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.Random.get_rng" title="Permalink to this definition"></a></dt>
+<dd><p>Get a random number generator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>seed</strong> (<em>int</em><em> or </em><em>array-like of int</em><em> or </em><em>SeedSequence</em><em> or </em><em>Generator</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Seed to use for the random number generator. If the seed is -1, the
+random number generator associated with the instance is returned.
+Otherwise, a new random number generator is created and returned.
+This new random number generator is built using a <code class="xref py py-obj docutils literal notranslate"><span class="pre">default_rng()</span></code>
+instance of numpy with the provided seed.
+The default is -1.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Random number generator.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Generator</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.Random.give_seed">
+<span class="sig-name descname"><span class="pre">give_seed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/Random.html#Random.give_seed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.Random.give_seed" title="Permalink to this definition"></a></dt>
+<dd><p>Seed to give to other <a class="reference internal" href="#actuarial.superclass.Random" title="actuarial.superclass.Random"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Random</span></code></a> instances in case of nested randomness.</p>
+<p>This method must be called after the <a class="reference internal" href="#actuarial.superclass.Random.get_rng" title="actuarial.superclass.Random.get_rng"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_rng</span></code></a> method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The last random number generator returned by the <a class="reference internal" href="#actuarial.superclass.Random.get_rng" title="actuarial.superclass.Random.get_rng"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_rng</span></code></a> method
+if the rng propagation is enabled (i.e. if the <a class="reference internal" href="#actuarial.superclass.Random.propagate_rng" title="actuarial.superclass.Random.propagate_rng"><code class="xref py py-obj docutils literal notranslate"><span class="pre">propagate_rng</span></code></a>
+attribute is True) or the seed -1 otherwise.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Generator or int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.Random.set_rng">
+<span class="sig-name descname"><span class="pre">set_rng</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propagate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/Random.html#Random.set_rng"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.Random.set_rng" title="Permalink to this definition"></a></dt>
+<dd><p>Set the random number generator specific to the instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seed</strong> (<em>int</em><em> or </em><em>array-like of int</em><em> or </em><em>SeedSequence</em><em> or </em><em>Generator</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Seed to use for the random number generator. If seed is -1, no change is
+applied and the current random number generator is kept.
+Otherwise, a new random number generator is created and associated
+with the instance.
+This new random number generator is built using a <code class="xref py py-obj docutils literal notranslate"><span class="pre">default_rng()</span></code>
+instance of numpy with the provided seed.
+The default is None.</p></li>
+<li><p><strong>propagate</strong> (<em>bool</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Indicate whether the random number generator used for this instance
+should be propagated to the other instances in case of nested randomness.
+If None, no change is applied and the current option is kept.
+The default is None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#actuarial.superclass.Random" title="actuarial.superclass.Random.Random">Random</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.Random.is_global_rng">
+<span class="sig-name descname"><span class="pre">is_global_rng</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/Random.html#Random.is_global_rng"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.Random.is_global_rng" title="Permalink to this definition"></a></dt>
+<dd><p>Indicate whether the random number generator used for this instance is
+the global one defined in the class or is specific to this instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the random number generator is the global one of the class
+and False if it is specific to this instance.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.Random.set_global_rng">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">set_global_rng</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propagate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/Random.html#Random.set_global_rng"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.Random.set_global_rng" title="Permalink to this definition"></a></dt>
+<dd><p>Set the global random number generator of the class.</p>
+<p>This method is similar to the <a class="reference internal" href="#actuarial.superclass.Random.set_rng" title="actuarial.superclass.Random.set_rng"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_rng</span></code></a> method but applies at the class
+level instead of being specific to an instance.</p>
+</dd></dl>
+
+</div>
+<input id="300e232c-5500-4135-81e4-0fd14b6a199e" name="5bb3f529-4d19-4980-9cf4-976a8e720349" type="radio">
+</input><label class="tabbed-label" for="300e232c-5500-4135-81e4-0fd14b6a199e">
+Special</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="94528e60-0077-428c-8201-6efc9591526c" name="5bb3f529-4d19-4980-9cf4-976a8e720349" type="radio">
+</input><label class="tabbed-label" for="94528e60-0077-428c-8201-6efc9591526c">
+Examples</label><div class="tabbed-content docutils">
+<p>To be added.</p>
+</div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Piecewise.html" class="btn btn-neutral float-left" title="Piecewise" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="TermStructure.html" class="btn btn-neutral float-right" title="TermStructure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

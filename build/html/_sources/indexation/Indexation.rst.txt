@@ -1,5 +1,0 @@
-Array
-=====
-
-.. autoclass:: parameter.Array
-    :members: discount_factor, price_index, maturities

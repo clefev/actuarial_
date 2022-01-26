@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Truncated &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Mixture" href="Mixture.html" />
+    <link rel="prev" title="Empirical" href="Empirical.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Test</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../test.html">Test</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SUPERCLASS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../superclass/index.html">Superclass</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PROBABILITY &amp; STATISTICS</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Distribution</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Univariate</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Bernoulli.html">Bernoulli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Beta.html">Beta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Exponential.html">Exponential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gamma.html">Gamma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GeneralizedPareto.html">Generalized Pareto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lognormal.html">Lognormal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Normal.html">Normal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Pareto.html">Pareto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Poisson.html">Poisson</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Uniform.html">Uniform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Weibull.html">Weibull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Empirical.html">Empirical</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Truncated</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Mixture.html">Mixture</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../multivariate/index.html">Multivariate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../copula/index.html">Copula</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../yield_curve/index.html">Yield Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../indexation/index.html">Indexation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MATHEMATICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../math/index.html">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../function/index.html">Function</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">UTILITIES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../util/util.html">Util</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XXX</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../XXX/notation.html">Notation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Distribution</a> &raquo;</li>
+          <li><a href="index.html">Univariate</a> &raquo;</li>
+      <li>Truncated</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/distribution/univariate/Truncated.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="truncated">
+<span id="distribution-truncated"></span><h1>Truncated<a class="headerlink" href="#truncated" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="actuarial.distribution.Truncated">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.distribution.</span></span><span class="sig-name descname"><span class="pre">Truncated</span></span><a class="reference internal" href="../../_modules/actuarial/distribution/Truncated.html#Truncated"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.Truncated" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="index.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution.UnivariateDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.distribution.UnivariateDistribution.UnivariateDistribution</span></code></a></p>
+<p>A truncated distribution applies a conditional lower bound and/or upper bound
+to another distribution.</p>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> denote the random variable to be truncated.
+We can build the random variable <span class="math notranslate nohighlight">\(Y\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[Y = X \ | \ a &lt; X \leq b\]</div>
+<p>where <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are respectively the lower bound and upper bound
+to apply to the distribution <span class="math notranslate nohighlight">\(X\)</span>.
+The truncated distribution <span class="math notranslate nohighlight">\(Y\)</span> is therefore a conditional distribution
+that results from restricting the domain of another distribution <span class="math notranslate nohighlight">\(X\)</span>.
+It is useful when the domain of a random variable is limited to values which
+lie above or below a given threshold or within a specified range.</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="887e2a45-dc39-4835-9bf4-e45d88dc67d2" name="6f2f0ec4-3a53-48d1-bf60-f1ddedef55ce" type="radio">
+</input><label class="tabbed-label" for="887e2a45-dc39-4835-9bf4-e45d88dc67d2">
+Initialization</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.distribution.Truncated.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distribution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">inf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/actuarial/distribution/Truncated.html#Truncated.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.Truncated.__init__" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>distribution</strong> (<a class="reference internal" href="index.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution"><em>UnivariateDistribution</em></a>) – Distribution to be truncated.</p></li>
+<li><p><strong>min</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Conditional lower bound of the distribution.
+The default assumes no lower bound.</p></li>
+<li><p><strong>max</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Conditional upper bound of the distribution.
+The default assumes no upper bound.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>TypeError</strong> – If <a class="reference internal" href="#actuarial.distribution.Truncated.distribution" title="actuarial.distribution.Truncated.distribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">distribution</span></code></a> is not an <a class="reference internal" href="index.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnivariateDistribution</span></code></a> instance.</p></li>
+<li><p><strong>ValueError</strong> – If <a class="reference internal" href="#actuarial.distribution.Truncated.min" title="actuarial.distribution.Truncated.min"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min</span></code></a>, <a class="reference internal" href="#actuarial.distribution.Truncated.max" title="actuarial.distribution.Truncated.max"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max</span></code></a> and <a class="reference internal" href="#actuarial.distribution.Truncated.distribution" title="actuarial.distribution.Truncated.distribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">distribution</span></code></a> cannot be broadcast together.
+    If <a class="reference internal" href="#actuarial.distribution.Truncated.max" title="actuarial.distribution.Truncated.max"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max</span></code></a> is not greater than <a class="reference internal" href="#actuarial.distribution.Truncated.min" title="actuarial.distribution.Truncated.min"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="07dc76bc-6e29-4e9b-acf7-30c93807499f" name="6f2f0ec4-3a53-48d1-bf60-f1ddedef55ce" type="radio">
+</input><label class="tabbed-label" for="07dc76bc-6e29-4e9b-acf7-30c93807499f">
+Properties</label><div class="tabbed-content docutils">
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.distribution.Truncated.distribution">
+<span class="sig-name descname"><span class="pre">distribution</span></span><a class="headerlink" href="#actuarial.distribution.Truncated.distribution" title="Permalink to this definition"></a></dt>
+<dd><p>Distribution <span class="math notranslate nohighlight">\(X\)</span> to be truncated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="index.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution">UnivariateDistribution</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.distribution.Truncated.min">
+<span class="sig-name descname"><span class="pre">min</span></span><a class="headerlink" href="#actuarial.distribution.Truncated.min" title="Permalink to this definition"></a></dt>
+<dd><p>Conditional lower bound <span class="math notranslate nohighlight">\(a\)</span> of the distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.distribution.Truncated.max">
+<span class="sig-name descname"><span class="pre">max</span></span><a class="headerlink" href="#actuarial.distribution.Truncated.max" title="Permalink to this definition"></a></dt>
+<dd><p>Conditional upper bound <span class="math notranslate nohighlight">\(b\)</span> of the distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.distribution.Truncated.cdf_min">
+<span class="sig-name descname"><span class="pre">cdf_min</span></span><a class="headerlink" href="#actuarial.distribution.Truncated.cdf_min" title="Permalink to this definition"></a></dt>
+<dd><p>Cumulative distribution function of the lower bound <span class="math notranslate nohighlight">\(F(a)\)</span> .</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.distribution.Truncated.cdf_max">
+<span class="sig-name descname"><span class="pre">cdf_max</span></span><a class="headerlink" href="#actuarial.distribution.Truncated.cdf_max" title="Permalink to this definition"></a></dt>
+<dd><p>Cumulative distribution function of the upper bound <span class="math notranslate nohighlight">\(F(b)\)</span> .</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="f01cb117-07ed-4200-8474-e42c74302211" name="6f2f0ec4-3a53-48d1-bf60-f1ddedef55ce" type="radio">
+</input><label class="tabbed-label" for="f01cb117-07ed-4200-8474-e42c74302211">
+Methods</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.distribution.Truncated.pdf">
+<span class="sig-name descname"><span class="pre">pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/actuarial/distribution/Truncated.html#Truncated.pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.Truncated.pdf" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluate the probability density function.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The pdf of a truncated distribution is given by</p>
+<div class="math notranslate nohighlight">
+\[f(x | a &lt; x \leq b) = \frac{f(x)}{F(b) - F(a)}\]</div>
+<p>for <span class="math notranslate nohighlight">\(x \in (a,b]\)</span>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>array-like</em>) – Values for which the pdf should be evaluated.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Evaluated pdf. Array with a float dtype and the same shape as the
+broadcast of <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> with the distribution to be truncated, the lower
+bound and upper bound.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> cannot be broadcast with the distribution to be truncated,
+    the lower bound and upper bound.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.distribution.Truncated.cdf">
+<span class="sig-name descname"><span class="pre">cdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/actuarial/distribution/Truncated.html#Truncated.cdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.Truncated.cdf" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluate the cumulative distribution function.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The cdf of a truncated distribution is given by</p>
+<div class="math notranslate nohighlight">
+\[F(x | a &lt; x \leq b) = \frac{F(x) - F(a)}{F(b) - F(a)}\]</div>
+<p>for <span class="math notranslate nohighlight">\(x \in (a,b)\)</span>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>array-like</em>) – Values for which the cdf should be evaluated.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Evaluated cdf. Array with a float dtype and the same shape as the
+broadcast of <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> with the distribution to be truncated, the lower
+bound and upper bound.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> cannot be broadcast with the distribution to be truncated,
+    the lower bound and upper bound.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.distribution.Truncated.quantile">
+<span class="sig-name descname"><span class="pre">quantile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/actuarial/distribution/Truncated.html#Truncated.quantile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.Truncated.quantile" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluate the quantile of the distribution.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The quantile of a truncated distribution is given by</p>
+<div class="math notranslate nohighlight">
+\[F_{X | a &lt; x \leq b}^{-1}(p) = F^{-1}\left(F(a) + (F(b)-F(a))p\right)\]</div>
+<p>for <span class="math notranslate nohighlight">\(p \in (0,1)\)</span>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>p</strong> (<em>array-like</em>) – Values (between 0 and 1) for which the quantile should be evaluated.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Evaluated quantile. Array with the same dtype as the distribution to
+be truncated and the same shape as the broadcast of <code class="xref py py-obj docutils literal notranslate"><span class="pre">p</span></code> with the distribution
+to be truncated, the lower bound and upper bound.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">p</span></code> cannot be broadcast with the distribution to be truncated,
+    the lower bound and upper bound or contains values not between 0 and 1.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.distribution.Truncated.random">
+<span class="sig-name descname"><span class="pre">random</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/actuarial/distribution/Truncated.html#Truncated.random"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.Truncated.random" title="Permalink to this definition"></a></dt>
+<dd><p>Draw random samples of the distribution.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A random sample of a truncated distribution is drawn by inverse cdf
+method as follows:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Draw a random sample <span class="math notranslate nohighlight">\(u \in (0,1)\)</span> from an uniform distribution.</p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(v = F(a) + \left(F(b)-F(a)\right)u\)</span> such that <span class="math notranslate nohighlight">\(v \in (F(a),F(b))\)</span>.</p></li>
+<li><p>Return the inverse cdf <span class="math notranslate nohighlight">\(F^{-1}(v)\)</span>.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>size</strong> (<em>int</em><em> or </em><em>tuple of int</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Number of samples to be drawn. If None, the instance shape will be used.
+The default is None.</p></li>
+<li><p><strong>seed</strong> (<em>int</em><em> or </em><em>array-like of int</em><em> or </em><em>SeedSequence</em><em> or </em><em>Generator</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Seed to use for the random number generator. The default uses the
+random number generator associated with this instance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Random samples. Array with the same dtype as the distribution to
+be truncated and the same shape as <code class="xref py py-obj docutils literal notranslate"><span class="pre">size</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">size</span></code> is not a supershape of the instance shape.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="d2beb11a-7bfe-43eb-b91c-6500f3c38f93" name="6f2f0ec4-3a53-48d1-bf60-f1ddedef55ce" type="radio">
+</input><label class="tabbed-label" for="d2beb11a-7bfe-43eb-b91c-6500f3c38f93">
+Special</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="ef975cef-cefa-4a5d-b373-573745e06639" name="6f2f0ec4-3a53-48d1-bf60-f1ddedef55ce" type="radio">
+</input><label class="tabbed-label" for="ef975cef-cefa-4a5d-b373-573745e06639">
+Technical sheet</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="1dc2a148-f068-4c38-b7e7-ba592aaeab60" name="6f2f0ec4-3a53-48d1-bf60-f1ddedef55ce" type="radio">
+</input><label class="tabbed-label" for="1dc2a148-f068-4c38-b7e7-ba592aaeab60">
+Examples</label><div class="tabbed-content docutils">
+<p>To be added.</p>
+</div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Empirical.html" class="btn btn-neutral float-left" title="Empirical" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Mixture.html" class="btn btn-neutral float-right" title="Mixture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

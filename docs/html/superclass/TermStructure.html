@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TermStructure &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Distribution" href="../distribution/index.html" />
+    <link rel="prev" title="Random" href="Random.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Test</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test.html">Test</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SUPERCLASS</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Superclass</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Arithmetic.html">Arithmetic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Base.html">Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Broadcast.html">Broadcast</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Comparison.html">Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Dictionary.html">Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mixture.html">Mixture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Parametric.html">Parametric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Piecewise.html">Piecewise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Random.html">Random</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">TermStructure</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PROBABILITY &amp; STATISTICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copula/index.html">Copula</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexation/index.html">Indexation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MATHEMATICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../math/index.html">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../function/index.html">Function</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">UTILITIES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util/util.html">Util</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XXX</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../XXX/notation.html">Notation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Superclass</a> &raquo;</li>
+      <li>TermStructure</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/superclass/TermStructure.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="termstructure">
+<span id="superclass-termstructure"></span><h1>TermStructure<a class="headerlink" href="#termstructure" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="actuarial.superclass.TermStructure">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.superclass.</span></span><span class="sig-name descname"><span class="pre">TermStructure</span></span><a class="reference internal" href="../_modules/actuarial/superclass/TermStructure.html#TermStructure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.TermStructure" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Superclass for building discrete term structure models.</p>
+<p>A discrete term structure model is described by a finite set of values
+associated with maturities.</p>
+<p>A (discrete) yield curve is an example of term structure model.
+It represents a relationship between interest rates and maturities.
+Mathematically, it can be described by a collection <span class="math notranslate nohighlight">\(\lbrace (\tau_i, r_i) \rbrace_{i=1,...,n}\)</span>
+where <span class="math notranslate nohighlight">\(\tau_i\)</span>’s are the maturities, <span class="math notranslate nohighlight">\(r_i\)</span>’s are the associated
+interest rates and <span class="math notranslate nohighlight">\(n\)</span> is the finite number of observed pairs.</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="dee19f9e-6be8-4be1-82f2-69f18c467f42" name="890fc5c8-e728-4c9e-93d2-8e54f35a5c7f" type="radio">
+</input><label class="tabbed-label" for="dee19f9e-6be8-4be1-82f2-69f18c467f42">
+Initialization</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.TermStructure.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maturities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/TermStructure.html#TermStructure.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.TermStructure.__init__" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maturities</strong> (<em>array-like</em>) – Maturities of the term structure.
+Must be along the first axis.</p></li>
+<li><p><strong>values</strong> (<em>array-like</em>) – Values associated with the maturities of the term structure.
+Its size along the term structure axis must be equal to the number
+of maturities.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <a class="reference internal" href="#actuarial.superclass.TermStructure.maturities" title="actuarial.superclass.TermStructure.maturities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code></a> is not along the first axis or contain negative values.
+    If <a class="reference internal" href="#actuarial.superclass.TermStructure.values" title="actuarial.superclass.TermStructure.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></a> has not the same size as <a class="reference internal" href="#actuarial.superclass.TermStructure.maturities" title="actuarial.superclass.TermStructure.maturities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code></a> along the term structure axis.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="41aa0ed6-ea50-4118-9852-f9678a72b284" name="890fc5c8-e728-4c9e-93d2-8e54f35a5c7f" type="radio">
+</input><label class="tabbed-label" for="41aa0ed6-ea50-4118-9852-f9678a72b284">
+Abstract</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="0bc576c9-e638-4fa4-b2ec-5a72b880d657" name="890fc5c8-e728-4c9e-93d2-8e54f35a5c7f" type="radio">
+</input><label class="tabbed-label" for="0bc576c9-e638-4fa4-b2ec-5a72b880d657">
+Properties</label><div class="tabbed-content docutils">
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.superclass.TermStructure.maturities">
+<span class="sig-name descname"><span class="pre">maturities</span></span><a class="headerlink" href="#actuarial.superclass.TermStructure.maturities" title="Permalink to this definition"></a></dt>
+<dd><p>Maturties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.superclass.TermStructure.values">
+<span class="sig-name descname"><span class="pre">values</span></span><a class="headerlink" href="#actuarial.superclass.TermStructure.values" title="Permalink to this definition"></a></dt>
+<dd><p>Values associated with the maturities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.superclass.TermStructure.axis">
+<span class="sig-name descname"><span class="pre">axis</span></span><a class="headerlink" href="#actuarial.superclass.TermStructure.axis" title="Permalink to this definition"></a></dt>
+<dd><p>Axis along which the maturities are (given as a negative integer).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="8de9b469-62a9-4c5d-b8e1-0a1980d0bd49" name="890fc5c8-e728-4c9e-93d2-8e54f35a5c7f" type="radio">
+</input><label class="tabbed-label" for="8de9b469-62a9-4c5d-b8e1-0a1980d0bd49">
+Methods</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.TermStructure.broadcast">
+<span class="sig-name descname"><span class="pre">broadcast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/TermStructure.html#TermStructure.broadcast"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.TermStructure.broadcast" title="Permalink to this definition"></a></dt>
+<dd><p>Mimic the broadcast of maturities and values with input arguments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>*args</strong> (<em>array-like</em><em> or </em><em>object with shape attribute</em>) – Inputs to broadcast with the maturities and values.
+If no argument is provided, only the maturities and values are
+broadcast together.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Broadcast result.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.broadcast</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.TermStructure.isin">
+<span class="sig-name descname"><span class="pre">isin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maturities</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/TermStructure.html#TermStructure.isin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.TermStructure.isin" title="Permalink to this definition"></a></dt>
+<dd><p>Indicate whether the input maturities belong to the instance
+(contained in the <a class="reference internal" href="#actuarial.superclass.TermStructure.maturities" title="actuarial.superclass.TermStructure.maturities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code></a> attribute).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>maturities</strong> (<em>array-like</em>) – Maturities to indicate whether they belong to the instance.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Array with the same shape as <a class="reference internal" href="#actuarial.superclass.TermStructure.maturities" title="actuarial.superclass.TermStructure.maturities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code></a> and a boolean dtype.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.TermStructure.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maturity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/TermStructure.html#TermStructure.append"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.TermStructure.append" title="Permalink to this definition"></a></dt>
+<dd><p>Append in-place a maturity and its associated value.</p>
+<p>Note that if the maturity to append already exists, the appending
+does not take place. In addition, the maturities are not sorted in ascending
+order after an appending.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maturity</strong> (<em>scalar</em>) – Maturity to append.</p></li>
+<li><p><strong>value</strong> (<em>scalar</em>) – Value to append.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#actuarial.superclass.TermStructure" title="actuarial.superclass.TermStructure.TermStructure">TermStructure</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.TermStructure.prepend">
+<span class="sig-name descname"><span class="pre">prepend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maturity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/TermStructure.html#TermStructure.prepend"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.TermStructure.prepend" title="Permalink to this definition"></a></dt>
+<dd><p>Prepend in-place a maturity and its associated value.</p>
+<p>Note that if the maturity to prepend already exists, the prepending
+does not take place. In addition, the maturities are not sorted in ascending
+order after a prepending.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maturity</strong> (<em>scalar</em>) – Maturity to prepend.</p></li>
+<li><p><strong>value</strong> (<em>scalar</em>) – Value to prepend.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#actuarial.superclass.TermStructure" title="actuarial.superclass.TermStructure.TermStructure">TermStructure</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.TermStructure.sort">
+<span class="sig-name descname"><span class="pre">sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">decreasing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/TermStructure.html#TermStructure.sort"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.TermStructure.sort" title="Permalink to this definition"></a></dt>
+<dd><p>Sort in-place the maturities and values by increasing maturities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>decreasing</strong> (<em>bool</em>) – If True, the maturities and values will be sorted by decreasing maturities.
+The default is False.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#actuarial.superclass.TermStructure" title="actuarial.superclass.TermStructure.TermStructure">TermStructure</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="3ff8cbb8-6ef8-4391-9cc7-880ccc953bd4" name="890fc5c8-e728-4c9e-93d2-8e54f35a5c7f" type="radio">
+</input><label class="tabbed-label" for="3ff8cbb8-6ef8-4391-9cc7-880ccc953bd4">
+Special</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.TermStructure.__arithmetic__">
+<span class="sig-name descname"><span class="pre">__arithmetic__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operator</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/TermStructure.html#TermStructure.__arithmetic__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.TermStructure.__arithmetic__" title="Permalink to this definition"></a></dt>
+<dd><p>Apply arithmetic operations to the <a class="reference internal" href="#actuarial.superclass.TermStructure.values" title="actuarial.superclass.TermStructure.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></a> attribute when using arithmetic
+operators (<code class="xref py py-obj docutils literal notranslate"><span class="pre">+</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">-</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">*</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">/</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">**</span></code>) on the instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.TermStructure.__comparison__">
+<span class="sig-name descname"><span class="pre">__comparison__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maturities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operator</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/TermStructure.html#TermStructure.__comparison__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.TermStructure.__comparison__" title="Permalink to this definition"></a></dt>
+<dd><p>Compare the <a class="reference internal" href="#actuarial.superclass.TermStructure.maturities" title="actuarial.superclass.TermStructure.maturities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code></a> attribute when using comparison operators
+(<code class="xref py py-obj docutils literal notranslate"><span class="pre">==</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">!=</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;=</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">&gt;=</span></code>) on the instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.TermStructure.__contains__">
+<span class="sig-name descname"><span class="pre">__contains__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maturity</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/TermStructure.html#TermStructure.__contains__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.TermStructure.__contains__" title="Permalink to this definition"></a></dt>
+<dd><p>Indicate whether a maturity belongs to the instance (contained in the <a class="reference internal" href="#actuarial.superclass.TermStructure.maturities" title="actuarial.superclass.TermStructure.maturities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code></a> attribute).</p>
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturity</span></code> argument must be a scalar.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.TermStructure.__getitem__">
+<span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indices</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/TermStructure.html#TermStructure.__getitem__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.TermStructure.__getitem__" title="Permalink to this definition"></a></dt>
+<dd><p>Return a (shallow) copy of the instance where we get a subset of maturities.</p>
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">indices</span></code> argument provides the indices of the <a class="reference internal" href="#actuarial.superclass.TermStructure.maturities" title="actuarial.superclass.TermStructure.maturities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code></a> attribute to extract.
+It must be an integer, slice or 1D array-like of integers or booleans.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.TermStructure.__setitem__">
+<span class="sig-name descname"><span class="pre">__setitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/TermStructure.html#TermStructure.__setitem__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.TermStructure.__setitem__" title="Permalink to this definition"></a></dt>
+<dd><p>Replace the elements of the <a class="reference internal" href="#actuarial.superclass.TermStructure.values" title="actuarial.superclass.TermStructure.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></a> attribute.</p>
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">indices</span></code> argument provides the indices to replace along the axis of the instance.
+It must be an integer, slice or 1D array-like of integers or booleans.
+The <a class="reference internal" href="#actuarial.superclass.TermStructure.values" title="actuarial.superclass.TermStructure.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></a> argument provides the new values to place in the <a class="reference internal" href="#actuarial.superclass.TermStructure.values" title="actuarial.superclass.TermStructure.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></a> attribute.
+It must be an array-like broadcasting with the elements to replace.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.TermStructure.__iter__">
+<span class="sig-name descname"><span class="pre">__iter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/TermStructure.html#TermStructure.__iter__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.TermStructure.__iter__" title="Permalink to this definition"></a></dt>
+<dd><p>Not implemented.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.TermStructure.__len__">
+<span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/TermStructure.html#TermStructure.__len__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.TermStructure.__len__" title="Permalink to this definition"></a></dt>
+<dd><p>Number of maturities (length of the <a class="reference internal" href="#actuarial.superclass.TermStructure.maturities" title="actuarial.superclass.TermStructure.maturities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code></a> attribute).</p>
+</dd></dl>
+
+</div>
+<input id="d75198c2-5515-49b6-bc0b-a0e672902750" name="890fc5c8-e728-4c9e-93d2-8e54f35a5c7f" type="radio">
+</input><label class="tabbed-label" for="d75198c2-5515-49b6-bc0b-a0e672902750">
+Examples</label><div class="tabbed-content docutils">
+<p>To be added.</p>
+</div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Random.html" class="btn btn-neutral float-left" title="Random" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../distribution/index.html" class="btn btn-neutral float-right" title="Distribution" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Piecewise &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Random" href="Random.html" />
+    <link rel="prev" title="Parametric" href="Parametric.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Test</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test.html">Test</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SUPERCLASS</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Superclass</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Arithmetic.html">Arithmetic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Base.html">Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Broadcast.html">Broadcast</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Comparison.html">Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Dictionary.html">Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mixture.html">Mixture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Parametric.html">Parametric</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Piecewise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TermStructure.html">TermStructure</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PROBABILITY &amp; STATISTICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copula/index.html">Copula</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexation/index.html">Indexation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MATHEMATICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../math/index.html">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../function/index.html">Function</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">UTILITIES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util/util.html">Util</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XXX</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../XXX/notation.html">Notation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Superclass</a> &raquo;</li>
+      <li>Piecewise</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/superclass/Piecewise.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="piecewise">
+<span id="superclass-piecewise"></span><h1>Piecewise<a class="headerlink" href="#piecewise" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="actuarial.superclass.Piecewise">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.superclass.</span></span><span class="sig-name descname"><span class="pre">Piecewise</span></span><a class="reference internal" href="../_modules/actuarial/superclass/Piecewise.html#Piecewise"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.Piecewise" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Superclass for building piecewise models.</p>
+<p>A piecewise model is a model having a piecewise function.
+A linearly interpolated yield curve is an example of piecewise model.
+The interpolation is indeed done through a linear piecewise function.</p>
+<p>Each Piecewise instance shares the following features:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The piecewise function is accessible through the <a class="reference internal" href="#actuarial.superclass.Piecewise.piecewise_function" title="actuarial.superclass.Piecewise.piecewise_function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">piecewise_function</span></code></a>
+attribute.</p></li>
+<li><p>A <a class="reference internal" href="#actuarial.superclass.Piecewise.broadcast" title="actuarial.superclass.Piecewise.broadcast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast</span></code></a> method exists to mimic the broadcast of the piecewise
+function with input arguments.</p></li>
+</ul>
+</div></blockquote>
+<div class="tabbed-set docutils">
+<input checked="checked" id="76d56cc6-e249-4cfe-b994-559935f7c11e" name="35063952-077f-4f1f-a6f1-b1259c02de5d" type="radio">
+</input><label class="tabbed-label" for="76d56cc6-e249-4cfe-b994-559935f7c11e">
+Initialization</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="cd1f714d-6cfd-42c9-9992-48ffcd6e6830" name="35063952-077f-4f1f-a6f1-b1259c02de5d" type="radio">
+</input><label class="tabbed-label" for="cd1f714d-6cfd-42c9-9992-48ffcd6e6830">
+Abstract</label><div class="tabbed-content docutils">
+<dl class="py property">
+<dt class="sig sig-object py" id="actuarial.superclass.Piecewise.piecewise_function">
+<em class="property"><span class="pre">abstract</span> <span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">piecewise_function</span></span><a class="headerlink" href="#actuarial.superclass.Piecewise.piecewise_function" title="Permalink to this definition"></a></dt>
+<dd><p>Abstract property giving the piecewise function used
+by the class. The property must return a <code class="xref py py-obj docutils literal notranslate"><span class="pre">PiecewiseFunction</span></code> instance
+and must be decorated by the <code class="xref py py-obj docutils literal notranslate"><span class="pre">property</span></code> and <a class="reference internal" href="../test.html#actuarial.decorator.memorize" title="actuarial.decorator.memorize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">actuarial.decorator.memorize</span></code></a>
+decorators.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../function/PiecewiseFunction.html#actuarial.function.PiecewiseFunction" title="actuarial.function.PiecewiseFunction">PiecewiseFunction</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="16ff78e9-0b6e-4152-a202-723e3a6cbd24" name="35063952-077f-4f1f-a6f1-b1259c02de5d" type="radio">
+</input><label class="tabbed-label" for="16ff78e9-0b6e-4152-a202-723e3a6cbd24">
+Properties</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="5e3ef91b-574f-4602-8ff9-fbf722c4b4ce" name="35063952-077f-4f1f-a6f1-b1259c02de5d" type="radio">
+</input><label class="tabbed-label" for="5e3ef91b-574f-4602-8ff9-fbf722c4b4ce">
+Methods</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.Piecewise.broadcast">
+<span class="sig-name descname"><span class="pre">broadcast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/Piecewise.html#Piecewise.broadcast"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.Piecewise.broadcast" title="Permalink to this definition"></a></dt>
+<dd><p>Mimic the broadcast of the piecewise function with input arguments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>*args</strong> (<em>array-like</em><em> or </em><em>object with shape attribute</em>) – Inputs to broadcast with the piecewise function.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Broadcast result.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.broadcast</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="021d5706-1847-4d2d-9489-c10ff81aaa16" name="35063952-077f-4f1f-a6f1-b1259c02de5d" type="radio">
+</input><label class="tabbed-label" for="021d5706-1847-4d2d-9489-c10ff81aaa16">
+Special</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="1e8af1f2-8e31-478a-8343-2973d710962e" name="35063952-077f-4f1f-a6f1-b1259c02de5d" type="radio">
+</input><label class="tabbed-label" for="1e8af1f2-8e31-478a-8343-2973d710962e">
+Examples</label><div class="tabbed-content docutils">
+<p>To be added.</p>
+</div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Parametric.html" class="btn btn-neutral float-left" title="Parametric" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Random.html" class="btn btn-neutral float-right" title="Random" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

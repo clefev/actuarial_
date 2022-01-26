@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Price index &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Math" href="../math/index.html" />
+    <link rel="prev" title="Flat" href="Flat.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Test</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test.html">Test</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SUPERCLASS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../superclass/index.html">Superclass</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PROBABILITY &amp; STATISTICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copula/index.html">Copula</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Indexation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Flat.html">Flat</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Price index</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MATHEMATICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../math/index.html">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../function/index.html">Function</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">UTILITIES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util/util.html">Util</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XXX</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../XXX/notation.html">Notation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Indexation</a> &raquo;</li>
+      <li>Price index</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/indexation/PriceIndex.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="price-index">
+<span id="indexation-priceindex"></span><h1>Price index<a class="headerlink" href="#price-index" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="actuarial.indexation.PriceIndex">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.indexation.</span></span><span class="sig-name descname"><span class="pre">PriceIndex</span></span><a class="reference internal" href="../_modules/actuarial/indexation/PriceIndex.html#PriceIndex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.indexation.PriceIndex" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../superclass/Piecewise.html#actuarial.superclass.Piecewise" title="actuarial.superclass.Piecewise.Piecewise"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Piecewise.Piecewise</span></code></a>, <a class="reference internal" href="../superclass/TermStructure.html#actuarial.superclass.TermStructure" title="actuarial.superclass.TermStructure.TermStructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.TermStructure.TermStructure</span></code></a>, <a class="reference internal" href="index.html#actuarial.indexation.Indexation" title="actuarial.indexation.Indexation.Indexation"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.indexation.Indexation.Indexation</span></code></a></p>
+<p>A price index is a measure of how prices change over a period of time,
+or in other words, it is a way to measure inflation.</p>
+<p>We denote <span class="math notranslate nohighlight">\(PI_i\)</span> the value of the price index observed at maturity
+<span class="math notranslate nohighlight">\(\tau_i\)</span>.
+Between two consecutive maturities <span class="math notranslate nohighlight">\(\tau_i\)</span> and <span class="math notranslate nohighlight">\(\tau_{i+1}\)</span>,
+the value of the price index is interpolated.</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="cbc49675-c575-42c0-b5d2-2f232bea0da6" name="9b4a0323-9660-485a-9b13-18f4f3045a06" type="radio">
+</input><label class="tabbed-label" for="cbc49675-c575-42c0-b5d2-2f232bea0da6">
+Initialization</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.indexation.PriceIndex.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maturities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/indexation/PriceIndex.html#PriceIndex.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.indexation.PriceIndex.__init__" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maturities</strong> (<em>array-like</em>) – Maturities of the price index.</p></li>
+<li><p><strong>values</strong> (<em>array-like</em>) – Values of the price index.</p></li>
+<li><p><strong>kind</strong> (<em>{&quot;exponential&quot;</em><em>, </em><em>&quot;linear&quot;</em><em>, </em><em>&quot;lower&quot;}</em><em>, </em><em>optional</em>) – Type of interpolation when evaluating the price index between two
+consecutive maturities. The default assumes a linear interpolation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <a class="reference internal" href="#actuarial.indexation.PriceIndex.kind" title="actuarial.indexation.PriceIndex.kind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kind</span></code></a> is not valid.
+    If <a class="reference internal" href="#actuarial.indexation.PriceIndex.maturities" title="actuarial.indexation.PriceIndex.maturities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code></a> is not along the first axis.
+    If <a class="reference internal" href="#actuarial.indexation.PriceIndex.values" title="actuarial.indexation.PriceIndex.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></a> has not the same size as <a class="reference internal" href="#actuarial.indexation.PriceIndex.maturities" title="actuarial.indexation.PriceIndex.maturities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code></a> along the instance axis.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="4a947226-4496-4c3d-beaa-87e144859389" name="9b4a0323-9660-485a-9b13-18f4f3045a06" type="radio">
+</input><label class="tabbed-label" for="4a947226-4496-4c3d-beaa-87e144859389">
+Properties</label><div class="tabbed-content docutils">
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.indexation.PriceIndex.maturities">
+<span class="sig-name descname"><span class="pre">maturities</span></span><a class="headerlink" href="#actuarial.indexation.PriceIndex.maturities" title="Permalink to this definition"></a></dt>
+<dd><p>Maturties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.indexation.PriceIndex.values">
+<span class="sig-name descname"><span class="pre">values</span></span><a class="headerlink" href="#actuarial.indexation.PriceIndex.values" title="Permalink to this definition"></a></dt>
+<dd><p>Values associated with the maturities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.indexation.PriceIndex.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><a class="headerlink" href="#actuarial.indexation.PriceIndex.kind" title="Permalink to this definition"></a></dt>
+<dd><p>Type of interpolation when evaluating the price index between two
+consecutive maturities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.indexation.PriceIndex.piecewise_function">
+<span class="sig-name descname"><span class="pre">piecewise_function</span></span><a class="headerlink" href="#actuarial.indexation.PriceIndex.piecewise_function" title="Permalink to this definition"></a></dt>
+<dd><p>Piecewise function used when interpolating the price
+index between two consecutive maturities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../function/PiecewiseFunction.html#actuarial.function.PiecewiseFunction" title="actuarial.function.PiecewiseFunction">PiecewiseFunction</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="a969a4a2-a7f0-4990-9b8b-596b80cb953b" name="9b4a0323-9660-485a-9b13-18f4f3045a06" type="radio">
+</input><label class="tabbed-label" for="a969a4a2-a7f0-4990-9b8b-596b80cb953b">
+Methods</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.indexation.PriceIndex.price_index">
+<span class="sig-name descname"><span class="pre">price_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maturities</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/indexation/PriceIndex.html#PriceIndex.price_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.indexation.PriceIndex.price_index" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluate the price index for the given maturities.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Depending on the type of interpolation, the <strong>price index</strong> at maturity
+<span class="math notranslate nohighlight">\(\tau \in [\tau_i,\tau_{i+1})\)</span> is calculated as follows:</p>
+<blockquote>
+<div><ul>
+<li><p><strong>Lower interpolation</strong>:</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[PI(\tau) = PI_i\]</div>
+</div></blockquote>
+</li>
+<li><p><strong>Linear interpolation</strong>:</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[PI(\tau) = \alpha(\tau) PI_i+ (1 - \alpha(\tau)) PI_{i+1}\]</div>
+</div></blockquote>
+</li>
+<li><p><strong>Exponential interpolation</strong>:</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[PI(\tau) = PI_i e^{\beta_i (\tau - \tau_i)}\]</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p>where <span class="math notranslate nohighlight">\(\alpha(\tau) = \frac{\tau_{i+1} - \tau}{\tau_{i+1} - \tau_i}\)</span>
+and <span class="math notranslate nohighlight">\(\beta_i = \frac{\ln(PI_{i+1}) - \ln(PI_i)}{\tau_{i+1} - \tau_i}\)</span>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>maturities</strong> (<em>array-like</em>) – Maturities for which the price index should be evaluated.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Evaluated price index.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <a class="reference internal" href="#actuarial.indexation.PriceIndex.maturities" title="actuarial.indexation.PriceIndex.maturities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code></a> cannot be broadcast with the instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.indexation.PriceIndex.discount_factor">
+<span class="sig-name descname"><span class="pre">discount_factor</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">maturities1=0</span></em>, <span class="optional">]</span><em class="sig-param"><span class="pre">maturities2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actuarial.indexation.PriceIndex.discount_factor" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the inflation discount factor between two maturities.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>inflation discount factor</strong> between maturities <span class="math notranslate nohighlight">\(\tau_1\)</span> and
+<span class="math notranslate nohighlight">\(\tau_2\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[\frac{PI(\tau_1)}{PI(\tau_2)}\]</div>
+<p>where <span class="math notranslate nohighlight">\(PI(\tau)\)</span> is the price index at maturity <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
+<p>The discount factor can be used for price adjustment purpose.
+It provides the price at <span class="math notranslate nohighlight">\(\tau_1\)</span> (taking into account the inflation)
+of something originally purchased at <span class="math notranslate nohighlight">\(\tau_2\)</span> with a unit cost.</p>
+<p>The discount factor is the mathematical inverse of the capitalization factor.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maturities1</strong> (<em>array-like</em>) – Starting maturities <span class="math notranslate nohighlight">\(\tau_1\)</span>. The default is 0.</p></li>
+<li><p><strong>maturities2</strong> (<em>array-like</em>) – Ending maturities <span class="math notranslate nohighlight">\(\tau_2\)</span>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Inflation discount factor between <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> cannot be broadcast with the instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.indexation.PriceIndex.capitalization_factor">
+<span class="sig-name descname"><span class="pre">capitalization_factor</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">maturities1=0</span></em>, <span class="optional">]</span><em class="sig-param"><span class="pre">maturities2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actuarial.indexation.PriceIndex.capitalization_factor" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the inflation capitalization factor between two maturities.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>inflation capitalization factor</strong> between maturities <span class="math notranslate nohighlight">\(\tau_1\)</span>
+and <span class="math notranslate nohighlight">\(\tau_2\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[\frac{PI(\tau_2)}{PI(\tau_1)}\]</div>
+<p>where <span class="math notranslate nohighlight">\(PI(\tau)\)</span> is the price index at maturity <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
+<p>The capitalization factor can be used for price adjustment purpose.
+It provides the price at <span class="math notranslate nohighlight">\(\tau_2\)</span> (taking into account the inflation)
+of something originally purchased at <span class="math notranslate nohighlight">\(\tau_1\)</span> with a unit cost.</p>
+<p>The capitalization factor is the mathematical inverse of the discount factor.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maturities1</strong> (<em>array-like</em>) – Starting maturities <span class="math notranslate nohighlight">\(\tau_1\)</span>. The default is 0.</p></li>
+<li><p><strong>maturities2</strong> (<em>array-like</em>) – Ending maturities <span class="math notranslate nohighlight">\(\tau_2\)</span>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Inflation capitalization factor between <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> cannot be broadcast with the instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.indexation.PriceIndex.inflation">
+<span class="sig-name descname"><span class="pre">inflation</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">maturities1=0</span></em>, <span class="optional">]</span><em class="sig-param"><span class="pre">maturities2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actuarial.indexation.PriceIndex.inflation" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the rate of inflation between two maturities.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>rate of inflation</strong> between maturities <span class="math notranslate nohighlight">\(\tau_1\)</span> and <span class="math notranslate nohighlight">\(\tau_2\)</span>
+is given by</p>
+<div class="math notranslate nohighlight">
+\[\frac{PI(\tau_2)}{PI(\tau_1)} - 1\]</div>
+<p>where <span class="math notranslate nohighlight">\(PI(\tau)\)</span> is the price index at maturity <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
+<p>The rate of inflation corresponds to the capitalization factor minus one.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maturities1</strong> (<em>array-like</em>) – Starting maturities <span class="math notranslate nohighlight">\(\tau_1\)</span>. The default is 0.</p></li>
+<li><p><strong>maturities2</strong> (<em>array-like</em>) – Ending maturities <span class="math notranslate nohighlight">\(\tau_2\)</span>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Rate of inflation between <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> cannot be broadcast with the instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.indexation.PriceIndex.normalize">
+<span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maturity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/indexation/PriceIndex.html#PriceIndex.normalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.indexation.PriceIndex.normalize" title="Permalink to this definition"></a></dt>
+<dd><p>Normalize in-place the price index. The value of the price index at the
+provided reference maturity will be equal to the base value.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The new normalized price index at any maturity <span class="math notranslate nohighlight">\(\tau_i\)</span> is calculated
+as follows</p>
+<div class="math notranslate nohighlight">
+\[PI^{normalized}(\tau_i) = PI(\tau_i) \frac{base}{PI(\tau^*)}\]</div>
+<p>where <span class="math notranslate nohighlight">\(PI(\tau)\)</span> is the price index before normalization and
+<span class="math notranslate nohighlight">\(base\)</span> is the provided base value to reach at the provided
+reference maturity <span class="math notranslate nohighlight">\(\tau^*\)</span>.</p>
+<p>In this way, we have</p>
+<div class="math notranslate nohighlight">
+\[PI^{normalized}(\tau^*) = base.\]</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maturity</strong> (<em>scalar</em><em>, </em><em>optional</em>) – Reference maturity. The default is 0.</p></li>
+<li><p><strong>base</strong> (<em>scalar</em><em>, </em><em>optional</em>) – Base value. The default is 100.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#actuarial.indexation.PriceIndex" title="actuarial.indexation.PriceIndex.PriceIndex">PriceIndex</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.indexation.PriceIndex.to_discounting">
+<span class="sig-name descname"><span class="pre">to_discounting</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">maturities1=0</span></em>, <span class="optional">]</span><em class="sig-param"><span class="pre">maturities2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actuarial.indexation.PriceIndex.to_discounting" title="Permalink to this definition"></a></dt>
+<dd><p>Return a <code class="xref py py-obj docutils literal notranslate"><span class="pre">Discounting</span></code> instance for the provided maturities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maturities1</strong> (<em>array-like</em>) – Starting maturities <span class="math notranslate nohighlight">\(\tau_1\)</span>. The default is 0.</p></li>
+<li><p><strong>maturities2</strong> (<em>array-like</em>) – Ending maturities <span class="math notranslate nohighlight">\(\tau_2\)</span>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Discounting instance containing the discount factors between <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code>
+and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../yield_curve/index.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting">Discounting</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> cannot be broadcast with the instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="ef0ce0b8-b438-42de-889e-9aff1ec44e53" name="9b4a0323-9660-485a-9b13-18f4f3045a06" type="radio">
+</input><label class="tabbed-label" for="ef0ce0b8-b438-42de-889e-9aff1ec44e53">
+Special</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="aef6aea7-3ee5-4857-809e-d5e992863e54" name="9b4a0323-9660-485a-9b13-18f4f3045a06" type="radio">
+</input><label class="tabbed-label" for="aef6aea7-3ee5-4857-809e-d5e992863e54">
+Technical sheet</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="d7eb78b1-0a9b-48d7-8ae5-dec8d7c745c8" name="9b4a0323-9660-485a-9b13-18f4f3045a06" type="radio">
+</input><label class="tabbed-label" for="d7eb78b1-0a9b-48d7-8ae5-dec8d7c745c8">
+Examples</label><div class="tabbed-content docutils">
+<p>To be added.</p>
+</div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Flat.html" class="btn btn-neutral float-left" title="Flat" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../math/index.html" class="btn btn-neutral float-right" title="Math" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

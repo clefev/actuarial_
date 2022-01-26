@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Broadcast &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Comparison" href="Comparison.html" />
+    <link rel="prev" title="Base" href="Base.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Test</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test.html">Test</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SUPERCLASS</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Superclass</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Arithmetic.html">Arithmetic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Base.html">Base</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Broadcast</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Comparison.html">Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Dictionary.html">Dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mixture.html">Mixture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Parametric.html">Parametric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Piecewise.html">Piecewise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Random.html">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TermStructure.html">TermStructure</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PROBABILITY &amp; STATISTICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copula/index.html">Copula</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexation/index.html">Indexation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MATHEMATICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../math/index.html">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../function/index.html">Function</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">UTILITIES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util/util.html">Util</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XXX</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../XXX/notation.html">Notation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Superclass</a> &raquo;</li>
+      <li>Broadcast</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/superclass/Broadcast.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="broadcast">
+<span id="superclass-broadcast"></span><h1>Broadcast<a class="headerlink" href="#broadcast" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="actuarial.superclass.Broadcast">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.superclass.</span></span><span class="sig-name descname"><span class="pre">Broadcast</span></span><a class="reference internal" href="../_modules/actuarial/superclass/Broadcast.html#Broadcast"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.Broadcast" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Superclass implementing broadcasting method to mimic how input aruguments
+are broadcast with the instance.
+The superclass also confers properties such as the shape, number of dimensions
+and size of the instance.</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="21cff57a-5a67-4e41-af10-fd0b005b6cf3" name="4220f56b-8bb5-4225-af3f-2b5ff209ddcc" type="radio">
+</input><label class="tabbed-label" for="21cff57a-5a67-4e41-af10-fd0b005b6cf3">
+Initialization</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.Broadcast.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/Broadcast.html#Broadcast.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.Broadcast.__init__" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the instance cannot be broadcast to a single shape when using the implemented
+    <a class="reference internal" href="#actuarial.superclass.Broadcast.broadcast" title="actuarial.superclass.Broadcast.broadcast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast</span></code></a> method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="6f95ed22-6c37-42e1-9bfe-950231b4c166" name="4220f56b-8bb5-4225-af3f-2b5ff209ddcc" type="radio">
+</input><label class="tabbed-label" for="6f95ed22-6c37-42e1-9bfe-950231b4c166">
+Abstract</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.Broadcast.broadcast">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">broadcast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/Broadcast.html#Broadcast.broadcast"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.Broadcast.broadcast" title="Permalink to this definition"></a></dt>
+<dd><p>Abstract method to mimic the broadcast of the instance with input arguments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>*args</strong> (<em>array-like</em><em> or </em><em>object with shape attribute</em>) – Inputs to broadcast with the instance. It can be array-like or any
+object having a <a class="reference internal" href="#actuarial.superclass.Broadcast.shape" title="actuarial.superclass.Broadcast.shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape</span></code></a> attribute.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Broadcast result.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.broadcast</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="334fcb52-fe40-403c-b1b9-d10d9d794b65" name="4220f56b-8bb5-4225-af3f-2b5ff209ddcc" type="radio">
+</input><label class="tabbed-label" for="334fcb52-fe40-403c-b1b9-d10d9d794b65">
+Properties</label><div class="tabbed-content docutils">
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.superclass.Broadcast.ndim">
+<span class="sig-name descname"><span class="pre">ndim</span></span><a class="headerlink" href="#actuarial.superclass.Broadcast.ndim" title="Permalink to this definition"></a></dt>
+<dd><p>Number of dimensions of the instance (deriving from the implemented <a class="reference internal" href="#actuarial.superclass.Broadcast.broadcast" title="actuarial.superclass.Broadcast.broadcast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast</span></code></a> method).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.superclass.Broadcast.shape">
+<span class="sig-name descname"><span class="pre">shape</span></span><a class="headerlink" href="#actuarial.superclass.Broadcast.shape" title="Permalink to this definition"></a></dt>
+<dd><p>Shape of the instance (deriving from the implemented <a class="reference internal" href="#actuarial.superclass.Broadcast.broadcast" title="actuarial.superclass.Broadcast.broadcast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast</span></code></a> method).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>tuple of int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.superclass.Broadcast.size">
+<span class="sig-name descname"><span class="pre">size</span></span><a class="headerlink" href="#actuarial.superclass.Broadcast.size" title="Permalink to this definition"></a></dt>
+<dd><p>Size of the instance (deriving from the implemented <a class="reference internal" href="#actuarial.superclass.Broadcast.broadcast" title="actuarial.superclass.Broadcast.broadcast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast</span></code></a> method).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="ade506d7-dbc8-4427-8deb-6ed6da21c9ac" name="4220f56b-8bb5-4225-af3f-2b5ff209ddcc" type="radio">
+</input><label class="tabbed-label" for="ade506d7-dbc8-4427-8deb-6ed6da21c9ac">
+Methods</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.Broadcast.is_broadcastable">
+<span class="sig-name descname"><span class="pre">is_broadcastable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/Broadcast.html#Broadcast.is_broadcastable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.Broadcast.is_broadcastable" title="Permalink to this definition"></a></dt>
+<dd><p>Indicate whether the input arguments can be broadcast with the instance
+to a single shape using the implemented <a class="reference internal" href="#actuarial.superclass.Broadcast.broadcast" title="actuarial.superclass.Broadcast.broadcast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast</span></code></a> method of the class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>*args</strong> (<em>array-like</em><em> or </em><em>object with shape attribute</em>) – Inputs to broadcast with the instance. It can be array-like or any
+object having a <a class="reference internal" href="#actuarial.superclass.Broadcast.shape" title="actuarial.superclass.Broadcast.shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape</span></code></a> attribute.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if the inputs can be broadcast with the implemented <a class="reference internal" href="#actuarial.superclass.Broadcast.broadcast" title="actuarial.superclass.Broadcast.broadcast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broadcast</span></code></a>
+method of the class and False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.superclass.Broadcast._asarray">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">_asarray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/superclass/Broadcast.html#Broadcast._asarray"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.superclass.Broadcast._asarray" title="Permalink to this definition"></a></dt>
+<dd><p>Convert the input argument to a numpy array.</p>
+<p>The conversion occurs only if the input argument is not a Broadcast instance
+and is not None.
+Otherwise, the original argument is returned as is.
+In other words, this method is equivalent to the <code class="xref py py-obj docutils literal notranslate"><span class="pre">asarray</span></code> function of
+the numpy package except that Broadcast instance and None value are not
+converted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>array-like</em><em> or </em><a class="reference internal" href="#actuarial.superclass.Broadcast" title="actuarial.superclass.Broadcast.Broadcast"><em>Broadcast</em></a><em> or </em><em>None</em>) – Input to convert to a numpy array.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Input converted to a numpy array. If the input is a Broadcast instance
+or is None, the conversion doesn’t occur and the input is returned as is.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array or <a class="reference internal" href="#actuarial.superclass.Broadcast" title="actuarial.superclass.Broadcast.Broadcast">Broadcast</a> or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="13e7098a-8dd4-41a3-a541-084465da5413" name="4220f56b-8bb5-4225-af3f-2b5ff209ddcc" type="radio">
+</input><label class="tabbed-label" for="13e7098a-8dd4-41a3-a541-084465da5413">
+Special</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="72835ea4-462b-470c-b946-c7fe3829a727" name="4220f56b-8bb5-4225-af3f-2b5ff209ddcc" type="radio">
+</input><label class="tabbed-label" for="72835ea4-462b-470c-b946-c7fe3829a727">
+Examples</label><div class="tabbed-content docutils">
+<p>To be added.</p>
+</div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Base.html" class="btn btn-neutral float-left" title="Base" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Comparison.html" class="btn btn-neutral float-right" title="Comparison" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
