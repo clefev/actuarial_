@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linear &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Logarithm" href="Logarithm.html" />
+    <link rel="prev" title="Constant" href="Constant.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Test</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test.html">Test</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SUPERCLASS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../superclass/index.html">Superclass</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PROBABILITY &amp; STATISTICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copula/index.html">Copula</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexation/index.html">Indexation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MATHEMATICS</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Function</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Constant.html">Constant</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Linear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Logarithm.html">Logarithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exponential.html">Exponential</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PiecewiseFunction.html">Piecewise function</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">UTILITIES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util/util.html">Util</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XXX</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../XXX/notation.html">Notation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Function</a> &raquo;</li>
+      <li>Linear</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/function/Linear.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="linear">
+<span id="function-linear"></span><h1>Linear<a class="headerlink" href="#linear" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="actuarial.function.Linear">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.function.</span></span><span class="sig-name descname"><span class="pre">Linear</span></span><a class="reference internal" href="../_modules/actuarial/function/Linear.html#Linear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.function.Linear" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../superclass/Parametric.html#actuarial.superclass.Parametric" title="actuarial.superclass.Parametric.Parametric"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Parametric.Parametric</span></code></a>, <a class="reference internal" href="index.html#actuarial.function.Function" title="actuarial.function.Function.Function"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.function.Function.Function</span></code></a></p>
+<p>A <strong>linear function</strong> is a function whose graph is a straight line, that is,
+a polynomial function of degree zero or one:</p>
+<div class="math notranslate nohighlight">
+\[f(x) = ax + b\]</div>
+<p>where <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are respectively the slope and intercept of
+the function.</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="9ac280c4-3f50-49c7-81b8-427526339920" name="9477968f-3d8c-4836-a90b-9d7999e81436" type="radio">
+</input><label class="tabbed-label" for="9ac280c4-3f50-49c7-81b8-427526339920">
+Initialization</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.function.Linear.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intercept</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/function/Linear.html#Linear.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.function.Linear.__init__" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>slope</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Slope parameter <span class="math notranslate nohighlight">\(a\)</span>.
+The default is 1.</p></li>
+<li><p><strong>intercept</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Intercept parameter <span class="math notranslate nohighlight">\(b\)</span>.
+The value of the function in 0 will be equal to this intercept.
+The default is 0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the parameters cannot be broadcast together.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="541b1ab3-39ba-4577-bda6-d02f08d8ea6d" name="9477968f-3d8c-4836-a90b-9d7999e81436" type="radio">
+</input><label class="tabbed-label" for="541b1ab3-39ba-4577-bda6-d02f08d8ea6d">
+Technical sheet</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="41cfaa5d-3660-4744-b951-e4f30e0ea6e7" name="9477968f-3d8c-4836-a90b-9d7999e81436" type="radio">
+</input><label class="tabbed-label" for="41cfaa5d-3660-4744-b951-e4f30e0ea6e7">
+Properties</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="fa44997a-3db2-4f60-bd97-f3d041cf568c" name="9477968f-3d8c-4836-a90b-9d7999e81436" type="radio">
+</input><label class="tabbed-label" for="fa44997a-3db2-4f60-bd97-f3d041cf568c">
+Methods</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.function.Linear.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/function/Linear.html#Linear.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.function.Linear.evaluate" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluate the value of the function.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The value of a linear function is given by</p>
+<div class="math notranslate nohighlight">
+\[f(x) = ax + b\]</div>
+<p>for all <span class="math notranslate nohighlight">\(x \in \mathbb{R}\)</span>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>array-like</em>) – Values for which the function should be evaluated.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Evaluated function. Array with a float dtype and the same shape as
+the broadcast of <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> with the function parameters.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> cannot be broadcast with the function parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.function.Linear.derivative">
+<span class="sig-name descname"><span class="pre">derivative</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/function/Linear.html#Linear.derivative"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.function.Linear.derivative" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the derivative.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The derivative of a linear function is constant and equal to its slope
+while highest order derivatives are zero:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\frac{d^n f(x)}{dx^n} = \begin{cases}
+                            a &amp; \text{if } n = 1, \\
+                            0 &amp; \text{if } n &gt; 1
+                        \end{cases}\end{split}\]</div>
+<p>for all <span class="math notranslate nohighlight">\(x \in \mathbb{R}\)</span>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array-like</em>) – Values for which the derivative should be evaluated.</p></li>
+<li><p><strong>order</strong> (<em>int</em><em>, </em><em>optional</em>) – Order of the derivative. The default is 1.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Evaluated derivative. Array with a float dtype and the same shape as
+the broadcast of <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> with the function parameters.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> cannot be broadcast with the function parameters.
+    If <code class="xref py py-obj docutils literal notranslate"><span class="pre">order</span></code> is not a positive integer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.function.Linear.integrate">
+<span class="sig-name descname"><span class="pre">integrate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/function/Linear.html#Linear.integrate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.function.Linear.integrate" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the definite integral.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The definite integral of a linear function is given by</p>
+<div class="math notranslate nohighlight">
+\[\int_{x_1}^{x_2} f(x) dx = \frac{1}{2} a (x_2^2 - x_1^2) + b(x_2 - x_1)\]</div>
+<p>for all <span class="math notranslate nohighlight">\(x_1, x_2 \in \mathbb{R}\)</span>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lower</strong> (<em>array-like</em>) – Lower bound of the definite integral interval.</p></li>
+<li><p><strong>upper</strong> (<em>array-like</em>) – Upper bound of the definite integral interval.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Evaluated integral. Array with a float dtype and the same shape as
+the broadcast of <code class="xref py py-obj docutils literal notranslate"><span class="pre">lower</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">upper</span></code> with the function parameters.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">lower</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">upper</span></code> cannot be broadcast with the function parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="c8232243-e9a4-4f57-9723-1c58efe1e4d8" name="9477968f-3d8c-4836-a90b-9d7999e81436" type="radio">
+</input><label class="tabbed-label" for="c8232243-e9a4-4f57-9723-1c58efe1e4d8">
+Special</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="bef15e3d-fcc3-4ee5-8819-06901fc71f8f" name="9477968f-3d8c-4836-a90b-9d7999e81436" type="radio">
+</input><label class="tabbed-label" for="bef15e3d-fcc3-4ee5-8819-06901fc71f8f">
+Examples</label><div class="tabbed-content docutils">
+<p>To be added.</p>
+</div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Constant.html" class="btn btn-neutral float-left" title="Constant" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Logarithm.html" class="btn btn-neutral float-right" title="Logarithm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

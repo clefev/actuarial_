@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>actuarial.yield_curve.Discounting &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Test</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../test.html">Test</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Main</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copula/index.html">Copula</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../distribution/index.html">Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../indexation/index.html">Indexation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yield_curve/index.html">Yield Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../superclass/index.html">Superclass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../function/index.html">Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../util/util.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../XXX/notation.html">Notation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>actuarial.yield_curve.Discounting</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for actuarial.yield_curve.Discounting</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">actuarial.superclass</span> <span class="kn">import</span> <span class="n">Arithmetic</span><span class="p">,</span> <span class="n">Base</span><span class="p">,</span> <span class="n">Broadcast</span><span class="p">,</span> <span class="n">Comparison</span>
+<span class="kn">from</span> <span class="nn">actuarial</span> <span class="kn">import</span> <span class="n">util</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<div class="viewcode-block" id="Discounting"><a class="viewcode-back" href="../../../yield_curve/index.html#actuarial.yield_curve.Discounting">[docs]</a><span class="k">class</span> <span class="nc">Discounting</span><span class="p">(</span><span class="n">Arithmetic</span><span class="p">,</span> <span class="n">Base</span><span class="p">,</span> <span class="n">Broadcast</span><span class="p">,</span> <span class="n">Comparison</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class to manage discount values between two maturities.</span>
+<span class="sd">    </span>
+<span class="sd">    A discount value is a value that can be used to compute discount factors</span>
+<span class="sd">    between two maturities, namely `maturities1` and `maturities2`.</span>
+<span class="sd">    There are different types of discount values such as discount factors,</span>
+<span class="sd">    capitalization factors, compound rates, continuous rates and simple rates.    </span>
+<span class="sd">    The type of discount values is provided by the `kind` attribute.</span>
+<span class="sd">    A discount value can be easily converted to one type to another using the</span>
+<span class="sd">    `convert` method.   </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># Class attributes    </span>
+
+    <span class="n">_print</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;maturities1&quot;</span><span class="p">,</span> <span class="s2">&quot;maturities2&quot;</span><span class="p">,</span> <span class="s2">&quot;values&quot;</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">)</span>
+    <span class="n">kinds</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;capitalization_factor&quot;</span><span class="p">,</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;continuous_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;discount_factor&quot;</span><span class="p">,</span> <span class="s2">&quot;simple_rate&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Initialization</span>
+        
+<div class="viewcode-block" id="Discounting.__init__"><a class="viewcode-back" href="../../../yield_curve/index.html#actuarial.yield_curve.Discounting.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities1</span><span class="p">,</span> <span class="n">maturities2</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">kind</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        maturities1 : array-like</span>
+<span class="sd">            Starting maturities.</span>
+<span class="sd">        maturities2 : array-like</span>
+<span class="sd">            Ending maturities.</span>
+<span class="sd">        values : array-like</span>
+<span class="sd">            Discount values between the starting and ending maturities.</span>
+<span class="sd">        kind : {&quot;capitalization_factor&quot;, &quot;compound_rate&quot;, &quot;continuous_rate&quot;, &quot;discount_factor&quot;, &quot;simple_rate&quot;}</span>
+<span class="sd">            Type of discount values.</span>
+<span class="sd">        </span>
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `kind` is not valid.</span>
+<span class="sd">            If `maturities1`, `maturities2` and `values` cannot be broadcast together.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="c1"># Control the kind</span>
+                
+        <span class="k">if</span> <span class="n">kind</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">kinds</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;kind&#39; must be one of the following: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kinds</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            
+        <span class="c1"># Control if maturities and values can be broadcast together</span>
+        
+        <span class="n">maturities1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">maturities1</span><span class="p">)</span>
+        <span class="n">maturities2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">maturities2</span><span class="p">)</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">is_broadcastable</span><span class="p">(</span><span class="n">maturities1</span><span class="p">,</span> <span class="n">maturities2</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;maturities1&#39;, &#39;maturities2&#39; and &#39;values&#39; cannot be broadcast together: their respective shapes are </span><span class="si">{</span><span class="n">maturities1</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">maturities2</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Define the instance attributes</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maturities1</span> <span class="o">=</span> <span class="n">maturities1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maturities2</span> <span class="o">=</span> <span class="n">maturities2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_values</span> <span class="o">=</span> <span class="n">values</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_kind</span> <span class="o">=</span> <span class="n">kind</span>       </div>
+        
+    <span class="c1"># Properties</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">maturities1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        array: Starting maturities.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maturities1</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">maturities2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        array: Ending maturities.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maturities2</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">maturities</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        array: Difference between the ending and starting maturities (equivalent</span>
+<span class="sd">        to `maturities2 - maturities1`).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">maturities2</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">maturities1</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        array: Discount values between the starting and ending maturities.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_values</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">kind</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        str: Type of discount values.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kind</span>
+    
+    <span class="c1"># Setter</span>
+        
+    <span class="nd">@maturities1</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">maturities1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maturities1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        
+    <span class="nd">@maturities2</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">maturities2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maturities2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        
+    <span class="nd">@values</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        
+    <span class="nd">@kind</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">kind</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_kind</span> <span class="o">=</span> <span class="n">value</span>
+    
+    <span class="c1"># Methods   </span>
+        
+<div class="viewcode-block" id="Discounting.broadcast"><a class="viewcode-back" href="../../../yield_curve/index.html#actuarial.yield_curve.Discounting.broadcast">[docs]</a>    <span class="k">def</span> <span class="nf">broadcast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Mimic the broadcast of the maturities and values with input arguments.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        *args : array-like or object with shape attribute</span>
+<span class="sd">            Inputs to broadcast with the maturities and values. If no argument</span>
+<span class="sd">            is provided, only the maturities and values are broadcast together.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        np.broadcast</span>
+<span class="sd">            Broadcast result.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="n">util</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">maturities2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>    </div>
+        
+<div class="viewcode-block" id="Discounting.convert"><a class="viewcode-back" href="../../../yield_curve/index.html#actuarial.yield_curve.Discounting.convert">[docs]</a>    <span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;discount_factor&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert in-place the discount values to a new type.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        kind : {&quot;capitalization_factor&quot;, &quot;compound_rate&quot;, &quot;continuous_rate&quot;, &quot;discount_factor&quot;, &quot;simple_rate&quot;}, optional</span>
+<span class="sd">            The discount values will be converted to this type.</span>
+<span class="sd">            The default converts to discount factors.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Discounting</span>
+<span class="sd">            Instance.</span>
+<span class="sd">            </span>
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `kind` is not valid.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="c1"># Return the instance if kind is already correct</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="n">kind</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+        
+        <span class="c1"># Control the kind</span>
+                
+        <span class="k">if</span> <span class="n">kind</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">kinds</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;kind&#39; must be one of the following: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kinds</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    
+        <span class="c1"># Convert the discount values</span>
+        
+        <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">divide</span> <span class="o">=</span> <span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">invalid</span> <span class="o">=</span> <span class="s2">&quot;ignore&quot;</span><span class="p">):</span> <span class="c1"># ignore numpy warnings such as division by 0 (handled by np.where if any)</span>
+            
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;capitalization_factor&quot;</span><span class="p">:</span>
+        
+                <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;continuous_rate&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;discount_factor&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;simple_rate&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span>
+        
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">:</span>
+                
+                <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;capitalization_factor&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;continuous_rate&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;discount_factor&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;simple_rate&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span>
+                
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;continuous_rate&quot;</span><span class="p">:</span>
+                
+                <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;capitalization_factor&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;discount_factor&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;simple_rate&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span>
+                
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;discount_factor&quot;</span><span class="p">:</span>
+                
+                <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;capitalization_factor&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;continuous_rate&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;simple_rate&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span>
+                
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;simple_rate&quot;</span><span class="p">:</span>
+                
+                <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;capitalization_factor&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;continuous_rate&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;discount_factor&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span>
+                                
+        <span class="c1"># Update the type of discount values</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="o">=</span> <span class="n">kind</span>
+                
+        <span class="c1"># Return output</span>
+        
+        <span class="k">return</span> <span class="bp">self</span></div>
+    
+    <span class="c1"># Special methods</span>
+    
+<div class="viewcode-block" id="Discounting.__arithmetic__"><a class="viewcode-back" href="../../../yield_curve/index.html#actuarial.yield_curve.Discounting.__arithmetic__">[docs]</a>    <span class="k">def</span> <span class="nf">__arithmetic__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">operator</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Apply arithmetic operations to the `values` attribute when using arithmetic</span>
+<span class="sd">        operators (`+`, `-`, `*`, `/` and `**`) on the instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">values</span> <span class="o">=</span> <span class="n">operator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span></div>
+    
+<div class="viewcode-block" id="Discounting.__comparison__"><a class="viewcode-back" href="../../../yield_curve/index.html#actuarial.yield_curve.Discounting.__comparison__">[docs]</a>    <span class="k">def</span> <span class="nf">__comparison__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities</span><span class="p">,</span> <span class="n">operator</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compare the `maturities` attribute when using comparison operators</span>
+<span class="sd">        (`==`, `!!=`, `&lt;`, `&gt;`, `&lt;=` and `&gt;=`) on the instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="n">operator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">,</span> <span class="n">maturities</span><span class="p">)</span></div></div>
+    
+    
+    
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>actuarial.superclass.Comparison &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Test</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../test.html">Test</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Main</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copula/index.html">Copula</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../distribution/index.html">Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../indexation/index.html">Indexation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yield_curve/index.html">Yield Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../superclass/index.html">Superclass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../function/index.html">Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../util/util.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../XXX/notation.html">Notation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>actuarial.superclass.Comparison</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for actuarial.superclass.Comparison</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABCMeta</span><span class="p">,</span> <span class="n">abstractmethod</span>
+
+
+<div class="viewcode-block" id="Comparison"><a class="viewcode-back" href="../../../superclass/Comparison.html#actuarial.superclass.Comparison">[docs]</a><span class="k">class</span> <span class="nc">Comparison</span><span class="p">(</span><span class="n">metaclass</span> <span class="o">=</span> <span class="n">ABCMeta</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Superclass to handle comparison operators such as equal to, not equal to,</span>
+<span class="sd">    less than, greater than, less than or equal to and greater than or equal to.   </span>
+<span class="sd">    </span>
+<span class="sd">    All these comparison operators are available at once by implementing the</span>
+<span class="sd">    `__comparison__` abstract method in the derived class.</span>
+<span class="sd">    This abstract method describes how comparison operators (`==`, `!!=`, `&lt;`, `&gt;`, `&lt;=` and `&gt;=`)</span>
+<span class="sd">    should behave on the object.  </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Initialization</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">pass</span>
+    
+    <span class="c1"># Abstract</span>
+    
+<div class="viewcode-block" id="Comparison.__comparison__"><a class="viewcode-back" href="../../../superclass/Comparison.html#actuarial.superclass.Comparison.__comparison__">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">__comparison__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">operator</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Abstract method describing how comparison operators (`==`, `!!=`, `&lt;`, `&gt;`, `&lt;=` and `&gt;=`)</span>
+<span class="sd">        should behave on the object.</span>
+<span class="sd">        </span>
+<span class="sd">        The `operator` argument is a function representing a generic comparison</span>
+<span class="sd">        operator.</span>
+<span class="sd">        </span>
+<span class="sd">        For example, the derived class could implement the following `__comparison__`</span>
+<span class="sd">        method:</span>
+<span class="sd">            </span>
+<span class="sd">        .. code-block:: python</span>
+<span class="sd">        </span>
+<span class="sd">            def __comparison__(self, value, operator):</span>
+<span class="sd">                return operator(self.attr, value)</span>
+<span class="sd">            </span>
+<span class="sd">        By implementing this single abstract method, all comparison operators mentioned</span>
+<span class="sd">        above will be available (e.g., `object == value` will return the result of</span>
+<span class="sd">        `object.attr == value`, `object != value` will return the result of</span>
+<span class="sd">        `object.attr != value`, ...).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+        
+    <span class="c1"># Special methods</span>
+    
+<div class="viewcode-block" id="Comparison.__eq__"><a class="viewcode-back" href="../../../superclass/Comparison.html#actuarial.superclass.Comparison.__eq__">[docs]</a>    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Allow comparison of the form `object == value` (equal to).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__comparison__</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">==</span><span class="n">y</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="Comparison.__ge__"><a class="viewcode-back" href="../../../superclass/Comparison.html#actuarial.superclass.Comparison.__ge__">[docs]</a>    <span class="k">def</span> <span class="fm">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Allow comparison of the form `object &gt;= value` (greater than or equal to).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__comparison__</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">&gt;=</span><span class="n">y</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="Comparison.__gt__"><a class="viewcode-back" href="../../../superclass/Comparison.html#actuarial.superclass.Comparison.__gt__">[docs]</a>    <span class="k">def</span> <span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Allow comparison of the form `object &gt; value` (greater than).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__comparison__</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">&gt;</span><span class="n">y</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Comparison.__le__"><a class="viewcode-back" href="../../../superclass/Comparison.html#actuarial.superclass.Comparison.__le__">[docs]</a>    <span class="k">def</span> <span class="fm">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Allow comparison of the form `object &lt;= value` (less than or equal to).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__comparison__</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">&lt;=</span><span class="n">y</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="Comparison.__lt__"><a class="viewcode-back" href="../../../superclass/Comparison.html#actuarial.superclass.Comparison.__lt__">[docs]</a>    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Allow comparison of the form `object &lt; value` (less than).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__comparison__</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">&lt;</span><span class="n">y</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="Comparison.__ne__"><a class="viewcode-back" href="../../../superclass/Comparison.html#actuarial.superclass.Comparison.__ne__">[docs]</a>    <span class="k">def</span> <span class="fm">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Allow comparison of the form `object != value` (not equal to).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__comparison__</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">!=</span><span class="n">y</span><span class="p">)</span></div></div>
+    
+    
+    
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    
+    <span class="c1"># Example 1</span>
+    
+    <span class="k">class</span> <span class="nc">Example1</span><span class="p">(</span><span class="n">Comparison</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a class `Example1` inheriting from the `Comparison` superclass and</span>
+<span class="sd">        having an `amount` attribute representing a number.</span>
+<span class="sd">        The application of comparison operators on the instance (`==`, `!=`, `&lt;`, `&gt;`, `&lt;=` and `&gt;=`)</span>
+<span class="sd">        should return the comparison with the `amount` attribute of the instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span>
+            
+        <span class="k">def</span> <span class="nf">__comparison__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">operator</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">operator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">amount</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="c1"># return the comparison with the &#39;amount&#39; attribute of the instance</span>
+        
+    <span class="n">example1</span> <span class="o">=</span> <span class="n">Example1</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">example1</span><span class="o">.</span><span class="n">amount</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">example1</span> <span class="o">==</span> <span class="mi">9</span><span class="p">,</span> <span class="n">example1</span> <span class="o">==</span> <span class="mi">10</span><span class="p">,</span> <span class="n">example1</span> <span class="o">==</span> <span class="mi">11</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">example1</span> <span class="o">!=</span> <span class="mi">9</span><span class="p">,</span> <span class="n">example1</span> <span class="o">!=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">example1</span> <span class="o">!=</span> <span class="mi">11</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">example1</span> <span class="o">&gt;</span> <span class="mi">9</span><span class="p">,</span> <span class="n">example1</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">,</span> <span class="n">example1</span> <span class="o">&gt;</span> <span class="mi">11</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">example1</span> <span class="o">&gt;=</span> <span class="mi">9</span><span class="p">,</span> <span class="n">example1</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">example1</span> <span class="o">&gt;=</span> <span class="mi">11</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">example1</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="p">,</span> <span class="n">example1</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">,</span> <span class="n">example1</span> <span class="o">&lt;</span> <span class="mi">11</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">example1</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">,</span> <span class="n">example1</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">example1</span> <span class="o">&lt;=</span> <span class="mi">11</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

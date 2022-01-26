@@ -1,0 +1,9 @@
+Math
+====
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   root.rst
+   Partition.rst

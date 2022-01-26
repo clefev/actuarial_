@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partition &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Parameter" href="../parameter/index.html" />
+    <link rel="prev" title="Math" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Test</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test.html">Test</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SUPERCLASS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../superclass/index.html">Superclass</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PROBABILITY &amp; STATISTICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copula/index.html">Copula</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexation/index.html">Indexation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MATHEMATICS</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Math</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Partition</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../function/index.html">Function</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">UTILITIES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util/util.html">Util</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XXX</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../XXX/notation.html">Notation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Math</a> &raquo;</li>
+      <li>Partition</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/math/Partition.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="partition">
+<span id="math-partition"></span><h1>Partition<a class="headerlink" href="#partition" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="actuarial.math.Partition">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.math.</span></span><span class="sig-name descname"><span class="pre">Partition</span></span><a class="reference internal" href="../_modules/actuarial/math/Partition.html#Partition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.math.Partition" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../superclass/Base.html#actuarial.superclass.Base" title="actuarial.superclass.Base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Base.Base</span></code></a>, <a class="reference internal" href="../superclass/Broadcast.html#actuarial.superclass.Broadcast" title="actuarial.superclass.Broadcast.Broadcast"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Broadcast.Broadcast</span></code></a>, <a class="reference internal" href="../superclass/Comparison.html#actuarial.superclass.Comparison" title="actuarial.superclass.Comparison.Comparison"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Comparison.Comparison</span></code></a></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="5db58c2d-6df5-4722-a570-5582acd680b2" name="ef49d3e5-f3a8-4727-bf0e-f745cc241b82" type="radio">
+</input><label class="tabbed-label" for="5db58c2d-6df5-4722-a570-5582acd680b2">
+Initialization</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.math.Partition.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right_closed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/math/Partition.html#Partition.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.math.Partition.__init__" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>values</strong> (<em>array-like</em>) – Values <span class="math notranslate nohighlight">\(x_0 &lt; x_1 &lt; ... &lt; x_n\)</span> of the partition.</p></li>
+<li><p><strong>right_closed</strong> (<em>bool</em><em>, </em><em>optional</em>) – Indicate whether the subintervals of the partition are right-closed
+<span class="math notranslate nohighlight">\((x_i,x_{i+1}]\)</span> or left-closed <span class="math notranslate nohighlight">\([x_i,x_{i+1})\)</span>.
+The default assumes left-closed intervals (False).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <a class="reference internal" href="#actuarial.math.Partition.values" title="actuarial.math.Partition.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></a> is not along the first axis.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="317ba1c1-b3d2-485a-b84c-02b379ed2736" name="ef49d3e5-f3a8-4727-bf0e-f745cc241b82" type="radio">
+</input><label class="tabbed-label" for="317ba1c1-b3d2-485a-b84c-02b379ed2736">
+Properties</label><div class="tabbed-content docutils">
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.math.Partition.values">
+<span class="sig-name descname"><span class="pre">values</span></span><a class="headerlink" href="#actuarial.math.Partition.values" title="Permalink to this definition"></a></dt>
+<dd><p>Values <span class="math notranslate nohighlight">\(x_0 &lt; x_1 &lt; ... &lt; x_n\)</span> of the partition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.math.Partition.min">
+<span class="sig-name descname"><span class="pre">min</span></span><a class="headerlink" href="#actuarial.math.Partition.min" title="Permalink to this definition"></a></dt>
+<dd><p>Minimum value <span class="math notranslate nohighlight">\(x_0\)</span> of the partition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>scalar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.math.Partition.max">
+<span class="sig-name descname"><span class="pre">max</span></span><a class="headerlink" href="#actuarial.math.Partition.max" title="Permalink to this definition"></a></dt>
+<dd><p>Maximum value <span class="math notranslate nohighlight">\(x_n\)</span> of the partition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>scalar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.math.Partition.length">
+<span class="sig-name descname"><span class="pre">length</span></span><a class="headerlink" href="#actuarial.math.Partition.length" title="Permalink to this definition"></a></dt>
+<dd><p>Length <span class="math notranslate nohighlight">\(x_n - x_0\)</span> of the partition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>scalar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.math.Partition.lengths">
+<span class="sig-name descname"><span class="pre">lengths</span></span><a class="headerlink" href="#actuarial.math.Partition.lengths" title="Permalink to this definition"></a></dt>
+<dd><p>Length of each subinterval of the partition.
+The length of the i-th subinterval is equal to <span class="math notranslate nohighlight">\(x_i - x_{i-1}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.math.Partition.norm">
+<span class="sig-name descname"><span class="pre">norm</span></span><a class="headerlink" href="#actuarial.math.Partition.norm" title="Permalink to this definition"></a></dt>
+<dd><p>Norm of the partition.
+The norm of a partition is the length of the longest subintervals:
+<span class="math notranslate nohighlight">\(\max\lbrace |x_i - x_{i-1}| : i=1, ..., n \rbrace\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>scalar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.math.Partition.right_closed">
+<span class="sig-name descname"><span class="pre">right_closed</span></span><a class="headerlink" href="#actuarial.math.Partition.right_closed" title="Permalink to this definition"></a></dt>
+<dd><p>Indicate whether the subintervals of the partition are right-closed
+<span class="math notranslate nohighlight">\((x_i,x_{i+1}]\)</span> or left-closed <span class="math notranslate nohighlight">\([x_i,x_{i+1})\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.math.Partition.axis">
+<span class="sig-name descname"><span class="pre">axis</span></span><a class="headerlink" href="#actuarial.math.Partition.axis" title="Permalink to this definition"></a></dt>
+<dd><p>Axis along which the values of the partition are (given as a negative integer).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="213e3884-4593-454c-9d01-e3aedcbb7cb3" name="ef49d3e5-f3a8-4727-bf0e-f745cc241b82" type="radio">
+</input><label class="tabbed-label" for="213e3884-4593-454c-9d01-e3aedcbb7cb3">
+Methods</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.math.Partition.broadcast">
+<span class="sig-name descname"><span class="pre">broadcast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/math/Partition.html#Partition.broadcast"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.math.Partition.broadcast" title="Permalink to this definition"></a></dt>
+<dd><p>Mimic the broadcast of the values of the partition with input arrays.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>*args</strong> (<em>array-like</em><em> or </em><em>object with shape attribute</em>) – Inputs to broadcast with the values of the partition.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Broadcast result.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.broadcast</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.math.Partition.control">
+<span class="sig-name descname"><span class="pre">control</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/math/Partition.html#Partition.control"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.math.Partition.control" title="Permalink to this definition"></a></dt>
+<dd><p>Control whether the values of the partition are strictly increasing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>values</strong> (<em>array-like</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Values of the partition to control.
+If None, the values of the instance will be used instead.
+The default is None.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <a class="reference internal" href="#actuarial.math.Partition.values" title="actuarial.math.Partition.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></a> is not along the first axis.
+    If <a class="reference internal" href="#actuarial.math.Partition.values" title="actuarial.math.Partition.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></a> is not strictly increasing.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.math.Partition.index">
+<span class="sig-name descname"><span class="pre">index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/math/Partition.html#Partition.index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.math.Partition.index" title="Permalink to this definition"></a></dt>
+<dd><p>Return the partition index associated with input values.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The partition index associated with a value <span class="math notranslate nohighlight">\(x\)</span> is the index <span class="math notranslate nohighlight">\(i\)</span>
+satisfying either</p>
+<div class="math notranslate nohighlight">
+\[x_i \leq x &lt; x_{i+1}\]</div>
+<p>in case of left-closed interval or</p>
+<div class="math notranslate nohighlight">
+\[x_i &lt; x \leq x_{i+1}\]</div>
+<p>in case of right-closed interval.</p>
+<p>Note that if the value <span class="math notranslate nohighlight">\(x\)</span> is below <span class="math notranslate nohighlight">\(x_0\)</span>, the returned index
+will be truncated to <span class="math notranslate nohighlight">\(i=0\)</span>. And if it is above <span class="math notranslate nohighlight">\(x_n\)</span>, the
+returned index will be <span class="math notranslate nohighlight">\(i=n\)</span>.
+Therefore, the returned index is always an integer between 0 and <span class="math notranslate nohighlight">\(n\)</span>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>array-like</em>) – Values for which interval indices should be provided.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Scalar or array with an integer dtype and the same shape as <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> cannot be broadcast with the instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.math.Partition.take">
+<span class="sig-name descname"><span class="pre">take</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/math/Partition.html#Partition.take"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.math.Partition.take" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</div>
+<input id="c142253e-df97-4bbb-9b84-816176475f6e" name="ef49d3e5-f3a8-4727-bf0e-f745cc241b82" type="radio">
+</input><label class="tabbed-label" for="c142253e-df97-4bbb-9b84-816176475f6e">
+Special</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.math.Partition.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/math/Partition.html#Partition.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.math.Partition.__call__" title="Permalink to this definition"></a></dt>
+<dd><p>Identical to the <a class="reference internal" href="#actuarial.math.Partition.index" title="actuarial.math.Partition.index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code></a> method.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.math.Partition.__comparison__">
+<span class="sig-name descname"><span class="pre">__comparison__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operator</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/math/Partition.html#Partition.__comparison__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.math.Partition.__comparison__" title="Permalink to this definition"></a></dt>
+<dd><p>Compare the values of the partition when using comparison operators
+(<code class="xref py py-obj docutils literal notranslate"><span class="pre">==</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">!=</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;=</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">&gt;=</span></code>) on the instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.math.Partition.__contains__">
+<span class="sig-name descname"><span class="pre">__contains__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/math/Partition.html#Partition.__contains__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.math.Partition.__contains__" title="Permalink to this definition"></a></dt>
+<dd><p>Indicate whether a value is a point of the partition.</p>
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">value</span></code> argument must be a scalar.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.math.Partition.__getitem__">
+<span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indices</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/math/Partition.html#Partition.__getitem__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.math.Partition.__getitem__" title="Permalink to this definition"></a></dt>
+<dd><p>Return a (shallow) copy of the instance where we get a subset of values
+in the partition.</p>
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">indices</span></code> argument provides the partition indices to extract.
+It must be a slice or 1D array-like of integers or booleans.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.math.Partition.__len__">
+<span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/math/Partition.html#Partition.__len__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.math.Partition.__len__" title="Permalink to this definition"></a></dt>
+<dd><p>Number of points in the partition (corresponds to <span class="math notranslate nohighlight">\(n+1\)</span>).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.math.Partition.__setitem__">
+<span class="sig-name descname"><span class="pre">__setitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/math/Partition.html#Partition.__setitem__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.math.Partition.__setitem__" title="Permalink to this definition"></a></dt>
+<dd><p>Replace the values of the partition.</p>
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">indices</span></code> argument provides the partition indices to replace.
+It must be an integer, slice or 1D array-like of integers or booleans.
+The <a class="reference internal" href="#actuarial.math.Partition.values" title="actuarial.math.Partition.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></a> argument provides the new points of the partition.</p>
+</dd></dl>
+
+</div>
+<input id="2267c63a-7ebd-47a7-8bf2-e6526510a937" name="ef49d3e5-f3a8-4727-bf0e-f745cc241b82" type="radio">
+</input><label class="tabbed-label" for="2267c63a-7ebd-47a7-8bf2-e6526510a937">
+Technical sheet</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="02cc0c25-1e10-4db2-ad55-85abebe8d14d" name="ef49d3e5-f3a8-4727-bf0e-f745cc241b82" type="radio">
+</input><label class="tabbed-label" for="02cc0c25-1e10-4db2-ad55-85abebe8d14d">
+Examples</label><div class="tabbed-content docutils">
+<p>To be added.</p>
+</div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Math" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../parameter/index.html" class="btn btn-neutral float-right" title="Parameter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+.. _MODULE.CLASS:
+
+CLASS
+=====
+
+.. autoclass:: actuarial.MODULE::CLASS()
+
+    .. tabbed:: Initialization
+
+        .. automethod:: __init__
+
+    .. tabbed:: Abstract
+
+        |none|
+
+    .. tabbed:: Properties
+
+        |none|
+
+    .. tabbed:: Methods
+
+        |none|
+
+    .. tabbed:: Special
+
+        |none|
+
+    .. tabbed:: Decorators
+
+        |none|
+
+    .. tabbed:: Examples
+
+        To be added.

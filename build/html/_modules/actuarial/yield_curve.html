@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>actuarial.yield_curve &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Test</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../test.html">Test</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Main</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../copula/index.html">Copula</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../indexation/index.html">Indexation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../yield_curve/index.html">Yield Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../superclass/index.html">Superclass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../function/index.html">Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../util/util.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../XXX/notation.html">Notation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>actuarial.yield_curve</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for actuarial.yield_curve</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">actuarial.superclass</span> <span class="kn">import</span> <span class="n">Arithmetic</span><span class="p">,</span> <span class="n">Base</span><span class="p">,</span> <span class="n">Broadcast</span><span class="p">,</span> <span class="n">Comparison</span><span class="p">,</span> <span class="n">Mixture</span><span class="p">,</span> <span class="n">Parametric</span><span class="p">,</span> <span class="n">Piecewise</span><span class="p">,</span> <span class="n">TermStructure</span>
+<span class="kn">from</span> <span class="nn">actuarial.parameter</span> <span class="kn">import</span> <span class="n">Array</span><span class="p">,</span> <span class="n">Parameters</span>
+<span class="kn">from</span> <span class="nn">actuarial.decorator</span> <span class="kn">import</span> <span class="n">catch_maturities</span><span class="p">,</span> <span class="n">memorize</span>
+<span class="kn">from</span> <span class="nn">actuarial.function</span> <span class="kn">import</span> <span class="n">PiecewiseFunction</span>
+<span class="kn">from</span> <span class="nn">actuarial</span> <span class="kn">import</span> <span class="n">util</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+
+
+<div class="viewcode-block" id="Discounting"><a class="viewcode-back" href="../../yield_curve/index.html#actuarial.yield_curve.Discounting">[docs]</a><span class="k">class</span> <span class="nc">Discounting</span><span class="p">(</span><span class="n">Arithmetic</span><span class="p">,</span> <span class="n">Base</span><span class="p">,</span> <span class="n">Broadcast</span><span class="p">):</span>
+    
+    <span class="c1"># Class attributes    </span>
+
+    <span class="n">_print</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;maturities1&quot;</span><span class="p">,</span> <span class="s2">&quot;maturities2&quot;</span><span class="p">,</span> <span class="s2">&quot;values&quot;</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">)</span>
+    <span class="n">kinds</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;capitalization_factor&quot;</span><span class="p">,</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;continuous_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;discount_factor&quot;</span><span class="p">,</span> <span class="s2">&quot;simple_rate&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Constructor     </span>
+        
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities1</span><span class="p">,</span> <span class="n">maturities2</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">kind</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        .. rubric:: Initialization</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        maturities1 : array-like</span>
+<span class="sd">            Starting maturities.</span>
+<span class="sd">        maturities2 : array-like</span>
+<span class="sd">            Ending maturities.</span>
+<span class="sd">        values : array-like</span>
+<span class="sd">            Discount values between the starting and ending maturities.</span>
+<span class="sd">        kind : {&quot;capitalization_factor&quot;, &quot;compound_rate&quot;, &quot;continuous_rate&quot;, &quot;discount_factor&quot;, &quot;simple_rate&quot;}</span>
+<span class="sd">            Type of discount values.</span>
+<span class="sd">        </span>
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `kind` is not valid.</span>
+<span class="sd">            If `maturities1`, `maturities2` and `values` cannot be broadcast together.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="c1"># Control the kind</span>
+                
+        <span class="k">if</span> <span class="n">kind</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">kinds</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;kind&#39; must be one of the following: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kinds</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            
+        <span class="c1"># Control if maturities and values can be broadcast together</span>
+        
+        <span class="n">maturities1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">maturities1</span><span class="p">)</span>
+        <span class="n">maturities2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">maturities2</span><span class="p">)</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">is_broadcastable</span><span class="p">(</span><span class="n">maturities1</span><span class="p">,</span> <span class="n">maturities2</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;maturities1&#39;, &#39;maturities2&#39; and &#39;values&#39; cannot be broadcast together: their respective shapes are </span><span class="si">{</span><span class="n">maturities1</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">maturities2</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Define the instance attributes</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maturities1</span> <span class="o">=</span> <span class="n">maturities1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maturities2</span> <span class="o">=</span> <span class="n">maturities2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_values</span> <span class="o">=</span> <span class="n">values</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_kind</span> <span class="o">=</span> <span class="n">kind</span>       
+        
+    <span class="c1"># Properties</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">maturities1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        array: Starting maturities.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maturities1</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">maturities2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        array: Ending maturities.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maturities2</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">maturities</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        array: Difference between the ending and starting maturities (equivalent</span>
+<span class="sd">        to `maturities2 - maturities1`).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">maturities2</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">maturities1</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        array: Discount values between the starting and ending maturities.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_values</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">kind</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        str: Type of discount values.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kind</span>
+    
+    <span class="c1"># Setter    </span>
+        
+    <span class="nd">@kind</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">kind</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_kind</span> <span class="o">=</span> <span class="n">value</span>
+        
+    <span class="nd">@maturities1</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">maturities1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maturities1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        
+    <span class="nd">@maturities2</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">maturities2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maturities2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        
+    <span class="nd">@values</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>   
+    
+    <span class="c1"># Methods   </span>
+        
+<div class="viewcode-block" id="Discounting.broadcast"><a class="viewcode-back" href="../../yield_curve/index.html#actuarial.yield_curve.Discounting.broadcast">[docs]</a>    <span class="k">def</span> <span class="nf">broadcast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Mimic the broadcast of the maturities and values with input arguments.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        *args : array-like or object with shape attribute</span>
+<span class="sd">            Inputs to broadcast with the maturities and values. If no argument</span>
+<span class="sd">            is provided, only the maturities and values are broadcast together.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        np.broadcast</span>
+<span class="sd">            Broadcast result.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="n">util</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">maturities2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>    </div>
+        
+<div class="viewcode-block" id="Discounting.convert"><a class="viewcode-back" href="../../yield_curve/index.html#actuarial.yield_curve.Discounting.convert">[docs]</a>    <span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;discount_factor&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert in-place the discount values to a new type.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        kind : {&quot;capitalization_factor&quot;, &quot;compound_rate&quot;, &quot;continuous_rate&quot;, &quot;discount_factor&quot;, &quot;simple_rate&quot;}, optional</span>
+<span class="sd">            The discount values will be converted to this type.</span>
+<span class="sd">            The default converts to discount factors.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Discounting</span>
+<span class="sd">            Instance.</span>
+<span class="sd">            </span>
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `kind` is not valid.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="c1"># Return self if kind is already correct</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="n">kind</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+        
+        <span class="c1"># Control the kind</span>
+                
+        <span class="k">if</span> <span class="n">kind</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">kinds</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;kind&#39; must be one of the following: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kinds</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    
+        <span class="c1"># Convert the discount values</span>
+        
+        <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">divide</span> <span class="o">=</span> <span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">invalid</span> <span class="o">=</span> <span class="s2">&quot;ignore&quot;</span><span class="p">):</span> <span class="c1"># ignore numpy warnings such as division by 0 (handled by np.where if any)</span>
+            
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;capitalization_factor&quot;</span><span class="p">:</span>
+        
+                <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;continuous_rate&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;discount_factor&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;simple_rate&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span>
+        
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">:</span>
+                
+                <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;capitalization_factor&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;continuous_rate&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;discount_factor&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;simple_rate&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span>
+                
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;continuous_rate&quot;</span><span class="p">:</span>
+                
+                <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;capitalization_factor&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;discount_factor&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;simple_rate&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span>
+                
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;discount_factor&quot;</span><span class="p">:</span>
+                
+                <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;capitalization_factor&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;continuous_rate&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;simple_rate&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span>
+                
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;simple_rate&quot;</span><span class="p">:</span>
+                
+                <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;capitalization_factor&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;continuous_rate&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;discount_factor&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">)</span>
+                                
+        <span class="c1"># Update the type of discount values</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="o">=</span> <span class="n">kind</span>
+                
+        <span class="c1"># Return output</span>
+        
+        <span class="k">return</span> <span class="bp">self</span></div>
+    
+    <span class="c1"># Special methods </span>
+    
+<div class="viewcode-block" id="Discounting.__arithmetic__"><a class="viewcode-back" href="../../yield_curve/index.html#actuarial.yield_curve.Discounting.__arithmetic__">[docs]</a>    <span class="k">def</span> <span class="nf">__arithmetic__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">operator</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Apply arithmetic operations to the `values` attribute when using arithmetic</span>
+<span class="sd">        operator such as `+`, `-`, `*`, `/` or `**` on the instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">values</span> <span class="o">=</span> <span class="n">operator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span></div></div>
+    
+   
+<div class="viewcode-block" id="YieldCurve"><a class="viewcode-back" href="../../yield_curve/index.html#actuarial.yield_curve.YieldCurve">[docs]</a><span class="k">class</span> <span class="nc">YieldCurve</span><span class="p">(</span><span class="n">ABC</span><span class="p">,</span> <span class="n">Base</span><span class="p">,</span> <span class="n">Broadcast</span><span class="p">):</span>
+    
+    <span class="c1"># Class attributes    </span>
+
+    <span class="n">kinds</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;capitalization_factor&quot;</span><span class="p">,</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;continuous_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;discount_factor&quot;</span><span class="p">,</span> <span class="s2">&quot;simple_rate&quot;</span><span class="p">)</span>    
+    
+    <span class="c1"># Constructor</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        .. rubric:: Initialization</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        kind : {&quot;capitalization_factor&quot;, &quot;compound_rate&quot;, &quot;continuous_rate&quot;, &quot;discount_factor&quot;, &quot;simple_rate&quot;}</span>
+<span class="sd">            Type of yield curve.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `kind` is not valid.</span>
+<span class="sd">            If the instance cannot be broadcast.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+                                        
+        <span class="k">if</span> <span class="n">kind</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">kinds</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;kind&#39; must be one of the following: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kinds</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            
+        <span class="bp">self</span><span class="o">.</span><span class="n">_kind</span> <span class="o">=</span> <span class="n">kind</span>
+        <span class="n">Broadcast</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        
+    <span class="c1"># Properties</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">kind</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        str: Type of yield curve.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kind</span>    
+    
+    <span class="c1"># Setter    </span>
+
+    <span class="nd">@kind</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">kind</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_kind</span> <span class="o">=</span> <span class="n">value</span>
+        
+    <span class="c1"># Abstract methods    </span>
+    
+<div class="viewcode-block" id="YieldCurve.evaluate"><a class="viewcode-back" href="../../yield_curve/index.html#actuarial.yield_curve.YieldCurve.evaluate">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Abstract method to evaluate the value of the yield curve for the given maturities.</span>
+
+<span class="sd">        The first argument must be the maturities for which the yield curve should</span>
+<span class="sd">        be evaluated. Other additional arguments are allowed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+        
+    <span class="c1"># Methods</span>
+    
+<div class="viewcode-block" id="YieldCurve.convert"><a class="viewcode-back" href="../../yield_curve/index.html#actuarial.yield_curve.YieldCurve.convert">[docs]</a>    <span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert in-place the yield curve to a new type i.e. update the `kind` attribute.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        kind : {&quot;capitalization_factor&quot;, &quot;compound_rate&quot;, &quot;continuous_rate&quot;, &quot;discount_factor&quot;, &quot;simple_rate&quot;}, optional</span>
+<span class="sd">            The yield curve will be converted to this type.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        YieldCurve</span>
+<span class="sd">            Instance.</span>
+<span class="sd">            </span>
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `kind` is not valid.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="c1"># Control the kind</span>
+
+        <span class="k">if</span> <span class="n">kind</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">kinds</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;kind&#39; must be one of the following: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kinds</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            
+        <span class="c1"># Convert the values of the yield curve to the new type</span>
+            
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">TermStructure</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">Discounting</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="p">)</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+            
+        <span class="c1"># Update the type of the yield curve</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="o">=</span> <span class="n">kind</span>
+        
+        <span class="c1"># Return output</span>
+        
+        <span class="k">return</span> <span class="bp">self</span></div>
+                        
+<div class="viewcode-block" id="YieldCurve.discount_factor"><a class="viewcode-back" href="../../yield_curve/index.html#actuarial.yield_curve.YieldCurve.discount_factor">[docs]</a>    <span class="nd">@catch_maturities</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">discount_factor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities1</span><span class="p">,</span> <span class="n">maturities2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;discount_factor([maturities1=0,] maturities2)</span>
+<span class="sd">        Compute the discount factor between two maturities.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        maturities1 : array-like, optional</span>
+<span class="sd">            Starting maturities. The default is 0.</span>
+<span class="sd">        maturities2 : array-like or None</span>
+<span class="sd">            Ending maturities. If None, the `maturities` attribute will be used</span>
+<span class="sd">            if it exists.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        scalar or array</span>
+<span class="sd">            Discount factor between `maturities1` and `maturities2`.</span>
+<span class="sd">            </span>
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `maturities1` and `maturities2` cannot be broadcast with the instance.</span>
+<span class="sd">            If `maturities2` is None and the instance has no `maturities` attribute.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_discounting</span><span class="p">(</span><span class="n">maturities1</span><span class="p">,</span> <span class="n">maturities2</span><span class="p">)</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">&quot;discount_factor&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">[()]</span></div>
+    
+<div class="viewcode-block" id="YieldCurve.capitalization_factor"><a class="viewcode-back" href="../../yield_curve/index.html#actuarial.yield_curve.YieldCurve.capitalization_factor">[docs]</a>    <span class="nd">@catch_maturities</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">capitalization_factor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities1</span><span class="p">,</span> <span class="n">maturities2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;capitalization_factor([maturities1=0,] maturities2)</span>
+<span class="sd">        Compute the capitalization factor between two maturities.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        maturities1 : array-like, optional</span>
+<span class="sd">            Starting maturities. The default is 0.</span>
+<span class="sd">        maturities2 : array-like or None</span>
+<span class="sd">            Ending maturities. If None, the `maturities` attribute will be used</span>
+<span class="sd">            if it exists.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        scalar or array</span>
+<span class="sd">            Capitalization factor between `maturities1` and `maturities2`.</span>
+<span class="sd">            </span>
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `maturities1` and `maturities2` cannot be broadcast with the instance.</span>
+<span class="sd">            If `maturities2` is None and the instance has no `maturities` attribute.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_discounting</span><span class="p">(</span><span class="n">maturities1</span><span class="p">,</span> <span class="n">maturities2</span><span class="p">)</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">&quot;capitalization_factor&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">[()]</span></div>
+    
+<div class="viewcode-block" id="YieldCurve.to_discounting"><a class="viewcode-back" href="../../yield_curve/index.html#actuarial.yield_curve.YieldCurve.to_discounting">[docs]</a>    <span class="nd">@catch_maturities</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">to_discounting</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities1</span><span class="p">,</span> <span class="n">maturities2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;to_discounting([maturities1=0,] maturities2)</span>
+<span class="sd">        Return a `Discounting` instance for the provided maturities.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        maturities1 : array-like, optional</span>
+<span class="sd">            Starting maturities. The default is 0.</span>
+<span class="sd">        maturities2 : array-like or None</span>
+<span class="sd">            Ending maturities. If None, the `maturities` attribute will be used</span>
+<span class="sd">            if it exists.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Discounting</span>
+<span class="sd">            Discounting instance containing discount values for the provided</span>
+<span class="sd">            maturities. If `maturities1` is different from 0, the returned discount</span>
+<span class="sd">            values correspond to discount factors while if `maturities1` is 0,</span>
+<span class="sd">            they correspond to the `kind` attribute of the instance.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `maturities1` and `maturities2` cannot be broadcast with the instance.</span>
+<span class="sd">            If `maturities2` is None and the instance has no `maturities` attribute.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">maturities1</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="p">(</span><span class="n">maturities1</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span> <span class="c1"># maturities1 = 0</span>
+            
+            <span class="k">if</span> <span class="n">maturities2</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">Discounting</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">maturities2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">maturities2</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">TermStructure</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">Discounting</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;maturities&quot;</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">Discounting</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&#39;maturities2&#39; argument cannot be None&quot;</span><span class="p">)</span>
+                
+        <span class="k">else</span><span class="p">:</span> <span class="c1"># maturities1 &gt; 0</span>
+        
+            <span class="k">return</span> <span class="n">Discounting</span><span class="p">(</span><span class="n">maturities1</span><span class="p">,</span> <span class="n">maturities2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">discount_factor</span><span class="p">(</span><span class="n">maturities2</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">discount_factor</span><span class="p">(</span><span class="n">maturities1</span><span class="p">),</span> <span class="s2">&quot;discount_factor&quot;</span><span class="p">)</span></div>
+        
+    <span class="c1"># Class method</span>
+    
+<div class="viewcode-block" id="YieldCurve.fit"><a class="viewcode-back" href="../../yield_curve/index.html#actuarial.yield_curve.YieldCurve.fit">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Class method to fit a yield curve.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+        
+    <span class="c1"># Decorators    </span>
+    
+<div class="viewcode-block" id="YieldCurve.Decorators"><a class="viewcode-back" href="../../yield_curve/index.html#actuarial.yield_curve.YieldCurve.Decorators">[docs]</a>    <span class="k">class</span> <span class="nc">Decorators</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Container class containing decorators to use for the implemented methods</span>
+<span class="sd">        of `YieldCurve` instances.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+                    
+<div class="viewcode-block" id="YieldCurve.Decorators.evaluate"><a class="viewcode-back" href="../../yield_curve/index.html#actuarial.yield_curve.YieldCurve.Decorators.evaluate">[docs]</a>        <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Decorator for the implemented `evaluate` method of a `YieldCurve`</span>
+<span class="sd">            instance.</span>
+<span class="sd">                        </span>
+<span class="sd">            This decorator implements the following:</span>
+<span class="sd">                </span>
+<span class="sd">                * Convert the maturities for which the yield curve should be</span>
+<span class="sd">                  evaluated to a numpy array.</span>
+<span class="sd">                * Control whether these maturities can be broadcast with the instance.</span>
+<span class="sd">                * Reduce the output to a scalar when possible.</span>
+<span class="sd">    </span>
+<span class="sd">            Returns</span>
+<span class="sd">            -------</span>
+<span class="sd">            callable</span>
+<span class="sd">                Decorator.</span>
+<span class="sd">    </span>
+<span class="sd">            Raises</span>
+<span class="sd">            ------</span>
+<span class="sd">            ValueError</span>
+<span class="sd">                If the maturities cannot be broadcast with the instance.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            
+            <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+            <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                    
+                <span class="c1"># Control if maturities can be broadcast with the instance</span>
+                
+                <span class="n">maturities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">maturities</span><span class="p">)</span>
+                    
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_broadcastable</span><span class="p">(</span><span class="n">maturities</span><span class="p">):</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;maturities&#39; cannot be broadcast with the instance: their respective shapes are </span><span class="si">{</span><span class="n">maturities</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                        
+                <span class="c1"># Evaluate the yield curve</span>
+                
+                <span class="n">values</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                
+                <span class="c1"># Return output</span>
+                
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">values</span><span class="p">[()]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">values</span>
+                
+            <span class="n">wrapper</span><span class="o">.</span><span class="n">_undecorated</span> <span class="o">=</span> <span class="n">func</span>            
+            <span class="k">return</span> <span class="n">wrapper</span></div></div>
+        
+    <span class="c1"># Special methods    </span>
+    
+<div class="viewcode-block" id="YieldCurve.__call__"><a class="viewcode-back" href="../../yield_curve/index.html#actuarial.yield_curve.YieldCurve.__call__">[docs]</a>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Identical to the `evaluate` method.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div></div>
+    
+    
+<div class="viewcode-block" id="Flat"><a class="viewcode-back" href="../../yield_curve/Flat.html#actuarial.yield_curve.Flat">[docs]</a><span class="k">class</span> <span class="nc">Flat</span><span class="p">(</span><span class="n">Parametric</span><span class="p">,</span> <span class="n">YieldCurve</span><span class="p">):</span>
+    
+    <span class="c1"># Class attributes    </span>
+    
+    <span class="n">_parametrization</span> <span class="o">=</span> <span class="n">Parameters</span><span class="p">(</span><span class="n">level</span> <span class="o">=</span> <span class="n">Array</span><span class="p">())</span>
+    <span class="n">_print</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;parameters&quot;</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">)</span>
+    <span class="n">kinds</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;compound_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;continuous_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;simple_rate&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Constructor</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        .. rubric:: Initialization</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        level : array-like</span>
+<span class="sd">            Level of the flat yield curve. The yield curve will be equal to this</span>
+<span class="sd">            level for all maturities.</span>
+<span class="sd">        kind : {&quot;compound_rate&quot;, &quot;continuous_rate&quot;, &quot;simple_rate&quot;}, optional</span>
+<span class="sd">            Type of yield curve. The default assumes compound rates.</span>
+<span class="sd">            </span>
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `kind` is not valid.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">Parametric</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_parametrization</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">level</span><span class="p">))</span>
+        <span class="n">YieldCurve</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="p">)</span>
+        
+    <span class="c1"># Methods    </span>
+    
+<div class="viewcode-block" id="Flat.evaluate"><a class="viewcode-back" href="../../yield_curve/Flat.html#actuarial.yield_curve.Flat.evaluate">[docs]</a>    <span class="nd">@YieldCurve</span><span class="o">.</span><span class="n">Decorators</span><span class="o">.</span><span class="n">evaluate</span>
+    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Evaluate the values of the yield curve for the given maturities.</span>
+<span class="sd">        </span>
+<span class="sd">        Note</span>
+<span class="sd">        ----</span>
+<span class="sd">        The value of a flat yield curve at maturity :math:`\tau` is given by</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            r(\tau) = c.</span>
+<span class="sd">            </span>
+<span class="sd">        It is constant and equal to the level parameter.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        maturities : array-like</span>
+<span class="sd">            Maturities for which the yield curve should be evaluated.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        scalar or array</span>
+<span class="sd">            Values of the yield curve for the given maturities.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `maturities` cannot be broadcast with the instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+            
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;level&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="n">maturities</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span></div></div>
+    
+    
+<div class="viewcode-block" id="NelsonSiegel"><a class="viewcode-back" href="../../yield_curve/NelsonSiegel.html#actuarial.yield_curve.NelsonSiegel">[docs]</a><span class="k">class</span> <span class="nc">NelsonSiegel</span><span class="p">(</span><span class="n">Parametric</span><span class="p">,</span> <span class="n">YieldCurve</span><span class="p">):</span>
+    
+    <span class="c1"># Class attributes    </span>
+    
+    <span class="n">_parametrization</span> <span class="o">=</span> <span class="n">Parameters</span><span class="p">(</span>
+        <span class="n">beta0</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(),</span>
+        <span class="n">beta1</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(),</span>
+        <span class="n">beta2</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(),</span>
+        <span class="n">scale</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="nb">min</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">strict</span> <span class="o">=</span> <span class="kc">True</span><span class="p">))</span>
+    <span class="n">_print</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;parameters&quot;</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">)</span>
+    <span class="n">kinds</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;continuous_rate&quot;</span><span class="p">,)</span>
+    
+    <span class="c1"># Constructor</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">beta0</span><span class="p">,</span> <span class="n">beta1</span><span class="p">,</span> <span class="n">beta2</span><span class="p">,</span> <span class="n">scale</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        .. rubric:: Initialization</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        beta0 : array-like</span>
+<span class="sd">            Level parameter :math:`\beta_0`.</span>
+<span class="sd">        beta1 : array-like</span>
+<span class="sd">            Slope parameter :math:`\beta_1`.</span>
+<span class="sd">        beta2 : array-like</span>
+<span class="sd">            Curvature parameter :math:`\beta_2`.</span>
+<span class="sd">        scale : array-like</span>
+<span class="sd">            Scale parameter :math:`\lambda`.</span>
+<span class="sd">            </span>
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the parameters cannot be broadcast together.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+                    
+        <span class="n">Parametric</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_parametrization</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">beta0</span><span class="p">,</span> <span class="n">beta1</span><span class="p">,</span> <span class="n">beta2</span><span class="p">,</span> <span class="n">scale</span><span class="p">))</span>
+        <span class="n">YieldCurve</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;continuous_rate&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Methods    </span>
+    
+<div class="viewcode-block" id="NelsonSiegel.evaluate"><a class="viewcode-back" href="../../yield_curve/NelsonSiegel.html#actuarial.yield_curve.NelsonSiegel.evaluate">[docs]</a>    <span class="nd">@YieldCurve</span><span class="o">.</span><span class="n">Decorators</span><span class="o">.</span><span class="n">evaluate</span>
+    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities</span><span class="p">,</span> <span class="n">forward</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">split</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Evaluate the values of the yield curve for the given maturities.</span>
+<span class="sd">        </span>
+<span class="sd">        Note</span>
+<span class="sd">        ----</span>
+<span class="sd">        The Nelson-Siegel formula for the **spot rate** at maturity :math:`\tau`</span>
+<span class="sd">        is given by</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            r(\tau) = \beta_0 + \beta_1 \frac{1 - e^{-\frac{\tau}{\lambda}}}{\frac{\tau}{\lambda}} + \beta_2 \left( \frac{1 - e^{-\frac{\tau}{\lambda}}}{\frac{\tau}{\lambda}} - e^{-\frac{\tau}{\lambda}} \right),</span>
+
+<span class="sd">        and the **instantaneaous forward rate** is given by</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            f(\tau) = \beta_0 + \beta_1 e^{-\frac{\tau}{\lambda}} + \beta_2 \frac{\tau}{\lambda} e^{-\frac{\tau}{\lambda}}.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        maturities : array-like</span>
+<span class="sd">            Maturities for which the yield curve should be evaluated.</span>
+<span class="sd">        forward : bool, optional</span>
+<span class="sd">            If True, the instantaneaous forward rate is returned.</span>
+<span class="sd">            Otherwise, the spot rate is returned.</span>
+<span class="sd">            The default is False.</span>
+<span class="sd">        split : bool, optional</span>
+<span class="sd">            If True, the three additive components of the Nelson-Siegel model</span>
+<span class="sd">            (level, slope and curvature components) are returned separately</span>
+<span class="sd">            through a tuple.</span>
+<span class="sd">            Otherwise, they are aggregated.</span>
+<span class="sd">            The default is False.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        scalar or array or tuple</span>
+<span class="sd">            Values of the yield curve for the given maturities.</span>
+<span class="sd">            If `split` is True, a tuple with the three additive components of</span>
+<span class="sd">            the Nelson-Siegel model is returned.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `maturities` cannot be broadcast with the instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Get the Nelson-Siegel parameters</span>
+        
+        <span class="n">beta0</span><span class="p">,</span> <span class="n">beta1</span><span class="p">,</span> <span class="n">beta2</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">values</span>
+        
+        <span class="c1"># Get the predictors multiplying the beta parameters</span>
+        
+        <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predictors</span><span class="p">(</span><span class="n">maturities</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">forward</span> <span class="o">=</span> <span class="n">forward</span><span class="p">)</span>
+        
+        <span class="c1"># Nelson-Siegel formula</span>
+        
+        <span class="k">if</span> <span class="n">split</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">beta0</span><span class="o">*</span><span class="n">x0</span><span class="p">)[()],</span> <span class="p">(</span><span class="n">beta1</span><span class="o">*</span><span class="n">x1</span><span class="p">)[()],</span> <span class="p">(</span><span class="n">beta2</span><span class="o">*</span><span class="n">x2</span><span class="p">)[()]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">beta0</span> <span class="o">+</span> <span class="n">beta1</span><span class="o">*</span><span class="n">x1</span> <span class="o">+</span> <span class="n">beta2</span><span class="o">*</span><span class="n">x2</span></div>
+
+<div class="viewcode-block" id="NelsonSiegel.predictors"><a class="viewcode-back" href="../../yield_curve/NelsonSiegel.html#actuarial.yield_curve.NelsonSiegel.predictors">[docs]</a>    <span class="k">def</span> <span class="nf">predictors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">forward</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the predictors of the Nelson-Siegel model.</span>
+<span class="sd">        </span>
+<span class="sd">        Note</span>
+<span class="sd">        ----</span>
+<span class="sd">        The Nelson-Siegel model can be seen as a linear model with beta coefficients.</span>
+<span class="sd">        </span>
+<span class="sd">        The **spot rate** can be written as</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            r(\tau) = \beta_0 x_0(\tau; \lambda) + \beta_1 x_1(\tau; \lambda) + \beta_2 x_2(\tau; \lambda)</span>
+<span class="sd">            </span>
+<span class="sd">        where the predictors :math:`x_i(\tau,\lambda)` depend on the maturity</span>
+<span class="sd">        :math:`\tau`, scale parameter :math:`\lambda` and are given by</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            \begin{cases}</span>
+<span class="sd">                x_0(\tau; \lambda) = 1 \\</span>
+<span class="sd">                x_1(\tau; \lambda) = \frac{1 - e^{-\frac{\tau}{\lambda}}}{\frac{\tau}{\lambda}}  \\</span>
+<span class="sd">                x_2(\tau; \lambda) = \frac{1 - e^{-\frac{\tau}{\lambda}}}{\frac{\tau}{\lambda}} - e^{-\frac{\tau}{\lambda}}</span>
+<span class="sd">            \end{cases}</span>
+<span class="sd">            </span>
+<span class="sd">        The **instantaneous forward rate** can be written as</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            f(\tau) = \beta_0 z_0(\tau; \lambda) + \beta_1 z_1(\tau; \lambda) + \beta_2 z_2(\tau; \lambda)</span>
+<span class="sd">            </span>
+<span class="sd">        where the predictors :math:`z_i(\tau,\lambda)` are given by</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            \begin{cases}</span>
+<span class="sd">                z_0(\tau; \lambda) = 1 \\</span>
+<span class="sd">                z_1(\tau; \lambda) = e^{-\frac{\tau}{\lambda}} \\</span>
+<span class="sd">                z_2(\tau; \lambda) = \frac{\tau}{\lambda} e^{-\frac{\tau}{\lambda}}</span>
+<span class="sd">            \end{cases}</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        maturities : array-like</span>
+<span class="sd">            Maturities for which the yield curve should be evaluated.</span>
+<span class="sd">        scale : array-like or None, optional</span>
+<span class="sd">            Scale parameter of the Nelson-Siegel model. The default uses the</span>
+<span class="sd">            scale parameter of the instance.</span>
+<span class="sd">        forward : bool, optional</span>
+<span class="sd">            If True, the predictors of the instantaneaous forward rate are returned.</span>
+<span class="sd">            Otherwise, the predictors of the spot rate are returned.</span>
+<span class="sd">            The default is False.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        tuple of array</span>
+<span class="sd">            The three predictors of the Nelson-Siegel model. Each predictor is</span>
+<span class="sd">            an array for which the shape corresponds to the broadcast of the</span>
+<span class="sd">            maturities with scale parameter.</span>
+<span class="sd">            </span>
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `maturities` and `scale` cannot be broadcast together.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="c1"># Control if maturities and scale can be broadcast together</span>
+        
+        <span class="n">maturities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">maturities</span><span class="p">)</span>
+        <span class="n">scale</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;scale&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="k">if</span> <span class="n">scale</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">scale</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">is_broadcastable</span><span class="p">(</span><span class="n">maturities</span><span class="p">,</span> <span class="n">scale</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;maturities&#39; and &#39;scale&#39; parameter cannot be broadcast together: their respective shapes are </span><span class="si">{</span><span class="n">maturities</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">scale</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Scale maturities and compute its exponential decay function</span>
+        
+        <span class="n">scaled_maturities</span> <span class="o">=</span> <span class="n">maturities</span><span class="o">/</span><span class="n">scale</span>
+        <span class="n">exp_scaled_maturities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">scaled_maturities</span><span class="p">)</span>
+        
+        <span class="c1"># Predictors</span>
+        
+        <span class="k">if</span> <span class="n">forward</span><span class="p">:</span> <span class="c1"># instantaneaous forward rates</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">scaled_maturities</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">exp_scaled_maturities</span><span class="p">,</span> <span class="n">scaled_maturities</span><span class="o">*</span><span class="n">exp_scaled_maturities</span>
+        <span class="k">else</span><span class="p">:</span> <span class="c1"># spot rates</span>
+            <span class="n">factor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">scaled_maturities</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">exp_scaled_maturities</span><span class="p">,</span> <span class="n">scaled_maturities</span><span class="p">,</span> <span class="n">where</span> <span class="o">=</span> <span class="p">(</span><span class="n">maturities</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">),</span> <span class="n">out</span> <span class="o">=</span> <span class="n">factor</span><span class="p">)</span> <span class="c1"># if a maturity is equal to 0, then factor is equal to 1</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">scaled_maturities</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">factor</span><span class="p">,</span> <span class="n">factor</span> <span class="o">-</span> <span class="n">exp_scaled_maturities</span></div>
+    
+    <span class="c1"># Class methods</span>
+    
+<div class="viewcode-block" id="NelsonSiegel.fit"><a class="viewcode-back" href="../../yield_curve/NelsonSiegel.html#actuarial.yield_curve.NelsonSiegel.fit">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">yield_curve</span><span class="p">,</span> <span class="n">scales</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;  </span>
+<span class="sd">        Fit a Nelson-Siegel model.</span>
+<span class="sd">        </span>
+<span class="sd">        Note</span>
+<span class="sd">        ----</span>
+<span class="sd">        The fitting method uses a grid search method for the scale parameter and</span>
+<span class="sd">        an ordinary least-squares (OLS) method for the beta parameters.</span>
+<span class="sd">        </span>
+<span class="sd">        Given a scale parameter :math:`\lambda`, the beta parameters of the</span>
+<span class="sd">        Nelson-Siegel model are fitted by ordinary least-squares method.</span>
+<span class="sd">        It means that the beta parameters :math:`\beta_0, \beta_1` and :math:`\beta_2`</span>
+<span class="sd">        are obtained by minimizing the sum of squared error (SSE) given by</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            SSE = \sum_j \left( \beta_0 + \beta_1 x_1(\tau_j;\lambda) + \beta_2 x_2(\tau_j;\lambda) - r^{obs}(\tau_j) \right)^2     </span>
+<span class="sd">            </span>
+<span class="sd">        where :math:`r^{obs}(\tau_j)` are the observed spot continuous rates</span>
+<span class="sd">        to be fitted.</span>
+<span class="sd">        </span>
+<span class="sd">        In order to fit the scale parameter, a grid serach method is used.</span>
+<span class="sd">        It means that a grid of scale parameters :math:`(\lambda_1, ..., \lambda_K)`</span>
+<span class="sd">        must be provided to the algorithm. For each scale parameter :math:`\lambda_k`,</span>
+<span class="sd">        the beta parameters are fitted by OLS method and the sum of squared</span>
+<span class="sd">        error :math:`SSE_k` is calculated. The optimal scale parameter is the</span>
+<span class="sd">        one for which the SSE is the smallest.                  </span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        yield_curve : RawYieldCurve</span>
+<span class="sd">            Raw yield curve to be fitted. The curve will be automatically converted</span>
+<span class="sd">            to spot continuous rates for the fitting.</span>
+<span class="sd">        scales : 1D array-like</span>
+<span class="sd">            Grid search to use for the scale parameter. If only one number is</span>
+<span class="sd">            provided, the scale parameter will be forced to this one. Otherwise,</span>
+<span class="sd">            the optimal scale parameter will be chosen from the grid.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        NelsonSiegel</span>
+<span class="sd">            Fitted instance of a Nelson-Siegel model.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If `yield_curve` is not a `RawYieldCurve` instance.</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the length of `yield_curve` is not at least 3.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="c1"># Control if yield_curve is a RawYieldCurve instance with at least 3 observed maturities</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">yield_curve</span><span class="p">,</span> <span class="n">RawYieldCurve</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;&#39;yield_curve&#39; argument must be a RawYieldCurve instance&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">yield_curve</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;the length of &#39;yield_curve&#39; must be at least 3&quot;</span><span class="p">)</span>
+            
+        <span class="c1"># Convert raw yield curve to continuous rate</span>
+        
+        <span class="n">yield_curve</span> <span class="o">=</span> <span class="n">yield_curve</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">&quot;continuous_rate&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Reshape values of the raw yield curve (must be a matrix with len(yield_curve) rows)</span>
+        
+        <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">moveaxis</span><span class="p">(</span><span class="n">yield_curve</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">yield_curve</span><span class="o">.</span><span class="n">axis</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">yield_curve</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># matrix with len(yield_curve) rows and n columns</span>
+        
+        <span class="c1"># Initialize the parameters and residuals</span>
+        
+        <span class="n">n</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># number of curves to be fitted</span>
+        <span class="n">parameters</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_parametrization</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">))</span>
+        <span class="n">best_residuals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+        
+        <span class="c1"># Calculate the predictors x0, x1 and x2</span>
+        
+        <span class="n">scales</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">scales</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span> <span class="c1"># 1D array</span>
+        <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">predictors</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">yield_curve</span><span class="o">.</span><span class="n">maturities</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">scales</span><span class="p">)</span> <span class="c1"># matrices with len(yield_curve) rows and len(scales) columns</span>
+        
+        <span class="c1"># Fit the parameters using a grid search method for the scale parameter and a least-squares method (OLS) for the beta parameters</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">scale</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">scales</span><span class="p">):</span> <span class="c1"># loop on each scale parameter (grid search)</span>
+            
+            <span class="c1"># Matrix of predictors</span>
+
+            <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">x0</span><span class="p">[:,[</span><span class="n">i</span><span class="p">]],</span> <span class="n">x1</span><span class="p">[:,[</span><span class="n">i</span><span class="p">]],</span> <span class="n">x2</span><span class="p">[:,[</span><span class="n">i</span><span class="p">]]))</span> <span class="c1"># matrix with len(yield_curve) rows and 3 columns</span>
+            
+            <span class="c1"># Optimal beta parameters using a least-squares method</span>
+            
+            <span class="n">betas</span><span class="p">,</span> <span class="n">current_residuals</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">rcond</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="c1"># betas is a matrix with 3 rows and n columns and residuals is a vector of length n</span>
+        
+            <span class="c1"># Update optimal residuals (sum of squared errors)</span>
+            
+            <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">current_residuals</span> <span class="o">&lt;</span> <span class="n">best_residuals</span><span class="p">)</span> <span class="c1"># boolean vector indicating if current residuals are better than previous best ones</span>
+            <span class="n">best_residuals</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_residuals</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+            
+            <span class="c1"># Update optimal parameters</span>
+            
+            <span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;beta0&quot;</span><span class="p">][</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">betas</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">mask</span><span class="p">]</span>
+            <span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;beta1&quot;</span><span class="p">][</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">betas</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">mask</span><span class="p">]</span>
+            <span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;beta2&quot;</span><span class="p">][</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">betas</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="n">mask</span><span class="p">]</span>
+            <span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;scale&quot;</span><span class="p">][</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">scale</span>
+            
+        <span class="c1"># Reshape parameters and residuals to be aligned with the initial shape of the provided raw yield curve</span>
+            
+        <span class="n">shape</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">yield_curve</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">parameters</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">shape</span> <span class="o">=</span> <span class="p">()</span>
+        <span class="k">elif</span> <span class="n">yield_curve</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="o">-</span><span class="n">yield_curve</span><span class="o">.</span><span class="n">axis</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">shape</span><span class="p">[</span><span class="n">yield_curve</span><span class="o">.</span><span class="n">axis</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">shape</span><span class="p">[</span><span class="n">yield_curve</span><span class="o">.</span><span class="n">axis</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            
+        <span class="n">parameters</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">value</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">values</span><span class="p">])</span>
+        <span class="n">best_residuals</span> <span class="o">=</span> <span class="n">best_residuals</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+            
+        <span class="c1"># Return output</span>
+        
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">parameters</span><span class="p">)</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">residuals</span> <span class="o">=</span> <span class="n">best_residuals</span><span class="p">)</span></div></div>
+      
+ 
+<div class="viewcode-block" id="LinearInterpolation"><a class="viewcode-back" href="../../yield_curve/LinearInterpolation.html#actuarial.yield_curve.LinearInterpolation">[docs]</a><span class="k">class</span> <span class="nc">LinearInterpolation</span><span class="p">(</span><span class="n">Piecewise</span><span class="p">,</span> <span class="n">TermStructure</span><span class="p">,</span> <span class="n">YieldCurve</span><span class="p">):</span>
+    
+    <span class="c1"># Class attributes    </span>
+
+    <span class="n">_print</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;maturities&quot;</span><span class="p">,</span> <span class="s2">&quot;values&quot;</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">)</span> 
+    
+    <span class="c1"># Constructor</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        .. rubric:: Initialization</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        maturities : array-like</span>
+<span class="sd">            Maturities of the yield curve to interpolate.</span>
+<span class="sd">        values : array-like</span>
+<span class="sd">            Values of the yield curve to interpolate.</span>
+<span class="sd">        kind : {&quot;capitalization_factor&quot;, &quot;compound_rate&quot;, &quot;continuous_rate&quot;, &quot;discount_factor&quot;, &quot;simple_rate&quot;}</span>
+<span class="sd">            Type of yield curve. The default assumes compound rates.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `kind` is not valid.</span>
+<span class="sd">            If `maturities` is not along the first axis.</span>
+<span class="sd">            If `values` has not the same size as `maturities` along the instance axis.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">TermStructure</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+        <span class="n">YieldCurve</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="p">)</span>
+        
+    <span class="c1"># Properties    </span>
+    
+    <span class="nd">@property</span>
+    <span class="nd">@memorize</span>
+    <span class="k">def</span> <span class="nf">piecewise_function</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        PiecewiseFunction: Piecewise function used when interpolating the yield</span>
+<span class="sd">        curve between two consecutive maturities.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">yield_curve</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">yield_curve</span><span class="o">.</span><span class="n">prepend</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">util</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">yield_curve</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="p">,</span> <span class="n">keepdims</span> <span class="o">=</span> <span class="kc">True</span><span class="p">))</span> <span class="c1"># prepend the maturity 0 to the yield curve to interpolate in order to have a flat rate between 0 and min(maturities) when interpolating</span>
+        <span class="n">yield_curve</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yield_curve</span><span class="o">.</span><span class="n">maturities</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">util</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">yield_curve</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="p">,</span> <span class="n">keepdims</span> <span class="o">=</span> <span class="kc">True</span><span class="p">))</span> <span class="c1"># append a maturity to the yield curve to interpolate in order to have a flat rate above max(maturities) when interpolating</span>
+        <span class="k">return</span> <span class="n">PiecewiseFunction</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">yield_curve</span><span class="o">.</span><span class="n">maturities</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">yield_curve</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;linear&quot;</span><span class="p">)</span> <span class="c1"># interpolate the yield curve (linear interpolation)</span>
+    
+    <span class="c1"># Methods</span>
+    
+<div class="viewcode-block" id="LinearInterpolation.evaluate"><a class="viewcode-back" href="../../yield_curve/LinearInterpolation.html#actuarial.yield_curve.LinearInterpolation.evaluate">[docs]</a>    <span class="nd">@YieldCurve</span><span class="o">.</span><span class="n">Decorators</span><span class="o">.</span><span class="n">evaluate</span>
+    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Evaluate the values of the yield curve for the given maturities.</span>
+<span class="sd">        </span>
+<span class="sd">        Note</span>
+<span class="sd">        ----</span>
+<span class="sd">        Let :math:`\lbrace(\tau_i,r_i)\rbrace_{i=1,...,n}` be a set of rates to interpolate.</span>
+<span class="sd">        </span>
+<span class="sd">        The lineraly interpolated yield curve at maturity :math:`\tau` is given by</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            r(\tau) =   \begin{cases}</span>
+<span class="sd">                            r_1 &amp; \text{if } \tau &lt; \tau_1, \\</span>
+<span class="sd">                            \alpha(\tau) r_i + (1-\alpha(\tau)) r_{i+1} &amp; \text{if } \tau_i \leq \tau &lt; \tau_{i+1}, \\</span>
+<span class="sd">                            r_n &amp; \text{if } \tau \geq \tau_n.</span>
+<span class="sd">                        \end{cases}</span>
+<span class="sd">                        </span>
+<span class="sd">        where :math:`\alpha(\tau) = \frac{\tau_{i+1}-\tau}{\tau_{i+1}-\tau_{i}}`.</span>
+<span class="sd">        </span>
+<span class="sd">        Note that below the minimum maturity :math:`\tau_1` and above the maximum</span>
+<span class="sd">        maturity :math:`\tau_n`, a flat extrapolation is used.</span>
+<span class="sd">        </span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        maturities : array-like</span>
+<span class="sd">            Maturities for which the yield curve should be evaluated.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        scalar or array</span>
+<span class="sd">            Values of the yield curve for the given maturities.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `maturities` cannot be broadcast with the instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">piecewise_function</span><span class="p">(</span><span class="n">maturities</span><span class="p">)</span></div></div>
+    
+
+<div class="viewcode-block" id="RawInterpolation"><a class="viewcode-back" href="../../yield_curve/RawInterpolation.html#actuarial.yield_curve.RawInterpolation">[docs]</a><span class="k">class</span> <span class="nc">RawInterpolation</span><span class="p">(</span><span class="n">Piecewise</span><span class="p">,</span> <span class="n">TermStructure</span><span class="p">,</span> <span class="n">YieldCurve</span><span class="p">):</span>
+    
+    <span class="c1"># Class attributes    </span>
+    
+    <span class="n">_print</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;maturities&quot;</span><span class="p">,</span> <span class="s2">&quot;values&quot;</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">)</span> 
+    
+    <span class="c1"># Constructor</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;discount_factor&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        .. rubric:: Initialization</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        maturities : array-like</span>
+<span class="sd">            Maturities of the yield curve to interpolate.</span>
+<span class="sd">        values : array-like</span>
+<span class="sd">            Values of the yield curve to interpolate.</span>
+<span class="sd">        kind : {&quot;capitalization_factor&quot;, &quot;compound_rate&quot;, &quot;continuous_rate&quot;, &quot;discount_factor&quot;, &quot;simple_rate&quot;}</span>
+<span class="sd">            Type of yield curve. The default assumes discount factors.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `kind` is not valid.</span>
+<span class="sd">            If `maturities` is not along the first axis.</span>
+<span class="sd">            If `values` has not the same size as `maturities` along the instance axis.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">TermStructure</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+        <span class="n">YieldCurve</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="p">)</span>
+        
+    <span class="c1"># Properties</span>
+    
+    <span class="nd">@property</span>
+    <span class="nd">@memorize</span>
+    <span class="k">def</span> <span class="nf">piecewise_function</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        PiecewiseFunction: Piecewise function used when interpolating the yield</span>
+<span class="sd">        curve between two consecutive maturities.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">yield_curve</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">yield_curve</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">&quot;discount_factor&quot;</span><span class="p">)</span> <span class="c1"># convert the yield curve to interpolate to discount factors</span>
+        <span class="n">yield_curve</span><span class="o">.</span><span class="n">prepend</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># prepend a discount factor equal to 1 when the maturity is 0</span>
+        <span class="k">return</span> <span class="n">PiecewiseFunction</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">yield_curve</span><span class="o">.</span><span class="n">maturities</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">yield_curve</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;exponential&quot;</span><span class="p">)</span> <span class="c1"># interpolate the yield curve (exponential interpolation on the discount factors)</span>
+
+    <span class="c1"># Methods</span>
+    
+<div class="viewcode-block" id="RawInterpolation.evaluate"><a class="viewcode-back" href="../../yield_curve/RawInterpolation.html#actuarial.yield_curve.RawInterpolation.evaluate">[docs]</a>    <span class="nd">@YieldCurve</span><span class="o">.</span><span class="n">Decorators</span><span class="o">.</span><span class="n">evaluate</span>
+    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Evaluate the values of the yield curve for the given maturities.</span>
+<span class="sd">        </span>
+<span class="sd">        Note</span>
+<span class="sd">        ----</span>
+<span class="sd">        Let :math:`\lbrace(\tau_i,P_i)\rbrace_{i=0,...,n}` be a set of zero-coupon</span>
+<span class="sd">        bonds price (discount factors) to interpolate. We assume that we have the</span>
+<span class="sd">        initial condition :math:`\tau_0=0` and :math:`P_0=1`.</span>
+<span class="sd">        </span>
+<span class="sd">        The raw interpolated zero-coupon bond price at maturity :math:`\tau \in [\tau_i,\tau_{i+1})`</span>
+<span class="sd">        is given by</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            P(\tau) = P_i e^{-\mu_i(\tau-\tau_i)}</span>
+<span class="sd">                        </span>
+<span class="sd">        where :math:`\mu_i` is the constant instantaneous forward rate on the</span>
+<span class="sd">        interval :math:`[\tau_i,\tau_{i+1})` given by</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            \mu_i = - \frac{\ln(P_{i+1}) - \ln(P_i)}{\tau_{i+1} - \tau_i}.</span>
+<span class="sd">        </span>
+<span class="sd">        Note that above the maximum maturity :math:`\tau_n`, an extrapolation</span>
+<span class="sd">        method is used. The extrapolation assumes that the instantaneous forward</span>
+<span class="sd">        rate :math:`\mu_{n-1}` calculated for the interval :math:`[\tau_{n-1},\tau_n)`</span>
+<span class="sd">        continues to apply above :math:`\tau_n`.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        maturities : array-like</span>
+<span class="sd">            Maturities for which the yield curve should be evaluated.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        scalar or array</span>
+<span class="sd">            Values of the yield curve for the given maturities.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `maturities` cannot be broadcast with the instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">discount_factor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">piecewise_function</span><span class="p">(</span><span class="n">maturities</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Discounting</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">maturities</span><span class="p">,</span> <span class="n">discount_factor</span><span class="p">,</span> <span class="s2">&quot;discount_factor&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="p">)</span><span class="o">.</span><span class="n">values</span></div></div>
+    
+    
+<div class="viewcode-block" id="MixtureYieldCurve"><a class="viewcode-back" href="../../yield_curve/Mixture.html#actuarial.yield_curve.MixtureYieldCurve">[docs]</a><span class="k">class</span> <span class="nc">MixtureYieldCurve</span><span class="p">(</span><span class="n">Mixture</span><span class="p">,</span> <span class="n">YieldCurve</span><span class="p">):</span>
+    
+    <span class="c1"># Class attributes</span>
+    
+    <span class="n">_print</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;components&quot;</span><span class="p">,</span> <span class="s2">&quot;weights&quot;</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">)</span>
+    <span class="n">kinds</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;compound_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;continuous_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;simple_rate&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Constructor</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">components</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        .. rubric:: Initialization</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        components : list of YieldCurve</span>
+<span class="sd">            List containing the yield curve components.</span>
+<span class="sd">        weights : list of array-like or None, optional</span>
+<span class="sd">            Weights associated with the mixture components. The list must have</span>
+<span class="sd">            the same length as the number of components. If None, a weight of 1</span>
+<span class="sd">            is associated with each component. The default is None.</span>
+<span class="sd">        kind : {&quot;compound_rate&quot;, &quot;continuous_rate&quot;, &quot;simple_rate&quot;}, optional</span>
+<span class="sd">            Type of yield curve. The default assumes compound rates.</span>
+<span class="sd">            </span>
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If `components` is not a list of `YieldCurve` elements.</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `kind` is not valid.</span>
+<span class="sd">            If the length of `weights` is not the same as the length of `components`.</span>
+<span class="sd">            If the elements of `weights` cannot be broadcast together.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">Mixture</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">components</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">component_type</span> <span class="o">=</span> <span class="n">YieldCurve</span><span class="p">)</span>
+        <span class="n">YieldCurve</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="p">)</span>
+        
+    <span class="c1"># Methods</span>
+    
+<div class="viewcode-block" id="MixtureYieldCurve.evaluate"><a class="viewcode-back" href="../../yield_curve/Mixture.html#actuarial.yield_curve.MixtureYieldCurve.evaluate">[docs]</a>    <span class="nd">@YieldCurve</span><span class="o">.</span><span class="n">Decorators</span><span class="o">.</span><span class="n">evaluate</span>
+    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities</span><span class="p">,</span> <span class="n">split</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Evaluate the values of the yield curve for the given maturities.</span>
+<span class="sd">        </span>
+<span class="sd">        Note</span>
+<span class="sd">        ----</span>
+<span class="sd">        The value of a mixture yield curve at maturity :math:`\tau` is given by</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            r(\tau) = \sum_{k=1}^K w_k r_k(\tau)</span>
+<span class="sd">            </span>
+<span class="sd">        where :math:`r_k(\tau)` is the value of the k-th yield curve component</span>
+<span class="sd">        and :math:`w_k` the associated weight.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        maturities : array-like</span>
+<span class="sd">            Maturities for which the yield curve should be evaluated.</span>
+<span class="sd">        split : bool, optional</span>
+<span class="sd">            If True, the individual components of the mixture yield curve are</span>
+<span class="sd">            returned separately. Otherwise, they are aggregated.</span>
+<span class="sd">            The default is False.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        scalar or array or list</span>
+<span class="sd">            Values of the yield curve for the given maturities.</span>
+<span class="sd">            If `split` is True, a list with the weighted values of each individual</span>
+<span class="sd">            component is returned.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `maturities` cannot be broadcast with the instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">weight</span><span class="o">*</span><span class="n">component</span><span class="o">.</span><span class="n">to_discounting</span><span class="p">(</span><span class="n">maturities</span><span class="p">)</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="p">)</span><span class="o">.</span><span class="n">values</span> <span class="k">for</span> <span class="n">component</span><span class="p">,</span> <span class="n">weight</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="n">split</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">values</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span></div></div>
+    
+   
+
+
+        
+
+
+
+    
+    
+    
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+    <span class="n">maturities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span><span class="o">/</span><span class="mi">100</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">LinearInterpolation</span><span class="p">(</span><span class="n">maturities</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">)</span>
+    <span class="n">s2</span> <span class="o">=</span> <span class="n">LinearInterpolation</span><span class="p">(</span><span class="n">maturities</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">)</span>
+    
+    <span class="n">maturities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">maturities</span><span class="p">)))</span><span class="o">/</span><span class="mi">100</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">LinearInterpolation</span><span class="p">(</span><span class="n">maturities</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">)</span>
+    <span class="n">s2</span> <span class="o">=</span> <span class="n">LinearInterpolation</span><span class="p">(</span><span class="n">maturities</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">)</span>
+    <span class="n">s3</span> <span class="o">=</span> <span class="n">LinearInterpolation</span><span class="p">(</span><span class="n">maturities</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">)</span>
+    
+    <span class="n">a</span> <span class="o">=</span> <span class="n">RawInterpolation</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mf">.99</span><span class="p">,</span><span class="mf">.98</span><span class="p">,</span><span class="mf">.97</span><span class="p">],</span> <span class="s2">&quot;discount_factor&quot;</span><span class="p">)</span>
+    <span class="n">a1</span> <span class="o">=</span> <span class="n">RawInterpolation</span><span class="p">(</span><span class="n">maturities</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">)</span>
+    <span class="n">a2</span> <span class="o">=</span> <span class="n">RawInterpolation</span><span class="p">(</span><span class="n">maturities</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">)</span>
+    <span class="n">a3</span> <span class="o">=</span> <span class="n">RawInterpolation</span><span class="p">(</span><span class="n">maturities</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># n1 = NelsonSiegel.fit(s, 2)</span>
+    <span class="c1"># n2 = NelsonSiegel.fit(s2, 2)</span>
+    <span class="c1"># n3 = NelsonSiegel.fit(s3, 2)</span>
+
+
+    <span class="n">beta0</span> <span class="o">=</span> <span class="mf">.01</span>
+    <span class="n">beta1</span> <span class="o">=</span> <span class="mf">.02</span>
+    <span class="n">beta2</span> <span class="o">=</span> <span class="mf">.9</span>
+    <span class="n">tau</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">ns</span> <span class="o">=</span> <span class="n">NelsonSiegel</span><span class="p">(</span><span class="n">beta0</span><span class="p">,</span> <span class="n">beta1</span><span class="p">,</span> <span class="n">beta2</span><span class="p">,</span> <span class="n">tau</span><span class="p">)</span>
+    
+    <span class="c1">#s = Spot([1,5,10,20], [-0.01,0,0.01,0.015], &quot;compound_rate&quot;)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">LinearInterpolation</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.015</span><span class="p">]),</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">)</span>
+    <span class="c1">#l = LinearInterpolation.fit(s)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+    <span class="c1"># plt.plot(s.maturities, s.values, &quot;x&quot;)</span>
+    <span class="c1"># plt.plot(m, l(m))</span>
+    
+    <span class="c1">#r = RawInterpolation.fit(s)</span>
+    <span class="c1"># plt.plot(r.maturities, r.values, &quot;x&quot;)</span>
+    <span class="c1"># plt.plot(m, r(m))</span>
+    
+    <span class="c1"># plt.plot(m, l(m))</span>
+    <span class="c1"># plt.plot(m, r.to_raw(m).convert(&quot;compound_rate&quot;).values)</span>
+    
+    <span class="c1"># plt.plot(m, l.to_raw(m).convert().values)</span>
+    <span class="c1"># plt.plot(m, r(m))</span>
+
+    
+    
+    <span class="n">maturities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">maturities</span><span class="o">/</span><span class="mi">100</span>
+    
+    <span class="n">c</span> <span class="o">=</span> <span class="n">Flat</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+    <span class="n">c</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    
+    <span class="n">c</span> <span class="o">=</span> <span class="n">NelsonSiegel</span><span class="p">(</span><span class="mf">.01</span><span class="p">,</span> <span class="mf">.02</span><span class="p">,</span> <span class="mf">.9</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">c</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    
+    <span class="n">m</span> <span class="o">=</span> <span class="n">MixtureYieldCurve</span><span class="p">([</span><span class="n">Flat</span><span class="p">(</span><span class="mf">0.01</span><span class="p">),</span> <span class="n">Flat</span><span class="p">(</span><span class="mf">0.02</span><span class="p">)],</span> <span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">)</span>
+    
+    
+    <span class="n">r</span> <span class="o">=</span> <span class="n">LinearInterpolation</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mf">.01</span><span class="p">,</span><span class="mf">.02</span><span class="p">,</span><span class="mf">.03</span><span class="p">],</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cash-flow &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Yield Curve" href="../yield_curve/index.html" />
+    <link rel="prev" title="Fixed Income" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Test</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test.html">Test</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SUPERCLASS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../superclass/index.html">Superclass</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PROBABILITY &amp; STATISTICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copula/index.html">Copula</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Fixed Income</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Cash-flow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexation/index.html">Indexation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MATHEMATICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../function/index.html">Function</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">UTILITIES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util/util.html">Util</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XXX</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../XXX/notation.html">Notation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Fixed Income</a> &raquo;</li>
+      <li>Cash-flow</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/fixed_income/CashFlow.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cash-flow">
+<h1>Cash-flow<a class="headerlink" href="#cash-flow" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="actuarial.fixed_income.CashFlow">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.fixed_income.</span></span><span class="sig-name descname"><span class="pre">CashFlow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maturities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cumulative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/fixed_income.html#CashFlow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.fixed_income.CashFlow" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../superclass/TermStructure.html#actuarial.superclass.TermStructure" title="actuarial.superclass.TermStructure.TermStructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.TermStructure.TermStructure</span></code></a>, <a class="reference internal" href="../superclass/Base.html#actuarial.superclass.Base" title="actuarial.superclass.Base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Base.Base</span></code></a>, <a class="reference internal" href="../superclass/Broadcast.html#actuarial.superclass.Broadcast" title="actuarial.superclass.Broadcast.Broadcast"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Broadcast.Broadcast</span></code></a></p>
+<p class="rubric">Properties</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.fixed_income.CashFlow.maturities">
+<span class="sig-name descname"><span class="pre">maturities</span></span><a class="headerlink" href="#actuarial.fixed_income.CashFlow.maturities" title="Permalink to this definition"></a></dt>
+<dd><p>Maturties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.fixed_income.CashFlow.values">
+<span class="sig-name descname"><span class="pre">values</span></span><a class="headerlink" href="#actuarial.fixed_income.CashFlow.values" title="Permalink to this definition"></a></dt>
+<dd><p>Values associated with the maturities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.fixed_income.CashFlow.sum">
+<span class="sig-name descname"><span class="pre">sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keepdims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/fixed_income.html#CashFlow.sum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.fixed_income.CashFlow.sum" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the sum of cash-flows over the maturities.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The sum of cash-flows over the maturities is given by</p>
+<div class="math notranslate nohighlight">
+\[CF_\bullet = \sum_{i=1}^n CF_i.\]</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>keepdims</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the axis which is reduced is left in the result as dimension
+with size one (otherwise, it will be removed). With this option, the
+result will broadcast correctly against the initial cash-flows.
+The default is False.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Sum of cash-flows.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.fixed_income.CashFlow.weights">
+<span class="sig-name descname"><span class="pre">weights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cumulative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/fixed_income.html#CashFlow.weights"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.fixed_income.CashFlow.weights" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the relative weight (or percentage) of each cash-flow.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The weight of a cash-flow corresponds to its relative size compared
+to the total sum of cash-flows over the maturities:</p>
+<div class="math notranslate nohighlight">
+\[w_i = \frac{CF_i}{CF_\bullet} = \frac{CF_i}{\sum_{j=1}^n CF_j}.\]</div>
+<p>Note that by construction we have</p>
+<div class="math notranslate nohighlight">
+\[\sum_{i=1}^n w_i = 1.\]</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cumulative</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the weights are cumulated to reach 100% at the final maturity.
+The default is False.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Weights.
+Array with a float dtype and the same shape as the <a class="reference internal" href="#actuarial.fixed_income.CashFlow.values" title="actuarial.fixed_income.CashFlow.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></a> attribute.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods for yield curve</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.fixed_income.CashFlow.discount">
+<span class="sig-name descname"><span class="pre">discount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">discount_factors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/fixed_income.html#CashFlow.discount"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.fixed_income.CashFlow.discount" title="Permalink to this definition"></a></dt>
+<dd><p>Transform in-place the cash-flows by applying discount factors to them.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The new transformed cash-flows are given by</p>
+<div class="math notranslate nohighlight">
+\[CF_i^{new} = CF_i P(\tau_i)\]</div>
+<p>where <span class="math notranslate nohighlight">\(P(\tau)\)</span> is the discount factor for the maturity <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>discount_factors</strong> (<em>array-like</em><em> or </em><a class="reference internal" href="../yield_curve/index.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting"><em>Discounting</em></a><em> or </em><a class="reference internal" href="../yield_curve/index.html#actuarial.yield_curve.YieldCurve" title="actuarial.yield_curve.YieldCurve"><em>YieldCurve</em></a>) – Discount factors to use when discounting the cash-flows.
+It can be an array, a Discounting instance or an object able to
+evaluate the discount factors.
+If an array or a Discounting instance is provided, it is assumed to
+contain the value of the discount factors for each cash-flow maturity.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>TYPE</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.fixed_income.CashFlow.capitalize">
+<span class="sig-name descname"><span class="pre">capitalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">discount_factors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/fixed_income.html#CashFlow.capitalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.fixed_income.CashFlow.capitalize" title="Permalink to this definition"></a></dt>
+<dd><p>Transform in-place the cash-flows by applying capitalization factors to them.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The new transformed cash-flows are given by</p>
+<div class="math notranslate nohighlight">
+\[CF_i^{new} = \frac{CF_i}{P(\tau_i)}\]</div>
+<p>where <span class="math notranslate nohighlight">\(P(\tau)\)</span> is the discount factor for the maturity <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>discount_factors</strong> (<em>array-like</em><em> or </em><a class="reference internal" href="../yield_curve/index.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting"><em>Discounting</em></a><em> or </em><a class="reference internal" href="../yield_curve/index.html#actuarial.yield_curve.YieldCurve" title="actuarial.yield_curve.YieldCurve"><em>YieldCurve</em></a>) – Discount factors to use when discounting the cash-flows.
+It can be an array, a Discounting instance or an object able to
+evaluate the discount factors.
+If an array or a Discounting instance is provided, it is assumed to
+contain the value of the discount factors for each cash-flow maturity.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>TYPE</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.fixed_income.CashFlow.present_value">
+<span class="sig-name descname"><span class="pre">present_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">discount_factors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepdims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/fixed_income.html#CashFlow.present_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.fixed_income.CashFlow.present_value" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the present value of cash-flows.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The present value of cash-flows is given by</p>
+<div class="math notranslate nohighlight">
+\[PV = \sum_{i=1}^n CF_i P(\tau_i)\]</div>
+<p>where <span class="math notranslate nohighlight">\(P(\tau)\)</span> is the discount factor for the maturity <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>discount_factors</strong> (<em>array-like</em><em> or </em><a class="reference internal" href="../yield_curve/index.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting"><em>Discounting</em></a><em> or </em><a class="reference internal" href="../yield_curve/index.html#actuarial.yield_curve.YieldCurve" title="actuarial.yield_curve.YieldCurve"><em>YieldCurve</em></a><em>, </em><em>optional</em>) – Discount factors to use when discounting the cash-flows.
+It can be an array, a Discounting instance or an object able to
+evaluate the discount factors.
+If an array or a Discounting instance is provided, it is assumed to
+contain the value of the discount factors for each cash-flow maturity.</p></li>
+<li><p><strong>keepdims</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the axis which is reduced is left in the result as dimension
+with size one (otherwise, it will be removed). With this option, the
+result will broadcast correctly against the initial cash-flows.
+The default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Present value.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.fixed_income.CashFlow.duration">
+<span class="sig-name descname"><span class="pre">duration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">discount_factors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'continuous_rate'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dollar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepdims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/fixed_income.html#CashFlow.duration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.fixed_income.CashFlow.duration" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the modified duration of cash-flows.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>modified duration</strong> is a price sensitivity measure. It provides
+the relative change in the present value of cash-flows following a
+parallel shift of the term structure of interest rates.
+It is mathematically defined as</p>
+<div class="math notranslate nohighlight">
+\[duration = -\frac{1}{PV} \frac{\partial PV}{\partial }\]</div>
+<p>where <span class="math notranslate nohighlight">\(PV\)</span> is the current present value (price) of cash-flows.</p>
+<p>Depending on the type of interest rates and assuming fixed cash-flows,
+the modified duration is calculated as follows:</p>
+<blockquote>
+<div><ul>
+<li><p><strong>Continuous interest rates:</strong></p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\frac{1}{PV} \sum_{i=1}^n \tau_i CF_i P(\tau_i)\]</div>
+</div></blockquote>
+</li>
+<li><p><strong>Compound interest rates:</strong></p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\frac{1}{PV} \sum_{i=1}^n \tau_i CF_i P(\tau_i)^{1 + \frac{1}{\tau_i}}\]</div>
+</div></blockquote>
+</li>
+<li><p><strong>Simple interest rates:</strong></p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\frac{1}{PV} \sum_{i=1}^n \tau_i CF_i P(\tau_i)^2\]</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p>Note that the duration is measured in unit of time (the same unit as the
+maturities of cash-flows, usually in years).
+In case of continuous interest rates, the modified duration
+corresponds to the so called <strong>Macaulay duration</strong>.</p>
+<p>The <strong>dollar (modified) duration</strong> is equal to the (modified) duration
+multiplied by the current present value of cash-flows (i.e. the same
+formula as above except that we don’t divide by the present value).</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>discount_factors</strong> (<em>array-like</em><em> or </em><a class="reference internal" href="../yield_curve/index.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting"><em>Discounting</em></a><em> or </em><a class="reference internal" href="../yield_curve/index.html#actuarial.yield_curve.YieldCurve" title="actuarial.yield_curve.YieldCurve"><em>YieldCurve</em></a><em>, </em><em>optional</em>) – Discount factors to use when discounting the cash-flows.
+It can be an array, a Discounting instance or an object able to
+evaluate the discount factors.
+If an array or a Discounting instance is provided, it is assumed to
+contain the value of the discount factors for each cash-flow maturity.</p></li>
+<li><p><strong>kind</strong> (<em>{&quot;compound_rate&quot;</em><em>, </em><em>&quot;continuous_rate&quot;</em><em>, </em><em>&quot;simple_rate&quot;}</em><em>, </em><em>optional</em>) – Type of interest rates. The default assumes continuous rates.</p></li>
+<li><p><strong>dollar</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, compute the dollar duration. The default is False.</p></li>
+<li><p><strong>keepdims</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the axis which is reduced is left in the result as dimension
+with size one (otherwise, it will be removed). With this option, the
+result will broadcast correctly against the initial cash-flows.
+The default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Modified duration.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.fixed_income.CashFlow.convexity">
+<span class="sig-name descname"><span class="pre">convexity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">discount_factors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'continuous_rate'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dollar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepdims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/fixed_income.html#CashFlow.convexity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.fixed_income.CashFlow.convexity" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the modified convexity of cash-flows.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Depending on the type of interest rates and assuming fixed cash-flows,
+the modified convexity is calculated as follows:</p>
+<blockquote>
+<div><ul>
+<li><p><strong>Continuous interest rates:</strong></p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\frac{1}{PV} \sum_{i=1}^n \tau_i^2 CF_i P(\tau_i)\]</div>
+</div></blockquote>
+</li>
+<li><p><strong>Compound interest rates:</strong></p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\frac{1}{PV} \sum_{i=1}^n (\tau_i^2 + \tau_i) CF_i P(\tau_i)^{1 + \frac{2}{\tau_i}}\]</div>
+</div></blockquote>
+</li>
+<li><p><strong>Simple interest rates:</strong></p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\frac{2}{PV} \sum_{i=1}^n \tau_i^2 CF_i P(\tau_i)^3\]</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p>The <strong>dollar (modified) convexity</strong> is equal to the (modified) convexity
+multiplied by the current present value of cash-flows (i.e. the same
+formula as above except that we don’t divide by the present value).</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>discount_factors</strong> (<em>array-like</em><em> or </em><a class="reference internal" href="../yield_curve/index.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting"><em>Discounting</em></a><em> or </em><a class="reference internal" href="../yield_curve/index.html#actuarial.yield_curve.YieldCurve" title="actuarial.yield_curve.YieldCurve"><em>YieldCurve</em></a><em>, </em><em>optional</em>) – Discount factors to use when discounting the cash-flows.
+It can be an array, a Discounting instance or an object able to
+evaluate the discount factors.
+If an array or a Discounting instance is provided, it is assumed to
+contain the value of the discount factors for each cash-flow maturity.</p></li>
+<li><p><strong>kind</strong> (<em>{&quot;compound_rate&quot;</em><em>, </em><em>&quot;continuous_rate&quot;</em><em>, </em><em>&quot;simple_rate&quot;}</em><em>, </em><em>optional</em>) – Type of interest rates. The default assumes continuous rates.</p></li>
+<li><p><strong>dollar</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, compute the dollar convexity. The default is False.</p></li>
+<li><p><strong>keepdims</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the axis which is reduced is left in the result as dimension
+with size one (otherwise, it will be removed). With this option, the
+result will broadcast correctly against the initial cash-flows.
+The default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Modified convexity.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.fixed_income.CashFlow.asymetry">
+<span class="sig-name descname"><span class="pre">asymetry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">discount_factors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'continuous_rate'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dollar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepdims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/fixed_income.html#CashFlow.asymetry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.fixed_income.CashFlow.asymetry" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the modified asymetry of cash-flows.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Depending on the type of interest rates and assuming fixed cash-flows,
+the modified asymetry is calculated as follows:</p>
+<blockquote>
+<div><ul>
+<li><p><strong>Continuous interest rates:</strong></p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\frac{1}{PV} \sum_{i=1}^n \tau_i^3 CF_i P(\tau_i)\]</div>
+</div></blockquote>
+</li>
+<li><p><strong>Compound interest rates:</strong></p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\frac{1}{PV} \sum_{i=1}^n (\tau_i^3 + 3\tau_i^2 + 2\tau_i) CF_i P(\tau_i)^{1 + \frac{3}{\tau_i}}\]</div>
+</div></blockquote>
+</li>
+<li><p><strong>Simple interest rates:</strong></p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\frac{6}{PV} \sum_{i=1}^n \tau_i^3 CF_i P(\tau_i)^4\]</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p>The <strong>dollar (modified) asymetry</strong> is equal to the (modified) asymetry
+multiplied by the current present value of cash-flows (i.e. the same
+formula as above except that we don’t divide by the present value).</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>discount_factors</strong> (<em>array-like</em><em> or </em><a class="reference internal" href="../yield_curve/index.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting"><em>Discounting</em></a><em> or </em><a class="reference internal" href="../yield_curve/index.html#actuarial.yield_curve.YieldCurve" title="actuarial.yield_curve.YieldCurve"><em>YieldCurve</em></a><em>, </em><em>optional</em>) – Discount factors to use when discounting the cash-flows.
+It can be an array, a Discounting instance or an object able to
+evaluate the discount factors.
+If an array or a Discounting instance is provided, it is assumed to
+contain the value of the discount factors for each cash-flow maturity.</p></li>
+<li><p><strong>kind</strong> (<em>{&quot;compound_rate&quot;</em><em>, </em><em>&quot;continuous_rate&quot;</em><em>, </em><em>&quot;simple_rate&quot;}</em><em>, </em><em>optional</em>) – Type of interest rates. The default assumes continuous rates.</p></li>
+<li><p><strong>dollar</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, compute the dollar asymetry. The default is False.</p></li>
+<li><p><strong>keepdims</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the axis which is reduced is left in the result as dimension
+with size one (otherwise, it will be removed). With this option, the
+result will broadcast correctly against the initial cash-flows.
+The default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Modified asymetry.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.fixed_income.CashFlow.yield_to_maturity">
+<span class="sig-name descname"><span class="pre">yield_to_maturity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'continuous_rate'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepdims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/fixed_income.html#CashFlow.yield_to_maturity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.fixed_income.CashFlow.yield_to_maturity" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the yield to maturity (YTM).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>yield to maturity</strong> is the discount rate such that the sum of all
+future discounted cash-flows of a fixed income instrument is equal to
+its current price <span class="math notranslate nohighlight">\(PV^*\)</span>.</p>
+<p>Depending on the type of interest rates, the yield to maturity consists
+to find the value of the variable <span class="math notranslate nohighlight">\(y\)</span> such that the following
+equality holds:</p>
+<blockquote>
+<div><ul>
+<li><p><strong>Continuous interest rates:</strong></p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\sum_{i=1}^n CF_i e^{-y \tau_i} = PV^*\]</div>
+</div></blockquote>
+</li>
+<li><p><strong>Compound interest rates:</strong></p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\sum_{i=1}^n \frac{CF_i}{(1 + y)^{\tau_i}} = PV^*\]</div>
+</div></blockquote>
+</li>
+<li><p><strong>Simple interest rates:</strong></p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\sum_{i=1}^n \frac{CF_i}{1 + y \tau_i} = PV^*\]</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p>Note that the yield to maturity is a particular case of the z-spread
+where the initial yield curve is flat and equal to zero.</p>
+<p>Since no close formula exists to compute the yield to maturity, a <strong>Newton-Raphson</strong>
+method is used. A tolerance parameter can be used to control the approximation
+error.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>price</strong> (<em>array-like</em>) – Current price or target present value to reach.</p></li>
+<li><p><strong>kind</strong> (<em>{&quot;compound_rate&quot;</em><em>, </em><em>&quot;continuous_rate&quot;</em><em>, </em><em>&quot;simple_rate&quot;}</em><em>, </em><em>optional</em>) – Type of interest rates. The default assumes continuous rates.</p></li>
+<li><p><strong>tol</strong> (<em>scalar</em><em>, </em><em>optional</em>) – Absolute tolerance for the yield to maturity. The maximum absolute error between
+the computed yield to maturity and the exact one will be equal to this tolerance.
+The default uses a tolerance of 1 basis point (1e-4).</p></li>
+<li><p><strong>keepdims</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the axis which is reduced is left in the result as dimension
+with size one (otherwise, it will be removed). With this option, the
+result will broadcast correctly against the initial cash-flows.
+The default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Yield to maturity.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">price</span></code> cannot be broadcast with the instance or
+    has a size greater than one along the <code class="xref py py-obj docutils literal notranslate"><span class="pre">axis</span></code> attribute of the instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.fixed_income.CashFlow.z_spread">
+<span class="sig-name descname"><span class="pre">z_spread</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discount_factors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'continuous_rate'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepdims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/fixed_income.html#CashFlow.z_spread"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.fixed_income.CashFlow.z_spread" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the z-spread.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>z-spread</strong> is a spread or a parallel shift over an initial yield
+curve such that the sum of all future discounted cash-flows of a fixed
+income instrument is equal to its current price <span class="math notranslate nohighlight">\(PV^*\)</span>.</p>
+<p>Depending on the type of interest rates, the z-spread consists to find
+the value of the variable <span class="math notranslate nohighlight">\(z_{spread}\)</span> such that the following
+equality holds:</p>
+<blockquote>
+<div><ul>
+<li><p><strong>Continuous interest rates:</strong></p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\sum_{i=1}^n CF_i e^{-(r(\tau_i) + z_{spread})\tau_i} = PV^*\]</div>
+</div></blockquote>
+</li>
+<li><p><strong>Compound interest rates:</strong></p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\sum_{i=1}^n \frac{CF_i}{(1 + r(\tau_i) + z_{spread})^{\tau_i}} = PV^*\]</div>
+</div></blockquote>
+</li>
+<li><p><strong>Simple interest rates:</strong></p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\sum_{i=1}^n \frac{CF_i}{1 + (r(\tau_i) + z_{spread})\tau_i} = PV^*\]</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p>Note that the initial yield curve <span class="math notranslate nohighlight">\(r(\tau_i)\)</span> is derived from the
+provided discount factors which are converted to interest rates.</p>
+<p>Since no close formula exists to compute the z-spread, a <strong>Newton-Raphson</strong>
+method is used. A tolerance parameter can be used to control the approximation
+error.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>price</strong> (<em>array-like</em>) – Current price or target present value to reach.</p></li>
+<li><p><strong>discount_factors</strong> (<em>array-like</em><em> or </em><a class="reference internal" href="../yield_curve/index.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting"><em>Discounting</em></a><em> or </em><a class="reference internal" href="../yield_curve/index.html#actuarial.yield_curve.YieldCurve" title="actuarial.yield_curve.YieldCurve"><em>YieldCurve</em></a>) – Discount factors to use when discounting the cash-flows.
+It can be an array, a Discounting instance or an object able to
+evaluate the discount factors.
+If an array or a Discounting instance is provided, it is assumed to
+contain the value of the discount factors for each cash-flow maturity.</p></li>
+<li><p><strong>kind</strong> (<em>{&quot;compound_rate&quot;</em><em>, </em><em>&quot;continuous_rate&quot;</em><em>, </em><em>&quot;simple_rate&quot;}</em><em>, </em><em>optional</em>) – Type of interest rates. The default assumes continuous rates.</p></li>
+<li><p><strong>tol</strong> (<em>scalar</em><em>, </em><em>optional</em>) – Absolute tolerance for the z-spread. The maximum absolute error between
+the computed z-spread and the exact one will be equal to this tolerance.
+The default uses a tolerance of 1 basis point (1e-4).</p></li>
+<li><p><strong>keepdims</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the axis which is reduced is left in the result as dimension
+with size one (otherwise, it will be removed). With this option, the
+result will broadcast correctly against the initial cash-flows.
+The default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Z-spread.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">price</span></code> cannot be broadcast with the instance or
+    has a size greater than one along the <code class="xref py py-obj docutils literal notranslate"><span class="pre">axis</span></code> attribute of the instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.fixed_income.CashFlow.to_discounting">
+<span class="sig-name descname"><span class="pre">to_discounting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">discount_factors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/fixed_income.html#CashFlow.to_discounting"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.fixed_income.CashFlow.to_discounting" title="Permalink to this definition"></a></dt>
+<dd><p>Return a <code class="xref py py-obj docutils literal notranslate"><span class="pre">Discounting</span></code> instance containing the discount factors evaluated
+at each cash-flow maturity.
+The resulting discount factors can therefore be used to discount the
+cash-flows of the instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>discount_factors</strong> (<em>array-like</em><em> or </em><a class="reference internal" href="../yield_curve/index.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting"><em>Discounting</em></a><em> or </em><a class="reference internal" href="../yield_curve/index.html#actuarial.yield_curve.YieldCurve" title="actuarial.yield_curve.YieldCurve"><em>YieldCurve</em></a>) – Discount factors to use when discounting the cash-flows.
+It can be an array, a Discounting instance or an object able to
+evaluate the discount factors.
+If an array or a Discounting instance is provided, it is assumed to
+contain the value of the discount factors for each cash-flow maturity.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Discounting instance containing discount factors evaluated at each
+cash-flow maturity.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../yield_curve/index.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting">Discounting</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the resulting array of discount factors cannot be broadcast with
+    the instance or is not a supershape of the <a class="reference internal" href="#actuarial.fixed_income.CashFlow.maturities" title="actuarial.fixed_income.CashFlow.maturities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code></a> attribute.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Fixed Income" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../yield_curve/index.html" class="btn btn-neutral float-right" title="Yield Curve" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>actuarial.yield_curve.Mixture &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Test</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../test.html">Test</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Main</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copula/index.html">Copula</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../distribution/index.html">Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../indexation/index.html">Indexation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yield_curve/index.html">Yield Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../superclass/index.html">Superclass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../function/index.html">Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../util/util.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../XXX/notation.html">Notation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>actuarial.yield_curve.Mixture</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for actuarial.yield_curve.Mixture</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">actuarial.yield_curve</span> <span class="kn">import</span> <span class="n">YieldCurve</span>
+<span class="kn">from</span> <span class="nn">actuarial.superclass</span> <span class="kn">import</span> <span class="n">Mixture</span> <span class="k">as</span> <span class="n">Mixture_</span>
+
+
+<div class="viewcode-block" id="Mixture"><a class="viewcode-back" href="../../../yield_curve/Mixture.html#actuarial.yield_curve.Mixture">[docs]</a><span class="k">class</span> <span class="nc">Mixture</span><span class="p">(</span><span class="n">Mixture_</span><span class="p">,</span> <span class="n">YieldCurve</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A mixture yield curve is a yield curve derived from a collection of other</span>
+<span class="sd">    yield curves.</span>
+<span class="sd">    The other yield curves are called the components of the mixture yield curve.</span>
+<span class="sd">    For each component, a weight can be associated.</span>
+<span class="sd">    </span>
+<span class="sd">    The value of a mixture yield curve is expressed as a linear combination</span>
+<span class="sd">    of its components:</span>
+<span class="sd">        </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        r(\tau) = \sum_{k=1}^K w_k r_k(\tau)</span>
+<span class="sd">        </span>
+<span class="sd">    where :math:`r_k(\tau)` is the value of the k-th yield curve component</span>
+<span class="sd">    at maturity :math:`\tau`, :math:`w_k` the associated weight and :math:`K`</span>
+<span class="sd">    the number of mixture components.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># Class attributes</span>
+    
+    <span class="n">_print</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;components&quot;</span><span class="p">,</span> <span class="s2">&quot;weights&quot;</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">)</span>
+    <span class="n">kinds</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;compound_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;continuous_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;simple_rate&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Initialization</span>
+    
+<div class="viewcode-block" id="Mixture.__init__"><a class="viewcode-back" href="../../../yield_curve/Mixture.html#actuarial.yield_curve.Mixture.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">components</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;compound_rate&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        components : list of YieldCurve</span>
+<span class="sd">            List containing the yield curve components.</span>
+<span class="sd">        weights : list of array-like or None, optional</span>
+<span class="sd">            Weights associated with the mixture components. The list must have</span>
+<span class="sd">            the same length as the number of components.</span>
+<span class="sd">            The default assumes a weight of 1 associated with each component.</span>
+<span class="sd">        kind : {&quot;compound_rate&quot;, &quot;continuous_rate&quot;, &quot;simple_rate&quot;}, optional</span>
+<span class="sd">            Type of yield curve. The default assumes compound rates.</span>
+<span class="sd">            </span>
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If `components` is not a list of `YieldCurve` elements.</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `kind` is not valid.</span>
+<span class="sd">            If the length of `weights` is not the same as the length of `components`.</span>
+<span class="sd">            If the weights and components cannot be broadcast together.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">Mixture_</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">components</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">component_type</span> <span class="o">=</span> <span class="n">YieldCurve</span><span class="p">)</span>
+        <span class="n">YieldCurve</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="p">)</span></div>
+        
+    <span class="c1"># Methods</span>
+    
+<div class="viewcode-block" id="Mixture.evaluate"><a class="viewcode-back" href="../../../yield_curve/Mixture.html#actuarial.yield_curve.Mixture.evaluate">[docs]</a>    <span class="nd">@YieldCurve</span><span class="o">.</span><span class="n">Decorators</span><span class="o">.</span><span class="n">evaluate</span>
+    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities</span><span class="p">,</span> <span class="n">split</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Evaluate the value of the yield curve for the given maturities.</span>
+<span class="sd">        </span>
+<span class="sd">        Note</span>
+<span class="sd">        ----</span>
+<span class="sd">        The value of a mixture yield curve at maturity :math:`\tau` is given by</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            r(\tau) = \sum_{k=1}^K w_k r_k(\tau)</span>
+<span class="sd">            </span>
+<span class="sd">        where :math:`r_k(\tau)` is the value of the k-th yield curve component</span>
+<span class="sd">        at maturity :math:`\tau` and :math:`w_k` the associated weight.</span>
+<span class="sd">        </span>
+<span class="sd">        Note that the values of each component of the mixture yield curve are</span>
+<span class="sd">        automatically converted to the same type as the mixture yield curve</span>
+<span class="sd">        (`kind` attribute of the instance).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        maturities : array-like</span>
+<span class="sd">            Maturities for which the yield curve should be evaluated.</span>
+<span class="sd">        split : bool, optional</span>
+<span class="sd">            If True, the individual weighted components of the mixture yield curve</span>
+<span class="sd">            are returned separately. Otherwise, they are aggregated.</span>
+<span class="sd">            The default is False.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        scalar or array or list</span>
+<span class="sd">            Value of the yield curve for the given maturities.</span>
+<span class="sd">            If `split` is True, a list with the weighted values of each individual</span>
+<span class="sd">            component is returned.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If `maturities` cannot be broadcast with the instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">weight</span><span class="o">*</span><span class="n">component</span><span class="o">.</span><span class="n">to_discounting</span><span class="p">(</span><span class="n">maturities</span><span class="p">)</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="p">)</span><span class="o">.</span><span class="n">values</span> <span class="k">for</span> <span class="n">component</span><span class="p">,</span> <span class="n">weight</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="n">split</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">values</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span></div></div>
+        
+        
+        
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

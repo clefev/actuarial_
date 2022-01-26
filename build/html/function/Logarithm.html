@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logarithm &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Exponential" href="Exponential.html" />
+    <link rel="prev" title="Linear" href="Linear.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Test</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test.html">Test</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SUPERCLASS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../superclass/index.html">Superclass</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PROBABILITY &amp; STATISTICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copula/index.html">Copula</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexation/index.html">Indexation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MATHEMATICS</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Function</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Constant.html">Constant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Linear.html">Linear</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Logarithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exponential.html">Exponential</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PiecewiseFunction.html">Piecewise function</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">UTILITIES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util/util.html">Util</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XXX</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../XXX/notation.html">Notation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Function</a> &raquo;</li>
+      <li>Logarithm</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/function/Logarithm.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="logarithm">
+<span id="function-logarithm"></span><h1>Logarithm<a class="headerlink" href="#logarithm" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="actuarial.function.Logarithm">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.function.</span></span><span class="sig-name descname"><span class="pre">Logarithm</span></span><a class="reference internal" href="../_modules/actuarial/function/Logarithm.html#Logarithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.function.Logarithm" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../superclass/Parametric.html#actuarial.superclass.Parametric" title="actuarial.superclass.Parametric.Parametric"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Parametric.Parametric</span></code></a>, <a class="reference internal" href="index.html#actuarial.function.Function" title="actuarial.function.Function.Function"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.function.Function.Function</span></code></a></p>
+<p>A shifted and scaled <strong>logarithm function</strong> is a parametric function based
+on the natural logarithm function and having the following form:</p>
+<div class="math notranslate nohighlight">
+\[f(x) = a\ln(bx) + c\]</div>
+<p>where <span class="math notranslate nohighlight">\(a\)</span> is the scale parameter multiplying the logarithm,
+<span class="math notranslate nohighlight">\(b\)</span> controls the rate of the logarithm and <span class="math notranslate nohighlight">\(c\)</span> is a shift translating
+the logarithm.</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="dce212a7-05b7-4cb4-b381-4b9c3657d824" name="635bc12b-b817-4a59-a300-3569690768b7" type="radio">
+</input><label class="tabbed-label" for="dce212a7-05b7-4cb4-b381-4b9c3657d824">
+Initialization</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.function.Logarithm.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/function/Logarithm.html#Logarithm.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.function.Logarithm.__init__" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scale</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Scale parameter <span class="math notranslate nohighlight">\(a\)</span>.
+This parameter multiplies the logarithm.
+The default is 1.</p></li>
+<li><p><strong>rate</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Rate parameter <span class="math notranslate nohighlight">\(b\)</span>.
+This parameter controls the rate of the logarithm and must be positive.
+The default is 1.</p></li>
+<li><p><strong>shift</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Shift parameter <span class="math notranslate nohighlight">\(c\)</span>.
+This parameter translates the logarithm.
+The default is 0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the parameters cannot be broadcast together.
+    If <code class="xref py py-obj docutils literal notranslate"><span class="pre">rate</span></code> is not positive.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="073880fa-b309-4e39-bb9e-80545a48d814" name="635bc12b-b817-4a59-a300-3569690768b7" type="radio">
+</input><label class="tabbed-label" for="073880fa-b309-4e39-bb9e-80545a48d814">
+Technical sheet</label><div class="tabbed-content docutils">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 78%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>Form</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(f(x) = a\ln(bx) + c\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Parameters</strong></p></td>
+<td><div class="line-block">
+<div class="line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scale</span></code> = <span class="math notranslate nohighlight">\(a \in \mathbb{R}\)</span></div>
+<div class="line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rate</span></code> = <span class="math notranslate nohighlight">\(b \in \mathbb{R}\)</span></div>
+<div class="line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shift</span></code> = <span class="math notranslate nohighlight">\(c \in \mathbb{R}\)</span></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Domain</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathbb{R}^+_0\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Range</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathbb{R}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Properties</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>Other comments</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="3fc5672f-76ec-4192-867f-660587c2711b" name="635bc12b-b817-4a59-a300-3569690768b7" type="radio">
+</input><label class="tabbed-label" for="3fc5672f-76ec-4192-867f-660587c2711b">
+Properties</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="ba372c72-b83a-49b3-96e6-ffb6bc886326" name="635bc12b-b817-4a59-a300-3569690768b7" type="radio">
+</input><label class="tabbed-label" for="ba372c72-b83a-49b3-96e6-ffb6bc886326">
+Methods</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.function.Logarithm.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/function/Logarithm.html#Logarithm.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.function.Logarithm.evaluate" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluate the value of the function.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The value of a (shifted and scaled) logarithm function is given by</p>
+<div class="math notranslate nohighlight">
+\[f(x) = a\ln(bx) + c\]</div>
+<p>for all <span class="math notranslate nohighlight">\(x \in \mathbb{R}^+_0\)</span>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>array-like</em>) – Values for which the function should be evaluated.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Evaluated function. Array with a float dtype and the same shape as
+the broadcast of <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> with the function parameters.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> cannot be broadcast with the function parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.function.Logarithm.derivative">
+<span class="sig-name descname"><span class="pre">derivative</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/function/Logarithm.html#Logarithm.derivative"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.function.Logarithm.derivative" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the derivative.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The first order derivative of a (shifted and scaled) logarithm function
+is given by</p>
+<div class="math notranslate nohighlight">
+\[\frac{df(x)}{dx} = \frac{a}{x}\]</div>
+<p>and the generalized n-th order derivative is given by</p>
+<div class="math notranslate nohighlight">
+\[\frac{d^nf(x)}{dx^n} = (-1)^{n-1} (n-1)! \frac{a}{x^n}\]</div>
+<p>for all <span class="math notranslate nohighlight">\(x \in \mathbb{R}^+_0\)</span>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array-like</em>) – Values for which the derivative should be evaluated.</p></li>
+<li><p><strong>order</strong> (<em>int</em><em>, </em><em>optional</em>) – Order of the derivative. The default is 1.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Evaluated derivative. Array with a float dtype and the same shape as
+the broadcast of <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> with the function parameters.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> cannot be broadcast with the function parameters.
+    If <code class="xref py py-obj docutils literal notranslate"><span class="pre">order</span></code> is not a positive integer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.function.Logarithm.integrate">
+<span class="sig-name descname"><span class="pre">integrate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/function/Logarithm.html#Logarithm.integrate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.function.Logarithm.integrate" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the definite integral.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The definite integral of a (shifted and scaled) logarithm function is
+given by</p>
+<div class="math notranslate nohighlight">
+\[\int_{x_1}^{x_2} f(x) dx = a(x_2 \ln(bx_2) - x_1 \ln(bx_1)) + (c - a)(x_2 - x_1)\]</div>
+<p>for all <span class="math notranslate nohighlight">\(x_1, x_2 \in \mathbb{R}^+_0\)</span>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lower</strong> (<em>array-like</em>) – Lower bound of the definite integral interval.</p></li>
+<li><p><strong>upper</strong> (<em>array-like</em>) – Upper bound of the definite integral interval.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Evaluated integral. Array with a float dtype and the same shape as
+the broadcast of <code class="xref py py-obj docutils literal notranslate"><span class="pre">lower</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">upper</span></code> with the function parameters.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">lower</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">upper</span></code> cannot be broadcast with the function parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="b2fbc0f4-313d-4369-9808-0b7201a1a1ab" name="635bc12b-b817-4a59-a300-3569690768b7" type="radio">
+</input><label class="tabbed-label" for="b2fbc0f4-313d-4369-9808-0b7201a1a1ab">
+Special</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="6f2a67db-c501-4e19-8efd-6b054cffb235" name="635bc12b-b817-4a59-a300-3569690768b7" type="radio">
+</input><label class="tabbed-label" for="6f2a67db-c501-4e19-8efd-6b054cffb235">
+Examples</label><div class="tabbed-content docutils">
+<p>To be added.</p>
+</div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Linear.html" class="btn btn-neutral float-left" title="Linear" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Exponential.html" class="btn btn-neutral float-right" title="Exponential" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

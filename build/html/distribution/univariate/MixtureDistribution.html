@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mixture distribution &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Multivariate" href="../multivariate/index.html" />
+    <link rel="prev" title="Truncated distribution" href="TruncatedDistribution.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Test</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../test.html">Test</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Main</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../copula/index.html">Copula</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Distribution</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Univariate</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Bernoulli.html">Bernoulli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Beta.html">Beta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Exponential.html">Exponential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gamma.html">Gamma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GeneralizedPareto.html">Generalized Pareto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lognormal.html">Lognormal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Normal.html">Normal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Pareto.html">Pareto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Poisson.html">Poisson</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Uniform.html">Uniform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Weibull.html">Weibull</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Empirical.html">Empirical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TruncatedDistribution.html">Truncated distribution</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Mixture distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../multivariate/index.html">Multivariate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../indexation/index.html">Indexation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../yield_curve/index.html">Yield Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../superclass/index.html">Superclass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../function/index.html">Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../util/util.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../XXX/notation.html">Notation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Distribution</a> &raquo;</li>
+          <li><a href="index.html">Univariate</a> &raquo;</li>
+      <li>Mixture distribution</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/distribution/univariate/MixtureDistribution.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mixture-distribution">
+<h1>Mixture distribution<a class="headerlink" href="#mixture-distribution" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="actuarial.distribution.MixtureDistribution">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.distribution.</span></span><span class="sig-name descname"><span class="pre">MixtureDistribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">components</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/actuarial/distribution/MixtureDistribution.html#MixtureDistribution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.MixtureDistribution" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../superclass/Mixture.html#actuarial.superclass.Mixture" title="actuarial.superclass.Mixture.Mixture"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Mixture.Mixture</span></code></a>, <a class="reference internal" href="index.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution.UnivariateDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.distribution.UnivariateDistribution.UnivariateDistribution</span></code></a></p>
+<p class="rubric">Initialization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>components</strong> (<em>list of UnivariateDistribution</em>) – List containing the components of the mixture distribution. Each
+component must be an univariate distribution with an <a class="reference internal" href="index.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnivariateDistribution</span></code></a>
+type.</p></li>
+<li><p><strong>weights</strong> (<em>list of array-like</em>) – Weights (probabilities) associated with the mixture components.
+The list must have the same length as the number of components.
+The weights are normalized to get a sum equal to 1.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>TypeError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">components</span></code> is not a list or tuple or if the elements of <code class="xref py py-obj docutils literal notranslate"><span class="pre">components</span></code>
+    are not univariate distributions.</p></li>
+<li><p><strong>ValueError</strong> – If the length of <code class="xref py py-obj docutils literal notranslate"><span class="pre">weights</span></code> is different from the length of <code class="xref py py-obj docutils literal notranslate"><span class="pre">components</span></code>
+    or if their elements cannot be broadcast together.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.distribution.MixtureDistribution.cdf">
+<span class="sig-name descname"><span class="pre">cdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/actuarial/distribution/MixtureDistribution.html#MixtureDistribution.cdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.MixtureDistribution.cdf" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluate the cumulative distribution function.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The cdf of a mixture distribution is equal to the weighted sum of the
+cdf of each individual distribution:</p>
+<div class="math notranslate nohighlight">
+\[F(x) = \sum_{i=1}^n w_i F_{X_i}(x)\]</div>
+<p>for <span class="math notranslate nohighlight">\(x \in \mathbb{R}\)</span>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>array-like</em>) – Values for which the cdf should be evaluated.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Evaluated cdf. Array with a float dtype and the same shape as the
+broadcast of <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> with the individual distributions and weights.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> cannot be broadcast with the individual distributions and weights.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.distribution.MixtureDistribution.pdf">
+<span class="sig-name descname"><span class="pre">pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/actuarial/distribution/MixtureDistribution.html#MixtureDistribution.pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.MixtureDistribution.pdf" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluate the probability density function.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The pdf of a mixture distribution is equal to the weighted sum of the
+pdf of each individual distribution:</p>
+<div class="math notranslate nohighlight">
+\[f(x) = \sum_{i=1}^n w_i f_{X_i}(x)\]</div>
+<p>for <span class="math notranslate nohighlight">\(x \in \mathbb{R}\)</span>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>array-like</em>) – Values for which the pdf should be evaluated.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Evaluated pdf. Array with a float dtype and the same shape as the
+broadcast of <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> with the individual distributions and weights.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> cannot be broadcast with the individual distributions and weights.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.distribution.MixtureDistribution.quantile">
+<span class="sig-name descname"><span class="pre">quantile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/actuarial/distribution/MixtureDistribution.html#MixtureDistribution.quantile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.MixtureDistribution.quantile" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluate the quantile of the distribution.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>No close formula exists to compute the quantile of a mixture distribution,
+a bisection method is used in order to approximate it. The bisection
+finds the value <span class="math notranslate nohighlight">\(x^*\)</span> such that the cdf of the mixture distribution
+<span class="math notranslate nohighlight">\(F(x^*)\)</span> is equal to <span class="math notranslate nohighlight">\(p\)</span>. This value is then returned as the
+quantile.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p</strong> (<em>array-like</em>) – Values (between 0 and 1) for which the quantile should be evaluated.</p></li>
+<li><p><strong>maxiter</strong> (<em>int</em><em>, </em><em>optional</em>) – Maximum number of iterations for the bisection algorithm.
+The default is 100.</p></li>
+<li><p><strong>tol</strong> (<em>float</em><em>, </em><em>optional</em>) – Tolerance of the bisection algorithm. The maximum error between
+the computed quantile and the exact quantile will be equal to this
+tolerance. The default is 1e-4.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Evaluated quantile. Array with the same shape as the broadcast of
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">p</span></code> with the individual distributions and weights.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">p</span></code> cannot be broadcast with the individual distributions and
+    weights, or contains values not between 0 and 1.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.distribution.MixtureDistribution.random">
+<span class="sig-name descname"><span class="pre">random</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/actuarial/distribution/MixtureDistribution.html#MixtureDistribution.random"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.MixtureDistribution.random" title="Permalink to this definition"></a></dt>
+<dd><p>Draw random samples of the distribution.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A random sample of a mixture distribution is drawn as follows:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Select the individual distribution to generate by drawing randomly
+an integer <span class="math notranslate nohighlight">\(i \in \lbrace1,...,n\rbrace\)</span> where <span class="math notranslate nohighlight">\(p(i)=w_i\)</span>.</p></li>
+<li><p>Draw a random sample for the selected i-th distribution <span class="math notranslate nohighlight">\(X_i\)</span>.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>size</strong> (<em>int</em><em> or </em><em>tuple of int</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Number of samples to be drawn. If None, the instance shape will be used.
+The default is None.</p></li>
+<li><p><strong>seed</strong> (<em>int</em><em> or </em><em>array-like of int</em><em> or </em><em>SeedSequence</em><em> or </em><em>Generator</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Seed to use for the random number generator. The default uses the
+random number generator associated with this instance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Random samples. Array with the same shape as <code class="xref py py-obj docutils literal notranslate"><span class="pre">size</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">size</span></code> is not a supershape of the instance shape.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="TruncatedDistribution.html" class="btn btn-neutral float-left" title="Truncated distribution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../multivariate/index.html" class="btn btn-neutral float-right" title="Multivariate" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

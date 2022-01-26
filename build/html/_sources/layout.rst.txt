@@ -1,0 +1,30 @@
+.. _MODULE.CLASS:
+
+CLASS
+=====
+
+.. autoclass:: actuarial.MODULE::CLASS
+
+    .. tabbed:: Abstract
+
+        -
+
+    .. tabbed:: Properties
+
+        -
+
+    .. tabbed:: Methods
+
+        -
+
+    .. tabbed:: Special
+
+        -
+
+    .. tabbed:: Decorators
+
+        -
+
+    .. tabbed:: Examples
+
+        To be added.

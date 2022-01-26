@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nelson-Siegel &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Linear interpolation" href="LinearInterpolation.html" />
+    <link rel="prev" title="Flat" href="Flat.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Test</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test.html">Test</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SUPERCLASS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../superclass/index.html">Superclass</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PROBABILITY &amp; STATISTICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copula/index.html">Copula</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Yield Curve</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Flat.html">Flat</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Nelson-Siegel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearInterpolation.html">Linear interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RawInterpolation.html">Raw interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mixture.html">Mixture</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../indexation/index.html">Indexation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MATHEMATICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../function/index.html">Function</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">UTILITIES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util/util.html">Util</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XXX</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../XXX/notation.html">Notation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Yield Curve</a> &raquo;</li>
+      <li>Nelson-Siegel</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/yield_curve/NelsonSiegel.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="nelson-siegel">
+<span id="yield-curve-nelsonsiegel"></span><h1>Nelson-Siegel<a class="headerlink" href="#nelson-siegel" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="actuarial.yield_curve.NelsonSiegel">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.yield_curve.</span></span><span class="sig-name descname"><span class="pre">NelsonSiegel</span></span><a class="reference internal" href="../_modules/actuarial/yield_curve/NelsonSiegel.html#NelsonSiegel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.NelsonSiegel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../superclass/Parametric.html#actuarial.superclass.Parametric" title="actuarial.superclass.Parametric.Parametric"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Parametric.Parametric</span></code></a>, <a class="reference internal" href="index.html#actuarial.yield_curve.YieldCurve" title="actuarial.yield_curve.YieldCurve.YieldCurve"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.yield_curve.YieldCurve.YieldCurve</span></code></a></p>
+<p>The Nelson-Siegel model is a parametric model for constructing yield curves.</p>
+<p>The Nelson-Siegel model has 4 parameters, it models the value of the yield
+curve at matrurity <span class="math notranslate nohighlight">\(\tau\)</span> as follows:</p>
+<div class="math notranslate nohighlight">
+\[r(\tau) = \beta_0 + \beta_1 \frac{1 - e^{-\frac{\tau}{\lambda}}}{\frac{\tau}{\lambda}} + \beta_2 \left( \frac{1 - e^{-\frac{\tau}{\lambda}}}{\frac{\tau}{\lambda}} - e^{-\frac{\tau}{\lambda}} \right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\beta_0\)</span> is the level parameter, <span class="math notranslate nohighlight">\(\beta_1\)</span> the slope
+parameter, <span class="math notranslate nohighlight">\(\beta_2\)</span> the curvature parameter and <span class="math notranslate nohighlight">\(\lambda\)</span>
+a non-negative scale parameter.</p>
+<p>Note that the Nelson-Siegel model can be seen as a linear model in beta coefficients.
+By convention, the Nelson-Siegel model is used to model spot rates which are
+continuously compounded.</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="dca89075-c6ab-4b4d-a8d1-0636392f342d" name="7cacca0b-5563-4c7c-8fb2-9f0de48b2baf" type="radio">
+</input><label class="tabbed-label" for="dca89075-c6ab-4b4d-a8d1-0636392f342d">
+Initialization</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.NelsonSiegel.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">beta0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/yield_curve/NelsonSiegel.html#NelsonSiegel.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.NelsonSiegel.__init__" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>beta0</strong> (<em>array-like</em>) – Level parameter <span class="math notranslate nohighlight">\(\beta_0\)</span>.</p></li>
+<li><p><strong>beta1</strong> (<em>array-like</em>) – Slope parameter <span class="math notranslate nohighlight">\(\beta_1\)</span>.</p></li>
+<li><p><strong>beta2</strong> (<em>array-like</em>) – Curvature parameter <span class="math notranslate nohighlight">\(\beta_2\)</span>.</p></li>
+<li><p><strong>scale</strong> (<em>array-like</em>) – Scale parameter <span class="math notranslate nohighlight">\(\lambda\)</span>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the parameters cannot be broadcast together.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="b1da1234-d346-43ad-aaf8-75a5f918026f" name="7cacca0b-5563-4c7c-8fb2-9f0de48b2baf" type="radio">
+</input><label class="tabbed-label" for="b1da1234-d346-43ad-aaf8-75a5f918026f">
+Properties</label><div class="tabbed-content docutils">
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.yield_curve.NelsonSiegel.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><a class="headerlink" href="#actuarial.yield_curve.NelsonSiegel.parameters" title="Permalink to this definition"></a></dt>
+<dd><p>Parameters of the instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../parameter/index.html#actuarial.parameter.Parameters" title="actuarial.parameter.Parameters">Parameters</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.yield_curve.NelsonSiegel.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><a class="headerlink" href="#actuarial.yield_curve.NelsonSiegel.kind" title="Permalink to this definition"></a></dt>
+<dd><p>Type of yield curve.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="b88b22ac-43e6-44d0-8fbd-14f7e6103afa" name="7cacca0b-5563-4c7c-8fb2-9f0de48b2baf" type="radio">
+</input><label class="tabbed-label" for="b88b22ac-43e6-44d0-8fbd-14f7e6103afa">
+Methods</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.NelsonSiegel.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maturities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forward</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/yield_curve/NelsonSiegel.html#NelsonSiegel.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.NelsonSiegel.evaluate" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluate the value of the yield curve for the given maturities.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Nelson-Siegel formula for the <strong>spot rate</strong> at maturity <span class="math notranslate nohighlight">\(\tau\)</span>
+is given by</p>
+<div class="math notranslate nohighlight">
+\[r(\tau) = \beta_0 + \beta_1 \frac{1 - e^{-\frac{\tau}{\lambda}}}{\frac{\tau}{\lambda}} + \beta_2 \left( \frac{1 - e^{-\frac{\tau}{\lambda}}}{\frac{\tau}{\lambda}} - e^{-\frac{\tau}{\lambda}} \right),\]</div>
+<p>and the <strong>instantaneaous forward rate</strong> is given by</p>
+<div class="math notranslate nohighlight">
+\[f(\tau) = \beta_0 + \beta_1 e^{-\frac{\tau}{\lambda}} + \beta_2 \frac{\tau}{\lambda} e^{-\frac{\tau}{\lambda}}.\]</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maturities</strong> (<em>array-like</em>) – Maturities for which the yield curve should be evaluated.</p></li>
+<li><p><strong>forward</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the instantaneaous forward rate is returned.
+Otherwise, the spot rate is returned.
+The default is False.</p></li>
+<li><p><strong>split</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the three additive components of the Nelson-Siegel model
+(level, slope and curvature components) are returned separately
+through a tuple.
+Otherwise, they are aggregated.
+The default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Value of the yield curve for the given maturities.
+If <code class="xref py py-obj docutils literal notranslate"><span class="pre">split</span></code> is True, a tuple with the three additive components of
+the Nelson-Siegel model is returned.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array or tuple</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code> cannot be broadcast with the instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.NelsonSiegel.predictors">
+<span class="sig-name descname"><span class="pre">predictors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maturities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forward</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/yield_curve/NelsonSiegel.html#NelsonSiegel.predictors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.NelsonSiegel.predictors" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the predictors of the Nelson-Siegel model.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Nelson-Siegel model can be seen as a linear model with beta coefficients.</p>
+<p>The <strong>spot rate</strong> can be written as</p>
+<div class="math notranslate nohighlight">
+\[r(\tau) = \beta_0 r_0(\tau; \lambda) + \beta_1 r_1(\tau; \lambda) + \beta_2 r_2(\tau; \lambda)\]</div>
+<p>where the predictors <span class="math notranslate nohighlight">\(r_i(\tau; \lambda)\)</span> depend on the maturity
+<span class="math notranslate nohighlight">\(\tau\)</span>, scale parameter <span class="math notranslate nohighlight">\(\lambda\)</span> and are given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+    r_0(\tau; \lambda) = 1 \\
+    r_1(\tau; \lambda) = \frac{1 - e^{-\frac{\tau}{\lambda}}}{\frac{\tau}{\lambda}}  \\
+    r_2(\tau; \lambda) = \frac{1 - e^{-\frac{\tau}{\lambda}}}{\frac{\tau}{\lambda}} - e^{-\frac{\tau}{\lambda}}
+\end{cases}\end{split}\]</div>
+<p>The <strong>instantaneous forward rate</strong> can be written as</p>
+<div class="math notranslate nohighlight">
+\[f(\tau) = \beta_0 f_0(\tau; \lambda) + \beta_1 f_1(\tau; \lambda) + \beta_2 f_2(\tau; \lambda)\]</div>
+<p>where the predictors <span class="math notranslate nohighlight">\(f_i(\tau,\lambda)\)</span> are given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+    f_0(\tau; \lambda) = 1 \\
+    f_1(\tau; \lambda) = e^{-\frac{\tau}{\lambda}} \\
+    f_2(\tau; \lambda) = \frac{\tau}{\lambda} e^{-\frac{\tau}{\lambda}}
+\end{cases}\end{split}\]</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maturities</strong> (<em>array-like</em>) – Maturities for which the yield curve should be evaluated.</p></li>
+<li><p><strong>scale</strong> (<em>array-like</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Scale parameter of the Nelson-Siegel model. The default uses the
+scale parameter of the instance.</p></li>
+<li><p><strong>forward</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the predictors of the instantaneaous forward rate are returned.
+Otherwise, the predictors of the spot rate are returned.
+The default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The three predictors of the Nelson-Siegel model. Each predictor is
+an array with a shape corresponding to the broadcast of the
+maturities and scale parameter.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple of array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">scale</span></code> cannot be broadcast together.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.NelsonSiegel.discount_factor">
+<span class="sig-name descname"><span class="pre">discount_factor</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">maturities1=0</span></em>, <span class="optional">]</span><em class="sig-param"><span class="pre">maturities2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actuarial.yield_curve.NelsonSiegel.discount_factor" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the discount factor between two maturities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maturities1</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Starting maturities. The default is 0.</p></li>
+<li><p><strong>maturities2</strong> (<em>array-like</em><em> or </em><em>None</em>) – Ending maturities. If None, the <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code> attribute will be used
+if it exists.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Discount factor between <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> cannot be broadcast with the instance.
+    If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> is None and the instance has no <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code> attribute.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.NelsonSiegel.capitalization_factor">
+<span class="sig-name descname"><span class="pre">capitalization_factor</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">maturities1=0</span></em>, <span class="optional">]</span><em class="sig-param"><span class="pre">maturities2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actuarial.yield_curve.NelsonSiegel.capitalization_factor" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the capitalization factor between two maturities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maturities1</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Starting maturities. The default is 0.</p></li>
+<li><p><strong>maturities2</strong> (<em>array-like</em><em> or </em><em>None</em>) – Ending maturities. If None, the <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code> attribute will be used
+if it exists.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Capitalization factor between <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> cannot be broadcast with the instance.
+    If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> is None and the instance has no <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code> attribute.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.NelsonSiegel.to_discounting">
+<span class="sig-name descname"><span class="pre">to_discounting</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">maturities1=0</span></em>, <span class="optional">]</span><em class="sig-param"><span class="pre">maturities2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actuarial.yield_curve.NelsonSiegel.to_discounting" title="Permalink to this definition"></a></dt>
+<dd><p>Return a <a class="reference internal" href="index.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Discounting</span></code></a> instance for the provided maturities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maturities1</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Starting maturities. The default is 0.</p></li>
+<li><p><strong>maturities2</strong> (<em>array-like</em><em> or </em><em>None</em>) – Ending maturities. If None, the <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code> attribute will be used
+if it exists.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Discounting instance containing discount values for the provided
+maturities. If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> is different from 0, the returned discount
+values correspond to discount factors while if <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> is 0,
+they correspond to the <a class="reference internal" href="#actuarial.yield_curve.NelsonSiegel.kind" title="actuarial.yield_curve.NelsonSiegel.kind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kind</span></code></a> attribute of the instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="index.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting">Discounting</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> cannot be broadcast with the instance.
+    If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> is None and the instance has no <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code> attribute.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.NelsonSiegel.fit">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">yield_curve</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scales</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/yield_curve/NelsonSiegel.html#NelsonSiegel.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.NelsonSiegel.fit" title="Permalink to this definition"></a></dt>
+<dd><p>Fit a Nelson-Siegel model.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The fitting method uses a grid search method for the scale parameter and
+an ordinary least-squares (OLS) method for the beta parameters.</p>
+<p>Given a scale parameter <span class="math notranslate nohighlight">\(\lambda\)</span>, the beta parameters of the
+Nelson-Siegel model are fitted by ordinary least-squares method.
+It means that the beta parameters <span class="math notranslate nohighlight">\(\beta_0, \beta_1\)</span> and <span class="math notranslate nohighlight">\(\beta_2\)</span>
+are obtained by minimizing the sum of squared error (SSE) given by</p>
+<div class="math notranslate nohighlight">
+\[SSE = \sum_j \left( \beta_0 + \beta_1 x_1(\tau_j;\lambda) + \beta_2 x_2(\tau_j;\lambda) - r^{obs}(\tau_j) \right)^2\]</div>
+<p>where <span class="math notranslate nohighlight">\(r^{obs}(\tau_j)\)</span> are the observed spot continuous rates
+to be fitted.</p>
+<p>In order to fit the scale parameter, a grid serach method is used.
+It means that a grid of scale parameters <span class="math notranslate nohighlight">\((\lambda_1, ..., \lambda_K)\)</span>
+must be provided to the algorithm. For each scale parameter <span class="math notranslate nohighlight">\(\lambda_k\)</span>,
+the beta parameters are fitted by OLS method and the sum of squared
+error <span class="math notranslate nohighlight">\(SSE_k\)</span> is calculated. The optimal scale parameter is the
+one for which the SSE is the smallest.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>yield_curve</strong> (<em>RawYieldCurve</em>) – Raw yield curve to be fitted. The curve will be automatically converted
+to spot continuous rates for the fitting.</p></li>
+<li><p><strong>scales</strong> (<em>1D array-like</em>) – Grid search to use for the scale parameter. If only one number is
+provided, the scale parameter will be forced to this one. Otherwise,
+the optimal scale parameter will be chosen from the grid.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Fitted instance of a Nelson-Siegel model.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#actuarial.yield_curve.NelsonSiegel" title="actuarial.yield_curve.NelsonSiegel.NelsonSiegel">NelsonSiegel</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>TypeError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">yield_curve</span></code> is not a <code class="xref py py-obj docutils literal notranslate"><span class="pre">RawYieldCurve</span></code> instance.</p></li>
+<li><p><strong>ValueError</strong> – If the length of <code class="xref py py-obj docutils literal notranslate"><span class="pre">yield_curve</span></code> is not at least 3.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="e96931ea-fe04-47df-8e70-a157fe1d2332" name="7cacca0b-5563-4c7c-8fb2-9f0de48b2baf" type="radio">
+</input><label class="tabbed-label" for="e96931ea-fe04-47df-8e70-a157fe1d2332">
+Special</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="d06a823c-2884-4600-988d-9427decacb56" name="7cacca0b-5563-4c7c-8fb2-9f0de48b2baf" type="radio">
+</input><label class="tabbed-label" for="d06a823c-2884-4600-988d-9427decacb56">
+Examples</label><div class="tabbed-content docutils">
+<p>To be added.</p>
+</div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Flat.html" class="btn btn-neutral float-left" title="Flat" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="LinearInterpolation.html" class="btn btn-neutral float-right" title="Linear interpolation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
