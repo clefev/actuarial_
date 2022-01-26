@@ -1,5 +1,0 @@
-Normal
-======
-
-.. autoclass:: distribution.Normal
-    :members:

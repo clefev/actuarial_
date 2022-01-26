@@ -9,14 +9,6 @@ Welcome to actuarial's documentation!
 .. toctree::
    :maxdepth: 1
    :hidden:
-   :caption: Test
-   
-   hello.rst
-   test.rst
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
    :caption: SUPERCLASS
    
    superclass/index.rst
@@ -71,6 +63,8 @@ Welcome to actuarial's documentation!
    :caption: XXX
 
    XXX/notation.rst
+   hello.rst
+   test.rst
 
 
 The actuarial package is a Python package dedicated to actuarial science and risk management.
