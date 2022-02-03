@@ -85,3 +85,5 @@ The following copula models are implemented in this module (in alphabetical orde
         - .. centered:: |V|
     *   - :ref:`copula.Independence`
         - .. centered:: |X|
+    *   - *List to be extended*
+        - ...

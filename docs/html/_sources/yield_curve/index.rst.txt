@@ -96,6 +96,9 @@ The following yield curve models are implemented in this module (in alphabetical
     *   - :ref:`yield_curve.RawInterpolation`
         - .. centered:: |X|
         - .. centered:: |V|
+    *   - *List to be extended*
+        - ...
+        - ...
 
 Finally, the yield curve module provides a `Discounting` class.
 This class is a **toolkit** to efficiently manage discount values such as compound rates, continuously compounded rates,

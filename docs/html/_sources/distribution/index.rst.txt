@@ -134,7 +134,10 @@ The following univariate distribution models are implemented in this module (in 
         - .. centered:: |V|
         - .. centered:: |X|
         - .. centered:: |V|
-
+    *   - *List to be extended*
+        - ...
+        - ...
+        - ...
 
 Finally, the module offers different **multivariate distribution models** (either discrete or continuous).
 *To be implemented*.

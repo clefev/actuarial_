@@ -3,9 +3,11 @@
 Math
 ====
 
+*In construction*
+
 .. toctree::
    :maxdepth: 1
-   :hidden:
+   :caption: Contents:
 
    root.rst
    Partition.rst

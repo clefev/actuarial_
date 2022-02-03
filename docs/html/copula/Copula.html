@@ -76,11 +76,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../aggregation/index.html">Aggregation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../util/util.html">Util</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">XXX</span></p>
+<p class="caption" role="heading"><span class="caption-text">ANNEX</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../XXX/notation.html">Notation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hello.html">Hello World</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../test.html">Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../annex/notation.html">Notation</a></li>
 </ul>
 
         </div>
@@ -114,9 +112,23 @@
 <dt class="sig sig-object py" id="actuarial.copula.Copula">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.copula.</span></span><span class="sig-name descname"><span class="pre">Copula</span></span><a class="reference internal" href="../_modules/actuarial/copula/Copula.html#Copula"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.copula.Copula" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code>, <a class="reference internal" href="../superclass/Base.html#actuarial.superclass.Base" title="actuarial.superclass.Base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Base.Base</span></code></a>, <a class="reference internal" href="../superclass/Random.html#actuarial.superclass.Random" title="actuarial.superclass.Random.Random"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Random.Random</span></code></a></p>
+<p>Abstract class for constructing a copula.</p>
+<p>A copula is used to describe and model the dependency structure between random variables.
+Mathematically, a copula is a multivariate cumulative distribution function for which the
+marginal probability distribution of each variable is uniform on the interval <span class="math notranslate nohighlight">\([0,1]\)</span>.</p>
+<p>This abstract class implements basic methods such as</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Evaluate the probability density function (<a class="reference internal" href="#actuarial.copula.Copula.pdf" title="actuarial.copula.Copula.pdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pdf</span></code></a>).</p></li>
+<li><p>Evaluate the cumulative distribution function (<a class="reference internal" href="#actuarial.copula.Copula.cdf" title="actuarial.copula.Copula.cdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cdf</span></code></a>).</p></li>
+<li><p>Draw random samples of joint uniform distributions (<a class="reference internal" href="#actuarial.copula.Copula.random" title="actuarial.copula.Copula.random"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random</span></code></a>).</p></li>
+<li><p>Compute the log-likelihood of a sample (<a class="reference internal" href="#actuarial.copula.Copula.log_likelihood" title="actuarial.copula.Copula.log_likelihood"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log_likelihood</span></code></a>).</p></li>
+</ul>
+</div></blockquote>
+<p>Note that the dimensionality of the copula is given by the <a class="reference internal" href="#actuarial.copula.Copula.dim" title="actuarial.copula.Copula.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a> attribute.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="e4f57bdb-a573-4de5-bbae-52dedbd0e213" name="bf96e08e-fc3f-4709-ad96-b8324c170586" type="radio">
-</input><label class="tabbed-label" for="e4f57bdb-a573-4de5-bbae-52dedbd0e213">
+<input checked="checked" id="d90a5442-bba2-4e05-9425-5729c28cf764" name="29cd47ad-e207-4745-a07c-fae0d0b08980" type="radio">
+</input><label class="tabbed-label" for="d90a5442-bba2-4e05-9425-5729c28cf764">
 Initialization</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.copula.Copula.__init__">
@@ -132,8 +144,8 @@ Initialization</label><div class="tabbed-content docutils">
 </dd></dl>
 
 </div>
-<input id="871a6cc4-38d6-4482-a623-d2e63d2d9e25" name="bf96e08e-fc3f-4709-ad96-b8324c170586" type="radio">
-</input><label class="tabbed-label" for="871a6cc4-38d6-4482-a623-d2e63d2d9e25">
+<input id="09f8da3f-e358-40bf-87b8-917e77858e27" name="29cd47ad-e207-4745-a07c-fae0d0b08980" type="radio">
+</input><label class="tabbed-label" for="09f8da3f-e358-40bf-87b8-917e77858e27">
 Abstract</label><div class="tabbed-content docutils">
 <dl class="py property">
 <dt class="sig sig-object py" id="actuarial.copula.Copula.dim">
@@ -168,7 +180,7 @@ Other additional arguments are allowed.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.copula.Copula.random">
 <em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">random</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/copula/Copula.html#Copula.random"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.copula.Copula.random" title="Permalink to this definition"></a></dt>
-<dd><p>Abstract method to draw random samples.</p>
+<dd><p>Abstract method to draw random samples of joint uniform distributions.</p>
 <p>The first argument must be the size of the samples to be drawn.
 A <code class="xref py py-obj docutils literal notranslate"><span class="pre">seed</span></code> argument must also be provided in the method definition.
 Other additional arguments are allowed.</p>
@@ -264,28 +276,27 @@ and reduce it to a scalar when possible.</p></li>
 </dd></dl>
 
 </div>
-<input id="194a9edb-22a9-4406-b104-b2b2f77194dc" name="bf96e08e-fc3f-4709-ad96-b8324c170586" type="radio">
-</input><label class="tabbed-label" for="194a9edb-22a9-4406-b104-b2b2f77194dc">
+<input id="fdeb6266-db42-4167-8e13-b3b0e5065b0b" name="29cd47ad-e207-4745-a07c-fae0d0b08980" type="radio">
+</input><label class="tabbed-label" for="fdeb6266-db42-4167-8e13-b3b0e5065b0b">
 Properties</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="34fb8ee6-8b7d-4f9c-b845-7e0d630e964e" name="bf96e08e-fc3f-4709-ad96-b8324c170586" type="radio">
-</input><label class="tabbed-label" for="34fb8ee6-8b7d-4f9c-b845-7e0d630e964e">
+<input id="4d4ae1cb-ce45-465e-9456-fc96142d2d6b" name="29cd47ad-e207-4745-a07c-fae0d0b08980" type="radio">
+</input><label class="tabbed-label" for="4d4ae1cb-ce45-465e-9456-fc96142d2d6b">
 Methods</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.copula.Copula.log_likelihood">
 <span class="sig-name descname"><span class="pre">log_likelihood</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/copula/Copula.html#Copula.log_likelihood"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.copula.Copula.log_likelihood" title="Permalink to this definition"></a></dt>
-<dd><p>TO REVIEW</p>
-<p>Compute the log-likelihood.</p>
+<dd><p>Compute the log-likelihood.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>u</strong> (<em>2D array-like</em>) – Observed values from which the log-likelihood will be calculated.
-Because each observation is <em>n</em>-dimensional, <code class="xref py py-obj docutils literal notranslate"><span class="pre">u</span></code> must be a matrix with
-<em>n</em> columns meaning that each row represents an observed <em>n</em>-dimensional
+Because each observation is <em>d</em>-dimensional, <code class="xref py py-obj docutils literal notranslate"><span class="pre">u</span></code> must be a matrix with
+<em>d</em> columns meaning that each row represents an observed <em>d</em>-dimensional
 sample.</p></li>
-<li><p><strong>weights</strong> (<em>1D array-like</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Weight associated with each <em>n</em>-dimensional sample. If None, the weight
-is assumed to be 1 for each sample. The default is None.</p></li>
+<li><p><strong>weights</strong> (<em>1D array-like</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Weight associated with each <em>d</em>-dimensional sample.
+The default assumes a weight of 1 for each sample.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -298,8 +309,8 @@ is assumed to be 1 for each sample. The default is None.</p></li>
 </dd></dl>
 
 </div>
-<input id="312f96ca-2c20-40cc-a78e-43c5a90ee52b" name="bf96e08e-fc3f-4709-ad96-b8324c170586" type="radio">
-</input><label class="tabbed-label" for="312f96ca-2c20-40cc-a78e-43c5a90ee52b">
+<input id="89a7a498-cbca-4690-85bd-3b643c8cb938" name="29cd47ad-e207-4745-a07c-fae0d0b08980" type="radio">
+</input><label class="tabbed-label" for="89a7a498-cbca-4690-85bd-3b643c8cb938">
 Special</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.copula.Copula.__len__">
@@ -308,8 +319,8 @@ Special</label><div class="tabbed-content docutils">
 </dd></dl>
 
 </div>
-<input id="dd14538b-25fa-47f1-8edb-cce2b12c28b2" name="bf96e08e-fc3f-4709-ad96-b8324c170586" type="radio">
-</input><label class="tabbed-label" for="dd14538b-25fa-47f1-8edb-cce2b12c28b2">
+<input id="898d92f1-4231-4bf9-bec4-b2f051db3ad3" name="29cd47ad-e207-4745-a07c-fae0d0b08980" type="radio">
+</input><label class="tabbed-label" for="898d92f1-4231-4bf9-bec4-b2f051db3ad3">
 Examples</label><div class="tabbed-content docutils">
 <p>To be added.</p>
 </div>

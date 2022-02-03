@@ -60,11 +60,17 @@ Welcome to actuarial's documentation!
 .. toctree::
    :maxdepth: 1
    :hidden:
-   :caption: XXX
+   :caption: ANNEX
 
-   XXX/notation.rst
-   hello.rst
-   test.rst
+   annex/notation.rst
+
+
+
+.. warning::
+    The documentation and package are currently in construction and in early implementation.
+    Lots of features and implementations will be added later.
+    The current documentation will also be improved in the future and is given as illustrative example and for internal test purpose.
+    Finally, the code and documentation are not yet under an open source license and therefore proprietary.
 
 
 
@@ -78,7 +84,7 @@ The actuarial package is a Python package dedicated to actuarial science and ris
     :fa:`chart-line,fa-4x`
 
     The actuarial package implements various models and tools for actuarial science and risk management.
-    It covers several topics such as yield curves, fixed incomes, distributions, copulas, quantitative finance, ALM, life insurance, non-life insurance, health insurance and many other topics.
+    It covers several topics such as yield curves, fixed incomes, distributions, copulas, quantitative finance, ALM, life insurance, non-life insurance, health insurance, reinsurance and many other topics.
     ---
     EASY TO USE
 
@@ -188,6 +194,10 @@ The table below provides an overview of the modules implemented in the actuarial
         - .. centered:: |V|
         - .. centered:: |X|
         - Tools for working with yield curves
+    *   - *List of modules to be extended: non-life, life, reinsurance, quantitative finance, ...*
+        - ...
+        - ...
+        - ...
 
 
 
