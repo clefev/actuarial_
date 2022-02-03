@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -24,8 +24,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Nelson-Siegel" href="NelsonSiegel.html" />
-    <link rel="prev" title="Yield Curve" href="index.html" /> 
+    <link rel="next" title="Linear interpolation" href="LinearInterpolation.html" />
+    <link rel="prev" title="Yield Curve ABC" href="YieldCurve.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -52,15 +52,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../copula/index.html">Copula</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Yield Curve</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="YieldCurve.html">Yield Curve <span class="sphinx-bs badge badge-dark badge-pill">ABC</span></a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Flat</a></li>
-<li class="toctree-l2"><a class="reference internal" href="NelsonSiegel.html">Nelson-Siegel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="LinearInterpolation.html">Linear interpolation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RawInterpolation.html">Raw interpolation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Mixture.html">Mixture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NelsonSiegel.html">Nelson-Siegel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RawInterpolation.html">Raw interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Discounting.html">Discounting <span class="sphinx-bs badge badge-dark badge-pill">Toolkit</span></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../indexation/index.html">Indexation</a></li>
@@ -113,7 +115,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="actuarial.yield_curve.Flat">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.yield_curve.</span></span><span class="sig-name descname"><span class="pre">Flat</span></span><a class="reference internal" href="../_modules/actuarial/yield_curve/Flat.html#Flat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.Flat" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="../superclass/Parametric.html#actuarial.superclass.Parametric" title="actuarial.superclass.Parametric.Parametric"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Parametric.Parametric</span></code></a>, <a class="reference internal" href="index.html#actuarial.yield_curve.YieldCurve" title="actuarial.yield_curve.YieldCurve.YieldCurve"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.yield_curve.YieldCurve.YieldCurve</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../superclass/Parametric.html#actuarial.superclass.Parametric" title="actuarial.superclass.Parametric.Parametric"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Parametric.Parametric</span></code></a>, <a class="reference internal" href="YieldCurve.html#actuarial.yield_curve.YieldCurve" title="actuarial.yield_curve.YieldCurve.YieldCurve"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.yield_curve.YieldCurve.YieldCurve</span></code></a></p>
 <p>A flat yield curve is characterized by a constant rate whatever the maturity.</p>
 <p>The value of a flat yield curve for a maturity <span class="math notranslate nohighlight">\(\tau\)</span> is given by</p>
 <div class="math notranslate nohighlight">
@@ -122,8 +124,8 @@
 This constant rate represents the level of the yield curve.
 It can be compounded, continuously compounded or simple.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="ec7dfb22-5e09-4886-9ec0-a698cc710c34" name="64d07eb0-55ad-494c-9671-dda941a53e75" type="radio">
-</input><label class="tabbed-label" for="ec7dfb22-5e09-4886-9ec0-a698cc710c34">
+<input checked="checked" id="053c6dfd-aa79-49a8-984b-68e1bb761b92" name="94b7f98c-0ead-47b3-8389-495dd45dbcf1" type="radio">
+</input><label class="tabbed-label" for="053c6dfd-aa79-49a8-984b-68e1bb761b92">
 Initialization</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.yield_curve.Flat.__init__">
@@ -143,8 +145,8 @@ The value of the yield curve will be equal to this level for all maturities.</p>
 </dd></dl>
 
 </div>
-<input id="4e38f495-7aee-48d3-b404-8c2133d3d6bc" name="64d07eb0-55ad-494c-9671-dda941a53e75" type="radio">
-</input><label class="tabbed-label" for="4e38f495-7aee-48d3-b404-8c2133d3d6bc">
+<input id="45193e34-6480-4d45-aeaf-66eb94cd58d3" name="94b7f98c-0ead-47b3-8389-495dd45dbcf1" type="radio">
+</input><label class="tabbed-label" for="45193e34-6480-4d45-aeaf-66eb94cd58d3">
 Properties</label><div class="tabbed-content docutils">
 <dl class="py attribute">
 <dt class="sig sig-object py" id="actuarial.yield_curve.Flat.parameters">
@@ -152,7 +154,7 @@ Properties</label><div class="tabbed-content docutils">
 <dd><p>Parameters of the instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../parameter/index.html#actuarial.parameter.Parameters" title="actuarial.parameter.Parameters">Parameters</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="../parameter/Parameters.html#actuarial.parameter.Parameters" title="actuarial.parameter.Parameters">Parameters</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -169,8 +171,8 @@ Properties</label><div class="tabbed-content docutils">
 </dd></dl>
 
 </div>
-<input id="d5f86393-dd43-4404-b3dc-33239f484292" name="64d07eb0-55ad-494c-9671-dda941a53e75" type="radio">
-</input><label class="tabbed-label" for="d5f86393-dd43-4404-b3dc-33239f484292">
+<input id="e89e6eae-71a7-4e17-8043-aa15fedfa260" name="94b7f98c-0ead-47b3-8389-495dd45dbcf1" type="radio">
+</input><label class="tabbed-label" for="e89e6eae-71a7-4e17-8043-aa15fedfa260">
 Methods</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.yield_curve.Flat.evaluate">
@@ -252,7 +254,7 @@ if it exists.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.yield_curve.Flat.to_discounting">
 <span class="sig-name descname"><span class="pre">to_discounting</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">maturities1=0</span></em>, <span class="optional">]</span><em class="sig-param"><span class="pre">maturities2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#actuarial.yield_curve.Flat.to_discounting" title="Permalink to this definition"></a></dt>
-<dd><p>Return a <a class="reference internal" href="index.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Discounting</span></code></a> instance for the provided maturities.</p>
+<dd><p>Return a <a class="reference internal" href="Discounting.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Discounting</span></code></a> instance for the provided maturities.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -268,7 +270,7 @@ values correspond to discount factors while if <code class="xref py py-obj docut
 they correspond to the <a class="reference internal" href="#actuarial.yield_curve.Flat.kind" title="actuarial.yield_curve.Flat.kind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kind</span></code></a> attribute of the instance.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="index.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting">Discounting</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="Discounting.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting">Discounting</a></p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> cannot be broadcast with the instance.
@@ -278,13 +280,13 @@ they correspond to the <a class="reference internal" href="#actuarial.yield_curv
 </dd></dl>
 
 </div>
-<input id="a3595281-e97f-46f7-b995-8f28e598e3cd" name="64d07eb0-55ad-494c-9671-dda941a53e75" type="radio">
-</input><label class="tabbed-label" for="a3595281-e97f-46f7-b995-8f28e598e3cd">
+<input id="babf93d3-d65b-4f76-b3e8-e3047e1ce4c9" name="94b7f98c-0ead-47b3-8389-495dd45dbcf1" type="radio">
+</input><label class="tabbed-label" for="babf93d3-d65b-4f76-b3e8-e3047e1ce4c9">
 Special</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="3696ec5a-ed60-4164-bf7a-4bf562b8a7a0" name="64d07eb0-55ad-494c-9671-dda941a53e75" type="radio">
-</input><label class="tabbed-label" for="3696ec5a-ed60-4164-bf7a-4bf562b8a7a0">
+<input id="f372a592-35b1-4bb2-8c9f-bb80aeaffb58" name="94b7f98c-0ead-47b3-8389-495dd45dbcf1" type="radio">
+</input><label class="tabbed-label" for="f372a592-35b1-4bb2-8c9f-bb80aeaffb58">
 Examples</label><div class="tabbed-content docutils">
 <p>To be added.</p>
 </div>
@@ -297,8 +299,8 @@ Examples</label><div class="tabbed-content docutils">
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Yield Curve" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="NelsonSiegel.html" class="btn btn-neutral float-right" title="Nelson-Siegel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="YieldCurve.html" class="btn btn-neutral float-left" title="Yield Curve ABC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="LinearInterpolation.html" class="btn btn-neutral float-right" title="Linear interpolation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

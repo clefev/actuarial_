@@ -8,7 +8,7 @@
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -48,7 +48,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../distribution/index.html">Distribution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../copula/index.html">Copula</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../yield_curve/index.html">Yield Curve</a></li>
@@ -103,7 +103,7 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 
-<div class="viewcode-block" id="Discounting"><a class="viewcode-back" href="../../../yield_curve/index.html#actuarial.yield_curve.Discounting">[docs]</a><span class="k">class</span> <span class="nc">Discounting</span><span class="p">(</span><span class="n">Arithmetic</span><span class="p">,</span> <span class="n">Base</span><span class="p">,</span> <span class="n">Broadcast</span><span class="p">,</span> <span class="n">Comparison</span><span class="p">):</span>
+<div class="viewcode-block" id="Discounting"><a class="viewcode-back" href="../../../yield_curve/Discounting.html#actuarial.yield_curve.Discounting">[docs]</a><span class="k">class</span> <span class="nc">Discounting</span><span class="p">(</span><span class="n">Arithmetic</span><span class="p">,</span> <span class="n">Base</span><span class="p">,</span> <span class="n">Broadcast</span><span class="p">,</span> <span class="n">Comparison</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Class to manage discount values between two maturities.</span>
 <span class="sd">    </span>
@@ -123,7 +123,7 @@
 
     <span class="c1"># Initialization</span>
         
-<div class="viewcode-block" id="Discounting.__init__"><a class="viewcode-back" href="../../../yield_curve/index.html#actuarial.yield_curve.Discounting.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities1</span><span class="p">,</span> <span class="n">maturities2</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">kind</span><span class="p">):</span>
+<div class="viewcode-block" id="Discounting.__init__"><a class="viewcode-back" href="../../../yield_curve/Discounting.html#actuarial.yield_curve.Discounting.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities1</span><span class="p">,</span> <span class="n">maturities2</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">kind</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -227,7 +227,7 @@
     
     <span class="c1"># Methods   </span>
         
-<div class="viewcode-block" id="Discounting.broadcast"><a class="viewcode-back" href="../../../yield_curve/index.html#actuarial.yield_curve.Discounting.broadcast">[docs]</a>    <span class="k">def</span> <span class="nf">broadcast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="viewcode-block" id="Discounting.broadcast"><a class="viewcode-back" href="../../../yield_curve/Discounting.html#actuarial.yield_curve.Discounting.broadcast">[docs]</a>    <span class="k">def</span> <span class="nf">broadcast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Mimic the broadcast of the maturities and values with input arguments.</span>
 
@@ -245,7 +245,7 @@
         
         <span class="k">return</span> <span class="n">util</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">maturities1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">maturities2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>    </div>
         
-<div class="viewcode-block" id="Discounting.convert"><a class="viewcode-back" href="../../../yield_curve/index.html#actuarial.yield_curve.Discounting.convert">[docs]</a>    <span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;discount_factor&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="Discounting.convert"><a class="viewcode-back" href="../../../yield_curve/Discounting.html#actuarial.yield_curve.Discounting.convert">[docs]</a>    <span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;discount_factor&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Convert in-place the discount values to a new type.</span>
 
@@ -345,7 +345,7 @@
     
     <span class="c1"># Special methods</span>
     
-<div class="viewcode-block" id="Discounting.__arithmetic__"><a class="viewcode-back" href="../../../yield_curve/index.html#actuarial.yield_curve.Discounting.__arithmetic__">[docs]</a>    <span class="k">def</span> <span class="nf">__arithmetic__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">operator</span><span class="p">):</span>
+<div class="viewcode-block" id="Discounting.__arithmetic__"><a class="viewcode-back" href="../../../yield_curve/Discounting.html#actuarial.yield_curve.Discounting.__arithmetic__">[docs]</a>    <span class="k">def</span> <span class="nf">__arithmetic__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">operator</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Apply arithmetic operations to the `values` attribute when using arithmetic</span>
 <span class="sd">        operators (`+`, `-`, `*`, `/` and `**`) on the instance.</span>
@@ -353,7 +353,7 @@
         
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">set_attributes</span><span class="p">(</span><span class="n">values</span> <span class="o">=</span> <span class="n">operator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span></div>
     
-<div class="viewcode-block" id="Discounting.__comparison__"><a class="viewcode-back" href="../../../yield_curve/index.html#actuarial.yield_curve.Discounting.__comparison__">[docs]</a>    <span class="k">def</span> <span class="nf">__comparison__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities</span><span class="p">,</span> <span class="n">operator</span><span class="p">):</span>
+<div class="viewcode-block" id="Discounting.__comparison__"><a class="viewcode-back" href="../../../yield_curve/Discounting.html#actuarial.yield_curve.Discounting.__comparison__">[docs]</a>    <span class="k">def</span> <span class="nf">__comparison__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities</span><span class="p">,</span> <span class="n">operator</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compare the `maturities` attribute when using comparison operators</span>
 <span class="sd">        (`==`, `!!=`, `&lt;`, `&gt;`, `&lt;=` and `&gt;=`) on the instance.</span>

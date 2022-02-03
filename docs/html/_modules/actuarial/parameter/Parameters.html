@@ -8,7 +8,7 @@
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -48,7 +48,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../distribution/index.html">Distribution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../copula/index.html">Copula</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../yield_curve/index.html">Yield Curve</a></li>
@@ -103,7 +103,7 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 
-<div class="viewcode-block" id="Parameters"><a class="viewcode-back" href="../../../parameter/index.html#actuarial.parameter.Parameters">[docs]</a><span class="k">class</span> <span class="nc">Parameters</span><span class="p">(</span><span class="n">Dictionary</span><span class="p">,</span> <span class="n">Base</span><span class="p">,</span> <span class="n">Broadcast</span><span class="p">):</span>
+<div class="viewcode-block" id="Parameters"><a class="viewcode-back" href="../../../parameter/Parameters.html#actuarial.parameter.Parameters">[docs]</a><span class="k">class</span> <span class="nc">Parameters</span><span class="p">(</span><span class="n">Dictionary</span><span class="p">,</span> <span class="n">Base</span><span class="p">,</span> <span class="n">Broadcast</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Class representing a collection of parameters.</span>
 <span class="sd">    </span>
@@ -120,7 +120,7 @@
     
     <span class="c1"># Initialization</span>
     
-<div class="viewcode-block" id="Parameters.__init__"><a class="viewcode-back" href="../../../parameter/index.html#actuarial.parameter.Parameters.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="Parameters.__init__"><a class="viewcode-back" href="../../../parameter/Parameters.html#actuarial.parameter.Parameters.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -157,7 +157,7 @@
         
     <span class="c1"># Methods</span>
     
-<div class="viewcode-block" id="Parameters.control"><a class="viewcode-back" href="../../../parameter/index.html#actuarial.parameter.Parameters.control">[docs]</a>    <span class="k">def</span> <span class="nf">control</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Parameters.control"><a class="viewcode-back" href="../../../parameter/Parameters.html#actuarial.parameter.Parameters.control">[docs]</a>    <span class="k">def</span> <span class="nf">control</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Control whether the value of each parameter is valid or not.</span>
 
@@ -185,7 +185,7 @@
             <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;max&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">):</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&#39;max&#39; must be greater than &#39;min&#39;&quot;</span><span class="p">)</span></div>
             
-<div class="viewcode-block" id="Parameters.reset"><a class="viewcode-back" href="../../../parameter/index.html#actuarial.parameter.Parameters.reset">[docs]</a>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Parameters.reset"><a class="viewcode-back" href="../../../parameter/Parameters.html#actuarial.parameter.Parameters.reset">[docs]</a>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reset the value of each parameter.</span>
 <span class="sd">        </span>
@@ -203,7 +203,7 @@
             
         <span class="k">return</span> <span class="bp">self</span></div>
     
-<div class="viewcode-block" id="Parameters.set"><a class="viewcode-back" href="../../../parameter/index.html#actuarial.parameter.Parameters.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="Parameters.set"><a class="viewcode-back" href="../../../parameter/Parameters.html#actuarial.parameter.Parameters.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the value of the parameters.</span>
 

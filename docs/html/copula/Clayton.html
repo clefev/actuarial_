@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -23,9 +23,7 @@
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Comonotonic" href="Comonotonic.html" />
-    <link rel="prev" title="Copula" href="index.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,18 +46,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../superclass/index.html">Superclass</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">PROBABILITY &amp; STATISTICS</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Copula</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Clayton</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Comonotonic.html">Comonotonic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Countermonotonic.html">Countermonotonic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Gaussian.html">Gaussian</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Independence.html">Independence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Copula</a></li>
 </ul>
-</li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
@@ -97,7 +88,6 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">Copula</a> &raquo;</li>
       <li>Clayton</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/copula/Clayton.rst.txt" rel="nofollow"> View page source</a>
@@ -113,17 +103,17 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="actuarial.copula.Clayton">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.copula.</span></span><span class="sig-name descname"><span class="pre">Clayton</span></span><a class="reference internal" href="../_modules/actuarial/copula/Clayton.html#Clayton"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.copula.Clayton" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="../superclass/Parametric.html#actuarial.superclass.Parametric" title="actuarial.superclass.Parametric.Parametric"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Parametric.Parametric</span></code></a>, <a class="reference internal" href="index.html#actuarial.copula.Copula" title="actuarial.copula.Copula.Copula"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.copula.Copula.Copula</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../superclass/Parametric.html#actuarial.superclass.Parametric" title="actuarial.superclass.Parametric.Parametric"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Parametric.Parametric</span></code></a>, <a class="reference internal" href="Copula.html#actuarial.copula.Copula" title="actuarial.copula.Copula.Copula"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.copula.Copula.Copula</span></code></a></p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="480c1232-4ee5-4008-96b7-027a75d0d7c2" name="ac2cefe5-88b7-44f3-9ec2-a7c2e976e2f5" type="radio">
-</input><label class="tabbed-label" for="480c1232-4ee5-4008-96b7-027a75d0d7c2">
+<input checked="checked" id="ebcf1d5e-1fa1-48da-884b-6f157c8631f9" name="f7d09479-d6e6-4032-8ed2-20605d00dde4" type="radio">
+</input><label class="tabbed-label" for="ebcf1d5e-1fa1-48da-884b-6f157c8631f9">
 Initialization</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.copula.Clayton.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/copula/Clayton.html#Clayton.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.copula.Clayton.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>parameters</strong> (<a class="reference internal" href="../parameter/index.html#actuarial.parameter.Parameters" title="actuarial.parameter.Parameters"><em>Parameters</em></a>) – Parameters of the instance. The parameters must be initialized,
+<dd class="field-odd"><p><strong>parameters</strong> (<a class="reference internal" href="../parameter/Parameters.html#actuarial.parameter.Parameters" title="actuarial.parameter.Parameters"><em>Parameters</em></a>) – Parameters of the instance. The parameters must be initialized,
 respect their constraints and be able to broadcast together.</p>
 </dd>
 <dt class="field-even">Raises</dt>
@@ -137,8 +127,8 @@ respect their constraints and be able to broadcast together.</p>
 </dd></dl>
 
 </div>
-<input id="c5c56e79-98fb-4d1a-9394-b6134f0bb775" name="ac2cefe5-88b7-44f3-9ec2-a7c2e976e2f5" type="radio">
-</input><label class="tabbed-label" for="c5c56e79-98fb-4d1a-9394-b6134f0bb775">
+<input id="ac76db04-136d-4d54-a944-71597162bc1a" name="f7d09479-d6e6-4032-8ed2-20605d00dde4" type="radio">
+</input><label class="tabbed-label" for="ac76db04-136d-4d54-a944-71597162bc1a">
 Properties</label><div class="tabbed-content docutils">
 <dl class="py attribute">
 <dt class="sig sig-object py" id="actuarial.copula.Clayton.dim">
@@ -152,8 +142,8 @@ Properties</label><div class="tabbed-content docutils">
 </dd></dl>
 
 </div>
-<input id="a657c6bb-cc66-452d-9c8c-b825838431f2" name="ac2cefe5-88b7-44f3-9ec2-a7c2e976e2f5" type="radio">
-</input><label class="tabbed-label" for="a657c6bb-cc66-452d-9c8c-b825838431f2">
+<input id="a5059865-aad7-468a-b6fe-e965f60c83a6" name="f7d09479-d6e6-4032-8ed2-20605d00dde4" type="radio">
+</input><label class="tabbed-label" for="a5059865-aad7-468a-b6fe-e965f60c83a6">
 Methods</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.copula.Clayton.cdf">
@@ -217,18 +207,18 @@ Other additional arguments are allowed.</p>
 </dd></dl>
 
 </div>
-<input id="f66c2c3d-8ab3-4ae9-a1c9-af26b62731f8" name="ac2cefe5-88b7-44f3-9ec2-a7c2e976e2f5" type="radio">
-</input><label class="tabbed-label" for="f66c2c3d-8ab3-4ae9-a1c9-af26b62731f8">
+<input id="d2c2207b-e9da-409f-843a-633cf403fca7" name="f7d09479-d6e6-4032-8ed2-20605d00dde4" type="radio">
+</input><label class="tabbed-label" for="d2c2207b-e9da-409f-843a-633cf403fca7">
 Special</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="20f33d56-f94d-4d9e-a6f0-e2ba57ad6d92" name="ac2cefe5-88b7-44f3-9ec2-a7c2e976e2f5" type="radio">
-</input><label class="tabbed-label" for="20f33d56-f94d-4d9e-a6f0-e2ba57ad6d92">
+<input id="8e549bc9-11fa-4656-8f4d-c995bfce541f" name="f7d09479-d6e6-4032-8ed2-20605d00dde4" type="radio">
+</input><label class="tabbed-label" for="8e549bc9-11fa-4656-8f4d-c995bfce541f">
 Technical sheet</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="631d5a1b-9cb9-461d-903a-e92e930ab2b3" name="ac2cefe5-88b7-44f3-9ec2-a7c2e976e2f5" type="radio">
-</input><label class="tabbed-label" for="631d5a1b-9cb9-461d-903a-e92e930ab2b3">
+<input id="1d138168-e613-4c78-bf5c-12dcbf3c2369" name="f7d09479-d6e6-4032-8ed2-20605d00dde4" type="radio">
+</input><label class="tabbed-label" for="1d138168-e613-4c78-bf5c-12dcbf3c2369">
 Examples</label><div class="tabbed-content docutils">
 <p>To be added.</p>
 </div>
@@ -240,10 +230,7 @@ Examples</label><div class="tabbed-content docutils">
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Copula" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="Comonotonic.html" class="btn btn-neutral float-right" title="Comonotonic" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

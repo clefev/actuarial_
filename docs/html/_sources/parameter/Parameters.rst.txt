@@ -1,0 +1,34 @@
+.. _parameter.Parameters:
+
+Parameters |toolkit|
+====================
+
+
+.. autoclass:: actuarial.parameter::Parameters()
+
+        .. tabbed:: Initialization
+
+            .. automethod:: __init__
+
+        .. tabbed:: Abstract
+
+            |none|
+
+        .. tabbed:: Properties
+
+            .. autoattribute:: shapes
+            .. autoattribute:: values
+
+        .. tabbed:: Methods
+
+            .. automethod:: set
+            .. automethod:: control
+            .. automethod:: reset
+
+        .. tabbed:: Special
+
+            |none|
+
+        .. tabbed:: Examples
+
+            To be added.

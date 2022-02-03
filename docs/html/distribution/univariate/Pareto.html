@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -51,20 +51,21 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Distribution</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Univariate</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="UnivariateDistribution.html">Univariate Distribution <span class="sphinx-bs badge badge-dark badge-pill">ABC</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="Bernoulli.html">Bernoulli</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Beta.html">Beta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Empirical.html">Empirical</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Exponential.html">Exponential</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Gamma.html">Gamma</a></li>
 <li class="toctree-l3"><a class="reference internal" href="GeneralizedPareto.html">Generalized Pareto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Lognormal.html">Lognormal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Mixture.html">Mixture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Normal.html">Normal</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Pareto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Poisson.html">Poisson</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Truncated.html">Truncated</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Uniform.html">Uniform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Weibull.html">Weibull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Empirical.html">Empirical</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Truncated.html">Truncated</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Mixture.html">Mixture</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../multivariate/index.html">Multivariate</a></li>
@@ -72,7 +73,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../copula/index.html">Copula</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../yield_curve/index.html">Yield Curve</a></li>
@@ -123,11 +124,11 @@
            <div itemprop="articleBody">
              
   <section id="pareto">
-<span id="distribution-preto"></span><h1>Pareto<a class="headerlink" href="#pareto" title="Permalink to this headline"></a></h1>
+<span id="distribution-pareto"></span><h1>Pareto<a class="headerlink" href="#pareto" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="actuarial.distribution.Pareto">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.distribution.</span></span><span class="sig-name descname"><span class="pre">Pareto</span></span><a class="reference internal" href="../../_modules/actuarial/distribution/Pareto.html#Pareto"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.Pareto" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="../../superclass/Parametric.html#actuarial.superclass.Parametric" title="actuarial.superclass.Parametric.Parametric"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Parametric.Parametric</span></code></a>, <a class="reference internal" href="index.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution.UnivariateDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.distribution.UnivariateDistribution.UnivariateDistribution</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../../superclass/Parametric.html#actuarial.superclass.Parametric" title="actuarial.superclass.Parametric.Parametric"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Parametric.Parametric</span></code></a>, <a class="reference internal" href="UnivariateDistribution.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution.UnivariateDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.distribution.UnivariateDistribution.UnivariateDistribution</span></code></a></p>
 <p>The <strong>Pareto distribution</strong> is a continuous probability distribution defined
 on a semi-infinite interval <span class="math notranslate nohighlight">\([A,+\infty)\)</span> and parametrized by a positive
 shape parameter <span class="math notranslate nohighlight">\(\alpha\)</span>.
@@ -137,8 +138,8 @@ additional parameter for more flexibility.
 It is therefore a suitable choice to model the cost of individual large claims
 for which the flexibility of the generalized Pareto distribution is not necessary.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="c6c1fc7e-785f-4155-99e5-a1b0b6d04e89" name="0e0d4231-aa0d-4f11-9fee-49f4990eed46" type="radio">
-</input><label class="tabbed-label" for="c6c1fc7e-785f-4155-99e5-a1b0b6d04e89">
+<input checked="checked" id="d20f486b-6947-4939-8692-aa1277718531" name="91ff8d7d-4453-4874-ab88-2999cd641c9f" type="radio">
+</input><label class="tabbed-label" for="d20f486b-6947-4939-8692-aa1277718531">
 Initialization</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.distribution.Pareto.__init__">
@@ -158,13 +159,13 @@ Initialization</label><div class="tabbed-content docutils">
 </dd></dl>
 
 </div>
-<input id="09575297-7fe7-4aef-bfc5-1582089a6f12" name="0e0d4231-aa0d-4f11-9fee-49f4990eed46" type="radio">
-</input><label class="tabbed-label" for="09575297-7fe7-4aef-bfc5-1582089a6f12">
+<input id="5edbc971-5a97-4b28-b7b6-8a5e91156387" name="91ff8d7d-4453-4874-ab88-2999cd641c9f" type="radio">
+</input><label class="tabbed-label" for="5edbc971-5a97-4b28-b7b6-8a5e91156387">
 Properties</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="07c686b6-9fbf-4f12-b793-f51c764fe525" name="0e0d4231-aa0d-4f11-9fee-49f4990eed46" type="radio">
-</input><label class="tabbed-label" for="07c686b6-9fbf-4f12-b793-f51c764fe525">
+<input id="24f28deb-677f-432e-bc9e-380316ea8084" name="91ff8d7d-4453-4874-ab88-2999cd641c9f" type="radio">
+</input><label class="tabbed-label" for="24f28deb-677f-432e-bc9e-380316ea8084">
 Methods</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.distribution.Pareto.pdf">
@@ -277,13 +278,13 @@ random number generator associated with this instance.</p></li>
 </dd></dl>
 
 </div>
-<input id="41426703-52d1-42ea-bac1-4b99f9cb5eaa" name="0e0d4231-aa0d-4f11-9fee-49f4990eed46" type="radio">
-</input><label class="tabbed-label" for="41426703-52d1-42ea-bac1-4b99f9cb5eaa">
+<input id="eb610fc6-9290-40a1-9ca2-58aa00bf8832" name="91ff8d7d-4453-4874-ab88-2999cd641c9f" type="radio">
+</input><label class="tabbed-label" for="eb610fc6-9290-40a1-9ca2-58aa00bf8832">
 Special</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="f2724df8-cad7-4228-8188-ec52e65fddd5" name="0e0d4231-aa0d-4f11-9fee-49f4990eed46" type="radio">
-</input><label class="tabbed-label" for="f2724df8-cad7-4228-8188-ec52e65fddd5">
+<input id="df874aee-836d-4065-a4ce-a2b0397d1af2" name="91ff8d7d-4453-4874-ab88-2999cd641c9f" type="radio">
+</input><label class="tabbed-label" for="df874aee-836d-4065-a4ce-a2b0397d1af2">
 Technical sheet</label><div class="tabbed-content docutils">
 <table class="colwidths-given docutils align-center">
 <colgroup>
@@ -313,8 +314,8 @@ Technical sheet</label><div class="tabbed-content docutils">
 </tbody>
 </table>
 </div>
-<input id="1e719481-fd31-4c90-90a3-65f9e745607c" name="0e0d4231-aa0d-4f11-9fee-49f4990eed46" type="radio">
-</input><label class="tabbed-label" for="1e719481-fd31-4c90-90a3-65f9e745607c">
+<input id="9c06e5f9-6b49-46a8-810c-fd558e4c61a1" name="91ff8d7d-4453-4874-ab88-2999cd641c9f" type="radio">
+</input><label class="tabbed-label" for="9c06e5f9-6b49-46a8-810c-fd558e4c61a1">
 Examples</label><div class="tabbed-content docutils">
 <p>To be added.</p>
 </div>

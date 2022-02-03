@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -23,7 +23,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Function" href="../function/index.html" />
+    <link rel="next" title="Parameters Toolkit" href="Parameters.html" />
     <link rel="prev" title="Correlation matrix" href="CorrelationMatrix.html" /> 
 </head>
 
@@ -51,7 +51,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../copula/index.html">Copula</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
@@ -61,9 +61,11 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../math/index.html">Math</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Parameter</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Parameter.html">Parameter <span class="sphinx-bs badge badge-dark badge-pill">ABC</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Array.html">Array</a></li>
 <li class="toctree-l2"><a class="reference internal" href="CorrelationMatrix.html">Correlation matrix</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Scalar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Parameters.html">Parameters <span class="sphinx-bs badge badge-dark badge-pill">Toolkit</span></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../function/index.html">Function</a></li>
@@ -122,8 +124,8 @@ It accepts the following contraints:</p>
 </ul>
 </div></blockquote>
 <div class="tabbed-set docutils">
-<input checked="checked" id="98e5375a-e26d-441c-bb8c-6fe9a2cb57ee" name="f91b5f4e-c3b1-45de-8d78-4ac9bef6d59d" type="radio">
-</input><label class="tabbed-label" for="98e5375a-e26d-441c-bb8c-6fe9a2cb57ee">
+<input checked="checked" id="c29c0e1f-7a36-49f3-876a-9460a156f0c9" name="30b2553d-aa2b-4cf2-92fd-064b6088c688" type="radio">
+</input><label class="tabbed-label" for="c29c0e1f-7a36-49f3-876a-9460a156f0c9">
 Initialization</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.parameter.Scalar.__init__">
@@ -150,8 +152,8 @@ The default is False (closed interval).</p></li>
 </dd></dl>
 
 </div>
-<input id="cc9b0553-2ddd-40e0-b4bc-e2513b2fab1e" name="f91b5f4e-c3b1-45de-8d78-4ac9bef6d59d" type="radio">
-</input><label class="tabbed-label" for="cc9b0553-2ddd-40e0-b4bc-e2513b2fab1e">
+<input id="4389fa96-af98-4d2f-8079-de3c717284af" name="30b2553d-aa2b-4cf2-92fd-064b6088c688" type="radio">
+</input><label class="tabbed-label" for="4389fa96-af98-4d2f-8079-de3c717284af">
 Properties</label><div class="tabbed-content docutils">
 <dl class="py attribute">
 <dt class="sig sig-object py" id="actuarial.parameter.Scalar.value">
@@ -225,8 +227,8 @@ the lower bound and upper bound.</p>
 </dd></dl>
 
 </div>
-<input id="22e234dd-ada6-414f-976a-a49096292fa8" name="f91b5f4e-c3b1-45de-8d78-4ac9bef6d59d" type="radio">
-</input><label class="tabbed-label" for="22e234dd-ada6-414f-976a-a49096292fa8">
+<input id="f9f831cf-d3de-4ebc-abce-bae077d5278b" name="30b2553d-aa2b-4cf2-92fd-064b6088c688" type="radio">
+</input><label class="tabbed-label" for="f9f831cf-d3de-4ebc-abce-bae077d5278b">
 Methods</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.parameter.Scalar.set">
@@ -234,13 +236,13 @@ Methods</label><div class="tabbed-content docutils">
 <dd><p>Set the value of the parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>value</strong> (<em>array-like</em><em> or </em><a class="reference internal" href="index.html#actuarial.parameter.Parameter" title="actuarial.parameter.Parameter"><em>Parameter</em></a><em> or </em><em>None</em>) – The new value of the parameter.</p>
+<dd class="field-odd"><p><strong>value</strong> (<em>array-like</em><em> or </em><a class="reference internal" href="Parameter.html#actuarial.parameter.Parameter" title="actuarial.parameter.Parameter"><em>Parameter</em></a><em> or </em><em>None</em>) – The new value of the parameter.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Instance.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="index.html#actuarial.parameter.Parameter" title="actuarial.parameter.Parameter">Parameter</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="Parameter.html#actuarial.parameter.Parameter" title="actuarial.parameter.Parameter">Parameter</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -287,24 +289,24 @@ The default is “value”.</p></li>
 <dd class="field-odd"><p>Instance.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="index.html#actuarial.parameter.Parameter" title="actuarial.parameter.Parameter">Parameter</a></p>
+<dd class="field-even"><p><a class="reference internal" href="Parameter.html#actuarial.parameter.Parameter" title="actuarial.parameter.Parameter">Parameter</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 </div>
-<input id="4cc01f43-0982-45ad-af79-eca4ae06fcf9" name="f91b5f4e-c3b1-45de-8d78-4ac9bef6d59d" type="radio">
-</input><label class="tabbed-label" for="4cc01f43-0982-45ad-af79-eca4ae06fcf9">
+<input id="4258cabc-45c4-46c8-b3ad-a34562162cd0" name="30b2553d-aa2b-4cf2-92fd-064b6088c688" type="radio">
+</input><label class="tabbed-label" for="4258cabc-45c4-46c8-b3ad-a34562162cd0">
 Special</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="0147e86c-edcf-4e29-b327-d2b61c7887ed" name="f91b5f4e-c3b1-45de-8d78-4ac9bef6d59d" type="radio">
-</input><label class="tabbed-label" for="0147e86c-edcf-4e29-b327-d2b61c7887ed">
+<input id="e9243db7-87e6-48b1-9461-bc3e20229fdd" name="30b2553d-aa2b-4cf2-92fd-064b6088c688" type="radio">
+</input><label class="tabbed-label" for="e9243db7-87e6-48b1-9461-bc3e20229fdd">
 Technical sheet</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="1aec3e27-6860-48a6-b1a3-f70bfe83ba79" name="f91b5f4e-c3b1-45de-8d78-4ac9bef6d59d" type="radio">
-</input><label class="tabbed-label" for="1aec3e27-6860-48a6-b1a3-f70bfe83ba79">
+<input id="30030e30-f682-4b6b-bf31-ebdfc73a48f9" name="30b2553d-aa2b-4cf2-92fd-064b6088c688" type="radio">
+</input><label class="tabbed-label" for="30030e30-f682-4b6b-bf31-ebdfc73a48f9">
 Examples</label><div class="tabbed-content docutils">
 <p>To be added.</p>
 </div>
@@ -318,7 +320,7 @@ Examples</label><div class="tabbed-content docutils">
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="CorrelationMatrix.html" class="btn btn-neutral float-left" title="Correlation matrix" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../function/index.html" class="btn btn-neutral float-right" title="Function" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Parameters.html" class="btn btn-neutral float-right" title="Parameters Toolkit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

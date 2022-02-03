@@ -8,7 +8,7 @@
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -48,7 +48,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../distribution/index.html">Distribution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../copula/index.html">Copula</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../yield_curve/index.html">Yield Curve</a></li>
@@ -106,7 +106,7 @@
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
 
 
-<div class="viewcode-block" id="YieldCurve"><a class="viewcode-back" href="../../../yield_curve/index.html#actuarial.yield_curve.YieldCurve">[docs]</a><span class="k">class</span> <span class="nc">YieldCurve</span><span class="p">(</span><span class="n">ABC</span><span class="p">,</span> <span class="n">Base</span><span class="p">,</span> <span class="n">Broadcast</span><span class="p">):</span>
+<div class="viewcode-block" id="YieldCurve"><a class="viewcode-back" href="../../../yield_curve/YieldCurve.html#actuarial.yield_curve.YieldCurve">[docs]</a><span class="k">class</span> <span class="nc">YieldCurve</span><span class="p">(</span><span class="n">ABC</span><span class="p">,</span> <span class="n">Base</span><span class="p">,</span> <span class="n">Broadcast</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Abstract class for constructing a yield curve.</span>
 <span class="sd">    </span>
@@ -132,7 +132,7 @@
     
     <span class="c1"># Initialization</span>
     
-<div class="viewcode-block" id="YieldCurve.__init__"><a class="viewcode-back" href="../../../yield_curve/index.html#actuarial.yield_curve.YieldCurve.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="p">):</span>
+<div class="viewcode-block" id="YieldCurve.__init__"><a class="viewcode-back" href="../../../yield_curve/YieldCurve.html#actuarial.yield_curve.YieldCurve.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -168,7 +168,7 @@
         
     <span class="c1"># Abstract methods    </span>
     
-<div class="viewcode-block" id="YieldCurve.evaluate"><a class="viewcode-back" href="../../../yield_curve/index.html#actuarial.yield_curve.YieldCurve.evaluate">[docs]</a>    <span class="nd">@abstractmethod</span>
+<div class="viewcode-block" id="YieldCurve.evaluate"><a class="viewcode-back" href="../../../yield_curve/YieldCurve.html#actuarial.yield_curve.YieldCurve.evaluate">[docs]</a>    <span class="nd">@abstractmethod</span>
     <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Abstract method to evaluate the value of the yield curve for the given maturities.</span>
@@ -181,7 +181,7 @@
         
     <span class="c1"># Methods</span>
     
-<div class="viewcode-block" id="YieldCurve.convert"><a class="viewcode-back" href="../../../yield_curve/index.html#actuarial.yield_curve.YieldCurve.convert">[docs]</a>    <span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="p">):</span>
+<div class="viewcode-block" id="YieldCurve.convert"><a class="viewcode-back" href="../../../yield_curve/YieldCurve.html#actuarial.yield_curve.YieldCurve.convert">[docs]</a>    <span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kind</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Convert in-place the yield curve to a new type i.e. update the `kind` attribute.</span>
 
@@ -219,7 +219,7 @@
         
         <span class="k">return</span> <span class="bp">self</span></div>
                         
-<div class="viewcode-block" id="YieldCurve.discount_factor"><a class="viewcode-back" href="../../../yield_curve/index.html#actuarial.yield_curve.YieldCurve.discount_factor">[docs]</a>    <span class="nd">@catch_maturities</span><span class="p">()</span>
+<div class="viewcode-block" id="YieldCurve.discount_factor"><a class="viewcode-back" href="../../../yield_curve/YieldCurve.html#actuarial.yield_curve.YieldCurve.discount_factor">[docs]</a>    <span class="nd">@catch_maturities</span><span class="p">()</span>
     <span class="k">def</span> <span class="nf">discount_factor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities1</span><span class="p">,</span> <span class="n">maturities2</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;discount_factor([maturities1=0,] maturities2)</span>
 <span class="sd">        Compute the discount factor between two maturities.</span>
@@ -246,7 +246,7 @@
         
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_discounting</span><span class="p">(</span><span class="n">maturities1</span><span class="p">,</span> <span class="n">maturities2</span><span class="p">)</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">&quot;discount_factor&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">[()]</span></div>
     
-<div class="viewcode-block" id="YieldCurve.capitalization_factor"><a class="viewcode-back" href="../../../yield_curve/index.html#actuarial.yield_curve.YieldCurve.capitalization_factor">[docs]</a>    <span class="nd">@catch_maturities</span><span class="p">()</span>
+<div class="viewcode-block" id="YieldCurve.capitalization_factor"><a class="viewcode-back" href="../../../yield_curve/YieldCurve.html#actuarial.yield_curve.YieldCurve.capitalization_factor">[docs]</a>    <span class="nd">@catch_maturities</span><span class="p">()</span>
     <span class="k">def</span> <span class="nf">capitalization_factor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities1</span><span class="p">,</span> <span class="n">maturities2</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;capitalization_factor([maturities1=0,] maturities2)</span>
 <span class="sd">        Compute the capitalization factor between two maturities.</span>
@@ -273,7 +273,7 @@
         
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_discounting</span><span class="p">(</span><span class="n">maturities1</span><span class="p">,</span> <span class="n">maturities2</span><span class="p">)</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">&quot;capitalization_factor&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">[()]</span></div>
     
-<div class="viewcode-block" id="YieldCurve.to_discounting"><a class="viewcode-back" href="../../../yield_curve/index.html#actuarial.yield_curve.YieldCurve.to_discounting">[docs]</a>    <span class="nd">@catch_maturities</span><span class="p">()</span>
+<div class="viewcode-block" id="YieldCurve.to_discounting"><a class="viewcode-back" href="../../../yield_curve/YieldCurve.html#actuarial.yield_curve.YieldCurve.to_discounting">[docs]</a>    <span class="nd">@catch_maturities</span><span class="p">()</span>
     <span class="k">def</span> <span class="nf">to_discounting</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities1</span><span class="p">,</span> <span class="n">maturities2</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;to_discounting([maturities1=0,] maturities2)</span>
 <span class="sd">        Return a `Discounting` instance for the provided maturities.</span>
@@ -318,7 +318,7 @@
         
     <span class="c1"># Class method</span>
     
-<div class="viewcode-block" id="YieldCurve.fit"><a class="viewcode-back" href="../../../yield_curve/index.html#actuarial.yield_curve.YieldCurve.fit">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="YieldCurve.fit"><a class="viewcode-back" href="../../../yield_curve/YieldCurve.html#actuarial.yield_curve.YieldCurve.fit">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Class method to fit a yield curve.</span>
@@ -328,13 +328,13 @@
         
     <span class="c1"># Decorators    </span>
     
-<div class="viewcode-block" id="YieldCurve.Decorators"><a class="viewcode-back" href="../../../yield_curve/index.html#actuarial.yield_curve.YieldCurve.Decorators">[docs]</a>    <span class="k">class</span> <span class="nc">Decorators</span><span class="p">:</span>
+<div class="viewcode-block" id="YieldCurve.Decorators"><a class="viewcode-back" href="../../../yield_curve/YieldCurve.html#actuarial.yield_curve.YieldCurve.Decorators">[docs]</a>    <span class="k">class</span> <span class="nc">Decorators</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Container class containing decorators to use for the implemented abstract</span>
 <span class="sd">        methods of `YieldCurve` instances.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
                     
-<div class="viewcode-block" id="YieldCurve.Decorators.evaluate"><a class="viewcode-back" href="../../../yield_curve/index.html#actuarial.yield_curve.YieldCurve.Decorators.evaluate">[docs]</a>        <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<div class="viewcode-block" id="YieldCurve.Decorators.evaluate"><a class="viewcode-back" href="../../../yield_curve/YieldCurve.html#actuarial.yield_curve.YieldCurve.Decorators.evaluate">[docs]</a>        <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
             <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Decorator for the implemented `evaluate` method of a `YieldCurve`</span>
 <span class="sd">            instance.</span>
@@ -383,7 +383,7 @@
         
     <span class="c1"># Special methods    </span>
     
-<div class="viewcode-block" id="YieldCurve.__call__"><a class="viewcode-back" href="../../../yield_curve/index.html#actuarial.yield_curve.YieldCurve.__call__">[docs]</a>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="YieldCurve.__call__"><a class="viewcode-back" href="../../../yield_curve/YieldCurve.html#actuarial.yield_curve.YieldCurve.__call__">[docs]</a>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Identical to the `evaluate` method.</span>
 <span class="sd">        &quot;&quot;&quot;</span>

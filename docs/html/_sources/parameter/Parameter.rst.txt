@@ -1,0 +1,37 @@
+.. _parameter.Parameter:
+
+Parameter |abstract|
+====================
+
+.. autoclass:: actuarial.parameter::Parameter()
+
+        .. tabbed:: Initialization
+
+            |none|
+
+        .. tabbed:: Abstract
+
+            .. automethod:: control
+            .. autoclass:: actuarial.parameter::Parameter.Decorators
+                :members:
+
+        .. tabbed:: Properties
+
+            .. autoattribute:: value
+
+        .. tabbed:: Methods
+
+            .. automethod:: broadcast
+            .. automethod:: set
+            .. automethod:: reset
+
+        .. tabbed:: Special
+
+            .. automethod:: __arithmetic__
+            .. automethod:: __comparison__
+            .. automethod:: __getitem__
+            .. automethod:: __setitem__
+            
+        .. tabbed:: Examples
+
+            To be added.

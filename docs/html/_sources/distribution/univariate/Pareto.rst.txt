@@ -1,4 +1,4 @@
-.. _distribution.Preto:
+.. _distribution.Pareto:
 
 Pareto
 ======

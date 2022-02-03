@@ -1,20 +1,22 @@
+.. _actuarial.superclass:
+
 Superclass
 ==========
 
 .. toctree::
-   :maxdepth: 1
-   :hidden:
+    :maxdepth: 1
+    :hidden:
 
-   Arithmetic.rst
-   Base.rst
-   Broadcast.rst
-   Comparison.rst
-   Dictionary.rst
-   Mixture.rst
-   Parametric.rst
-   Piecewise.rst
-   Random.rst
-   TermStructure.rst
+    Arithmetic.rst
+    Base.rst
+    Broadcast.rst
+    Comparison.rst
+    Dictionary.rst
+    Mixture.rst
+    Parametric.rst
+    Piecewise.rst
+    Random.rst
+    TermStructure.rst
 
 
 
@@ -41,24 +43,26 @@ The superclass module provides all the tools needed to build advanced and standa
 
 
 
-.. rubric :: What is a superclass ?
+.. rubric:: :subtitle:`What is a superclass ?`
 
-A superclass is a class that can be inherited by another class to implement functionality.
-The purpose of superclasses is to benefit from a whole series of standardized features without any implementation effort.
+A superclass is a class that can be inherited by another class to implement pre-specified functionality.
+The purpose of a superclass is to benefit from a whole series of standardized features without any implementation effort.
 Of course, a class can inherit from several superclasses at the same time in order to multiply and extend its functionalities.
-Superclasses are therefore considered as the atoms used to build other classes in this package.
+That's why superclasses are considered as atoms used to build other classes in this package.
 Most of the classes implemented in the actuarial package are indeed built from at least one superclass.
+You can also build your own classes that inherit from superclasses.
 
 An example of superclass is the `Random` superclass.
-The functionality of this superclass is to incorporate a random number generator as well as methods for working with it.
+The functionality of this superclass is to incorporate a random number generator (rng) along with methods to work with it (e.g., change its seed).
 By inheritance, all classes inheriting from the `Random` superclass will also get the same functionality.
-Therefore, if we want to create a class capable of generating randomness (e.g., for generating random samples of a given distribution, generating random brownian motion samples, ...),
+Therefore, if we want to create a class capable of generating randomness (for example, to generate random samples of a distribution, generate random paths of a Brownian motion, ...),
 this class should inherit from the `Random` superclass.
-In this way, the implemented class will directly have access to a random number generator to generate randomness and the ability to manage it easily.
+In this way, the implemented class will have direct access to a random number generator to generate its randomness and the possibility of managing it easily.
+It will save time, implementation effort and ensure to manage the rng of a class in a standardized way.
 
 
 
-.. rubric:: Module description
+.. rubric:: :subtitle:`Importation`
 
 The superclass module can be easily imported from the actuarial package:
 
@@ -66,36 +70,63 @@ The superclass module can be easily imported from the actuarial package:
 
     from actuarial import superclass
 
-This module contains several superclasses.
-Each superclass has its own functionality.
-The table below provides a short description of the implemented superclasses (in alphabetical order):
 
-.. list-table::
+
+.. rubric:: :subtitle:`Content`
+
+This module contains several superclasses.
+Each superclass has its own functionality, the possibility of being initialized or not and can be an abstract class or not.
+The table below provides an overview of the implemented superclasses (in alphabetical order):
+
+.. list-table:: List of superclasses.
     :header-rows: 1
     :align: center
+    :widths: 20 15 15 50
 
     *   - .. centered:: Superclass
+        - .. centered:: Initialization
+        - .. centered:: Abstract
         - .. centered:: Description
     *   - :ref:`superclass.Arithmetic`
-        - Describe how arithmetic operators (`+`, `-`, `*`, `/` and `**`) should behave on the instance
+        - .. centered:: |X|
+        - .. centered:: |V|
+        - Describe how arithmetic operators (`+`, `-`, `*`, `/` and `**`) behave on the instance
     *   - :ref:`superclass.Base`
-        - Nice formatting when printing the instance and basic methods such as copy instance
+        - .. centered:: |X|
+        - .. centered:: |X|
+        - Nice formatting when printing the instance and implementation of basic methods such as copying the instance or changing its attributes
     *   - :ref:`superclass.Broadcast`
+        - .. centered:: |X|
+        - .. centered:: |V|
         - Mimic how input arguments are broadcast with an instance and provide a `shape`, `ndim` and `size` attributes
     *   - :ref:`superclass.Comparison`
-        - Describe how comparison operators (`==`, `!!=`, `<`, `>`, `<=` and `>=`) should behave on the instance
+        - .. centered:: |X|
+        - .. centered:: |V|
+        - Describe how comparison operators (`==`, `!!=`, `<`, `>`, `<=` and `>=`) behave on the instance
     *   - :ref:`superclass.Dictionary`
+        - .. centered:: |V|
+        - .. centered:: |X|
         - Build a dictionary of key-component pairs
     *   - :ref:`superclass.Mixture`
+        - .. centered:: |V|
+        - .. centered:: |X|
         - Build mixture models (containing components and weights)
     *   - :ref:`superclass.Parametric`
+        - .. centered:: |V|
+        - .. centered:: |V|
         - Build parametric models (containing parameters)
     *   - :ref:`superclass.Piecewise`
+        - .. centered:: |X|
+        - .. centered:: |V|
         - Build piecewise models (containing a piecewise function)
     *   - :ref:`superclass.Random`
+        - .. centered:: |X|
+        - .. centered:: |X|
         - Build random models (containing a random number generator and capable of generating randomness)
     *   - :ref:`superclass.TermStructure`
+        - .. centered:: |V|
+        - .. centered:: |X|
         - Build term structure models (containing values associated with maturities)
 
 Note that the `Base` superclass is the most common.
-It is good practice to inherit actuarial classes from this superclass.
+It is good practice to inherit actuarial classes from at least this superclass.

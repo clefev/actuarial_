@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parameter ABC &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Array" href="Array.html" />
+    <link rel="prev" title="Parameter" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SUPERCLASS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../superclass/index.html">Superclass</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PROBABILITY &amp; STATISTICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copula/index.html">Copula</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexation/index.html">Indexation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MATHEMATICS</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../math/index.html">Math</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Parameter</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Parameter <span class="sphinx-bs badge badge-dark badge-pill">ABC</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Array.html">Array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CorrelationMatrix.html">Correlation matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scalar.html">Scalar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Parameters.html">Parameters <span class="sphinx-bs badge badge-dark badge-pill">Toolkit</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../function/index.html">Function</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">UTILITIES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util/util.html">Util</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XXX</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../XXX/notation.html">Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test.html">Test</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Parameter</a> &raquo;</li>
+      <li>Parameter <span class="sphinx-bs badge badge-dark badge-pill">ABC</span></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/parameter/Parameter.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="parameter-abstract">
+<span id="parameter-parameter"></span><h1>Parameter <span class="sphinx-bs badge badge-dark badge-pill">ABC</span><a class="headerlink" href="#parameter-abstract" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="actuarial.parameter.Parameter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.parameter.</span></span><span class="sig-name descname"><span class="pre">Parameter</span></span><a class="reference internal" href="../_modules/actuarial/parameter/Parameter.html#Parameter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.parameter.Parameter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code>, <a class="reference internal" href="../superclass/Arithmetic.html#actuarial.superclass.Arithmetic" title="actuarial.superclass.Arithmetic.Arithmetic"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Arithmetic.Arithmetic</span></code></a>, <a class="reference internal" href="../superclass/Base.html#actuarial.superclass.Base" title="actuarial.superclass.Base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Base.Base</span></code></a>, <a class="reference internal" href="../superclass/Broadcast.html#actuarial.superclass.Broadcast" title="actuarial.superclass.Broadcast.Broadcast"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Broadcast.Broadcast</span></code></a>, <a class="reference internal" href="../superclass/Comparison.html#actuarial.superclass.Comparison" title="actuarial.superclass.Comparison.Comparison"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Comparison.Comparison</span></code></a></p>
+<p>Abstract class for building parameters.</p>
+<p>Parameters are used by parametric models.
+There are different types of parameters such as scalar parameters, array
+parameters, correlation matrix parameters, …
+Each type of parameter should be represented by a dedicated class inheriting
+from this abstract class.
+The parameters can also have additional constraints.
+For example, a scalar parameter could have a range of accepted values i.e.
+a lower bound and upper bound.
+These constraints should be set in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code> method of the dedicated class.</p>
+<p>Once a parameter instance is initialized, no value is associated with the parameter.
+A value can be associated with the parameter by using the <a class="reference internal" href="#actuarial.parameter.Parameter.set" title="actuarial.parameter.Parameter.set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set</span></code></a> method.
+This value will then be accessible through the <a class="reference internal" href="#actuarial.parameter.Parameter.value" title="actuarial.parameter.Parameter.value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">value</span></code></a> attribute.
+In order to control that this value is valid, the <a class="reference internal" href="#actuarial.parameter.Parameter.control" title="actuarial.parameter.Parameter.control"><code class="xref py py-obj docutils literal notranslate"><span class="pre">control</span></code></a> method can be used.</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="064b1d96-1777-4cd9-bc31-7e3fca77626c" name="0a0421ad-b43d-486a-a174-4698ac9c06bc" type="radio">
+</input><label class="tabbed-label" for="064b1d96-1777-4cd9-bc31-7e3fca77626c">
+Initialization</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="98beb932-d2b9-4e5a-a161-97a15808750f" name="0a0421ad-b43d-486a-a174-4698ac9c06bc" type="radio">
+</input><label class="tabbed-label" for="98beb932-d2b9-4e5a-a161-97a15808750f">
+Abstract</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.parameter.Parameter.control">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">control</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'value'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/parameter/Parameter.html#Parameter.control"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.parameter.Parameter.control" title="Permalink to this definition"></a></dt>
+<dd><p>Abstract method to control whether the value of the parameter is valid or not.
+If it is not valid, a <code class="xref py py-obj docutils literal notranslate"><span class="pre">ValueError</span></code> should be raised.</p>
+<p>The first argument must be the value to control.
+By convention (and by default), if the value to control is set to None,
+the value of the instance will be controlled instead.
+The second argument must be the name of the parameter.
+If an error is raised, this name should be used.
+Other additional arguments are not allowed.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="actuarial.parameter.Parameter.Decorators">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Decorators</span></span><a class="reference internal" href="../_modules/actuarial/parameter/Parameter.html#Parameter.Decorators"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.parameter.Parameter.Decorators" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Container class containing decorators to use for the implemented abstract
+methods of <a class="reference internal" href="#actuarial.parameter.Parameter" title="actuarial.parameter.Parameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Parameter</span></code></a> instances.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.parameter.Parameter.Decorators.control">
+<span class="sig-name descname"><span class="pre">control</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/parameter/Parameter.html#Parameter.Decorators.control"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.parameter.Parameter.Decorators.control" title="Permalink to this definition"></a></dt>
+<dd><p>Decorator for the implemented <a class="reference internal" href="#actuarial.parameter.Parameter.Decorators.control" title="actuarial.parameter.Parameter.Decorators.control"><code class="xref py py-obj docutils literal notranslate"><span class="pre">control</span></code></a> method of a <a class="reference internal" href="#actuarial.parameter.Parameter" title="actuarial.parameter.Parameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Parameter</span></code></a> instance.</p>
+<p>This decorator implements the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Determine the value to control. The provided value will be
+converted to a numpy array and controlled unless it is set
+to None where the value of the instance will be controlled instead.</p></li>
+<li><p>Control whether the parameter is initialized (not set to None).</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Decorator.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>callable</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the parameter is not initialized (set to None).</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<input id="a15fed34-7a2a-4d6e-93bb-f991a734deb9" name="0a0421ad-b43d-486a-a174-4698ac9c06bc" type="radio">
+</input><label class="tabbed-label" for="a15fed34-7a2a-4d6e-93bb-f991a734deb9">
+Properties</label><div class="tabbed-content docutils">
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.parameter.Parameter.value">
+<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#actuarial.parameter.Parameter.value" title="Permalink to this definition"></a></dt>
+<dd><p>Value of the parameter. The parameter is not initialized
+if its value is set to None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="7f1b0c32-64f5-4178-a6d3-91fc499cda6a" name="0a0421ad-b43d-486a-a174-4698ac9c06bc" type="radio">
+</input><label class="tabbed-label" for="7f1b0c32-64f5-4178-a6d3-91fc499cda6a">
+Methods</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.parameter.Parameter.broadcast">
+<span class="sig-name descname"><span class="pre">broadcast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/parameter/Parameter.html#Parameter.broadcast"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.parameter.Parameter.broadcast" title="Permalink to this definition"></a></dt>
+<dd><p>Mimic the broadcast of the parameter with input arguments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>*args</strong> (<em>array-like</em><em> or </em><em>object with shape attribute</em>) – The arguments to broadcast with the parameter.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Broadcast result.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.broadcast</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.parameter.Parameter.set">
+<span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/parameter/Parameter.html#Parameter.set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.parameter.Parameter.set" title="Permalink to this definition"></a></dt>
+<dd><p>Set the value of the parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>array-like</em><em> or </em><a class="reference internal" href="#actuarial.parameter.Parameter" title="actuarial.parameter.Parameter.Parameter"><em>Parameter</em></a><em> or </em><em>None</em>) – The new value of the parameter.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#actuarial.parameter.Parameter" title="actuarial.parameter.Parameter.Parameter">Parameter</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.parameter.Parameter.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/parameter/Parameter.html#Parameter.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.parameter.Parameter.reset" title="Permalink to this definition"></a></dt>
+<dd><p>Reset the value of the parameter.</p>
+<p>The value of the parameter will be set to None as if it had not been initialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Instance.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#actuarial.parameter.Parameter" title="actuarial.parameter.Parameter.Parameter">Parameter</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="cb046f48-4e84-4600-8f15-efb1b2452faa" name="0a0421ad-b43d-486a-a174-4698ac9c06bc" type="radio">
+</input><label class="tabbed-label" for="cb046f48-4e84-4600-8f15-efb1b2452faa">
+Special</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.parameter.Parameter.__arithmetic__">
+<span class="sig-name descname"><span class="pre">__arithmetic__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operator</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/parameter/Parameter.html#Parameter.__arithmetic__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.parameter.Parameter.__arithmetic__" title="Permalink to this definition"></a></dt>
+<dd><p>Apply arithmetic operations to the <a class="reference internal" href="#actuarial.parameter.Parameter.value" title="actuarial.parameter.Parameter.value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">value</span></code></a> attribute when using arithmetic
+operators (<code class="xref py py-obj docutils literal notranslate"><span class="pre">+</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">-</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">*</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">/</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">**</span></code>) on the instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.parameter.Parameter.__comparison__">
+<span class="sig-name descname"><span class="pre">__comparison__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operator</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/parameter/Parameter.html#Parameter.__comparison__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.parameter.Parameter.__comparison__" title="Permalink to this definition"></a></dt>
+<dd><p>Compare the <a class="reference internal" href="#actuarial.parameter.Parameter.value" title="actuarial.parameter.Parameter.value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">value</span></code></a> attribute when using comparison operators
+(<code class="xref py py-obj docutils literal notranslate"><span class="pre">==</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">!=</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;=</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">&gt;=</span></code>) on the instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.parameter.Parameter.__getitem__">
+<span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/parameter/Parameter.html#Parameter.__getitem__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.parameter.Parameter.__getitem__" title="Permalink to this definition"></a></dt>
+<dd><p>Return a (shallow) copy of the instance where we get a subset of the
+values of the parameter.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.parameter.Parameter.__setitem__">
+<span class="sig-name descname"><span class="pre">__setitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/parameter/Parameter.html#Parameter.__setitem__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.parameter.Parameter.__setitem__" title="Permalink to this definition"></a></dt>
+<dd><p>Set the values of the parameter.</p>
+</dd></dl>
+
+</div>
+<input id="3a96cf04-72dd-476b-936a-17e857274504" name="0a0421ad-b43d-486a-a174-4698ac9c06bc" type="radio">
+</input><label class="tabbed-label" for="3a96cf04-72dd-476b-936a-17e857274504">
+Examples</label><div class="tabbed-content docutils">
+<p>To be added.</p>
+</div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Parameter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Array.html" class="btn btn-neutral float-right" title="Array" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

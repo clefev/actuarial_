@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -25,7 +25,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Price index" href="PriceIndex.html" />
-    <link rel="prev" title="Indexation" href="index.html" /> 
+    <link rel="prev" title="Indexation ABC" href="Indexation.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -52,11 +52,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../copula/index.html">Copula</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Indexation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Indexation.html">Indexation <span class="sphinx-bs badge badge-dark badge-pill">ABC</span></a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Flat</a></li>
 <li class="toctree-l2"><a class="reference internal" href="PriceIndex.html">Price index</a></li>
 </ul>
@@ -110,7 +111,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="actuarial.indexation.Flat">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.indexation.</span></span><span class="sig-name descname"><span class="pre">Flat</span></span><a class="reference internal" href="../_modules/actuarial/indexation/Flat.html#Flat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.indexation.Flat" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="../superclass/Parametric.html#actuarial.superclass.Parametric" title="actuarial.superclass.Parametric.Parametric"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Parametric.Parametric</span></code></a>, <a class="reference internal" href="index.html#actuarial.indexation.Indexation" title="actuarial.indexation.Indexation.Indexation"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.indexation.Indexation.Indexation</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../superclass/Parametric.html#actuarial.superclass.Parametric" title="actuarial.superclass.Parametric.Parametric"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Parametric.Parametric</span></code></a>, <a class="reference internal" href="Indexation.html#actuarial.indexation.Indexation" title="actuarial.indexation.Indexation.Indexation"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.indexation.Indexation.Indexation</span></code></a></p>
 <p>A flat indexation assumes that the inflation is constant over time.</p>
 <p>The indexation rate can be compounded or not.
 If we denote <span class="math notranslate nohighlight">\(g\)</span> the constant indexation rate, the price index at
@@ -133,8 +134,8 @@ maturity <span class="math notranslate nohighlight">\(\tau\)</span> is calculate
 </div></blockquote>
 <p>where <span class="math notranslate nohighlight">\(PI_0\)</span> is the base value for the price index at maturity 0.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="543e4d1b-b380-4e12-9153-4527bfff04f3" name="9bca13d0-c243-45b4-a3bc-6c2b86947887" type="radio">
-</input><label class="tabbed-label" for="543e4d1b-b380-4e12-9153-4527bfff04f3">
+<input checked="checked" id="d3a6ddf1-e0b2-44d5-886b-c3e52e8811ac" name="871459bb-f165-45fa-b876-a984591d3b77" type="radio">
+</input><label class="tabbed-label" for="d3a6ddf1-e0b2-44d5-886b-c3e52e8811ac">
 Initialization</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.indexation.Flat.__init__">
@@ -152,8 +153,8 @@ The default is False.</p></li>
 </dd></dl>
 
 </div>
-<input id="1e9e995e-2ba6-4736-b9d9-aebee60e87f3" name="9bca13d0-c243-45b4-a3bc-6c2b86947887" type="radio">
-</input><label class="tabbed-label" for="1e9e995e-2ba6-4736-b9d9-aebee60e87f3">
+<input id="98419807-c1f0-4cc1-91a4-91e19f8dd2ae" name="871459bb-f165-45fa-b876-a984591d3b77" type="radio">
+</input><label class="tabbed-label" for="98419807-c1f0-4cc1-91a4-91e19f8dd2ae">
 Properties</label><div class="tabbed-content docutils">
 <dl class="py attribute">
 <dt class="sig sig-object py" id="actuarial.indexation.Flat.parameters">
@@ -161,7 +162,7 @@ Properties</label><div class="tabbed-content docutils">
 <dd><p>Parameters of the instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../parameter/index.html#actuarial.parameter.Parameters" title="actuarial.parameter.Parameters">Parameters</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="../parameter/Parameters.html#actuarial.parameter.Parameters" title="actuarial.parameter.Parameters">Parameters</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -189,8 +190,8 @@ Properties</label><div class="tabbed-content docutils">
 </dd></dl>
 
 </div>
-<input id="46822235-2f8c-4f10-96cd-876ec9524e9e" name="9bca13d0-c243-45b4-a3bc-6c2b86947887" type="radio">
-</input><label class="tabbed-label" for="46822235-2f8c-4f10-96cd-876ec9524e9e">
+<input id="4e627a7c-5ec4-46ae-b8c4-59375cdc9386" name="871459bb-f165-45fa-b876-a984591d3b77" type="radio">
+</input><label class="tabbed-label" for="4e627a7c-5ec4-46ae-b8c4-59375cdc9386">
 Methods</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.indexation.Flat.price_index">
@@ -352,7 +353,7 @@ is given by</p>
 and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code>.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../yield_curve/index.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting">Discounting</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="../yield_curve/Discounting.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting">Discounting</a></p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> cannot be broadcast with the instance.</p>
@@ -361,18 +362,18 @@ and <code class="xref py py-obj docutils literal notranslate"><span class="pre">
 </dd></dl>
 
 </div>
-<input id="4adc9975-aaa3-4f1c-a980-28454d59003e" name="9bca13d0-c243-45b4-a3bc-6c2b86947887" type="radio">
-</input><label class="tabbed-label" for="4adc9975-aaa3-4f1c-a980-28454d59003e">
+<input id="65441ef3-056b-4626-9114-4a5241e9a576" name="871459bb-f165-45fa-b876-a984591d3b77" type="radio">
+</input><label class="tabbed-label" for="65441ef3-056b-4626-9114-4a5241e9a576">
 Special</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="017609f7-016e-402f-ae4e-6dd8031bf2c7" name="9bca13d0-c243-45b4-a3bc-6c2b86947887" type="radio">
-</input><label class="tabbed-label" for="017609f7-016e-402f-ae4e-6dd8031bf2c7">
+<input id="f1f2ee7d-b86a-4399-82ec-7f08f07b2679" name="871459bb-f165-45fa-b876-a984591d3b77" type="radio">
+</input><label class="tabbed-label" for="f1f2ee7d-b86a-4399-82ec-7f08f07b2679">
 Technical sheet</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="c90a1102-160f-4452-846a-61d1349f87f7" name="9bca13d0-c243-45b4-a3bc-6c2b86947887" type="radio">
-</input><label class="tabbed-label" for="c90a1102-160f-4452-846a-61d1349f87f7">
+<input id="84d98048-c0bd-4f25-892a-01bf010e462b" name="871459bb-f165-45fa-b876-a984591d3b77" type="radio">
+</input><label class="tabbed-label" for="84d98048-c0bd-4f25-892a-01bf010e462b">
 Examples</label><div class="tabbed-content docutils">
 <p>To be added.</p>
 </div>
@@ -385,7 +386,7 @@ Examples</label><div class="tabbed-content docutils">
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Indexation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Indexation.html" class="btn btn-neutral float-left" title="Indexation ABC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="PriceIndex.html" class="btn btn-neutral float-right" title="Price index" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

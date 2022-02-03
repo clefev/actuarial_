@@ -1,3 +1,5 @@
+.. _actuarial.util:
+
 Util
 ====
 

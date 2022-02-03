@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Univariate Distribution ABC &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Bernoulli" href="Bernoulli.html" />
+    <link rel="prev" title="Univariate" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SUPERCLASS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../superclass/index.html">Superclass</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PROBABILITY &amp; STATISTICS</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Distribution</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Univariate</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Univariate Distribution <span class="sphinx-bs badge badge-dark badge-pill">ABC</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Bernoulli.html">Bernoulli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Beta.html">Beta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Empirical.html">Empirical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Exponential.html">Exponential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Gamma.html">Gamma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GeneralizedPareto.html">Generalized Pareto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Lognormal.html">Lognormal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Mixture.html">Mixture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Normal.html">Normal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Pareto.html">Pareto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Poisson.html">Poisson</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Truncated.html">Truncated</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Uniform.html">Uniform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Weibull.html">Weibull</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../multivariate/index.html">Multivariate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../copula/index.html">Copula</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../yield_curve/index.html">Yield Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../indexation/index.html">Indexation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MATHEMATICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../math/index.html">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../function/index.html">Function</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">UTILITIES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../util/util.html">Util</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XXX</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../XXX/notation.html">Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../test.html">Test</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Distribution</a> &raquo;</li>
+          <li><a href="index.html">Univariate</a> &raquo;</li>
+      <li>Univariate Distribution <span class="sphinx-bs badge badge-dark badge-pill">ABC</span></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/distribution/univariate/UnivariateDistribution.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="univariate-distribution-abstract">
+<span id="distribution-univariatedistribution"></span><h1>Univariate Distribution <span class="sphinx-bs badge badge-dark badge-pill">ABC</span><a class="headerlink" href="#univariate-distribution-abstract" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="actuarial.distribution.UnivariateDistribution">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.distribution.</span></span><span class="sig-name descname"><span class="pre">UnivariateDistribution</span></span><a class="reference internal" href="../../_modules/actuarial/distribution/UnivariateDistribution.html#UnivariateDistribution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.UnivariateDistribution" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code>, <a class="reference internal" href="../../superclass/Base.html#actuarial.superclass.Base" title="actuarial.superclass.Base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Base.Base</span></code></a>, <a class="reference internal" href="../../superclass/Broadcast.html#actuarial.superclass.Broadcast" title="actuarial.superclass.Broadcast.Broadcast"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Broadcast.Broadcast</span></code></a>, <a class="reference internal" href="../../superclass/Random.html#actuarial.superclass.Random" title="actuarial.superclass.Random.Random"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Random.Random</span></code></a></p>
+<p>Abstract class for constructing an univariate distribution.</p>
+<p>An univariate distribution describes the probability distribution of a single
+random variable.
+The random variable can be discrete or continuous.</p>
+<p>This abstract class implements basic methods such as</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Evaluate the probability density/mass function (<a class="reference internal" href="#actuarial.distribution.UnivariateDistribution.pdf" title="actuarial.distribution.UnivariateDistribution.pdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pdf</span></code></a>).</p></li>
+<li><p>Evaluate the cumulative distribution function (<a class="reference internal" href="#actuarial.distribution.UnivariateDistribution.cdf" title="actuarial.distribution.UnivariateDistribution.cdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cdf</span></code></a>).</p></li>
+<li><p>Evaluate the quantile (<a class="reference internal" href="#actuarial.distribution.UnivariateDistribution.quantile" title="actuarial.distribution.UnivariateDistribution.quantile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantile</span></code></a>).</p></li>
+<li><p>Draw random samples (<a class="reference internal" href="#actuarial.distribution.UnivariateDistribution.random" title="actuarial.distribution.UnivariateDistribution.random"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random</span></code></a>).</p></li>
+<li><p>Compute the log-likelihood of a sample (<a class="reference internal" href="#actuarial.distribution.UnivariateDistribution.log_likelihood" title="actuarial.distribution.UnivariateDistribution.log_likelihood"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log_likelihood</span></code></a>).</p></li>
+</ul>
+</div></blockquote>
+<p>Note that the type of values returned by the random variable (integers or floats)
+is provided by the <a class="reference internal" href="#actuarial.distribution.UnivariateDistribution.dtype" title="actuarial.distribution.UnivariateDistribution.dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dtype</span></code></a> attribute of the instance.</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="70e62b9a-4f99-4af3-b269-6fe3a98f691a" name="22a38b8f-d2f1-4f5d-ae8a-0e08b5f49e47" type="radio">
+</input><label class="tabbed-label" for="70e62b9a-4f99-4af3-b269-6fe3a98f691a">
+Initialization</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.distribution.UnivariateDistribution.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/actuarial/distribution/UnivariateDistribution.html#UnivariateDistribution.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.UnivariateDistribution.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</div>
+<input id="193f4ea5-8475-4102-ae1d-3394e5801e0e" name="22a38b8f-d2f1-4f5d-ae8a-0e08b5f49e47" type="radio">
+</input><label class="tabbed-label" for="193f4ea5-8475-4102-ae1d-3394e5801e0e">
+Abstract</label><div class="tabbed-content docutils">
+<dl class="py property">
+<dt class="sig sig-object py" id="actuarial.distribution.UnivariateDistribution.dtype">
+<em class="property"><span class="pre">abstract</span> <span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">dtype</span></span><a class="headerlink" href="#actuarial.distribution.UnivariateDistribution.dtype" title="Permalink to this definition"></a></dt>
+<dd><p>Abstract property giving the <a class="reference internal" href="#actuarial.distribution.UnivariateDistribution.dtype" title="actuarial.distribution.UnivariateDistribution.dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dtype</span></code></a> of the returned values of the
+distribution.</p>
+<p>It should return <code class="xref py py-obj docutils literal notranslate"><span class="pre">np.dtype(float)</span></code> if the distribution returns floats
+(e.g., the normal distribution) or <code class="xref py py-obj docutils literal notranslate"><span class="pre">np.dtype(int)</span></code> if it returns integers
+(e.g., the Poisson distribution).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.distribution.UnivariateDistribution.cdf">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">cdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/actuarial/distribution/UnivariateDistribution.html#UnivariateDistribution.cdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.UnivariateDistribution.cdf" title="Permalink to this definition"></a></dt>
+<dd><p>Abstract method to evaluate the cumulative distribution function (cdf).</p>
+<p>The first argument of this method must be the values <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> for which the
+cdf should be evaluated.
+Other additional arguments are allowed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.distribution.UnivariateDistribution.pdf">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/actuarial/distribution/UnivariateDistribution.html#UnivariateDistribution.pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.UnivariateDistribution.pdf" title="Permalink to this definition"></a></dt>
+<dd><p>Abstract method to evaluate the probability density/mass function (pdf).</p>
+<p>The first argument of this method must be the values <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> for which the
+pdf should be evaluated.
+Other additional arguments are allowed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.distribution.UnivariateDistribution.quantile">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">quantile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/actuarial/distribution/UnivariateDistribution.html#UnivariateDistribution.quantile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.UnivariateDistribution.quantile" title="Permalink to this definition"></a></dt>
+<dd><p>Abstract method to evaluate the quantile.</p>
+<p>The first argument of this method must be the values <code class="xref py py-obj docutils literal notranslate"><span class="pre">p</span></code> (between 0 and 1)
+for which the quantile should be evaluated.
+Other additional arguments are allowed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.distribution.UnivariateDistribution.random">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">random</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/actuarial/distribution/UnivariateDistribution.html#UnivariateDistribution.random"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.UnivariateDistribution.random" title="Permalink to this definition"></a></dt>
+<dd><p>Abstract method to draw random samples.</p>
+<p>The first argument of this method must be the size of the samples to be
+drawn. A <code class="xref py py-obj docutils literal notranslate"><span class="pre">seed</span></code> argument must also be provided in the method definition.
+Other additional arguments are allowed.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="actuarial.distribution.UnivariateDistribution.Decorators">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Decorators</span></span><a class="reference internal" href="../../_modules/actuarial/distribution/UnivariateDistribution.html#UnivariateDistribution.Decorators"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.UnivariateDistribution.Decorators" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Container class containing decorators to use for the implemented abstract
+methods of <a class="reference internal" href="#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnivariateDistribution</span></code></a> instances.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.distribution.UnivariateDistribution.Decorators.cdf">
+<span class="sig-name descname"><span class="pre">cdf</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/actuarial/distribution/UnivariateDistribution.html#UnivariateDistribution.Decorators.cdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.UnivariateDistribution.Decorators.cdf" title="Permalink to this definition"></a></dt>
+<dd><p>Decorator for the implemented <a class="reference internal" href="#actuarial.distribution.UnivariateDistribution.Decorators.cdf" title="actuarial.distribution.UnivariateDistribution.Decorators.cdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cdf</span></code></a> method of an <a class="reference internal" href="#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnivariateDistribution</span></code></a> instance.</p>
+<p>This decorator implements the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Convert the values for which the cdf should be evaluated to a
+numpy array.</p></li>
+<li><p>Control whether these values can be broadcast with the instance.</p></li>
+<li><p>Ensure that the returned output is an array with a float dtype
+and reduce it to a scalar when possible.</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Decorator.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>callable</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the values for which the cdf should be evaluated cannot be
+    broadcast with the instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.distribution.UnivariateDistribution.Decorators.pdf">
+<span class="sig-name descname"><span class="pre">pdf</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/actuarial/distribution/UnivariateDistribution.html#UnivariateDistribution.Decorators.pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.UnivariateDistribution.Decorators.pdf" title="Permalink to this definition"></a></dt>
+<dd><p>Decorator for the implemented <a class="reference internal" href="#actuarial.distribution.UnivariateDistribution.Decorators.pdf" title="actuarial.distribution.UnivariateDistribution.Decorators.pdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pdf</span></code></a> method of an <a class="reference internal" href="#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnivariateDistribution</span></code></a> instance.</p>
+<p>This decorator implements the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Convert the values for which the pdf should be evaluated to a
+numpy array.</p></li>
+<li><p>Control whether these values can be broadcast with the instance.</p></li>
+<li><p>Ensure that the returned output is an array with a float dtype
+and reduce it to a scalar when possible.</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Decorator.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>callable</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the values for which the pdf should be evaluated cannot be
+    broadcast with the instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.distribution.UnivariateDistribution.Decorators.quantile">
+<span class="sig-name descname"><span class="pre">quantile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/actuarial/distribution/UnivariateDistribution.html#UnivariateDistribution.Decorators.quantile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.UnivariateDistribution.Decorators.quantile" title="Permalink to this definition"></a></dt>
+<dd><p>Decorator for the implemented <a class="reference internal" href="#actuarial.distribution.UnivariateDistribution.Decorators.quantile" title="actuarial.distribution.UnivariateDistribution.Decorators.quantile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quantile</span></code></a> method of an <a class="reference internal" href="#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnivariateDistribution</span></code></a> instance.</p>
+<p>This decorator implements the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Convert the values for which the quantile should be evaluated to a
+numpy array.</p></li>
+<li><p>Control whether these values can be broadcast with the instance
+and are between 0 and 1.</p></li>
+<li><p>Ensure that the returned output is an array with the same dtype
+as the <code class="xref py py-obj docutils literal notranslate"><span class="pre">dtype</span></code> attribute of the instance and reduce it to a scalar
+when possible.</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Decorator.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>callable</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the values for which the quantile should be evaluated cannot
+    be broadcast with the instance or contain values not between 0 and 1.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.distribution.UnivariateDistribution.Decorators.random">
+<span class="sig-name descname"><span class="pre">random</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/actuarial/distribution/UnivariateDistribution.html#UnivariateDistribution.Decorators.random"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.UnivariateDistribution.Decorators.random" title="Permalink to this definition"></a></dt>
+<dd><p>Decorator for the implemented <a class="reference internal" href="#actuarial.distribution.UnivariateDistribution.Decorators.random" title="actuarial.distribution.UnivariateDistribution.Decorators.random"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random</span></code></a> method of an <a class="reference internal" href="#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnivariateDistribution</span></code></a> instance.</p>
+<p>This decorator implements the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Convert the size of the samples to a tuple of integers.</p></li>
+<li><p>Control if the size of the samples is a supershape of the instance shape.</p></li>
+<li><p>Ensure that the returned output is an array with the same dtype
+as the <code class="xref py py-obj docutils literal notranslate"><span class="pre">dtype</span></code> attribute of the instance and reduce it to a scalar
+when possible.</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Decorator.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>callable</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the size of the samples to be drawn is not a supershape of the
+    instance shape.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<input id="ef6d8a23-a9e9-43c3-a3dd-1c01d2e357ce" name="22a38b8f-d2f1-4f5d-ae8a-0e08b5f49e47" type="radio">
+</input><label class="tabbed-label" for="ef6d8a23-a9e9-43c3-a3dd-1c01d2e357ce">
+Properties</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="651d1cfc-26d8-4023-bdcd-ceda83dc13b9" name="22a38b8f-d2f1-4f5d-ae8a-0e08b5f49e47" type="radio">
+</input><label class="tabbed-label" for="651d1cfc-26d8-4023-bdcd-ceda83dc13b9">
+Methods</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.distribution.UnivariateDistribution.log_likelihood">
+<span class="sig-name descname"><span class="pre">log_likelihood</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepdims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/actuarial/distribution/UnivariateDistribution.html#UnivariateDistribution.log_likelihood"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.UnivariateDistribution.log_likelihood" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the log-likelihood.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The log-likelihood of a sample <span class="math notranslate nohighlight">\(x = (x_1, ..., x_n)\)</span> is calculated as</p>
+<div class="math notranslate nohighlight">
+\[L = \sum_{i=1}^n w_i \ln\left(f(x_i)\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(w = (w_1, ..., w_n)\)</span> is a vector of weights associated with
+each <span class="math notranslate nohighlight">\(x_i\)</span>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>array-like</em>) – Observed sample values from which the log-likelihood should be calculated.</p></li>
+<li><p><strong>weights</strong> (<em>array-like</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Weight associated with each value.
+The default assumes a weight of 1 associated with each observation.</p></li>
+<li><p><strong>axis</strong> (<em>int</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Axis along which the sum of the individual log-likelihood is computed.
+If None, the sum is computed over all the dimensions. The default is None.</p></li>
+<li><p><strong>keepdims</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the axes which are reduced are left in the result as dimensions
+with size one (otherwise, they will be removed). With this option,
+the result will broadcast correctly against the input array <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code>.
+The default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Log-likelihood.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="a31f9035-b017-4761-9502-aa96dd25fffb" name="22a38b8f-d2f1-4f5d-ae8a-0e08b5f49e47" type="radio">
+</input><label class="tabbed-label" for="a31f9035-b017-4761-9502-aa96dd25fffb">
+Special</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="f9eed0f9-5d51-4e94-b094-cc3d6d7c655f" name="22a38b8f-d2f1-4f5d-ae8a-0e08b5f49e47" type="radio">
+</input><label class="tabbed-label" for="f9eed0f9-5d51-4e94-b094-cc3d6d7c655f">
+Examples</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Univariate" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Bernoulli.html" class="btn btn-neutral float-right" title="Bernoulli" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

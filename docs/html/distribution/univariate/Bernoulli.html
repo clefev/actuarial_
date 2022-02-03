@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -25,7 +25,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Beta" href="Beta.html" />
-    <link rel="prev" title="Univariate" href="index.html" /> 
+    <link rel="prev" title="Univariate Distribution ABC" href="UnivariateDistribution.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,20 +51,21 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Distribution</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Univariate</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="UnivariateDistribution.html">Univariate Distribution <span class="sphinx-bs badge badge-dark badge-pill">ABC</span></a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Bernoulli</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Beta.html">Beta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Empirical.html">Empirical</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Exponential.html">Exponential</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Gamma.html">Gamma</a></li>
 <li class="toctree-l3"><a class="reference internal" href="GeneralizedPareto.html">Generalized Pareto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Lognormal.html">Lognormal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Mixture.html">Mixture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Normal.html">Normal</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Pareto.html">Pareto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Poisson.html">Poisson</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Truncated.html">Truncated</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Uniform.html">Uniform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Weibull.html">Weibull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Empirical.html">Empirical</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Truncated.html">Truncated</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Mixture.html">Mixture</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../multivariate/index.html">Multivariate</a></li>
@@ -72,7 +73,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../copula/index.html">Copula</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../yield_curve/index.html">Yield Curve</a></li>
@@ -127,7 +128,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="actuarial.distribution.Bernoulli">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.distribution.</span></span><span class="sig-name descname"><span class="pre">Bernoulli</span></span><a class="reference internal" href="../../_modules/actuarial/distribution/Bernoulli.html#Bernoulli"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.Bernoulli" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="../../superclass/Parametric.html#actuarial.superclass.Parametric" title="actuarial.superclass.Parametric.Parametric"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Parametric.Parametric</span></code></a>, <a class="reference internal" href="index.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution.UnivariateDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.distribution.UnivariateDistribution.UnivariateDistribution</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../../superclass/Parametric.html#actuarial.superclass.Parametric" title="actuarial.superclass.Parametric.Parametric"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Parametric.Parametric</span></code></a>, <a class="reference internal" href="UnivariateDistribution.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution.UnivariateDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.distribution.UnivariateDistribution.UnivariateDistribution</span></code></a></p>
 <p>The <strong>Bernoulli distribution</strong> is a discrete probability distribution of
 a random variable which takes the value 1 with probability <span class="math notranslate nohighlight">\(p\)</span> and
 the value 0 with probability <span class="math notranslate nohighlight">\(1-p\)</span>:</p>
@@ -142,8 +143,8 @@ Such questions lead to outcomes that are boolean-valued: a value 1 in case
 of success with probability <span class="math notranslate nohighlight">\(p\)</span> and a value 0 in case of failure
 with probability <span class="math notranslate nohighlight">\(1-p\)</span>.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="e2ae58d0-1c62-4696-89e1-a182ecb11393" name="5b59439d-5b1e-48bd-b5ab-c1a5bd30e14a" type="radio">
-</input><label class="tabbed-label" for="e2ae58d0-1c62-4696-89e1-a182ecb11393">
+<input checked="checked" id="bbc31759-7deb-4afc-9887-60db9918a4c0" name="1af2061f-e501-4e3a-9feb-240f85d5ac70" type="radio">
+</input><label class="tabbed-label" for="bbc31759-7deb-4afc-9887-60db9918a4c0">
 Initialization</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.distribution.Bernoulli.__init__">
@@ -159,13 +160,13 @@ Initialization</label><div class="tabbed-content docutils">
 </dd></dl>
 
 </div>
-<input id="fb41d9c5-f606-49da-b6d7-60c79afc6468" name="5b59439d-5b1e-48bd-b5ab-c1a5bd30e14a" type="radio">
-</input><label class="tabbed-label" for="fb41d9c5-f606-49da-b6d7-60c79afc6468">
+<input id="5ce9990d-c09e-49ea-a028-b826dc3a9e03" name="1af2061f-e501-4e3a-9feb-240f85d5ac70" type="radio">
+</input><label class="tabbed-label" for="5ce9990d-c09e-49ea-a028-b826dc3a9e03">
 Properties</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="c384e58e-9562-45dc-8420-5dd2162fde1f" name="5b59439d-5b1e-48bd-b5ab-c1a5bd30e14a" type="radio">
-</input><label class="tabbed-label" for="c384e58e-9562-45dc-8420-5dd2162fde1f">
+<input id="069159bf-94c0-4109-9a41-3dae2e79730e" name="1af2061f-e501-4e3a-9feb-240f85d5ac70" type="radio">
+</input><label class="tabbed-label" for="069159bf-94c0-4109-9a41-3dae2e79730e">
 Methods</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.distribution.Bernoulli.pdf">
@@ -276,13 +277,13 @@ random number generator associated with this instance.</p></li>
 </dd></dl>
 
 </div>
-<input id="95f09e06-ba66-4a86-850e-357c43dd9a0d" name="5b59439d-5b1e-48bd-b5ab-c1a5bd30e14a" type="radio">
-</input><label class="tabbed-label" for="95f09e06-ba66-4a86-850e-357c43dd9a0d">
+<input id="d8b7a30e-0b32-4248-974d-8296e4ffbe9b" name="1af2061f-e501-4e3a-9feb-240f85d5ac70" type="radio">
+</input><label class="tabbed-label" for="d8b7a30e-0b32-4248-974d-8296e4ffbe9b">
 Special</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="d66749c5-7249-42a5-9be8-9fbb268af0cb" name="5b59439d-5b1e-48bd-b5ab-c1a5bd30e14a" type="radio">
-</input><label class="tabbed-label" for="d66749c5-7249-42a5-9be8-9fbb268af0cb">
+<input id="75ed0e6a-e6dc-4f3d-9371-8fd3531317c8" name="1af2061f-e501-4e3a-9feb-240f85d5ac70" type="radio">
+</input><label class="tabbed-label" for="75ed0e6a-e6dc-4f3d-9371-8fd3531317c8">
 Technical sheet</label><div class="tabbed-content docutils">
 <table class="colwidths-given docutils align-center">
 <colgroup>
@@ -308,8 +309,8 @@ Technical sheet</label><div class="tabbed-content docutils">
 </tbody>
 </table>
 </div>
-<input id="07238011-9acb-4b7d-a05c-1ee4db91107f" name="5b59439d-5b1e-48bd-b5ab-c1a5bd30e14a" type="radio">
-</input><label class="tabbed-label" for="07238011-9acb-4b7d-a05c-1ee4db91107f">
+<input id="d98f05c6-781c-4a17-b4b9-d420c50f0c4a" name="1af2061f-e501-4e3a-9feb-240f85d5ac70" type="radio">
+</input><label class="tabbed-label" for="d98f05c6-781c-4a17-b4b9-d420c50f0c4a">
 Examples</label><div class="tabbed-content docutils">
 <p>To be added.</p>
 </div>
@@ -322,7 +323,7 @@ Examples</label><div class="tabbed-content docutils">
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Univariate" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="UnivariateDistribution.html" class="btn btn-neutral float-left" title="Univariate Distribution ABC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="Beta.html" class="btn btn-neutral float-right" title="Beta" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

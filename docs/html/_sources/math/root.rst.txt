@@ -4,3 +4,4 @@ Root-finding
 ============
 
 .. autofunction:: actuarial.math::bisection
+.. autofunction:: actuarial.math::newton_raphson

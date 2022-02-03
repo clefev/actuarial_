@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -52,7 +52,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../copula/index.html">Copula</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
@@ -257,10 +257,10 @@ the <code class="xref py py-obj docutils literal notranslate"><span class="pre">
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>frequency</strong> (<a class="reference internal" href="../distribution/univariate/index.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution"><em>UnivariateDistribution</em></a><em> or </em><em>1D array-like</em>) – Frequency distribution. The number of claims will be randomly generated
+<li><p><strong>frequency</strong> (<a class="reference internal" href="../distribution/univariate/UnivariateDistribution.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution"><em>UnivariateDistribution</em></a><em> or </em><em>1D array-like</em>) – Frequency distribution. The number of claims will be randomly generated
 from this distribution. If the number of claims don’t need to be randomly
 generated (already known), a 1D array can be provided instead.</p></li>
-<li><p><strong>severity</strong> (<a class="reference internal" href="../distribution/univariate/index.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution"><em>UnivariateDistribution</em></a>) – Severity distribution. The cost of each individual claim will be randomly
+<li><p><strong>severity</strong> (<a class="reference internal" href="../distribution/univariate/UnivariateDistribution.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution"><em>UnivariateDistribution</em></a>) – Severity distribution. The cost of each individual claim will be randomly
 generated from this distribution.</p></li>
 <li><p><strong>size</strong> (<em>int</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Number of scenarios to randomly generate.
 This argument is only useful if the <code class="xref py py-obj docutils literal notranslate"><span class="pre">frequency</span></code> argument is an

@@ -3,5 +3,5 @@
 --tabs-color-label-inactive: rgba(116, 176, 224, 0.7);
 --tabs-color-overline: rgb(232, 242, 250);
 --tabs-color-underline: rgb(232, 242, 250);
---tabs-size-label: 1rem;
+--tabs-size-label: 0.95rem;
 }

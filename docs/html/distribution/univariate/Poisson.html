@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -24,7 +24,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Uniform" href="Uniform.html" />
+    <link rel="next" title="Truncated" href="Truncated.html" />
     <link rel="prev" title="Pareto" href="Pareto.html" /> 
 </head>
 
@@ -51,20 +51,21 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Distribution</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Univariate</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="UnivariateDistribution.html">Univariate Distribution <span class="sphinx-bs badge badge-dark badge-pill">ABC</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="Bernoulli.html">Bernoulli</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Beta.html">Beta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Empirical.html">Empirical</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Exponential.html">Exponential</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Gamma.html">Gamma</a></li>
 <li class="toctree-l3"><a class="reference internal" href="GeneralizedPareto.html">Generalized Pareto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Lognormal.html">Lognormal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Mixture.html">Mixture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Normal.html">Normal</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Pareto.html">Pareto</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Poisson</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Truncated.html">Truncated</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Uniform.html">Uniform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Weibull.html">Weibull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Empirical.html">Empirical</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Truncated.html">Truncated</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Mixture.html">Mixture</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../multivariate/index.html">Multivariate</a></li>
@@ -72,7 +73,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../copula/index.html">Copula</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../yield_curve/index.html">Yield Curve</a></li>
@@ -127,17 +128,17 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="actuarial.distribution.Poisson">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.distribution.</span></span><span class="sig-name descname"><span class="pre">Poisson</span></span><a class="reference internal" href="../../_modules/actuarial/distribution/Poisson.html#Poisson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.Poisson" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="../../superclass/Parametric.html#actuarial.superclass.Parametric" title="actuarial.superclass.Parametric.Parametric"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Parametric.Parametric</span></code></a>, <a class="reference internal" href="index.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution.UnivariateDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.distribution.UnivariateDistribution.UnivariateDistribution</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../../superclass/Parametric.html#actuarial.superclass.Parametric" title="actuarial.superclass.Parametric.Parametric"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Parametric.Parametric</span></code></a>, <a class="reference internal" href="UnivariateDistribution.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution.UnivariateDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.distribution.UnivariateDistribution.UnivariateDistribution</span></code></a></p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="b442384f-4a99-49e3-a596-136c5d8ef4c3" name="cc2aa7fe-6cf7-4435-8892-980d68dd515d" type="radio">
-</input><label class="tabbed-label" for="b442384f-4a99-49e3-a596-136c5d8ef4c3">
+<input checked="checked" id="1c3cde25-ca5a-40df-a84e-d28692cc1e2b" name="38d7b33d-2e4a-4596-b234-354ce236c891" type="radio">
+</input><label class="tabbed-label" for="1c3cde25-ca5a-40df-a84e-d28692cc1e2b">
 Initialization</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.distribution.Poisson.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/actuarial/distribution/Poisson.html#Poisson.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.Poisson.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>parameters</strong> (<a class="reference internal" href="../../parameter/index.html#actuarial.parameter.Parameters" title="actuarial.parameter.Parameters"><em>Parameters</em></a>) – Parameters of the instance. The parameters must be initialized,
+<dd class="field-odd"><p><strong>parameters</strong> (<a class="reference internal" href="../../parameter/Parameters.html#actuarial.parameter.Parameters" title="actuarial.parameter.Parameters"><em>Parameters</em></a>) – Parameters of the instance. The parameters must be initialized,
 respect their constraints and be able to broadcast together.</p>
 </dd>
 <dt class="field-even">Raises</dt>
@@ -151,13 +152,13 @@ respect their constraints and be able to broadcast together.</p>
 </dd></dl>
 
 </div>
-<input id="50cede75-51ca-4882-a2fb-8752163e54ab" name="cc2aa7fe-6cf7-4435-8892-980d68dd515d" type="radio">
-</input><label class="tabbed-label" for="50cede75-51ca-4882-a2fb-8752163e54ab">
+<input id="2e784d34-38b7-4305-aea3-27fef684f2aa" name="38d7b33d-2e4a-4596-b234-354ce236c891" type="radio">
+</input><label class="tabbed-label" for="2e784d34-38b7-4305-aea3-27fef684f2aa">
 Properties</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="282f2470-ddee-4970-8ec7-bc06c61393fd" name="cc2aa7fe-6cf7-4435-8892-980d68dd515d" type="radio">
-</input><label class="tabbed-label" for="282f2470-ddee-4970-8ec7-bc06c61393fd">
+<input id="fbadc5f9-2e71-4916-9bd6-b3119952f406" name="38d7b33d-2e4a-4596-b234-354ce236c891" type="radio">
+</input><label class="tabbed-label" for="fbadc5f9-2e71-4916-9bd6-b3119952f406">
 Methods</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.distribution.Poisson.pdf">
@@ -263,13 +264,13 @@ random number generator associated with this instance.</p></li>
 </dd></dl>
 
 </div>
-<input id="96f6b54c-8715-4c83-bc96-d055578b7785" name="cc2aa7fe-6cf7-4435-8892-980d68dd515d" type="radio">
-</input><label class="tabbed-label" for="96f6b54c-8715-4c83-bc96-d055578b7785">
+<input id="b5a1d9b5-4d48-4546-87d1-5f99bbf2aba9" name="38d7b33d-2e4a-4596-b234-354ce236c891" type="radio">
+</input><label class="tabbed-label" for="b5a1d9b5-4d48-4546-87d1-5f99bbf2aba9">
 Special</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="5f03a357-dd10-458b-bd11-6096ad54b747" name="cc2aa7fe-6cf7-4435-8892-980d68dd515d" type="radio">
-</input><label class="tabbed-label" for="5f03a357-dd10-458b-bd11-6096ad54b747">
+<input id="4e9ac4a1-9c9e-4f85-964f-8b7ddc94a3d4" name="38d7b33d-2e4a-4596-b234-354ce236c891" type="radio">
+</input><label class="tabbed-label" for="4e9ac4a1-9c9e-4f85-964f-8b7ddc94a3d4">
 Technical sheet</label><div class="tabbed-content docutils">
 <table class="colwidths-given docutils align-center">
 <colgroup>
@@ -295,8 +296,8 @@ Technical sheet</label><div class="tabbed-content docutils">
 </tbody>
 </table>
 </div>
-<input id="0df081a1-f1f6-469a-a805-14e77df200d2" name="cc2aa7fe-6cf7-4435-8892-980d68dd515d" type="radio">
-</input><label class="tabbed-label" for="0df081a1-f1f6-469a-a805-14e77df200d2">
+<input id="99f13fae-edb4-4a4f-94b7-477c7e93bb4e" name="38d7b33d-2e4a-4596-b234-354ce236c891" type="radio">
+</input><label class="tabbed-label" for="99f13fae-edb4-4a4f-94b7-477c7e93bb4e">
 Examples</label><div class="tabbed-content docutils">
 <p>To be added.</p>
 </div>
@@ -310,7 +311,7 @@ Examples</label><div class="tabbed-content docutils">
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="Pareto.html" class="btn btn-neutral float-left" title="Pareto" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="Uniform.html" class="btn btn-neutral float-right" title="Uniform" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Truncated.html" class="btn btn-neutral float-right" title="Truncated" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

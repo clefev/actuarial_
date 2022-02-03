@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -24,8 +24,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Mixture" href="Mixture.html" />
-    <link rel="prev" title="Empirical" href="Empirical.html" /> 
+    <link rel="next" title="Uniform" href="Uniform.html" />
+    <link rel="prev" title="Poisson" href="Poisson.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,20 +51,21 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Distribution</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Univariate</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="UnivariateDistribution.html">Univariate Distribution <span class="sphinx-bs badge badge-dark badge-pill">ABC</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="Bernoulli.html">Bernoulli</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Beta.html">Beta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Empirical.html">Empirical</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Exponential.html">Exponential</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Gamma.html">Gamma</a></li>
 <li class="toctree-l3"><a class="reference internal" href="GeneralizedPareto.html">Generalized Pareto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Lognormal.html">Lognormal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Mixture.html">Mixture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Normal.html">Normal</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Pareto.html">Pareto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Poisson.html">Poisson</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Truncated</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Uniform.html">Uniform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Weibull.html">Weibull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Empirical.html">Empirical</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Truncated</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Mixture.html">Mixture</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../multivariate/index.html">Multivariate</a></li>
@@ -72,7 +73,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../copula/index.html">Copula</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../yield_curve/index.html">Yield Curve</a></li>
@@ -127,7 +128,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="actuarial.distribution.Truncated">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.distribution.</span></span><span class="sig-name descname"><span class="pre">Truncated</span></span><a class="reference internal" href="../../_modules/actuarial/distribution/Truncated.html#Truncated"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.Truncated" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="index.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution.UnivariateDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.distribution.UnivariateDistribution.UnivariateDistribution</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="UnivariateDistribution.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution.UnivariateDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.distribution.UnivariateDistribution.UnivariateDistribution</span></code></a></p>
 <p>A truncated distribution applies a conditional lower bound and/or upper bound
 to another distribution.</p>
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> denote the random variable to be truncated.
@@ -141,8 +142,8 @@ that results from restricting the domain of another distribution <span class="ma
 It is useful when the domain of a random variable is limited to values which
 lie above or below a given threshold or within a specified range.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="fcf359e3-d197-4aeb-a9d5-6fdb1c5fc77c" name="5ed562c1-9fc6-482c-9890-b2aa9f52b73c" type="radio">
-</input><label class="tabbed-label" for="fcf359e3-d197-4aeb-a9d5-6fdb1c5fc77c">
+<input checked="checked" id="59558c44-8f1c-4b8d-af15-6ef03e61d0ab" name="03e7985d-26da-4973-9919-f1dd36c3447d" type="radio">
+</input><label class="tabbed-label" for="59558c44-8f1c-4b8d-af15-6ef03e61d0ab">
 Initialization</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.distribution.Truncated.__init__">
@@ -150,7 +151,7 @@ Initialization</label><div class="tabbed-content docutils">
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>distribution</strong> (<a class="reference internal" href="index.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution"><em>UnivariateDistribution</em></a>) – Distribution to be truncated.</p></li>
+<li><p><strong>distribution</strong> (<a class="reference internal" href="UnivariateDistribution.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution"><em>UnivariateDistribution</em></a>) – Distribution to be truncated.</p></li>
 <li><p><strong>min</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Conditional lower bound of the distribution.
 The default assumes no lower bound.</p></li>
 <li><p><strong>max</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Conditional upper bound of the distribution.
@@ -159,7 +160,7 @@ The default assumes no upper bound.</p></li>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>TypeError</strong> – If <a class="reference internal" href="#actuarial.distribution.Truncated.distribution" title="actuarial.distribution.Truncated.distribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">distribution</span></code></a> is not an <a class="reference internal" href="index.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnivariateDistribution</span></code></a> instance.</p></li>
+<li><p><strong>TypeError</strong> – If <a class="reference internal" href="#actuarial.distribution.Truncated.distribution" title="actuarial.distribution.Truncated.distribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">distribution</span></code></a> is not an <a class="reference internal" href="UnivariateDistribution.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnivariateDistribution</span></code></a> instance.</p></li>
 <li><p><strong>ValueError</strong> – If <a class="reference internal" href="#actuarial.distribution.Truncated.min" title="actuarial.distribution.Truncated.min"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min</span></code></a>, <a class="reference internal" href="#actuarial.distribution.Truncated.max" title="actuarial.distribution.Truncated.max"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max</span></code></a> and <a class="reference internal" href="#actuarial.distribution.Truncated.distribution" title="actuarial.distribution.Truncated.distribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">distribution</span></code></a> cannot be broadcast together.
     If <a class="reference internal" href="#actuarial.distribution.Truncated.max" title="actuarial.distribution.Truncated.max"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max</span></code></a> is not greater than <a class="reference internal" href="#actuarial.distribution.Truncated.min" title="actuarial.distribution.Truncated.min"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min</span></code></a>.</p></li>
 </ul>
@@ -168,8 +169,8 @@ The default assumes no upper bound.</p></li>
 </dd></dl>
 
 </div>
-<input id="e84aa7e0-87d9-473f-8baf-e7a10c906818" name="5ed562c1-9fc6-482c-9890-b2aa9f52b73c" type="radio">
-</input><label class="tabbed-label" for="e84aa7e0-87d9-473f-8baf-e7a10c906818">
+<input id="947729ef-68e3-41ae-90f6-e749b49f4205" name="03e7985d-26da-4973-9919-f1dd36c3447d" type="radio">
+</input><label class="tabbed-label" for="947729ef-68e3-41ae-90f6-e749b49f4205">
 Properties</label><div class="tabbed-content docutils">
 <dl class="py attribute">
 <dt class="sig sig-object py" id="actuarial.distribution.Truncated.distribution">
@@ -177,7 +178,7 @@ Properties</label><div class="tabbed-content docutils">
 <dd><p>Distribution <span class="math notranslate nohighlight">\(X\)</span> to be truncated.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="index.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution">UnivariateDistribution</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="UnivariateDistribution.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution">UnivariateDistribution</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -227,8 +228,8 @@ Properties</label><div class="tabbed-content docutils">
 </dd></dl>
 
 </div>
-<input id="ed38dece-c8b5-4ce5-8e9d-fb42b37a47fe" name="5ed562c1-9fc6-482c-9890-b2aa9f52b73c" type="radio">
-</input><label class="tabbed-label" for="ed38dece-c8b5-4ce5-8e9d-fb42b37a47fe">
+<input id="351fa725-d52a-499b-ae4b-c76c09416a8a" name="03e7985d-26da-4973-9919-f1dd36c3447d" type="radio">
+</input><label class="tabbed-label" for="351fa725-d52a-499b-ae4b-c76c09416a8a">
 Methods</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.distribution.Truncated.pdf">
@@ -359,18 +360,18 @@ be truncated and the same shape as <code class="xref py py-obj docutils literal 
 </dd></dl>
 
 </div>
-<input id="409615cd-395d-41ae-8d30-d92c41851dd4" name="5ed562c1-9fc6-482c-9890-b2aa9f52b73c" type="radio">
-</input><label class="tabbed-label" for="409615cd-395d-41ae-8d30-d92c41851dd4">
+<input id="6a393b6c-dcbb-42f6-a9f1-be9d1830243c" name="03e7985d-26da-4973-9919-f1dd36c3447d" type="radio">
+</input><label class="tabbed-label" for="6a393b6c-dcbb-42f6-a9f1-be9d1830243c">
 Special</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="a89979d5-2ba8-4d9a-aca3-4bbb9a84c8f4" name="5ed562c1-9fc6-482c-9890-b2aa9f52b73c" type="radio">
-</input><label class="tabbed-label" for="a89979d5-2ba8-4d9a-aca3-4bbb9a84c8f4">
+<input id="84ba8259-0259-464a-92ed-6647e1783719" name="03e7985d-26da-4973-9919-f1dd36c3447d" type="radio">
+</input><label class="tabbed-label" for="84ba8259-0259-464a-92ed-6647e1783719">
 Technical sheet</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="2ed099ee-c8a5-4304-8f16-c26bda799ba2" name="5ed562c1-9fc6-482c-9890-b2aa9f52b73c" type="radio">
-</input><label class="tabbed-label" for="2ed099ee-c8a5-4304-8f16-c26bda799ba2">
+<input id="764fdf89-7850-4930-9d4b-918f283c171a" name="03e7985d-26da-4973-9919-f1dd36c3447d" type="radio">
+</input><label class="tabbed-label" for="764fdf89-7850-4930-9d4b-918f283c171a">
 Examples</label><div class="tabbed-content docutils">
 <p>To be added.</p>
 </div>
@@ -383,8 +384,8 @@ Examples</label><div class="tabbed-content docutils">
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="Empirical.html" class="btn btn-neutral float-left" title="Empirical" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="Mixture.html" class="btn btn-neutral float-right" title="Mixture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Poisson.html" class="btn btn-neutral float-left" title="Poisson" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Uniform.html" class="btn btn-neutral float-right" title="Uniform" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -25,7 +25,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Pareto" href="Pareto.html" />
-    <link rel="prev" title="Lognormal" href="Lognormal.html" /> 
+    <link rel="prev" title="Mixture" href="Mixture.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,20 +51,21 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Distribution</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Univariate</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="UnivariateDistribution.html">Univariate Distribution <span class="sphinx-bs badge badge-dark badge-pill">ABC</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="Bernoulli.html">Bernoulli</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Beta.html">Beta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Empirical.html">Empirical</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Exponential.html">Exponential</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Gamma.html">Gamma</a></li>
 <li class="toctree-l3"><a class="reference internal" href="GeneralizedPareto.html">Generalized Pareto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Lognormal.html">Lognormal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Mixture.html">Mixture</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Normal</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Pareto.html">Pareto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Poisson.html">Poisson</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Truncated.html">Truncated</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Uniform.html">Uniform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Weibull.html">Weibull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Empirical.html">Empirical</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Truncated.html">Truncated</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Mixture.html">Mixture</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../multivariate/index.html">Multivariate</a></li>
@@ -72,7 +73,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../copula/index.html">Copula</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../yield_curve/index.html">Yield Curve</a></li>
@@ -127,7 +128,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="actuarial.distribution.Normal">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.distribution.</span></span><span class="sig-name descname"><span class="pre">Normal</span></span><a class="reference internal" href="../../_modules/actuarial/distribution/Normal.html#Normal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.Normal" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="../../superclass/Parametric.html#actuarial.superclass.Parametric" title="actuarial.superclass.Parametric.Parametric"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Parametric.Parametric</span></code></a>, <a class="reference internal" href="index.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution.UnivariateDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.distribution.UnivariateDistribution.UnivariateDistribution</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../../superclass/Parametric.html#actuarial.superclass.Parametric" title="actuarial.superclass.Parametric.Parametric"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Parametric.Parametric</span></code></a>, <a class="reference internal" href="UnivariateDistribution.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution.UnivariateDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.distribution.UnivariateDistribution.UnivariateDistribution</span></code></a></p>
 <p>The <strong>normal distribution</strong> (or Gaussian distribution) is a continuous
 probability distribution defined on <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>.
 The general form of its probability density function is</p>
@@ -137,8 +138,8 @@ The general form of its probability density function is</p>
 while the parameter <span class="math notranslate nohighlight">\(\sigma\)</span> is its standard deviation (the variance is thus <span class="math notranslate nohighlight">\(\sigma^2\)</span>).
 Moreover, the distribution is symmetric around its mean <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="7ac8d381-fc57-4cce-91f6-b30d3244208d" name="a5453b69-b3bd-44ce-846f-7a8162fc4270" type="radio">
-</input><label class="tabbed-label" for="7ac8d381-fc57-4cce-91f6-b30d3244208d">
+<input checked="checked" id="7c9b60b3-b201-4696-a3c9-eb07f245b1b6" name="81c64e45-a05d-4843-8862-6a21425a6167" type="radio">
+</input><label class="tabbed-label" for="7c9b60b3-b201-4696-a3c9-eb07f245b1b6">
 Initialization</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.distribution.Normal.__init__">
@@ -158,13 +159,13 @@ Initialization</label><div class="tabbed-content docutils">
 </dd></dl>
 
 </div>
-<input id="34e7bbd1-3a9f-4013-b53f-9a9fd4aba70c" name="a5453b69-b3bd-44ce-846f-7a8162fc4270" type="radio">
-</input><label class="tabbed-label" for="34e7bbd1-3a9f-4013-b53f-9a9fd4aba70c">
+<input id="0cbf1edf-d421-4fc9-833a-eed3fb0e7d23" name="81c64e45-a05d-4843-8862-6a21425a6167" type="radio">
+</input><label class="tabbed-label" for="0cbf1edf-d421-4fc9-833a-eed3fb0e7d23">
 Properties</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="edd15482-0695-4a2c-b160-c1de08a4d3b7" name="a5453b69-b3bd-44ce-846f-7a8162fc4270" type="radio">
-</input><label class="tabbed-label" for="edd15482-0695-4a2c-b160-c1de08a4d3b7">
+<input id="300edf17-34f2-4864-b503-e6dd1c56b508" name="81c64e45-a05d-4843-8862-6a21425a6167" type="radio">
+</input><label class="tabbed-label" for="300edf17-34f2-4864-b503-e6dd1c56b508">
 Methods</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.distribution.Normal.pdf">
@@ -276,13 +277,13 @@ random number generator associated with this instance.</p></li>
 </dd></dl>
 
 </div>
-<input id="a6bc8af6-0c1e-47d4-a515-35191b84b696" name="a5453b69-b3bd-44ce-846f-7a8162fc4270" type="radio">
-</input><label class="tabbed-label" for="a6bc8af6-0c1e-47d4-a515-35191b84b696">
+<input id="2646928a-95e7-4e4c-a161-0e8d2c323637" name="81c64e45-a05d-4843-8862-6a21425a6167" type="radio">
+</input><label class="tabbed-label" for="2646928a-95e7-4e4c-a161-0e8d2c323637">
 Special</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="1a4ba519-6bd9-43c3-b06f-b98b6bbe4f46" name="a5453b69-b3bd-44ce-846f-7a8162fc4270" type="radio">
-</input><label class="tabbed-label" for="1a4ba519-6bd9-43c3-b06f-b98b6bbe4f46">
+<input id="edb9f7c2-3017-4fb7-a6d6-4c21aa499340" name="81c64e45-a05d-4843-8862-6a21425a6167" type="radio">
+</input><label class="tabbed-label" for="edb9f7c2-3017-4fb7-a6d6-4c21aa499340">
 Technical sheet</label><div class="tabbed-content docutils">
 <table class="colwidths-given docutils align-center">
 <colgroup>
@@ -312,8 +313,8 @@ Technical sheet</label><div class="tabbed-content docutils">
 </tbody>
 </table>
 </div>
-<input id="1f408859-711e-43bf-a434-f37180536bb1" name="a5453b69-b3bd-44ce-846f-7a8162fc4270" type="radio">
-</input><label class="tabbed-label" for="1f408859-711e-43bf-a434-f37180536bb1">
+<input id="062b2e3d-1a79-40c1-b08b-da3d05cb66a8" name="81c64e45-a05d-4843-8862-6a21425a6167" type="radio">
+</input><label class="tabbed-label" for="062b2e3d-1a79-40c1-b08b-da3d05cb66a8">
 Examples</label><div class="tabbed-content docutils">
 <p>To be added.</p>
 </div>
@@ -326,7 +327,7 @@ Examples</label><div class="tabbed-content docutils">
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="Lognormal.html" class="btn btn-neutral float-left" title="Lognormal" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Mixture.html" class="btn btn-neutral float-left" title="Mixture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="Pareto.html" class="btn btn-neutral float-right" title="Pareto" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

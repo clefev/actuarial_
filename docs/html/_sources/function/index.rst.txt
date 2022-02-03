@@ -1,4 +1,4 @@
-.. _function:
+.. _actuarial.function:
 
 Function
 ========

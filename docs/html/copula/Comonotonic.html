@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -25,7 +25,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Countermonotonic" href="Countermonotonic.html" />
-    <link rel="prev" title="Clayton" href="Clayton.html" /> 
+    <link rel="prev" title="Copula ABC" href="Copula.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,7 +51,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Copula</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Clayton.html">Clayton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Copula.html">Copula <span class="sphinx-bs badge badge-dark badge-pill">ABC</span></a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Comonotonic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Countermonotonic.html">Countermonotonic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Gaussian.html">Gaussian</a></li>
@@ -59,7 +59,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
@@ -113,7 +113,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="actuarial.copula.Comonotonic">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.copula.</span></span><span class="sig-name descname"><span class="pre">Comonotonic</span></span><a class="reference internal" href="../_modules/actuarial/copula/Comonotonic.html#Comonotonic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.copula.Comonotonic" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="index.html#actuarial.copula.Copula" title="actuarial.copula.Copula.Copula"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.copula.Copula.Copula</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="Copula.html#actuarial.copula.Copula" title="actuarial.copula.Copula.Copula"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.copula.Copula.Copula</span></code></a></p>
 <p>The comonotonic copula is a special copula characterising a perfect positive
 dependence between the components.</p>
 <p>The marginals <span class="math notranslate nohighlight">\(U_i\)</span> of the comonotonic copula are all equal to a same
@@ -134,8 +134,8 @@ a perfect positive dependence.</p>
 <p>Note that in two dimensions it is also possible to consider perfect negative
 dependence, which is called countermonotonicity.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="e19ed7fe-17e9-42d9-a380-4b6aac2d4e0d" name="a1f946c2-048c-4796-9a6a-509ce0f97c30" type="radio">
-</input><label class="tabbed-label" for="e19ed7fe-17e9-42d9-a380-4b6aac2d4e0d">
+<input checked="checked" id="8dd96684-7410-49cd-80cc-187f6c1a645a" name="8a4ab8f1-6bb6-4614-b0c7-7130c7b9174a" type="radio">
+</input><label class="tabbed-label" for="8dd96684-7410-49cd-80cc-187f6c1a645a">
 Initialization</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.copula.Comonotonic.__init__">
@@ -151,8 +151,8 @@ Initialization</label><div class="tabbed-content docutils">
 </dd></dl>
 
 </div>
-<input id="b04c412b-0dde-470a-8781-0b3b8f580f59" name="a1f946c2-048c-4796-9a6a-509ce0f97c30" type="radio">
-</input><label class="tabbed-label" for="b04c412b-0dde-470a-8781-0b3b8f580f59">
+<input id="ff7a2fc0-bde7-4f89-a1d4-eb115ecab307" name="8a4ab8f1-6bb6-4614-b0c7-7130c7b9174a" type="radio">
+</input><label class="tabbed-label" for="ff7a2fc0-bde7-4f89-a1d4-eb115ecab307">
 Properties</label><div class="tabbed-content docutils">
 <dl class="py attribute">
 <dt class="sig sig-object py" id="actuarial.copula.Comonotonic.dim">
@@ -166,8 +166,8 @@ Properties</label><div class="tabbed-content docutils">
 </dd></dl>
 
 </div>
-<input id="2f923f9f-cb18-4cfc-bde9-14bec266fe2c" name="a1f946c2-048c-4796-9a6a-509ce0f97c30" type="radio">
-</input><label class="tabbed-label" for="2f923f9f-cb18-4cfc-bde9-14bec266fe2c">
+<input id="e5e7c54c-7a85-4ce3-8efd-0194f475e99d" name="8a4ab8f1-6bb6-4614-b0c7-7130c7b9174a" type="radio">
+</input><label class="tabbed-label" for="e5e7c54c-7a85-4ce3-8efd-0194f475e99d">
 Methods</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.copula.Comonotonic.cdf">
@@ -251,18 +251,18 @@ in last position.</p>
 </dd></dl>
 
 </div>
-<input id="90a3b5a8-94af-423c-bf61-cb20b151b6b9" name="a1f946c2-048c-4796-9a6a-509ce0f97c30" type="radio">
-</input><label class="tabbed-label" for="90a3b5a8-94af-423c-bf61-cb20b151b6b9">
+<input id="14103998-f5c5-4366-9298-02b3ff366290" name="8a4ab8f1-6bb6-4614-b0c7-7130c7b9174a" type="radio">
+</input><label class="tabbed-label" for="14103998-f5c5-4366-9298-02b3ff366290">
 Special</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="b2f6dca7-c566-42ab-9f36-ff359f0426cd" name="a1f946c2-048c-4796-9a6a-509ce0f97c30" type="radio">
-</input><label class="tabbed-label" for="b2f6dca7-c566-42ab-9f36-ff359f0426cd">
+<input id="5a2e21e5-d865-43f0-a378-f77283fb2cd7" name="8a4ab8f1-6bb6-4614-b0c7-7130c7b9174a" type="radio">
+</input><label class="tabbed-label" for="5a2e21e5-d865-43f0-a378-f77283fb2cd7">
 Technical sheet</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="9bc2ee3f-f637-455e-8493-e7c21e0aab93" name="a1f946c2-048c-4796-9a6a-509ce0f97c30" type="radio">
-</input><label class="tabbed-label" for="9bc2ee3f-f637-455e-8493-e7c21e0aab93">
+<input id="8984ea88-81f4-471a-bfda-0d54ebe15b86" name="8a4ab8f1-6bb6-4614-b0c7-7130c7b9174a" type="radio">
+</input><label class="tabbed-label" for="8984ea88-81f4-471a-bfda-0d54ebe15b86">
 Examples</label><div class="tabbed-content docutils">
 <p>To be added.</p>
 </div>
@@ -275,7 +275,7 @@ Examples</label><div class="tabbed-content docutils">
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="Clayton.html" class="btn btn-neutral float-left" title="Clayton" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Copula.html" class="btn btn-neutral float-left" title="Copula ABC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="Countermonotonic.html" class="btn btn-neutral float-right" title="Countermonotonic" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

@@ -1,0 +1,40 @@
+.. _yield_curve.Discounting:
+
+Discounting |toolkit|
+=====================
+
+.. autoclass:: actuarial.yield_curve::Discounting()
+
+    .. tabbed:: Initialization
+
+        .. automethod:: __init__
+
+    .. tabbed:: Abstract
+
+        |none|
+
+    .. tabbed:: Properties
+
+        .. autoattribute:: maturities1
+        .. autoattribute:: maturities2
+        .. autoattribute:: maturities
+        .. autoattribute:: values
+        .. autoattribute:: kind
+
+    .. tabbed:: Methods
+
+        .. automethod:: broadcast
+        .. automethod:: convert
+
+    .. tabbed:: Special
+
+        .. automethod:: __arithmetic__
+        .. automethod:: __comparison__
+
+    .. tabbed:: Decorators
+
+        |none|
+
+    .. tabbed:: Examples
+
+        To be added.

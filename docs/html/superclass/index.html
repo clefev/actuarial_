@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -63,7 +63,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../copula/index.html">Copula</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
@@ -112,7 +112,7 @@
            <div itemprop="articleBody">
              
   <section id="superclass">
-<h1>Superclass<a class="headerlink" href="#superclass" title="Permalink to this headline"></a></h1>
+<span id="actuarial-superclass"></span><h1>Superclass<a class="headerlink" href="#superclass" title="Permalink to this headline"></a></h1>
 <div class="toctree-wrapper compound">
 </div>
 <p>The superclass module provides all the tools needed to build advanced and standardized actuarial classes.</p>
@@ -152,73 +152,123 @@
 </div>
 </div>
 </div>
-<p class="rubric">What is a superclass ?</p>
-<p>A superclass is a class that can be inherited by another class to implement functionality.
-The purpose of superclasses is to benefit from a whole series of standardized features without any implementation effort.
+<p class="rubric"><span class="subtitle">What is a superclass ?</span></p>
+<p>A superclass is a class that can be inherited by another class to implement pre-specified functionality.
+The purpose of a superclass is to benefit from a whole series of standardized features without any implementation effort.
 Of course, a class can inherit from several superclasses at the same time in order to multiply and extend its functionalities.
-Superclasses are therefore considered as the atoms used to build other classes in this package.
-Most of the classes implemented in the actuarial package are indeed built from at least one superclass.</p>
+That’s why superclasses are considered as atoms used to build other classes in this package.
+Most of the classes implemented in the actuarial package are indeed built from at least one superclass.
+You can also build your own classes that inherit from superclasses.</p>
 <p>An example of superclass is the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Random</span></code> superclass.
-The functionality of this superclass is to incorporate a random number generator as well as methods for working with it.
+The functionality of this superclass is to incorporate a random number generator (rng) along with methods to work with it (e.g., change its seed).
 By inheritance, all classes inheriting from the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Random</span></code> superclass will also get the same functionality.
-Therefore, if we want to create a class capable of generating randomness (e.g., for generating random samples of a given distribution, generating random brownian motion samples, …),
+Therefore, if we want to create a class capable of generating randomness (for example, to generate random samples of a distribution, generate random paths of a Brownian motion, …),
 this class should inherit from the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Random</span></code> superclass.
-In this way, the implemented class will directly have access to a random number generator to generate randomness and the ability to manage it easily.</p>
-<p class="rubric">Module description</p>
+In this way, the implemented class will have direct access to a random number generator to generate its randomness and the possibility of managing it easily.
+It will save time, implementation effort and ensure to manage the rng of a class in a standardized way.</p>
+<p class="rubric"><span class="subtitle">Importation</span></p>
 <p>The superclass module can be easily imported from the actuarial package:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">actuarial</span> <span class="kn">import</span> <span class="n">superclass</span>
 </pre></div>
 </div>
+<p class="rubric"><span class="subtitle">Content</span></p>
 <p>This module contains several superclasses.
-Each superclass has its own functionality.
-The table below provides a short description of the implemented superclasses (in alphabetical order):</p>
-<table class="docutils align-center">
+Each superclass has its own functionality, the possibility of being initialized or not and can be an abstract class or not.
+The table below provides an overview of the implemented superclasses (in alphabetical order):</p>
+<table class="colwidths-given docutils align-center" id="id1">
+<caption><span class="caption-text">List of superclasses.</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
 <colgroup>
-<col style="width: 50%" />
+<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
 <col style="width: 50%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p class="centered">
 <strong>Superclass</strong></p></th>
 <th class="head"><p class="centered">
+<strong>Initialization</strong></p></th>
+<th class="head"><p class="centered">
+<strong>Abstract</strong></p></th>
+<th class="head"><p class="centered">
 <strong>Description</strong></p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference internal" href="Arithmetic.html#superclass-arithmetic"><span class="std std-ref">Arithmetic</span></a></p></td>
-<td><p>Describe how arithmetic operators (<code class="xref py py-obj docutils literal notranslate"><span class="pre">+</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">-</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">*</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">/</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">**</span></code>) should behave on the instance</p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+<td><p>Describe how arithmetic operators (<code class="xref py py-obj docutils literal notranslate"><span class="pre">+</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">-</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">*</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">/</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">**</span></code>) behave on the instance</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="Base.html#superclass-base"><span class="std std-ref">Base</span></a></p></td>
-<td><p>Nice formatting when printing the instance and basic methods such as copy instance</p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
+<td><p>Nice formatting when printing the instance and implementation of basic methods such as copying the instance or changing its attributes</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="Broadcast.html#superclass-broadcast"><span class="std std-ref">Broadcast</span></a></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
 <td><p>Mimic how input arguments are broadcast with an instance and provide a <code class="xref py py-obj docutils literal notranslate"><span class="pre">shape</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">ndim</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">size</span></code> attributes</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="Comparison.html#superclass-comparison"><span class="std std-ref">Comparison</span></a></p></td>
-<td><p>Describe how comparison operators (<code class="xref py py-obj docutils literal notranslate"><span class="pre">==</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">!=</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;=</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">&gt;=</span></code>) should behave on the instance</p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+<td><p>Describe how comparison operators (<code class="xref py py-obj docutils literal notranslate"><span class="pre">==</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">!=</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;=</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">&gt;=</span></code>) behave on the instance</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="Dictionary.html#superclass-dictionary"><span class="std std-ref">Dictionary</span></a></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
 <td><p>Build a dictionary of key-component pairs</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="Mixture.html#superclass-mixture"><span class="std std-ref">Mixture</span></a></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
 <td><p>Build mixture models (containing components and weights)</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="Parametric.html#superclass-parametric"><span class="std std-ref">Parametric</span></a></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
 <td><p>Build parametric models (containing parameters)</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="Piecewise.html#superclass-piecewise"><span class="std std-ref">Piecewise</span></a></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
 <td><p>Build piecewise models (containing a piecewise function)</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="Random.html#superclass-random"><span class="std std-ref">Random</span></a></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
 <td><p>Build random models (containing a random number generator and capable of generating randomness)</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="TermStructure.html#superclass-termstructure"><span class="std std-ref">TermStructure</span></a></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
 <td><p>Build term structure models (containing values associated with maturities)</p></td>
 </tr>
 </tbody>
 </table>
 <p>Note that the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Base</span></code> superclass is the most common.
-It is good practice to inherit actuarial classes from this superclass.</p>
+It is good practice to inherit actuarial classes from at least this superclass.</p>
 </section>
 
 

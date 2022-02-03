@@ -1,0 +1,36 @@
+.. _yield_curve.YieldCurve:
+
+Yield Curve |abstract|
+======================
+
+    .. autoclass:: actuarial.yield_curve::YieldCurve()
+
+        .. tabbed:: Initialization
+
+            .. automethod:: __init__
+
+        .. tabbed:: Abstract
+
+            .. automethod:: evaluate
+            .. autoclass:: actuarial.yield_curve::YieldCurve.Decorators
+                :members:
+
+        .. tabbed:: Properties
+
+            .. autoattribute:: kind
+
+        .. tabbed:: Methods
+
+            .. automethod:: convert
+            .. automethod:: discount_factor
+            .. automethod:: capitalization_factor
+            .. automethod:: to_discounting
+            .. automethod:: fit
+
+        .. tabbed:: Special
+
+            .. automethod:: __call__
+
+        .. tabbed:: Examples
+
+            To be added.

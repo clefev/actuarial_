@@ -8,7 +8,7 @@
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -48,7 +48,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../distribution/index.html">Distribution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../copula/index.html">Copula</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../yield_curve/index.html">Yield Curve</a></li>
@@ -106,7 +106,7 @@
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
 
 
-<div class="viewcode-block" id="Indexation"><a class="viewcode-back" href="../../../indexation/index.html#actuarial.indexation.Indexation">[docs]</a><span class="k">class</span> <span class="nc">Indexation</span><span class="p">(</span><span class="n">ABC</span><span class="p">,</span> <span class="n">Base</span><span class="p">,</span> <span class="n">Broadcast</span><span class="p">):</span>
+<div class="viewcode-block" id="Indexation"><a class="viewcode-back" href="../../../indexation/Indexation.html#actuarial.indexation.Indexation">[docs]</a><span class="k">class</span> <span class="nc">Indexation</span><span class="p">(</span><span class="n">ABC</span><span class="p">,</span> <span class="n">Base</span><span class="p">,</span> <span class="n">Broadcast</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Abstract class to handle indexing.</span>
 <span class="sd">    </span>
@@ -120,7 +120,7 @@
     
     <span class="c1"># Initialization</span>
     
-<div class="viewcode-block" id="Indexation.__init__"><a class="viewcode-back" href="../../../indexation/index.html#actuarial.indexation.Indexation.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Indexation.__init__"><a class="viewcode-back" href="../../../indexation/Indexation.html#actuarial.indexation.Indexation.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
@@ -128,7 +128,7 @@
     
     <span class="c1"># Abstract methods</span>
     
-<div class="viewcode-block" id="Indexation.price_index"><a class="viewcode-back" href="../../../indexation/index.html#actuarial.indexation.Indexation.price_index">[docs]</a>    <span class="nd">@abstractmethod</span>
+<div class="viewcode-block" id="Indexation.price_index"><a class="viewcode-back" href="../../../indexation/Indexation.html#actuarial.indexation.Indexation.price_index">[docs]</a>    <span class="nd">@abstractmethod</span>
     <span class="k">def</span> <span class="nf">price_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Abstract method to evaluate the value of the price index for the given</span>
@@ -143,7 +143,7 @@
     
     <span class="c1"># Methods</span>
     
-<div class="viewcode-block" id="Indexation.discount_factor"><a class="viewcode-back" href="../../../indexation/index.html#actuarial.indexation.Indexation.discount_factor">[docs]</a>    <span class="nd">@catch_maturities</span><span class="p">()</span>
+<div class="viewcode-block" id="Indexation.discount_factor"><a class="viewcode-back" href="../../../indexation/Indexation.html#actuarial.indexation.Indexation.discount_factor">[docs]</a>    <span class="nd">@catch_maturities</span><span class="p">()</span>
     <span class="k">def</span> <span class="nf">discount_factor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities1</span><span class="p">,</span> <span class="n">maturities2</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">&quot;&quot;&quot;discount_factor([maturities1=0,] maturities2)</span>
 <span class="sd">        Compute the inflation discount factor between two maturities.</span>
@@ -184,7 +184,7 @@
       
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">price_index</span><span class="p">(</span><span class="n">maturities1</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">price_index</span><span class="p">(</span><span class="n">maturities2</span><span class="p">)</span></div>
     
-<div class="viewcode-block" id="Indexation.capitalization_factor"><a class="viewcode-back" href="../../../indexation/index.html#actuarial.indexation.Indexation.capitalization_factor">[docs]</a>    <span class="nd">@catch_maturities</span><span class="p">()</span>
+<div class="viewcode-block" id="Indexation.capitalization_factor"><a class="viewcode-back" href="../../../indexation/Indexation.html#actuarial.indexation.Indexation.capitalization_factor">[docs]</a>    <span class="nd">@catch_maturities</span><span class="p">()</span>
     <span class="k">def</span> <span class="nf">capitalization_factor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities1</span><span class="p">,</span> <span class="n">maturities2</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">&quot;&quot;&quot;capitalization_factor([maturities1=0,] maturities2)</span>
 <span class="sd">        Compute the inflation capitalization factor between two maturities.</span>
@@ -225,7 +225,7 @@
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">price_index</span><span class="p">(</span><span class="n">maturities2</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">price_index</span><span class="p">(</span><span class="n">maturities1</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Indexation.inflation"><a class="viewcode-back" href="../../../indexation/index.html#actuarial.indexation.Indexation.inflation">[docs]</a>    <span class="nd">@catch_maturities</span><span class="p">()</span>
+<div class="viewcode-block" id="Indexation.inflation"><a class="viewcode-back" href="../../../indexation/Indexation.html#actuarial.indexation.Indexation.inflation">[docs]</a>    <span class="nd">@catch_maturities</span><span class="p">()</span>
     <span class="k">def</span> <span class="nf">inflation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities1</span><span class="p">,</span> <span class="n">maturities2</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">&quot;&quot;&quot;inflation([maturities1=0,] maturities2)</span>
 <span class="sd">        Compute the rate of inflation between two maturities.</span>
@@ -262,7 +262,7 @@
  
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">price_index</span><span class="p">(</span><span class="n">maturities2</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">price_index</span><span class="p">(</span><span class="n">maturities1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span></div>
     
-<div class="viewcode-block" id="Indexation.to_discounting"><a class="viewcode-back" href="../../../indexation/index.html#actuarial.indexation.Indexation.to_discounting">[docs]</a>    <span class="nd">@catch_maturities</span><span class="p">()</span>
+<div class="viewcode-block" id="Indexation.to_discounting"><a class="viewcode-back" href="../../../indexation/Indexation.html#actuarial.indexation.Indexation.to_discounting">[docs]</a>    <span class="nd">@catch_maturities</span><span class="p">()</span>
     <span class="k">def</span> <span class="nf">to_discounting</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities1</span><span class="p">,</span> <span class="n">maturities2</span><span class="p">):</span>
         <span class="sa">r</span><span class="sd">&quot;&quot;&quot;to_discounting([maturities1=0,] maturities2)</span>
 <span class="sd">        Return a `Discounting` instance for the provided maturities.</span>
@@ -290,13 +290,13 @@
         
     <span class="c1"># Decorators    </span>
     
-<div class="viewcode-block" id="Indexation.Decorators"><a class="viewcode-back" href="../../../indexation/index.html#actuarial.indexation.Indexation.Decorators">[docs]</a>    <span class="k">class</span> <span class="nc">Decorators</span><span class="p">:</span>
+<div class="viewcode-block" id="Indexation.Decorators"><a class="viewcode-back" href="../../../indexation/Indexation.html#actuarial.indexation.Indexation.Decorators">[docs]</a>    <span class="k">class</span> <span class="nc">Decorators</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Container class containing decorators to use for the implemented abstarct</span>
 <span class="sd">        methods of `Indexation` instances.</span>
 <span class="sd">        &quot;&quot;&quot;</span>   
         
-<div class="viewcode-block" id="Indexation.Decorators.price_index"><a class="viewcode-back" href="../../../indexation/index.html#actuarial.indexation.Indexation.Decorators.price_index">[docs]</a>        <span class="k">def</span> <span class="nf">price_index</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<div class="viewcode-block" id="Indexation.Decorators.price_index"><a class="viewcode-back" href="../../../indexation/Indexation.html#actuarial.indexation.Indexation.Decorators.price_index">[docs]</a>        <span class="k">def</span> <span class="nf">price_index</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
             <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Decorator for the implemented `price_index` method of an `Indexation`</span>
 <span class="sd">            instance.</span>
@@ -344,7 +344,7 @@
         
     <span class="c1"># Special methods</span>
     
-<div class="viewcode-block" id="Indexation.__call__"><a class="viewcode-back" href="../../../indexation/index.html#actuarial.indexation.Indexation.__call__">[docs]</a>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="Indexation.__call__"><a class="viewcode-back" href="../../../indexation/Indexation.html#actuarial.indexation.Indexation.__call__">[docs]</a>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maturities</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Identical to the `price_index` method.</span>
 <span class="sd">        &quot;&quot;&quot;</span>

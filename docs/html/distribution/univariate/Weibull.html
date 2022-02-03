@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -24,7 +24,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Empirical" href="Empirical.html" />
+    <link rel="next" title="Multivariate" href="../multivariate/index.html" />
     <link rel="prev" title="Uniform" href="Uniform.html" /> 
 </head>
 
@@ -51,20 +51,21 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Distribution</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Univariate</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="UnivariateDistribution.html">Univariate Distribution <span class="sphinx-bs badge badge-dark badge-pill">ABC</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="Bernoulli.html">Bernoulli</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Beta.html">Beta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Empirical.html">Empirical</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Exponential.html">Exponential</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Gamma.html">Gamma</a></li>
 <li class="toctree-l3"><a class="reference internal" href="GeneralizedPareto.html">Generalized Pareto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Lognormal.html">Lognormal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Mixture.html">Mixture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Normal.html">Normal</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Pareto.html">Pareto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Poisson.html">Poisson</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Truncated.html">Truncated</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Uniform.html">Uniform</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Weibull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Empirical.html">Empirical</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Truncated.html">Truncated</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Mixture.html">Mixture</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../multivariate/index.html">Multivariate</a></li>
@@ -72,7 +73,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../copula/index.html">Copula</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../yield_curve/index.html">Yield Curve</a></li>
@@ -127,7 +128,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="actuarial.distribution.Weibull">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.distribution.</span></span><span class="sig-name descname"><span class="pre">Weibull</span></span><a class="reference internal" href="../../_modules/actuarial/distribution/Weibull.html#Weibull"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.Weibull" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="../../superclass/Parametric.html#actuarial.superclass.Parametric" title="actuarial.superclass.Parametric.Parametric"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Parametric.Parametric</span></code></a>, <a class="reference internal" href="index.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution.UnivariateDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.distribution.UnivariateDistribution.UnivariateDistribution</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../../superclass/Parametric.html#actuarial.superclass.Parametric" title="actuarial.superclass.Parametric.Parametric"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Parametric.Parametric</span></code></a>, <a class="reference internal" href="UnivariateDistribution.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution.UnivariateDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.distribution.UnivariateDistribution.UnivariateDistribution</span></code></a></p>
 <p>The shifted <strong>Weibull distribution</strong> is a continuous probability distribution
 defined on a semi-infinite interval <span class="math notranslate nohighlight">\([A,+\infty)\)</span> and parametrized by
 two positive parameters, respectively the scale and shape parameters, denoted
@@ -136,8 +137,8 @@ This distribution is characterized by a heavy tail.
 It is therefore a suitable choice to model the cost of individual large claims
 or to model the tail of another distribution.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="eb913aeb-af70-4d85-8194-66ddee3e6d60" name="d7fbf2a3-8062-47d0-b1f8-aa119ccd1b06" type="radio">
-</input><label class="tabbed-label" for="eb913aeb-af70-4d85-8194-66ddee3e6d60">
+<input checked="checked" id="7c0cbfd5-85bf-4c79-b394-93e95fda720f" name="f318e067-6bb0-4de5-91db-74893ecf09ee" type="radio">
+</input><label class="tabbed-label" for="7c0cbfd5-85bf-4c79-b394-93e95fda720f">
 Initialization</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.distribution.Weibull.__init__">
@@ -158,13 +159,13 @@ Initialization</label><div class="tabbed-content docutils">
 </dd></dl>
 
 </div>
-<input id="82eb22ff-35dc-46ee-8ace-efcc89ca086f" name="d7fbf2a3-8062-47d0-b1f8-aa119ccd1b06" type="radio">
-</input><label class="tabbed-label" for="82eb22ff-35dc-46ee-8ace-efcc89ca086f">
+<input id="f957a41e-a870-43d6-a1d1-032c633a99f5" name="f318e067-6bb0-4de5-91db-74893ecf09ee" type="radio">
+</input><label class="tabbed-label" for="f957a41e-a870-43d6-a1d1-032c633a99f5">
 Properties</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="094d8143-0c92-4e5e-a11f-87155e0a065b" name="d7fbf2a3-8062-47d0-b1f8-aa119ccd1b06" type="radio">
-</input><label class="tabbed-label" for="094d8143-0c92-4e5e-a11f-87155e0a065b">
+<input id="2ced6ff2-6993-460a-bac8-2bd51802bfeb" name="f318e067-6bb0-4de5-91db-74893ecf09ee" type="radio">
+</input><label class="tabbed-label" for="2ced6ff2-6993-460a-bac8-2bd51802bfeb">
 Methods</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.distribution.Weibull.pdf">
@@ -277,13 +278,13 @@ random number generator associated with this instance.</p></li>
 </dd></dl>
 
 </div>
-<input id="9bee7728-681f-46fd-ad1a-c1eaf5346bfd" name="d7fbf2a3-8062-47d0-b1f8-aa119ccd1b06" type="radio">
-</input><label class="tabbed-label" for="9bee7728-681f-46fd-ad1a-c1eaf5346bfd">
+<input id="1bc0ba6d-aedb-4d93-ab87-8bdbab7fe6d5" name="f318e067-6bb0-4de5-91db-74893ecf09ee" type="radio">
+</input><label class="tabbed-label" for="1bc0ba6d-aedb-4d93-ab87-8bdbab7fe6d5">
 Special</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="4d316464-1c33-4eb1-afef-0b2b71418c2e" name="d7fbf2a3-8062-47d0-b1f8-aa119ccd1b06" type="radio">
-</input><label class="tabbed-label" for="4d316464-1c33-4eb1-afef-0b2b71418c2e">
+<input id="418ee255-a8b9-4852-b259-ce7108517578" name="f318e067-6bb0-4de5-91db-74893ecf09ee" type="radio">
+</input><label class="tabbed-label" for="418ee255-a8b9-4852-b259-ce7108517578">
 Technical sheet</label><div class="tabbed-content docutils">
 <table class="colwidths-given docutils align-center">
 <colgroup>
@@ -314,8 +315,8 @@ Technical sheet</label><div class="tabbed-content docutils">
 </tbody>
 </table>
 </div>
-<input id="e30a661e-7ee5-43ad-b992-c61027eae631" name="d7fbf2a3-8062-47d0-b1f8-aa119ccd1b06" type="radio">
-</input><label class="tabbed-label" for="e30a661e-7ee5-43ad-b992-c61027eae631">
+<input id="dee5bd86-9d94-42c0-ba6e-b3f04f648a06" name="f318e067-6bb0-4de5-91db-74893ecf09ee" type="radio">
+</input><label class="tabbed-label" for="dee5bd86-9d94-42c0-ba6e-b3f04f648a06">
 Examples</label><div class="tabbed-content docutils">
 <p>To be added.</p>
 </div>
@@ -329,7 +330,7 @@ Examples</label><div class="tabbed-content docutils">
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="Uniform.html" class="btn btn-neutral float-left" title="Uniform" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="Empirical.html" class="btn btn-neutral float-right" title="Empirical" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../multivariate/index.html" class="btn btn-neutral float-right" title="Multivariate" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

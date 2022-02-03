@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discounting Toolkit &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Indexation" href="../indexation/index.html" />
+    <link rel="prev" title="Raw interpolation" href="RawInterpolation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SUPERCLASS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../superclass/index.html">Superclass</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PROBABILITY &amp; STATISTICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copula/index.html">Copula</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Yield Curve</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="YieldCurve.html">Yield Curve <span class="sphinx-bs badge badge-dark badge-pill">ABC</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Flat.html">Flat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearInterpolation.html">Linear interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mixture.html">Mixture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NelsonSiegel.html">Nelson-Siegel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RawInterpolation.html">Raw interpolation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Discounting <span class="sphinx-bs badge badge-dark badge-pill">Toolkit</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../indexation/index.html">Indexation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MATHEMATICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../math/index.html">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../function/index.html">Function</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">UTILITIES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util/util.html">Util</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XXX</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../XXX/notation.html">Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test.html">Test</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Yield Curve</a> &raquo;</li>
+      <li>Discounting <span class="sphinx-bs badge badge-dark badge-pill">Toolkit</span></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/yield_curve/Discounting.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="discounting-toolkit">
+<span id="yield-curve-discounting"></span><h1>Discounting <span class="sphinx-bs badge badge-dark badge-pill">Toolkit</span><a class="headerlink" href="#discounting-toolkit" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="actuarial.yield_curve.Discounting">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.yield_curve.</span></span><span class="sig-name descname"><span class="pre">Discounting</span></span><a class="reference internal" href="../_modules/actuarial/yield_curve/Discounting.html#Discounting"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.Discounting" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../superclass/Arithmetic.html#actuarial.superclass.Arithmetic" title="actuarial.superclass.Arithmetic.Arithmetic"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Arithmetic.Arithmetic</span></code></a>, <a class="reference internal" href="../superclass/Base.html#actuarial.superclass.Base" title="actuarial.superclass.Base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Base.Base</span></code></a>, <a class="reference internal" href="../superclass/Broadcast.html#actuarial.superclass.Broadcast" title="actuarial.superclass.Broadcast.Broadcast"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Broadcast.Broadcast</span></code></a>, <a class="reference internal" href="../superclass/Comparison.html#actuarial.superclass.Comparison" title="actuarial.superclass.Comparison.Comparison"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Comparison.Comparison</span></code></a></p>
+<p>Class to manage discount values between two maturities.</p>
+<p>A discount value is a value that can be used to compute discount factors
+between two maturities, namely <a class="reference internal" href="#actuarial.yield_curve.Discounting.maturities1" title="actuarial.yield_curve.Discounting.maturities1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code></a> and <a class="reference internal" href="#actuarial.yield_curve.Discounting.maturities2" title="actuarial.yield_curve.Discounting.maturities2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code></a>.
+There are different types of discount values such as discount factors,
+capitalization factors, compound rates, continuous rates and simple rates.
+The type of discount values is provided by the <a class="reference internal" href="#actuarial.yield_curve.Discounting.kind" title="actuarial.yield_curve.Discounting.kind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kind</span></code></a> attribute.
+A discount value can be easily converted to one type to another using the
+<a class="reference internal" href="#actuarial.yield_curve.Discounting.convert" title="actuarial.yield_curve.Discounting.convert"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert</span></code></a> method.</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="0e6747de-f636-414f-af52-62f8b97128e4" name="200eb554-827a-4807-8a64-c9e4e1887de9" type="radio">
+</input><label class="tabbed-label" for="0e6747de-f636-414f-af52-62f8b97128e4">
+Initialization</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.Discounting.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maturities1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maturities2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/yield_curve/Discounting.html#Discounting.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.Discounting.__init__" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maturities1</strong> (<em>array-like</em>) – Starting maturities.</p></li>
+<li><p><strong>maturities2</strong> (<em>array-like</em>) – Ending maturities.</p></li>
+<li><p><strong>values</strong> (<em>array-like</em>) – Discount values between the starting and ending maturities.</p></li>
+<li><p><strong>kind</strong> (<em>{&quot;capitalization_factor&quot;</em><em>, </em><em>&quot;compound_rate&quot;</em><em>, </em><em>&quot;continuous_rate&quot;</em><em>, </em><em>&quot;discount_factor&quot;</em><em>, </em><em>&quot;simple_rate&quot;}</em>) – Type of discount values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <a class="reference internal" href="#actuarial.yield_curve.Discounting.kind" title="actuarial.yield_curve.Discounting.kind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kind</span></code></a> is not valid.
+    If <a class="reference internal" href="#actuarial.yield_curve.Discounting.maturities1" title="actuarial.yield_curve.Discounting.maturities1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code></a>, <a class="reference internal" href="#actuarial.yield_curve.Discounting.maturities2" title="actuarial.yield_curve.Discounting.maturities2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code></a> and <a class="reference internal" href="#actuarial.yield_curve.Discounting.values" title="actuarial.yield_curve.Discounting.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></a> cannot be broadcast together.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="af72ca36-03f0-414a-8cb7-d4d81d2861ed" name="200eb554-827a-4807-8a64-c9e4e1887de9" type="radio">
+</input><label class="tabbed-label" for="af72ca36-03f0-414a-8cb7-d4d81d2861ed">
+Abstract</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="44cc79e3-82ca-40a8-8726-b0742767fc12" name="200eb554-827a-4807-8a64-c9e4e1887de9" type="radio">
+</input><label class="tabbed-label" for="44cc79e3-82ca-40a8-8726-b0742767fc12">
+Properties</label><div class="tabbed-content docutils">
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.yield_curve.Discounting.maturities1">
+<span class="sig-name descname"><span class="pre">maturities1</span></span><a class="headerlink" href="#actuarial.yield_curve.Discounting.maturities1" title="Permalink to this definition"></a></dt>
+<dd><p>Starting maturities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.yield_curve.Discounting.maturities2">
+<span class="sig-name descname"><span class="pre">maturities2</span></span><a class="headerlink" href="#actuarial.yield_curve.Discounting.maturities2" title="Permalink to this definition"></a></dt>
+<dd><p>Ending maturities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.yield_curve.Discounting.maturities">
+<span class="sig-name descname"><span class="pre">maturities</span></span><a class="headerlink" href="#actuarial.yield_curve.Discounting.maturities" title="Permalink to this definition"></a></dt>
+<dd><p>Difference between the ending and starting maturities (equivalent
+to <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span> <span class="pre">-</span> <span class="pre">maturities1</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.yield_curve.Discounting.values">
+<span class="sig-name descname"><span class="pre">values</span></span><a class="headerlink" href="#actuarial.yield_curve.Discounting.values" title="Permalink to this definition"></a></dt>
+<dd><p>Discount values between the starting and ending maturities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.yield_curve.Discounting.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><a class="headerlink" href="#actuarial.yield_curve.Discounting.kind" title="Permalink to this definition"></a></dt>
+<dd><p>Type of discount values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="4ec30d66-2c50-446f-b8b7-20e8b2d9ca50" name="200eb554-827a-4807-8a64-c9e4e1887de9" type="radio">
+</input><label class="tabbed-label" for="4ec30d66-2c50-446f-b8b7-20e8b2d9ca50">
+Methods</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.Discounting.broadcast">
+<span class="sig-name descname"><span class="pre">broadcast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/yield_curve/Discounting.html#Discounting.broadcast"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.Discounting.broadcast" title="Permalink to this definition"></a></dt>
+<dd><p>Mimic the broadcast of the maturities and values with input arguments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>*args</strong> (<em>array-like</em><em> or </em><em>object with shape attribute</em>) – Inputs to broadcast with the maturities and values. If no argument
+is provided, only the maturities and values are broadcast together.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Broadcast result.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.broadcast</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.Discounting.convert">
+<span class="sig-name descname"><span class="pre">convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'discount_factor'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/yield_curve/Discounting.html#Discounting.convert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.Discounting.convert" title="Permalink to this definition"></a></dt>
+<dd><p>Convert in-place the discount values to a new type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kind</strong> (<em>{&quot;capitalization_factor&quot;</em><em>, </em><em>&quot;compound_rate&quot;</em><em>, </em><em>&quot;continuous_rate&quot;</em><em>, </em><em>&quot;discount_factor&quot;</em><em>, </em><em>&quot;simple_rate&quot;}</em><em>, </em><em>optional</em>) – The discount values will be converted to this type.
+The default converts to discount factors.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting.Discounting">Discounting</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <a class="reference internal" href="#actuarial.yield_curve.Discounting.kind" title="actuarial.yield_curve.Discounting.kind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kind</span></code></a> is not valid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="2c08a133-fd7f-4351-b94f-7d50da19e8df" name="200eb554-827a-4807-8a64-c9e4e1887de9" type="radio">
+</input><label class="tabbed-label" for="2c08a133-fd7f-4351-b94f-7d50da19e8df">
+Special</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.Discounting.__arithmetic__">
+<span class="sig-name descname"><span class="pre">__arithmetic__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operator</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/yield_curve/Discounting.html#Discounting.__arithmetic__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.Discounting.__arithmetic__" title="Permalink to this definition"></a></dt>
+<dd><p>Apply arithmetic operations to the <a class="reference internal" href="#actuarial.yield_curve.Discounting.values" title="actuarial.yield_curve.Discounting.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></a> attribute when using arithmetic
+operators (<code class="xref py py-obj docutils literal notranslate"><span class="pre">+</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">-</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">*</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">/</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">**</span></code>) on the instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.Discounting.__comparison__">
+<span class="sig-name descname"><span class="pre">__comparison__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maturities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operator</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/yield_curve/Discounting.html#Discounting.__comparison__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.Discounting.__comparison__" title="Permalink to this definition"></a></dt>
+<dd><p>Compare the <a class="reference internal" href="#actuarial.yield_curve.Discounting.maturities" title="actuarial.yield_curve.Discounting.maturities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code></a> attribute when using comparison operators
+(<code class="xref py py-obj docutils literal notranslate"><span class="pre">==</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">!=</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&lt;=</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">&gt;=</span></code>) on the instance.</p>
+</dd></dl>
+
+</div>
+<input id="e755f9ba-ba03-4749-af6e-234984fe67fd" name="200eb554-827a-4807-8a64-c9e4e1887de9" type="radio">
+</input><label class="tabbed-label" for="e755f9ba-ba03-4749-af6e-234984fe67fd">
+Decorators</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="72276b7c-15ab-41a3-961c-d587df5c9c85" name="200eb554-827a-4807-8a64-c9e4e1887de9" type="radio">
+</input><label class="tabbed-label" for="72276b7c-15ab-41a3-961c-d587df5c9c85">
+Examples</label><div class="tabbed-content docutils">
+<p>To be added.</p>
+</div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="RawInterpolation.html" class="btn btn-neutral float-left" title="Raw interpolation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../indexation/index.html" class="btn btn-neutral float-right" title="Indexation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

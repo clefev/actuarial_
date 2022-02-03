@@ -1,0 +1,35 @@
+.. _copula.Copula:
+
+Copula |abstract|
+=================
+
+.. autoclass:: actuarial.copula::Copula()
+
+    .. tabbed:: Initialization
+
+        .. automethod:: __init__
+
+    .. tabbed:: Abstract
+
+        .. autoproperty:: dim
+        .. automethod:: cdf
+        .. automethod:: pdf
+        .. automethod:: random
+        .. autoclass:: actuarial.copula::Copula.Decorators
+            :members:
+
+    .. tabbed:: Properties
+
+        |none|
+
+    .. tabbed:: Methods
+
+        .. automethod:: log_likelihood
+
+    .. tabbed:: Special
+
+        .. automethod:: __len__
+        
+    .. tabbed:: Examples
+
+        To be added.

@@ -1,13 +1,17 @@
+.. _actuarial.parameter:
+
 Parameter
 =========
 
 .. toctree::
-   :maxdepth: 1
-   :hidden:
-   
-   Array.rst
-   CorrelationMatrix.rst
-   Scalar.rst
+    :maxdepth: 1
+    :hidden:
+
+    Parameter.rst
+    Array.rst
+    CorrelationMatrix.rst
+    Scalar.rst
+    Parameters.rst
 
 
 
@@ -34,7 +38,7 @@ The parameter module provides all the tools needed to work with parameters.
 
 
 
-.. rubric:: Module description
+.. rubric:: :subtitle:`Importation`
 
 The parameter module can be easily imported from the actuarial package:
 
@@ -42,98 +46,43 @@ The parameter module can be easily imported from the actuarial package:
 
     from actuarial import parameter
 
-Several classes are implemented in this module.
 
-First, we can find an abstract class called `Parameter`.
-This abstract class allows building parameter classes in a standardized way and with various features pre-implemented.
+
+.. rubric:: :subtitle:`Content`
+
+Several classes are implemented in this module:
+
+    |1| Abstract parameter class
+
+    |2| Various parameter types
+
+    |3| Dictionary of parameters
+
+First, we can find an **abstract class** called `Parameter`.
+This abstract class allows building parameter classes in a standardized way and with various pre-implemented features.
 Therefore, all parameter classes implemented in this package inherit from this abstract class.
 Moreover, it also allows you to build and customize your own parameter classes (by inheriting from this abstract class).
-Related documentation can be found below:
-  
-.. dropdown:: Parameter
+Related documentation can be found here: :ref:`parameter.Parameter`.
 
-    .. autoclass:: actuarial.parameter::Parameter()
-
-            .. tabbed:: Initialization
-
-                |none|
-
-            .. tabbed:: Abstract
-
-                .. automethod:: control
-                .. autoclass:: actuarial.parameter::Parameter.Decorators
-                    :members:
-
-            .. tabbed:: Properties
-
-                .. autoattribute:: value
-
-            .. tabbed:: Methods
-
-                .. automethod:: broadcast
-                .. automethod:: set
-                .. automethod:: reset
-
-            .. tabbed:: Special
-
-                .. automethod:: __arithmetic__
-                .. automethod:: __comparison__
-                .. automethod:: __getitem__
-                .. automethod:: __setitem__
-                
-            .. tabbed:: Examples
-
-                To be added.
-
-
-Secondly, the module offers different parameter classes.
+Secondly, the module offers different **parameter classes**.
 For example, it implements scalar parameters, array parameters, correlation matrix parameters, ...
 All these parameter classes inherit from the `Parameter` abstract class as described above.
 In this way, they all share a common set of features (properties and methods) and they can be easily identified as a parameter
 (using Python's built-in functions `isinstance` or `issubclass`).
-The following parameter classes are implemented in this module:
+The following parameter classes are implemented in this module (in alphabetical order):
 
-    * :ref:`parameter.Scalar`
-    * :ref:`parameter.Array`
-    * :ref:`parameter.CorrelationMatrix`
+.. list-table:: List of parameter classes.
+    :header-rows: 1
+    :align: center
+    :widths: 100
 
-Finally, the parameter module provides a `Parameters` class (with a "s" at the end).
-This class represents a collection of parameters.
+    *   - .. centered:: Parameter class
+    *   - :ref:`parameter.Array`
+    *   - :ref:`parameter.CorrelationMatrix`
+    *   - :ref:`parameter.Scalar`
+
+Finally, the parameter module provides a `Parameters` class (with an "s" at the end).
+This class represents a **collection (or dictionary) of parameters**.
 It is used to efficiently store and manage multiple parameters.
 In particular, it allows easy storage, extraction and controls of several parameters.
-The documentation of this class can be found below:
-
-.. dropdown:: Parameters
-
-    .. autoclass:: actuarial.parameter::Parameters()
-
-            .. tabbed:: Initialization
-
-                .. automethod:: __init__
-
-            .. tabbed:: Abstract
-
-                |none|
-
-            .. tabbed:: Properties
-
-                .. autoattribute:: shapes
-                .. autoattribute:: values
-
-            .. tabbed:: Methods
-
-                .. automethod:: set
-                .. automethod:: control
-                .. automethod:: reset
-
-            .. tabbed:: Special
-
-                |none|
-
-            .. tabbed:: Decorators
-
-                |none|
-
-            .. tabbed:: Examples
-
-                To be added.
+The documentation of this class can be found here: :ref:`Parameters <parameter.Parameters>`.

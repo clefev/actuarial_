@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -25,7 +25,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Gamma" href="Gamma.html" />
-    <link rel="prev" title="Beta" href="Beta.html" /> 
+    <link rel="prev" title="Empirical" href="Empirical.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,20 +51,21 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Distribution</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Univariate</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="UnivariateDistribution.html">Univariate Distribution <span class="sphinx-bs badge badge-dark badge-pill">ABC</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="Bernoulli.html">Bernoulli</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Beta.html">Beta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Empirical.html">Empirical</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Exponential</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Gamma.html">Gamma</a></li>
 <li class="toctree-l3"><a class="reference internal" href="GeneralizedPareto.html">Generalized Pareto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Lognormal.html">Lognormal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Mixture.html">Mixture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Normal.html">Normal</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Pareto.html">Pareto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Poisson.html">Poisson</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Truncated.html">Truncated</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Uniform.html">Uniform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Weibull.html">Weibull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Empirical.html">Empirical</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Truncated.html">Truncated</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Mixture.html">Mixture</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../multivariate/index.html">Multivariate</a></li>
@@ -72,7 +73,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../copula/index.html">Copula</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../yield_curve/index.html">Yield Curve</a></li>
@@ -127,7 +128,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="actuarial.distribution.Exponential">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.distribution.</span></span><span class="sig-name descname"><span class="pre">Exponential</span></span><a class="reference internal" href="../../_modules/actuarial/distribution/Exponential.html#Exponential"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.Exponential" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="../../superclass/Parametric.html#actuarial.superclass.Parametric" title="actuarial.superclass.Parametric.Parametric"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Parametric.Parametric</span></code></a>, <a class="reference internal" href="index.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution.UnivariateDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.distribution.UnivariateDistribution.UnivariateDistribution</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../../superclass/Parametric.html#actuarial.superclass.Parametric" title="actuarial.superclass.Parametric.Parametric"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Parametric.Parametric</span></code></a>, <a class="reference internal" href="UnivariateDistribution.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution.UnivariateDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.distribution.UnivariateDistribution.UnivariateDistribution</span></code></a></p>
 <p>The shifted <strong>exponential distribution</strong> is a continuous probability distribution
 defined on a semi-infinite interval <span class="math notranslate nohighlight">\([A,+\infty)\)</span> and parametrized
 by a positive scale parameter denoted by <span class="math notranslate nohighlight">\(\lambda\)</span>.
@@ -135,8 +136,8 @@ The exponential distribution is a particular case of the gamma distribution.
 It is a suitable choice to model the average cost of claims or individual
 claims with thin tail.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="2d9bdacd-4844-4d8d-998b-927f3e4fdc80" name="71094c8c-a5b2-4c73-af72-addfe8575e91" type="radio">
-</input><label class="tabbed-label" for="2d9bdacd-4844-4d8d-998b-927f3e4fdc80">
+<input checked="checked" id="f1039716-2716-4f24-b6be-aef8870c0e03" name="bb1728f3-7ad0-4638-b0a0-95fa6a85a503" type="radio">
+</input><label class="tabbed-label" for="f1039716-2716-4f24-b6be-aef8870c0e03">
 Initialization</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.distribution.Exponential.__init__">
@@ -156,13 +157,13 @@ Initialization</label><div class="tabbed-content docutils">
 </dd></dl>
 
 </div>
-<input id="ef7b0b91-0adf-4f0c-9ab0-5a28c55f0e8a" name="71094c8c-a5b2-4c73-af72-addfe8575e91" type="radio">
-</input><label class="tabbed-label" for="ef7b0b91-0adf-4f0c-9ab0-5a28c55f0e8a">
+<input id="59180cb5-469a-4f8e-9f9d-39c6c1a61fcc" name="bb1728f3-7ad0-4638-b0a0-95fa6a85a503" type="radio">
+</input><label class="tabbed-label" for="59180cb5-469a-4f8e-9f9d-39c6c1a61fcc">
 Properties</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="d9551a29-f108-4a58-a496-0dfa47742012" name="71094c8c-a5b2-4c73-af72-addfe8575e91" type="radio">
-</input><label class="tabbed-label" for="d9551a29-f108-4a58-a496-0dfa47742012">
+<input id="b0c99211-2e34-41d3-b662-a72e77212484" name="bb1728f3-7ad0-4638-b0a0-95fa6a85a503" type="radio">
+</input><label class="tabbed-label" for="b0c99211-2e34-41d3-b662-a72e77212484">
 Methods</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.distribution.Exponential.pdf">
@@ -275,13 +276,13 @@ random number generator associated with this instance.</p></li>
 </dd></dl>
 
 </div>
-<input id="c9e3492b-2588-42cf-909d-c5e495302fbd" name="71094c8c-a5b2-4c73-af72-addfe8575e91" type="radio">
-</input><label class="tabbed-label" for="c9e3492b-2588-42cf-909d-c5e495302fbd">
+<input id="3dde8549-d928-4477-ab00-8ef0f81aea54" name="bb1728f3-7ad0-4638-b0a0-95fa6a85a503" type="radio">
+</input><label class="tabbed-label" for="3dde8549-d928-4477-ab00-8ef0f81aea54">
 Special</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="d6e288c4-ce9d-42ee-8ac2-e4a586c6dcf9" name="71094c8c-a5b2-4c73-af72-addfe8575e91" type="radio">
-</input><label class="tabbed-label" for="d6e288c4-ce9d-42ee-8ac2-e4a586c6dcf9">
+<input id="cec1cde8-72f4-4a56-8b6e-f7f736c28e06" name="bb1728f3-7ad0-4638-b0a0-95fa6a85a503" type="radio">
+</input><label class="tabbed-label" for="cec1cde8-72f4-4a56-8b6e-f7f736c28e06">
 Technical sheet</label><div class="tabbed-content docutils">
 <table class="colwidths-given docutils align-center">
 <colgroup>
@@ -311,8 +312,8 @@ Technical sheet</label><div class="tabbed-content docutils">
 </tbody>
 </table>
 </div>
-<input id="74f9feeb-2d13-4f2d-a192-cfda95f2de5d" name="71094c8c-a5b2-4c73-af72-addfe8575e91" type="radio">
-</input><label class="tabbed-label" for="74f9feeb-2d13-4f2d-a192-cfda95f2de5d">
+<input id="998e8e1a-4e66-4444-9e7d-e2a425bf7dd1" name="bb1728f3-7ad0-4638-b0a0-95fa6a85a503" type="radio">
+</input><label class="tabbed-label" for="998e8e1a-4e66-4444-9e7d-e2a425bf7dd1">
 Examples</label><div class="tabbed-content docutils">
 <p>To be added.</p>
 </div>
@@ -325,7 +326,7 @@ Examples</label><div class="tabbed-content docutils">
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="Beta.html" class="btn btn-neutral float-left" title="Beta" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Empirical.html" class="btn btn-neutral float-left" title="Empirical" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="Gamma.html" class="btn btn-neutral float-right" title="Gamma" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

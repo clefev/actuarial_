@@ -24,7 +24,7 @@ Welcome to actuarial's documentation!
 .. toctree::
    :maxdepth: 1
    :hidden:
-   :caption: FIXED INCOME
+   :caption: ALM
 
    fixed_income/index.rst
    yield_curve/index.rst
@@ -67,48 +67,49 @@ Welcome to actuarial's documentation!
    test.rst
 
 
+
 The actuarial package is a Python package dedicated to actuarial science and risk management.
 
 .. panels::
-   :column: col-12 col-lg-10 text-center p-2
+    :column: col-12 col-lg-10 text-center p-2
 
-   ACTUARIAL MODELLING
+    ACTUARIAL MODELLING
 
-   :fa:`chart-line,fa-4x`
+    :fa:`chart-line,fa-4x`
 
-   The actuarial package implements various models and tools for actuarial science and risk management.
-   It covers several topics such as yield curves, fixed incomes, distributions, copulas, quantitative finance, ALM, life insurance, non-life insurance and health insurance.
-   ---
-   EASY TO USE
+    The actuarial package implements various models and tools for actuarial science and risk management.
+    It covers several topics such as yield curves, fixed incomes, distributions, copulas, quantitative finance, ALM, life insurance, non-life insurance, health insurance and many other topics.
+    ---
+    EASY TO USE
 
-   :fa:`code,fa-4x`
+    :fa:`code,fa-4x`
 
-   The package is designed to facilitate the use of actuarial models and tools.
-   Its high level syntax makes it accessible and productive for programmers and actuaries from any background or experience level.
-   An extensive documentation and various concrete examples accompany this package.
-   ---
-   TRANSPARENT
+    The package is designed to facilitate the use of actuarial models and tools.
+    Its high level syntax makes it accessible and productive for programmers and actuaries from any background or experience level.
+    An extensive documentation and various concrete examples accompany this package.
+    ---
+    TRANSPARENT
 
-   :fa:`eye,fa-4x`
+    :fa:`eye,fa-4x`
 
-   The code is fully transparent and well documented.
-   It is accessible from this documentation or can be downloaded from the dedicated Github repository.
-   It provides best practices for programming, building and documenting actuarial models.
-   ---
-   PERFORMANT
+    The code is fully transparent and well documented.
+    It is accessible from this documentation or can be downloaded from the dedicated Github repository.
+    It provides best practices for programming, building and documenting actuarial models.
+    ---
+    PERFORMANT
 
-   :fa:`stopwatch,fa-4x`
+    :fa:`stopwatch,fa-4x`
 
-   The actuarial package is optimized for computation times.
-   The calculations are based on the numpy framework and take full advantage of vectorization.
-   ---
-   HIGH STANDARDIZATION
+    The actuarial package is optimized for computation times.
+    The calculations are based on the numpy framework and take full advantage of vectorization.
+    ---
+    HIGH STANDARDIZATION
 
-   :fa:`industry,fa-4x`
+    :fa:`industry,fa-4x`
 
-   The code relies on an object-oriented framework where the concepts of class and inheritance are widely used.
-   The high level classes implemented in this package allow the standardization and industrialization of all actuarial models.
-   They can also serve as toolkits to create and customize your own actuarial models.
+    The code relies on an object-oriented framework where the concepts of class and inheritance are widely used.
+    The high level classes implemented in this package allow the standardization and industrialization of all actuarial models.
+    They can also serve as toolkits to create and customize your own actuarial models.
 
 .. Ajouter la modularité ?
 
@@ -141,20 +142,52 @@ The actuarial package is divided into different modules to facilitate its use an
 A module generally contains a set of classes and/or functions.
 The table below provides an overview of the modules implemented in the actuarial package (in alphabetical order):
 
-.. list-table::
-   :header-rows: 1
-   :align: center
+.. list-table:: List of modules.
+    :name: list-modules
+    :header-rows: 1
+    :align: center
+    :widths: 30 10 10 50
 
-   *  - .. centered:: Module name
-      - .. centered:: Description
-   *  - `copula`
-      - Tools for working with copulas
-   *  - `distribution`
-      - Tools for working with probability distribution (discrete or continuous, univariate or multivariate)
-   *  - `indexation`
-      - Tools for working with indexation and inflation
-   *  - `yield_curve`
-      - Tools for working with yield curves
+    *   - .. centered:: Module
+        - .. centered:: Class
+        - .. centered:: Function
+        - .. centered:: Description
+    *   - :ref:`actuarial.copula`
+        - .. centered:: |V|
+        - .. centered:: |X|
+        - Tools for working with copulas
+    *   - :ref:`actuarial.distribution`
+        - .. centered:: |V|
+        - .. centered:: |X|
+        - Tools for working with probability distribution (discrete or continuous, univariate or multivariate)
+    *   - :ref:`actuarial.function`
+        - .. centered:: |V|
+        - .. centered:: |X|
+        - Tools for working with real mathematical functions
+    *   - :ref:`actuarial.indexation`
+        - .. centered:: |V|
+        - .. centered:: |X|
+        - Tools for working with indexation and inflation
+    *   - :ref:`actuarial.math`
+        - .. centered:: |V|
+        - .. centered:: |V|
+        - Mathematical tools such as root-finding algorithms, partitioning, ...
+    *   - :ref:`actuarial.parameter`
+        - .. centered:: |V|
+        - .. centered:: |X|
+        - Tools for working with the parameters of parametric models
+    *   - :ref:`actuarial.superclass`
+        - .. centered:: |V|
+        - .. centered:: |X|
+        - High-level classes used as building block for constructing actuarial classes
+    *   - :ref:`actuarial.util`
+        - .. centered:: |X|
+        - .. centered:: |V|
+        - Utility functions
+    *   - :ref:`actuarial.yield_curve`
+        - .. centered:: |V|
+        - .. centered:: |X|
+        - Tools for working with yield curves
 
 
 
@@ -168,7 +201,7 @@ For actuarial science, the documentation should also help actuaries and programm
 In addition, concrete examples should illustrate how the code works.
 
 The actuarial package being divided into different modules, a documentation is associated with each module.
-The documentation of a module is accessible via the sidebar on the left.
+The documentation of a module is accessible via the sidebar on the left or the table :ref:`List of modules <list-modules>` above.
 It provides:
 
    * A global overview of the module (description, content and code structure).
@@ -178,4 +211,46 @@ It provides:
    * Theoretical reminders on models and formulas.
 
 A search bar in the upper left corner also allows you to do custom searches.
-For example, you can type "nelson siegel" to find the documentation associated with the Nelson-Siegel model.
+For example, you can type "nelson siegel" in this search bar to find the documentation associated with the Nelson-Siegel model.
+
+
+..
+    Our services
+    ------------
+
+    .. panels::
+        :column: col-12 col-lg-6 text-center p-2
+
+        TRAINING
+
+        :fa:`graduation-cap,fa-4x`
+
+        Want to get into Python programming ?
+        Master the actuarial package and its modules ?
+        Create your own package and documentation for your company ?
+
+        We can offer you a personalized training path adapted to your needs.
+        ---
+        CONSULTANCY
+
+        :fa:`users,fa-4x`
+
+        Do you want to build a project on the basis of our actuarial framework ?
+
+        Our consultants can help you in the design and implementation of your projects.
+        ---
+        SUPPORT & HELPDESK
+
+        :fa:`life-ring,fa-4x`
+
+        Do you use the actuarial package for your projects ?
+
+        Ask our online helpdesk assistance who can assist you if you have questions, encounter bugs or need advice.
+        ---
+        CUSTOMIZATION
+
+        :fa:`tools,fa-4x`
+
+        Want to create your own internal and customized package for your company ?
+
+        We have the best experience for that !

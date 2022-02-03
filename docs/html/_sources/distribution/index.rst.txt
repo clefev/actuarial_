@@ -1,9 +1,140 @@
+.. _actuarial.distribution:
+
 Distribution
 ============
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-   
-   univariate/index.rst
-   multivariate/index.rst
+    :maxdepth: 1
+    :hidden:
+      
+    univariate/index.rst
+    multivariate/index.rst
+
+
+
+The distribution module provides all the tools needed to work with probability distributions (either discrete or continuous, univariate or multivariate).
+
+.. panels::
+    :column: col-12 col-sm-6 col-lg-3 text-center p-1
+
+    :fa:`puzzle-piece,fa-4x`
+
+    Use various built-in distributions
+    ---
+    :fa:`crosshairs,fa-4x`
+
+    Calibrate your distributions
+    ---
+    :fa:`dice,fa-4x`
+
+    Generate random samples
+    ---
+    :fa:`tools,fa-4x`
+
+    Build your own distribution classes
+
+
+
+.. rubric:: :subtitle:`Importation`
+
+The distribution module can be easily imported from the actuarial package:
+
+.. code-block:: python
+
+    from actuarial import distribution
+
+
+
+.. rubric:: :subtitle:`Content`
+
+Several classes are implemented in this module:
+
+    |1| Abstract univariate and multivariate distribution classes
+
+    |2| Various univariate distribution models
+
+    |3| Various multivariate distribution models
+
+First, we can find two **abstract classes** called `UnivariateDistribution` and `MultivariateDistribution`.
+These abstract classes allow building univariate or multivariate distribution models in a standardized way and with various pre-implemented features.
+Therefore, all distribution models implemented in this package inherit from one of these abstract classes (depending on whether it is univariate or multivariate).
+Moreover, it also allows you to build and customize your own distribution models (by inheriting from this abstract class).
+Related documentation can be found here: :ref:`distribution.UnivariateDistribution`.
+
+Secondly, the module offers different **univariate distribution models** (either discrete or continuous).
+For example, it implements the normal distribution, Poisson distribution, Pareto distribution, ...
+This also includes special distributions such as the empirical distribution, mixture distribution or truncated distribution.
+All these models inherit from the `UnivariateDistribution` abstract class as described above.
+In this way, they all share a common set of features (properties and methods) and they can be easily identified as an univariate distribution
+(using Python's built-in functions `isinstance` or `issubclass`).
+The following univariate distribution models are implemented in this module (in alphabetical order):
+
+.. list-table:: List of univariate distribution models.
+    :header-rows: 1
+    :align: center
+    :widths: 30 15 15 15
+    
+    *   - .. centered:: Univariate distribution model
+        - .. centered:: Parametric
+        - .. centered:: Discrete
+        - .. centered:: Continuous
+    *   - :ref:`distribution.Bernoulli`
+        - .. centered:: |V|
+        - .. centered:: |V|
+        - .. centered:: |X|
+    *   - :ref:`distribution.Beta`
+        - .. centered:: |V|
+        - .. centered:: |X|
+        - .. centered:: |V|
+    *   - :ref:`distribution.Empirical`
+        - .. centered:: |X|
+        - .. centered:: |V|
+        - .. centered:: |X|
+    *   - :ref:`distribution.Exponential`
+        - .. centered:: |V|
+        - .. centered:: |X|
+        - .. centered:: |V|
+    *   - :ref:`distribution.Gamma`
+        - .. centered:: |V|
+        - .. centered:: |X|
+        - .. centered:: |V|
+    *   - :ref:`distribution.GeneralizedPareto`
+        - .. centered:: |V|
+        - .. centered:: |X|
+        - .. centered:: |V|
+    *   - :ref:`distribution.Lognormal`
+        - .. centered:: |V|
+        - .. centered:: |X|
+        - .. centered:: |V|
+    *   - :ref:`distribution.Mixture`
+        - .. centered:: |X|
+        - .. centered:: |V|
+        - .. centered:: |V|
+    *   - :ref:`distribution.Normal`
+        - .. centered:: |V|
+        - .. centered:: |X|
+        - .. centered:: |V|
+    *   - :ref:`distribution.Pareto`
+        - .. centered:: |V|
+        - .. centered:: |X|
+        - .. centered:: |V|
+    *   - :ref:`distribution.Poisson`
+        - .. centered:: |V|
+        - .. centered:: |V|
+        - .. centered:: |X|
+    *   - :ref:`distribution.Truncated`
+        - .. centered:: |X|
+        - .. centered:: |V|
+        - .. centered:: |V|
+    *   - :ref:`distribution.Uniform`
+        - .. centered:: |V|
+        - .. centered:: |X|
+        - .. centered:: |V|
+    *   - :ref:`distribution.Weibull`
+        - .. centered:: |V|
+        - .. centered:: |X|
+        - .. centered:: |V|
+
+
+Finally, the module offers different **multivariate distribution models** (either discrete or continuous).
+*To be implemented*.

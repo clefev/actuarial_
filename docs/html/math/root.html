@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -52,7 +52,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../copula/index.html">Copula</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
@@ -115,7 +115,8 @@
 <p>The algorithm supports vectorization.
 It means that if the function returns <em>n</em> values, then <em>n</em> roots will be found.
 Note that the algorithm will stop as soon as one of the criteria given by
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">tol</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">f_tol</span></code> is satisfied (not when both are satisfied at the same time).</p>
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">maxiter</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">tol</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">f_tol</span></code> is satisfied (not when both are satisfied at the
+same time).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -149,6 +150,53 @@ The default is 0.</p></li>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><ul class="simple">
+<li><p><strong>root</strong> (<em>scalar or array</em>) – Computed root.</p></li>
+<li><p><strong>f_root</strong> (<em>scalar or array</em>) – Value of the function for the computed root.</p></li>
+<li><p><strong>iter</strong> (<em>int</em>) – Number of iterations needed to find the root.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="actuarial.math.newton_raphson">
+<span class="sig-prename descclassname"><span class="pre">actuarial.math.</span></span><span class="sig-name descname"><span class="pre">newton_raphson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/math.html#newton_raphson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.math.newton_raphson" title="Permalink to this definition"></a></dt>
+<dd><p>Newton-Raphson algorithm to find the root of a continuous function.</p>
+<p>The algorithm supports vectorization.
+It means that if the function returns <em>n</em> values, then <em>n</em> roots will be found.
+Note that the algorithm will stop as soon as one of the criteria given by
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">maxiter</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">tol</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">f_tol</span></code> is satisfied (not when both are satisfied at the
+same time).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>callable</em>) – Function whose root must be found.
+The function must be continuous and return a scalar or an array.
+If an array is returned, a root will be found for each returned component
+of the function (vectorization).
+The function will be called as <code class="xref py py-obj docutils literal notranslate"><span class="pre">f(x,</span> <span class="pre">**kwargs)</span></code> where <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> is the value
+for which the function should be evaluated and <code class="xref py py-obj docutils literal notranslate"><span class="pre">kwargs</span></code> is a dictionary
+of additional arguments that can be passed to the function (see below).</p></li>
+<li><p><strong>df</strong> (<em>callable</em>) – Derivative of the function <code class="xref py py-obj docutils literal notranslate"><span class="pre">f</span></code>.
+The derivative will be called as <code class="xref py py-obj docutils literal notranslate"><span class="pre">df(x,</span> <span class="pre">**kwargs)</span></code>.</p></li>
+<li><p><strong>x0</strong> (<em>array-like</em>) – Initial guess <span class="math notranslate nohighlight">\(x_0\)</span> for the root.</p></li>
+<li><p><strong>maxiter</strong> (<em>int</em><em>, </em><em>optional</em>) – Maximum number of iterations.
+The algorithm will stop and return the current result after this number
+of iterations.
+The default is 100.</p></li>
+<li><p><strong>tol</strong> (<em>float</em><em>, </em><em>optional</em>) – Absolute tolerance for the root <span class="math notranslate nohighlight">\(x^*\)</span>.
+The maximum absolute error between the computed root <span class="math notranslate nohighlight">\(x^*\)</span> and the
+exact root <span class="math notranslate nohighlight">\(x_{exact}\)</span> will be equal to this tolerance.
+The default is 1e-4.</p></li>
+<li><p><strong>f_tol</strong> (<em>float</em><em>, </em><em>optional</em>) – Absolute tolerance for <span class="math notranslate nohighlight">\(f(x^*)\)</span>.
+The maximum absolute value for <span class="math notranslate nohighlight">\(f(x^*)\)</span> will be equal to this tolerance.
+The default is 0.</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional keyword arguments for the function <code class="xref py py-obj docutils literal notranslate"><span class="pre">f</span></code> and its derivative <code class="xref py py-obj docutils literal notranslate"><span class="pre">df</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
 <li><p><strong>root</strong> (<em>scalar or array</em>) – Computed root.</p></li>
 <li><p><strong>f_root</strong> (<em>scalar or array</em>) – Value of the function for the computed root.</p></li>
 <li><p><strong>iter</strong> (<em>int</em>) – Number of iterations needed to find the root.</p></li>

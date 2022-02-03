@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -51,7 +51,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../copula/index.html">Copula</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
@@ -100,49 +100,46 @@
            <div itemprop="articleBody">
              
   <section id="module-actuarial.util">
-<span id="util"></span><h1>Util<a class="headerlink" href="#module-actuarial.util" title="Permalink to this headline"></a></h1>
+<span id="util"></span><span id="actuarial-util"></span><h1>Util<a class="headerlink" href="#module-actuarial.util" title="Permalink to this headline"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="actuarial.util.aggregate_by">
 <span class="sig-prename descclassname"><span class="pre">actuarial.util.</span></span><span class="sig-name descname"><span class="pre">aggregate_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">by</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sum'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/util.html#aggregate_by"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.util.aggregate_by" title="Permalink to this definition"></a></dt>
-<dd><p>Aggregates data by groups along an axis. The data belonging to a same
-group will be aggregated together using the <code class="xref py py-obj docutils literal notranslate"><span class="pre">func</span></code> function.</p>
+<dd><p>Aggregate data by groups along an axis. The data belonging to a same group
+will be aggregated together using the <code class="xref py py-obj docutils literal notranslate"><span class="pre">func</span></code> function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>array-like</em>) – Input array containing the data to be aggregated by groups.</p></li>
-<li><p><strong>by</strong> (<em>1D array-like</em><em> or </em><em>pd.Categorical</em>) – The values determine the groups along the axis of the input array.
-Therefore, the length must correspond to the size of <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> along the axis.
+<li><p><strong>x</strong> (<em>array-like</em>) – Input array containing the data to aggregate by groups.</p></li>
+<li><p><strong>by</strong> (<em>1D array-like</em><em> or </em><em>pd.Categorical</em>) – Grouping elements along the aggregation axis of the input array.
+Therefore, the length must correspond to the size of <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> along the aggregation
+axis.
 Data belonging to a same group will be aggregated together.</p></li>
-<li><p><strong>func</strong> (<em>string</em><em> or </em><em>callable</em><em>, </em><em>optional</em>) – Function to use to aggregate data belonging to a same group. It can
-be a callable or a string such as “sum”, “mean”, “std”, “var”, “min”, “max”,
-“median”, “prod” or “count”. The default aggregation is a sum.</p></li>
+<li><p><strong>func</strong> (<em>string</em><em> or </em><em>callable</em><em>, </em><em>optional</em>) – Function to use to aggregate data belonging to a same group.
+It can be a callable or a string such as “sum”, “mean”, “std”, “var”,
+“min”, “max”, “median”, “prod” or “count”.
+The default aggregation is a sum.</p></li>
 <li><p><strong>sort</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the output groups will be sorted in ascending order.
-Otherwise, they are given in their order of appearance in the input <code class="xref py py-obj docutils literal notranslate"><span class="pre">by</span></code>.
+Otherwise, they are given in the order they appear in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">by</span></code> argument.
 The default is False.</p></li>
-<li><p><strong>axis</strong> (<em>int</em><em>, </em><em>optional</em>) – Axis along which the data are aggregated. The default is the first axis
-of <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+<li><p><strong>axis</strong> (<em>int</em><em>, </em><em>optional</em>) – Axis along which the data are aggregated.
+The default is the first axis of the input array <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
 <li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional keyword arguments for the <code class="xref py py-obj docutils literal notranslate"><span class="pre">func</span></code> function when a callable is
 passed.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>groups<span class="classifier">array</span></dt><dd><p>Output groups after aggregation. The groups are sorted in ascending
-order if the <a class="reference internal" href="#actuarial.util.sort" title="actuarial.util.sort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sort</span></code></a> option is activated. The returned array is along
-the aggregation axis and can be broadcast with the <code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregate</span></code> output.</p>
-</dd>
-<dt>aggregate<span class="classifier">array</span></dt><dd><p>Aggregated values by groups. The shape is the same as the input array <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code>
-except that the size along the axis is equal to the number of output
-groups <code class="xref py py-obj docutils literal notranslate"><span class="pre">len(groups)</span></code>.</p>
-</dd>
-</dl>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>groups</strong> (<em>array</em>) – Output groups after aggregation. The groups are sorted in ascending
+order if the <a class="reference internal" href="#actuarial.util.sort" title="actuarial.util.sort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sort</span></code></a> argument is True. The returned array is along
+the aggregation axis and can be broadcast with the <code class="xref py py-obj docutils literal notranslate"><span class="pre">aggregate</span></code> output.</p></li>
+<li><p><strong>aggregate</strong> (<em>array</em>) – Aggregated values by groups. The shape is the same as the input array <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code>
+except that the size along the aggregation axis is equal to the number
+of output groups <code class="xref py py-obj docutils literal notranslate"><span class="pre">len(groups)</span></code>.</p></li>
+</ul>
 </p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>tuple</p>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><strong>ValueError</strong> – If the length of <code class="xref py py-obj docutils literal notranslate"><span class="pre">by</span></code> doesn’t correspond to the size of <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> along the axis.</p>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the length of <code class="xref py py-obj docutils literal notranslate"><span class="pre">by</span></code> doesn’t correspond to the size of <code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code> along the <code class="xref py py-obj docutils literal notranslate"><span class="pre">axis</span></code>.</p>
 </dd>
 </dl>
 </dd></dl>

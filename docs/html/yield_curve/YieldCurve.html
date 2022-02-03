@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yield Curve ABC &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Flat" href="Flat.html" />
+    <link rel="prev" title="Yield Curve" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SUPERCLASS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../superclass/index.html">Superclass</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PROBABILITY &amp; STATISTICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copula/index.html">Copula</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Yield Curve</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Yield Curve <span class="sphinx-bs badge badge-dark badge-pill">ABC</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Flat.html">Flat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearInterpolation.html">Linear interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Mixture.html">Mixture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NelsonSiegel.html">Nelson-Siegel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RawInterpolation.html">Raw interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Discounting.html">Discounting <span class="sphinx-bs badge badge-dark badge-pill">Toolkit</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../indexation/index.html">Indexation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MATHEMATICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../math/index.html">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../function/index.html">Function</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">UTILITIES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util/util.html">Util</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XXX</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../XXX/notation.html">Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test.html">Test</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Yield Curve</a> &raquo;</li>
+      <li>Yield Curve <span class="sphinx-bs badge badge-dark badge-pill">ABC</span></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/yield_curve/YieldCurve.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="yield-curve-abstract">
+<span id="yield-curve-yieldcurve"></span><h1>Yield Curve <span class="sphinx-bs badge badge-dark badge-pill">ABC</span><a class="headerlink" href="#yield-curve-abstract" title="Permalink to this headline"></a></h1>
+<blockquote>
+<div><dl class="py class">
+<dt class="sig sig-object py" id="actuarial.yield_curve.YieldCurve">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.yield_curve.</span></span><span class="sig-name descname"><span class="pre">YieldCurve</span></span><a class="reference internal" href="../_modules/actuarial/yield_curve/YieldCurve.html#YieldCurve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.YieldCurve" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code>, <a class="reference internal" href="../superclass/Base.html#actuarial.superclass.Base" title="actuarial.superclass.Base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Base.Base</span></code></a>, <a class="reference internal" href="../superclass/Broadcast.html#actuarial.superclass.Broadcast" title="actuarial.superclass.Broadcast.Broadcast"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Broadcast.Broadcast</span></code></a></p>
+<p>Abstract class for constructing a yield curve.</p>
+<p>A yield curve represents a relationship between maturities and interest rates.
+Interest rates can be compounded, continuously compounded or simple.
+Therefore, a yield curve has a <a class="reference internal" href="#actuarial.yield_curve.YieldCurve.kind" title="actuarial.yield_curve.YieldCurve.kind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kind</span></code></a> attribute to describe the type of
+interest rates it provides.
+Note that a yield curve can also represent a relationship between maturities
+and discout factors (or capitalization factors) instead of interest rates.</p>
+<p>This abstract class implements basic methods such as</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Evaluate the value of the yield curve for given maturities (<a class="reference internal" href="#actuarial.yield_curve.YieldCurve.evaluate" title="actuarial.yield_curve.YieldCurve.evaluate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate</span></code></a>).</p></li>
+<li><p>Compute the discount factor or capitalization factor for given maturities
+(<a class="reference internal" href="#actuarial.yield_curve.YieldCurve.discount_factor" title="actuarial.yield_curve.YieldCurve.discount_factor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">discount_factor</span></code></a> and <a class="reference internal" href="#actuarial.yield_curve.YieldCurve.capitalization_factor" title="actuarial.yield_curve.YieldCurve.capitalization_factor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">capitalization_factor</span></code></a>).</p></li>
+<li><p>Convert the type of yield curve (<a class="reference internal" href="#actuarial.yield_curve.YieldCurve.convert" title="actuarial.yield_curve.YieldCurve.convert"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert</span></code></a>).</p></li>
+<li><p>Get a <a class="reference internal" href="Discounting.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Discounting</span></code></a> instance for given maturities (<a class="reference internal" href="#actuarial.yield_curve.YieldCurve.to_discounting" title="actuarial.yield_curve.YieldCurve.to_discounting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_discounting</span></code></a>).</p></li>
+</ul>
+</div></blockquote>
+<div class="tabbed-set docutils">
+<input checked="checked" id="0484af3f-da5f-4396-ab47-997364cfbcef" name="01636203-0496-4ce2-9d39-9ba8485fd0b9" type="radio">
+</input><label class="tabbed-label" for="0484af3f-da5f-4396-ab47-997364cfbcef">
+Initialization</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.YieldCurve.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kind</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/yield_curve/YieldCurve.html#YieldCurve.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.YieldCurve.__init__" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kind</strong> (<em>{&quot;capitalization_factor&quot;</em><em>, </em><em>&quot;compound_rate&quot;</em><em>, </em><em>&quot;continuous_rate&quot;</em><em>, </em><em>&quot;discount_factor&quot;</em><em>, </em><em>&quot;simple_rate&quot;}</em>) – Type of yield curve.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <a class="reference internal" href="#actuarial.yield_curve.YieldCurve.kind" title="actuarial.yield_curve.YieldCurve.kind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kind</span></code></a> is not valid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="f7415993-296c-4ef9-9b18-a84b973984be" name="01636203-0496-4ce2-9d39-9ba8485fd0b9" type="radio">
+</input><label class="tabbed-label" for="f7415993-296c-4ef9-9b18-a84b973984be">
+Abstract</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.YieldCurve.evaluate">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maturities</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/yield_curve/YieldCurve.html#YieldCurve.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.YieldCurve.evaluate" title="Permalink to this definition"></a></dt>
+<dd><p>Abstract method to evaluate the value of the yield curve for the given maturities.</p>
+<p>The first argument must be the maturities for which the yield curve should
+be evaluated. Other additional arguments are allowed.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="actuarial.yield_curve.YieldCurve.Decorators">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Decorators</span></span><a class="reference internal" href="../_modules/actuarial/yield_curve/YieldCurve.html#YieldCurve.Decorators"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.YieldCurve.Decorators" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Container class containing decorators to use for the implemented abstract
+methods of <a class="reference internal" href="#actuarial.yield_curve.YieldCurve" title="actuarial.yield_curve.YieldCurve"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YieldCurve</span></code></a> instances.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.YieldCurve.Decorators.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/yield_curve/YieldCurve.html#YieldCurve.Decorators.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.YieldCurve.Decorators.evaluate" title="Permalink to this definition"></a></dt>
+<dd><p>Decorator for the implemented <a class="reference internal" href="#actuarial.yield_curve.YieldCurve.Decorators.evaluate" title="actuarial.yield_curve.YieldCurve.Decorators.evaluate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate</span></code></a> method of a <a class="reference internal" href="#actuarial.yield_curve.YieldCurve" title="actuarial.yield_curve.YieldCurve"><code class="xref py py-obj docutils literal notranslate"><span class="pre">YieldCurve</span></code></a>
+instance.</p>
+<p>This decorator implements the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Convert the maturities for which the yield curve should be
+evaluated to a numpy array.</p></li>
+<li><p>Control whether these maturities can be broadcast with the instance.</p></li>
+<li><p>Reduce the output to a scalar when possible.</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Decorator.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>callable</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the maturities cannot be broadcast with the instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<input id="1ff20e3c-dfc5-45d6-9076-988e3aa09f57" name="01636203-0496-4ce2-9d39-9ba8485fd0b9" type="radio">
+</input><label class="tabbed-label" for="1ff20e3c-dfc5-45d6-9076-988e3aa09f57">
+Properties</label><div class="tabbed-content docutils">
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actuarial.yield_curve.YieldCurve.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><a class="headerlink" href="#actuarial.yield_curve.YieldCurve.kind" title="Permalink to this definition"></a></dt>
+<dd><p>Type of yield curve.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="7d64c2a0-f8b3-41de-8ffb-f3e924c67632" name="01636203-0496-4ce2-9d39-9ba8485fd0b9" type="radio">
+</input><label class="tabbed-label" for="7d64c2a0-f8b3-41de-8ffb-f3e924c67632">
+Methods</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.YieldCurve.convert">
+<span class="sig-name descname"><span class="pre">convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kind</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/yield_curve/YieldCurve.html#YieldCurve.convert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.YieldCurve.convert" title="Permalink to this definition"></a></dt>
+<dd><p>Convert in-place the yield curve to a new type i.e. update the <a class="reference internal" href="#actuarial.yield_curve.YieldCurve.kind" title="actuarial.yield_curve.YieldCurve.kind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kind</span></code></a> attribute.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kind</strong> (<em>{&quot;capitalization_factor&quot;</em><em>, </em><em>&quot;compound_rate&quot;</em><em>, </em><em>&quot;continuous_rate&quot;</em><em>, </em><em>&quot;discount_factor&quot;</em><em>, </em><em>&quot;simple_rate&quot;}</em><em>, </em><em>optional</em>) – The yield curve will be converted to this type.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#actuarial.yield_curve.YieldCurve" title="actuarial.yield_curve.YieldCurve.YieldCurve">YieldCurve</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <a class="reference internal" href="#actuarial.yield_curve.YieldCurve.kind" title="actuarial.yield_curve.YieldCurve.kind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kind</span></code></a> is not valid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.YieldCurve.discount_factor">
+<span class="sig-name descname"><span class="pre">discount_factor</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">maturities1=0</span></em>, <span class="optional">]</span><em class="sig-param"><span class="pre">maturities2</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/yield_curve/YieldCurve.html#YieldCurve.discount_factor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.YieldCurve.discount_factor" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the discount factor between two maturities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maturities1</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Starting maturities. The default is 0.</p></li>
+<li><p><strong>maturities2</strong> (<em>array-like</em><em> or </em><em>None</em>) – Ending maturities. If None, the <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code> attribute will be used
+if it exists.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Discount factor between <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> cannot be broadcast with the instance.
+    If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> is None and the instance has no <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code> attribute.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.YieldCurve.capitalization_factor">
+<span class="sig-name descname"><span class="pre">capitalization_factor</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">maturities1=0</span></em>, <span class="optional">]</span><em class="sig-param"><span class="pre">maturities2</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/yield_curve/YieldCurve.html#YieldCurve.capitalization_factor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.YieldCurve.capitalization_factor" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the capitalization factor between two maturities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maturities1</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Starting maturities. The default is 0.</p></li>
+<li><p><strong>maturities2</strong> (<em>array-like</em><em> or </em><em>None</em>) – Ending maturities. If None, the <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code> attribute will be used
+if it exists.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Capitalization factor between <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar or array</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> cannot be broadcast with the instance.
+    If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> is None and the instance has no <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code> attribute.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.YieldCurve.to_discounting">
+<span class="sig-name descname"><span class="pre">to_discounting</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">maturities1=0</span></em>, <span class="optional">]</span><em class="sig-param"><span class="pre">maturities2</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/yield_curve/YieldCurve.html#YieldCurve.to_discounting"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.YieldCurve.to_discounting" title="Permalink to this definition"></a></dt>
+<dd><p>Return a <a class="reference internal" href="Discounting.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Discounting</span></code></a> instance for the provided maturities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maturities1</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Starting maturities. The default is 0.</p></li>
+<li><p><strong>maturities2</strong> (<em>array-like</em><em> or </em><em>None</em>) – Ending maturities. If None, the <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code> attribute will be used
+if it exists.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Discounting instance containing discount values for the provided
+maturities. If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> is different from 0, the returned discount
+values correspond to discount factors while if <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> is 0,
+they correspond to the <a class="reference internal" href="#actuarial.yield_curve.YieldCurve.kind" title="actuarial.yield_curve.YieldCurve.kind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kind</span></code></a> attribute of the instance.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="Discounting.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting">Discounting</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> cannot be broadcast with the instance.
+    If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> is None and the instance has no <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities</span></code> attribute.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.YieldCurve.fit">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/yield_curve/YieldCurve.html#YieldCurve.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.YieldCurve.fit" title="Permalink to this definition"></a></dt>
+<dd><p>Class method to fit a yield curve.</p>
+</dd></dl>
+
+</div>
+<input id="5d9b6d23-e81f-4ca4-b77e-410ffbdde803" name="01636203-0496-4ce2-9d39-9ba8485fd0b9" type="radio">
+</input><label class="tabbed-label" for="5d9b6d23-e81f-4ca4-b77e-410ffbdde803">
+Special</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.yield_curve.YieldCurve.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/yield_curve/YieldCurve.html#YieldCurve.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.yield_curve.YieldCurve.__call__" title="Permalink to this definition"></a></dt>
+<dd><p>Identical to the <a class="reference internal" href="#actuarial.yield_curve.YieldCurve.evaluate" title="actuarial.yield_curve.YieldCurve.evaluate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">evaluate</span></code></a> method.</p>
+</dd></dl>
+
+</div>
+<input id="e71a5be9-0c5f-421a-a6b2-73dee3e6c6f4" name="01636203-0496-4ce2-9d39-9ba8485fd0b9" type="radio">
+</input><label class="tabbed-label" for="e71a5be9-0c5f-421a-a6b2-73dee3e6c6f4">
+Examples</label><div class="tabbed-content docutils">
+<p>To be added.</p>
+</div>
+</div>
+</dd></dl>
+
+</div></blockquote>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Yield Curve" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Flat.html" class="btn btn-neutral float-right" title="Flat" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

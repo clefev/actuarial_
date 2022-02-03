@@ -8,7 +8,7 @@
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -48,7 +48,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../distribution/index.html">Distribution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../copula/index.html">Copula</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../yield_curve/index.html">Yield Curve</a></li>
@@ -103,48 +103,49 @@
     
 <div class="viewcode-block" id="aggregate_by"><a class="viewcode-back" href="../../util/util.html#actuarial.util.aggregate_by">[docs]</a><span class="k">def</span> <span class="nf">aggregate_by</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">by</span><span class="p">,</span> <span class="n">func</span> <span class="o">=</span> <span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="n">sort</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{}):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Aggregates data by groups along an axis. The data belonging to a same</span>
-<span class="sd">    group will be aggregated together using the `func` function.</span>
+<span class="sd">    Aggregate data by groups along an axis. The data belonging to a same group</span>
+<span class="sd">    will be aggregated together using the `func` function.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    x : array-like</span>
-<span class="sd">        Input array containing the data to be aggregated by groups.</span>
+<span class="sd">        Input array containing the data to aggregate by groups.</span>
 <span class="sd">    by : 1D array-like or pd.Categorical</span>
-<span class="sd">        The values determine the groups along the axis of the input array.</span>
-<span class="sd">        Therefore, the length must correspond to the size of `x` along the axis.</span>
+<span class="sd">        Grouping elements along the aggregation axis of the input array.</span>
+<span class="sd">        Therefore, the length must correspond to the size of `x` along the aggregation</span>
+<span class="sd">        axis.</span>
 <span class="sd">        Data belonging to a same group will be aggregated together.</span>
 <span class="sd">    func : string or callable, optional</span>
-<span class="sd">        Function to use to aggregate data belonging to a same group. It can</span>
-<span class="sd">        be a callable or a string such as &quot;sum&quot;, &quot;mean&quot;, &quot;std&quot;, &quot;var&quot;, &quot;min&quot;, &quot;max&quot;,</span>
-<span class="sd">        &quot;median&quot;, &quot;prod&quot; or &quot;count&quot;. The default aggregation is a sum.</span>
+<span class="sd">        Function to use to aggregate data belonging to a same group.</span>
+<span class="sd">        It can be a callable or a string such as &quot;sum&quot;, &quot;mean&quot;, &quot;std&quot;, &quot;var&quot;,</span>
+<span class="sd">        &quot;min&quot;, &quot;max&quot;, &quot;median&quot;, &quot;prod&quot; or &quot;count&quot;.</span>
+<span class="sd">        The default aggregation is a sum.</span>
 <span class="sd">    sort : bool, optional</span>
 <span class="sd">        If True, the output groups will be sorted in ascending order.</span>
-<span class="sd">        Otherwise, they are given in their order of appearance in the input `by`.</span>
+<span class="sd">        Otherwise, they are given in the order they appear in the `by` argument.</span>
 <span class="sd">        The default is False.</span>
 <span class="sd">    axis : int, optional</span>
-<span class="sd">        Axis along which the data are aggregated. The default is the first axis</span>
-<span class="sd">        of `x`.</span>
+<span class="sd">        Axis along which the data are aggregated.</span>
+<span class="sd">        The default is the first axis of the input array `x`.</span>
 <span class="sd">    kwargs : dict, optional</span>
 <span class="sd">        Additional keyword arguments for the `func` function when a callable is</span>
 <span class="sd">        passed.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    tuple    </span>
-<span class="sd">        groups : array</span>
-<span class="sd">            Output groups after aggregation. The groups are sorted in ascending</span>
-<span class="sd">            order if the `sort` option is activated. The returned array is along</span>
-<span class="sd">            the aggregation axis and can be broadcast with the `aggregate` output.</span>
-<span class="sd">        aggregate : array</span>
-<span class="sd">            Aggregated values by groups. The shape is the same as the input array `x`</span>
-<span class="sd">            except that the size along the axis is equal to the number of output</span>
-<span class="sd">            groups `len(groups)`.</span>
+<span class="sd">    groups : array</span>
+<span class="sd">        Output groups after aggregation. The groups are sorted in ascending</span>
+<span class="sd">        order if the `sort` argument is True. The returned array is along</span>
+<span class="sd">        the aggregation axis and can be broadcast with the `aggregate` output.</span>
+<span class="sd">    aggregate : array</span>
+<span class="sd">        Aggregated values by groups. The shape is the same as the input array `x`</span>
+<span class="sd">        except that the size along the aggregation axis is equal to the number</span>
+<span class="sd">        of output groups `len(groups)`.</span>
 <span class="sd">        </span>
 <span class="sd">    Raises</span>
 <span class="sd">    ------</span>
 <span class="sd">    ValueError</span>
-<span class="sd">        If the length of `by` doesn&#39;t correspond to the size of `x` along the axis.</span>
+<span class="sd">        If the length of `by` doesn&#39;t correspond to the size of `x` along the `axis`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="c1"># Convert x to array</span>
@@ -163,7 +164,7 @@
         
     <span class="c1"># Reshape x to a matrix such that rows represent the axis to be aggregated</span>
     
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">moveaxis</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># move the axis to the first position</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">moveaxis</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># move the aggregation axis to the first position</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># matrix where rows will be aggregated</span>
     
     <span class="c1"># Aggregate the values</span>
@@ -172,14 +173,18 @@
     <span class="n">groups</span><span class="p">,</span> <span class="n">aggregate</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
     <span class="k">del</span> <span class="n">x</span>
     
-    <span class="c1"># Reshape aggregated values such that its shape is the same as the initial shape of x except that the size along the axis is equal to len(groups)</span>
+    <span class="c1"># Reshape the aggregated values such that its shape is the same as the initial shape of x except that the size along the aggregation axis is equal to len(groups)</span>
     
     <span class="n">aggregate</span> <span class="o">=</span> <span class="n">aggregate</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">axis</span><span class="p">))</span>
     <span class="n">aggregate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">moveaxis</span><span class="p">(</span><span class="n">aggregate</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
     
+    <span class="c1"># Reshape the groups along the aggregation axis</span>
+    
+    <span class="n">groups</span> <span class="o">=</span> <span class="n">reshape_along_axis</span><span class="p">(</span><span class="n">groups</span><span class="p">,</span> <span class="o">-</span><span class="n">normalize_axis</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">ndim</span><span class="p">,</span> <span class="n">negative</span> <span class="o">=</span> <span class="kc">True</span><span class="p">))</span>
+    
     <span class="c1"># Return output</span>
 
-    <span class="k">return</span> <span class="n">reshape_along_axis</span><span class="p">(</span><span class="n">groups</span><span class="p">,</span> <span class="o">-</span><span class="n">normalize_axis</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">ndim</span><span class="p">,</span> <span class="n">negative</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)),</span> <span class="n">aggregate</span></div>
+    <span class="k">return</span> <span class="n">groups</span><span class="p">,</span> <span class="n">aggregate</span></div>
 
 
 <div class="viewcode-block" id="along_axis"><a class="viewcode-back" href="../../util/util.html#actuarial.util.along_axis">[docs]</a><span class="k">def</span> <span class="nf">along_axis</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">negative</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>

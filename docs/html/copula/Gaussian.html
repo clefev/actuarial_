@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -51,7 +51,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Copula</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Clayton.html">Clayton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Copula.html">Copula <span class="sphinx-bs badge badge-dark badge-pill">ABC</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Comonotonic.html">Comonotonic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Countermonotonic.html">Countermonotonic</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Gaussian</a></li>
@@ -59,7 +59,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
@@ -113,7 +113,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="actuarial.copula.Gaussian">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.copula.</span></span><span class="sig-name descname"><span class="pre">Gaussian</span></span><a class="reference internal" href="../_modules/actuarial/copula/Gaussian.html#Gaussian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.copula.Gaussian" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="../superclass/Parametric.html#actuarial.superclass.Parametric" title="actuarial.superclass.Parametric.Parametric"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Parametric.Parametric</span></code></a>, <a class="reference internal" href="index.html#actuarial.copula.Copula" title="actuarial.copula.Copula.Copula"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.copula.Copula.Copula</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../superclass/Parametric.html#actuarial.superclass.Parametric" title="actuarial.superclass.Parametric.Parametric"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Parametric.Parametric</span></code></a>, <a class="reference internal" href="Copula.html#actuarial.copula.Copula" title="actuarial.copula.Copula.Copula"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.copula.Copula.Copula</span></code></a></p>
 <p>The Gaussian copula is the copula that underlies the multivariate normal
 distribution.</p>
 <p>The Gaussian copula is parametrized by a <span class="math notranslate nohighlight">\(d \times d\)</span> correlation
@@ -131,8 +131,8 @@ is set to -1 between the two variables.</p></li>
 </ul>
 </div></blockquote>
 <div class="tabbed-set docutils">
-<input checked="checked" id="c61b0319-e531-46b9-ba84-e7c123eeff61" name="a0b251d0-cc7f-46ec-8361-eb992ed56b57" type="radio">
-</input><label class="tabbed-label" for="c61b0319-e531-46b9-ba84-e7c123eeff61">
+<input checked="checked" id="3f8bcb17-e3da-4bc2-aec0-5fe8c2f60c33" name="4cd3a1dd-83bb-47d6-a1ac-33ea83f28d0c" type="radio">
+</input><label class="tabbed-label" for="3f8bcb17-e3da-4bc2-aec0-5fe8c2f60c33">
 Initialization</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.copula.Gaussian.__init__">
@@ -148,8 +148,8 @@ Initialization</label><div class="tabbed-content docutils">
 </dd></dl>
 
 </div>
-<input id="cd234113-b0aa-4a60-a8c0-74cca95681fe" name="a0b251d0-cc7f-46ec-8361-eb992ed56b57" type="radio">
-</input><label class="tabbed-label" for="cd234113-b0aa-4a60-a8c0-74cca95681fe">
+<input id="9442218b-ebbd-4176-81ea-c8cf3b12b78c" name="4cd3a1dd-83bb-47d6-a1ac-33ea83f28d0c" type="radio">
+</input><label class="tabbed-label" for="9442218b-ebbd-4176-81ea-c8cf3b12b78c">
 Properties</label><div class="tabbed-content docutils">
 <dl class="py attribute">
 <dt class="sig sig-object py" id="actuarial.copula.Gaussian.dim">
@@ -174,8 +174,8 @@ Properties</label><div class="tabbed-content docutils">
 </dd></dl>
 
 </div>
-<input id="fc942979-1b3c-4fbb-9baf-e260f8f2990d" name="a0b251d0-cc7f-46ec-8361-eb992ed56b57" type="radio">
-</input><label class="tabbed-label" for="fc942979-1b3c-4fbb-9baf-e260f8f2990d">
+<input id="0a7b474f-81c6-40d9-a0de-1ce1907d42fa" name="4cd3a1dd-83bb-47d6-a1ac-33ea83f28d0c" type="radio">
+</input><label class="tabbed-label" for="0a7b474f-81c6-40d9-a0de-1ce1907d42fa">
 Methods</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.copula.Gaussian.cdf">
@@ -299,18 +299,18 @@ in last position.</p>
 </dd></dl>
 
 </div>
-<input id="ba43cf28-0d53-4a4d-b4e3-259adcdd5e13" name="a0b251d0-cc7f-46ec-8361-eb992ed56b57" type="radio">
-</input><label class="tabbed-label" for="ba43cf28-0d53-4a4d-b4e3-259adcdd5e13">
+<input id="e57aa592-7994-455f-a78d-43c870bb6c30" name="4cd3a1dd-83bb-47d6-a1ac-33ea83f28d0c" type="radio">
+</input><label class="tabbed-label" for="e57aa592-7994-455f-a78d-43c870bb6c30">
 Special</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="c92152e2-e90b-4a25-8503-815fbf13f9ce" name="a0b251d0-cc7f-46ec-8361-eb992ed56b57" type="radio">
-</input><label class="tabbed-label" for="c92152e2-e90b-4a25-8503-815fbf13f9ce">
+<input id="2a1d1364-9ef6-49de-bed4-6e68a27f9b33" name="4cd3a1dd-83bb-47d6-a1ac-33ea83f28d0c" type="radio">
+</input><label class="tabbed-label" for="2a1d1364-9ef6-49de-bed4-6e68a27f9b33">
 Technical sheet</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="dd330391-087f-4cab-a72c-cbd88bf9deff" name="a0b251d0-cc7f-46ec-8361-eb992ed56b57" type="radio">
-</input><label class="tabbed-label" for="dd330391-087f-4cab-a72c-cbd88bf9deff">
+<input id="d2e03723-e15c-4ec7-8d08-83edcabfc66a" name="4cd3a1dd-83bb-47d6-a1ac-33ea83f28d0c" type="radio">
+</input><label class="tabbed-label" for="d2e03723-e15c-4ec7-8d08-83edcabfc66a">
 Examples</label><div class="tabbed-content docutils">
 <p>To be added.</p>
 </div>

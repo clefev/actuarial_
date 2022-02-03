@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Copula ABC &mdash; actuarial  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Comonotonic" href="Comonotonic.html" />
+    <link rel="prev" title="Copula" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> actuarial
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SUPERCLASS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../superclass/index.html">Superclass</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PROBABILITY &amp; STATISTICS</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Copula</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Copula <span class="sphinx-bs badge badge-dark badge-pill">ABC</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Comonotonic.html">Comonotonic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Countermonotonic.html">Countermonotonic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Gaussian.html">Gaussian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Independence.html">Independence</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indexation/index.html">Indexation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MATHEMATICS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../math/index.html">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parameter/index.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../function/index.html">Function</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">UTILITIES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aggregation/index.html">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util/util.html">Util</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">XXX</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../XXX/notation.html">Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test.html">Test</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">actuarial</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Copula</a> &raquo;</li>
+      <li>Copula <span class="sphinx-bs badge badge-dark badge-pill">ABC</span></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/copula/Copula.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="copula-abstract">
+<span id="copula-copula"></span><h1>Copula <span class="sphinx-bs badge badge-dark badge-pill">ABC</span><a class="headerlink" href="#copula-abstract" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="actuarial.copula.Copula">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.copula.</span></span><span class="sig-name descname"><span class="pre">Copula</span></span><a class="reference internal" href="../_modules/actuarial/copula/Copula.html#Copula"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.copula.Copula" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code>, <a class="reference internal" href="../superclass/Base.html#actuarial.superclass.Base" title="actuarial.superclass.Base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Base.Base</span></code></a>, <a class="reference internal" href="../superclass/Random.html#actuarial.superclass.Random" title="actuarial.superclass.Random.Random"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Random.Random</span></code></a></p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="e4f57bdb-a573-4de5-bbae-52dedbd0e213" name="bf96e08e-fc3f-4709-ad96-b8324c170586" type="radio">
+</input><label class="tabbed-label" for="e4f57bdb-a573-4de5-bbae-52dedbd0e213">
+Initialization</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.copula.Copula.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dim</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/copula/Copula.html#Copula.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.copula.Copula.__init__" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dim</strong> (<em>int</em>) – Dimensionality <span class="math notranslate nohighlight">\(d\)</span> of the copula.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <a class="reference internal" href="#actuarial.copula.Copula.dim" title="actuarial.copula.Copula.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a> is not at least 2 (two-dimensional copula).</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="871a6cc4-38d6-4482-a623-d2e63d2d9e25" name="bf96e08e-fc3f-4709-ad96-b8324c170586" type="radio">
+</input><label class="tabbed-label" for="871a6cc4-38d6-4482-a623-d2e63d2d9e25">
+Abstract</label><div class="tabbed-content docutils">
+<dl class="py property">
+<dt class="sig sig-object py" id="actuarial.copula.Copula.dim">
+<em class="property"><span class="pre">abstract</span> <span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">dim</span></span><a class="headerlink" href="#actuarial.copula.Copula.dim" title="Permalink to this definition"></a></dt>
+<dd><p>Abstract property giving the dimensionality <span class="math notranslate nohighlight">\(d\)</span> of the copula (as an integer).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.copula.Copula.cdf">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">cdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepdims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/copula/Copula.html#Copula.cdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.copula.Copula.cdf" title="Permalink to this definition"></a></dt>
+<dd><p>Abstract method to compute the cumulative distribution function (cdf).</p>
+<p>The first argument must be the values <code class="xref py py-obj docutils literal notranslate"><span class="pre">u</span></code> for which the cdf should be
+evaluated. It should be an array-like of values between 0 and 1 and the
+size along the last axis must be equal to the dimensionality of the copula.
+A <code class="xref py py-obj docutils literal notranslate"><span class="pre">keepdims</span></code> argument must also be provided in the method definition
+to remove or not the last axis which is reduced.
+Other additional arguments are allowed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.copula.Copula.pdf">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepdims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/copula/Copula.html#Copula.pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.copula.Copula.pdf" title="Permalink to this definition"></a></dt>
+<dd><p>Abstract method to compute the probability density function (pdf).</p>
+<p>The first argument must be the values <code class="xref py py-obj docutils literal notranslate"><span class="pre">u</span></code> for which the pdf should be
+evaluated. It should be an array-like of values between 0 and 1 and the
+size along the last axis must be equal to the dimensionality of the copula.
+A <code class="xref py py-obj docutils literal notranslate"><span class="pre">keepdims</span></code> argument must also be provided in the method definition
+to remove or not the last axis which is reduced.
+Other additional arguments are allowed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.copula.Copula.random">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">random</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/copula/Copula.html#Copula.random"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.copula.Copula.random" title="Permalink to this definition"></a></dt>
+<dd><p>Abstract method to draw random samples.</p>
+<p>The first argument must be the size of the samples to be drawn.
+A <code class="xref py py-obj docutils literal notranslate"><span class="pre">seed</span></code> argument must also be provided in the method definition.
+Other additional arguments are allowed.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="actuarial.copula.Copula.Decorators">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Decorators</span></span><a class="reference internal" href="../_modules/actuarial/copula/Copula.html#Copula.Decorators"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.copula.Copula.Decorators" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Container class containing decorators to use for the implemented abstract
+methods of <a class="reference internal" href="#actuarial.copula.Copula" title="actuarial.copula.Copula"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Copula</span></code></a> instances.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.copula.Copula.Decorators.cdf">
+<span class="sig-name descname"><span class="pre">cdf</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/copula/Copula.html#Copula.Decorators.cdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.copula.Copula.Decorators.cdf" title="Permalink to this definition"></a></dt>
+<dd><p>Decorator for the implemented <a class="reference internal" href="#actuarial.copula.Copula.Decorators.cdf" title="actuarial.copula.Copula.Decorators.cdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cdf</span></code></a> method of a <a class="reference internal" href="#actuarial.copula.Copula" title="actuarial.copula.Copula"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Copula</span></code></a> instance.</p>
+<p>This decorator implements the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Convert the values <code class="xref py py-obj docutils literal notranslate"><span class="pre">u</span></code> for which the cdf should be evaluated
+to a numpy array.</p></li>
+<li><p>Control whether the size of <code class="xref py py-obj docutils literal notranslate"><span class="pre">u</span></code> along its last axis is equal
+to the dimensionality of the copula.</p></li>
+<li><p>Control whether the values of <code class="xref py py-obj docutils literal notranslate"><span class="pre">u</span></code> are between 0 and 1.</p></li>
+<li><p>Ensure that the returned output is an array with a float dtype
+and reduce it to a scalar when possible.</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Decorator.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>callable</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the size of <code class="xref py py-obj docutils literal notranslate"><span class="pre">u</span></code> along its last axis is not equal to the dimensionality
+    of the copula or if <code class="xref py py-obj docutils literal notranslate"><span class="pre">u</span></code> contains values that are not between 0 and 1.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.copula.Copula.Decorators.pdf">
+<span class="sig-name descname"><span class="pre">pdf</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/copula/Copula.html#Copula.Decorators.pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.copula.Copula.Decorators.pdf" title="Permalink to this definition"></a></dt>
+<dd><p>Decorator for the implemented <a class="reference internal" href="#actuarial.copula.Copula.Decorators.pdf" title="actuarial.copula.Copula.Decorators.pdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pdf</span></code></a> method of a <a class="reference internal" href="#actuarial.copula.Copula" title="actuarial.copula.Copula"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Copula</span></code></a> instance.</p>
+<p>This decorator implements the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Convert the values <code class="xref py py-obj docutils literal notranslate"><span class="pre">u</span></code> for which the pdf should be evaluated
+to a numpy array.</p></li>
+<li><p>Control whether the size of <code class="xref py py-obj docutils literal notranslate"><span class="pre">u</span></code> along its last axis is equal
+to the dimensionality of the copula.</p></li>
+<li><p>Control whether the values of <code class="xref py py-obj docutils literal notranslate"><span class="pre">u</span></code> are between 0 and 1.</p></li>
+<li><p>Ensure that the returned output is an array with a float dtype
+and reduce it to a scalar when possible.</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Decorator.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>callable</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the size of <code class="xref py py-obj docutils literal notranslate"><span class="pre">u</span></code> along its last axis is not equal to the dimensionality
+    of the copula or if <code class="xref py py-obj docutils literal notranslate"><span class="pre">u</span></code> contains values that are not between 0 and 1.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.copula.Copula.Decorators.random">
+<span class="sig-name descname"><span class="pre">random</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/copula/Copula.html#Copula.Decorators.random"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.copula.Copula.Decorators.random" title="Permalink to this definition"></a></dt>
+<dd><p>Decorator for the implemented <a class="reference internal" href="#actuarial.copula.Copula.Decorators.random" title="actuarial.copula.Copula.Decorators.random"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random</span></code></a> method of a <a class="reference internal" href="#actuarial.copula.Copula" title="actuarial.copula.Copula"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Copula</span></code></a> instance.</p>
+<p>This decorator implements the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Convert the size of the samples to be drawn to a tuple of integers.</p></li>
+<li><p>Ensure that the returned output is an array with a float dtype.</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Decorator.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>callable</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<input id="194a9edb-22a9-4406-b104-b2b2f77194dc" name="bf96e08e-fc3f-4709-ad96-b8324c170586" type="radio">
+</input><label class="tabbed-label" for="194a9edb-22a9-4406-b104-b2b2f77194dc">
+Properties</label><div class="tabbed-content docutils">
+<p><code class="xref py py-obj docutils literal notranslate"></code></p>
+</div>
+<input id="34fb8ee6-8b7d-4f9c-b845-7e0d630e964e" name="bf96e08e-fc3f-4709-ad96-b8324c170586" type="radio">
+</input><label class="tabbed-label" for="34fb8ee6-8b7d-4f9c-b845-7e0d630e964e">
+Methods</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.copula.Copula.log_likelihood">
+<span class="sig-name descname"><span class="pre">log_likelihood</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/copula/Copula.html#Copula.log_likelihood"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.copula.Copula.log_likelihood" title="Permalink to this definition"></a></dt>
+<dd><p>TO REVIEW</p>
+<p>Compute the log-likelihood.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u</strong> (<em>2D array-like</em>) – Observed values from which the log-likelihood will be calculated.
+Because each observation is <em>n</em>-dimensional, <code class="xref py py-obj docutils literal notranslate"><span class="pre">u</span></code> must be a matrix with
+<em>n</em> columns meaning that each row represents an observed <em>n</em>-dimensional
+sample.</p></li>
+<li><p><strong>weights</strong> (<em>1D array-like</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – Weight associated with each <em>n</em>-dimensional sample. If None, the weight
+is assumed to be 1 for each sample. The default is None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Computed log-likelihood. The returned scalar has a float dtype.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scalar</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<input id="312f96ca-2c20-40cc-a78e-43c5a90ee52b" name="bf96e08e-fc3f-4709-ad96-b8324c170586" type="radio">
+</input><label class="tabbed-label" for="312f96ca-2c20-40cc-a78e-43c5a90ee52b">
+Special</label><div class="tabbed-content docutils">
+<dl class="py method">
+<dt class="sig sig-object py" id="actuarial.copula.Copula.__len__">
+<span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/actuarial/copula/Copula.html#Copula.__len__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.copula.Copula.__len__" title="Permalink to this definition"></a></dt>
+<dd><p>Dimensionality <span class="math notranslate nohighlight">\(d\)</span> of the copula (identical to the <a class="reference internal" href="#actuarial.copula.Copula.dim" title="actuarial.copula.Copula.dim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dim</span></code></a> attribute).</p>
+</dd></dl>
+
+</div>
+<input id="dd14538b-25fa-47f1-8edb-cce2b12c28b2" name="bf96e08e-fc3f-4709-ad96-b8324c170586" type="radio">
+</input><label class="tabbed-label" for="dd14538b-25fa-47f1-8edb-cce2b12c28b2">
+Examples</label><div class="tabbed-content docutils">
+<p>To be added.</p>
+</div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Copula" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Comonotonic.html" class="btn btn-neutral float-right" title="Comonotonic" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Corentin Lefèvre.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

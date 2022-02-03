@@ -1,15 +1,18 @@
+.. _actuarial.copula:
+
 Copula
 ======
 
 .. toctree::
-   :maxdepth: 1
-   :hidden:
-   
-   Clayton.rst
-   Comonotonic.rst
-   Countermonotonic.rst
-   Gaussian.rst
-   Independence.rst
+    :maxdepth: 1
+    :titlesonly:
+    :hidden:
+    
+    Copula.rst
+    Comonotonic.rst
+    Countermonotonic.rst
+    Gaussian.rst
+    Independence.rst
 
 
 
@@ -36,7 +39,7 @@ The copula module provides all the tools needed to work with copulas.
 
 
 
-.. rubric:: Module description
+.. rubric:: :subtitle:`Importation`
 
 The copula module can be easily imported from the actuarial package:
 
@@ -44,57 +47,33 @@ The copula module can be easily imported from the actuarial package:
 
     from actuarial import copula
 
-Several classes are implemented in this module.
 
-First, we can find an abstract class called `Copula`.
-This abstract class allows building copula models in a standardized way and with various features pre-implemented.
+
+.. rubric:: :subtitle:`Content`
+
+Several classes are implemented in this module:
+
+    |1| Abstract copula class
+
+    |2| Various copula models
+
+First, we can find an **abstract class** called `Copula`.
+This abstract class allows building copula models in a standardized way and with various pre-implemented features.
 Therefore, all copula models implemented in this package inherit from this abstract class.
 Moreover, it also allows you to build and customize your own copula models (by inheriting from this abstract class).
-Related documentation can be found below:
+Related documentation can be found here: :ref:`copula.Copula`.
 
-.. dropdown:: Copula
-
-    .. autoclass:: actuarial.copula::Copula()
-
-        .. tabbed:: Initialization
-
-            .. automethod:: __init__
-
-        .. tabbed:: Abstract
-
-            .. autoproperty:: dim
-            .. automethod:: cdf
-            .. automethod:: pdf
-            .. automethod:: random
-            .. autoclass:: actuarial.copula::Copula.Decorators
-                :members:
-
-        .. tabbed:: Properties
-
-            |none|
-
-        .. tabbed:: Methods
-
-            .. automethod:: log_likelihood
-
-        .. tabbed:: Special
-
-            .. automethod:: __len__
-            
-        .. tabbed:: Examples
-
-            To be added.
-
-Secondly, the module offers different copula models.
+Secondly, the module offers different **copula models**.
 For example, it implements the Gaussian copula, the comonotonic copula, the Clayton copula, ...
 All these models inherit from the `Copula` abstract class as described above.
 In this way, they all share a common set of features (properties and methods) and they can be easily identified as a copula
 (using Python's built-in functions `isinstance` or `issubclass`).
-The following copula models are implemented in this module:
+The following copula models are implemented in this module (in alphabetical order):
 
-.. list-table::
+.. list-table:: List of copula models.
     :header-rows: 1
     :align: center
+    :widths: 50 50
 
     *   - .. centered:: Copula model
         - .. centered:: Parametric
@@ -102,9 +81,7 @@ The following copula models are implemented in this module:
         - .. centered:: |X|
     *   - :ref:`copula.Countermonotonic`
         - .. centered:: |X|
-    *   - :ref:`copula.Independence`
-        - .. centered:: |X|
     *   - :ref:`copula.Gaussian`
         - .. centered:: |V|
-    *   - :ref:`copula.Clayton`
-        - .. centered:: |V|
+    *   - :ref:`copula.Independence`
+        - .. centered:: |X|

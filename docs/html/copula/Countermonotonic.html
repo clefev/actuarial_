@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -51,7 +51,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Copula</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Clayton.html">Clayton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Copula.html">Copula <span class="sphinx-bs badge badge-dark badge-pill">ABC</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Comonotonic.html">Comonotonic</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Countermonotonic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Gaussian.html">Gaussian</a></li>
@@ -59,7 +59,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
@@ -113,7 +113,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="actuarial.copula.Countermonotonic">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.copula.</span></span><span class="sig-name descname"><span class="pre">Countermonotonic</span></span><a class="reference internal" href="../_modules/actuarial/copula/Countermonotonic.html#Countermonotonic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.copula.Countermonotonic" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="index.html#actuarial.copula.Copula" title="actuarial.copula.Copula.Copula"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.copula.Copula.Copula</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="Copula.html#actuarial.copula.Copula" title="actuarial.copula.Copula.Copula"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.copula.Copula.Copula</span></code></a></p>
 <p>The countermonotonic copula is a special bivariate copula characterising a
 perfect negative dependence between two components.</p>
 <p>The marginals <span class="math notranslate nohighlight">\(U_1\)</span> and <span class="math notranslate nohighlight">\(U_2\)</span> of the countermonotonic copula
@@ -132,8 +132,8 @@ and decreasing function of a same random variable <span class="math notranslate 
 In this way, the two components move in the opposite direction which describes
 a perfect negative dependence.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="72d21d95-3e94-45df-ad8f-6a7d9236238c" name="117c9d42-beb8-410f-8926-05140512ab66" type="radio">
-</input><label class="tabbed-label" for="72d21d95-3e94-45df-ad8f-6a7d9236238c">
+<input checked="checked" id="e4f1ae5f-f594-4a1d-85e2-b53c4c78b335" name="65fc2ef4-c596-4408-a364-a8d19be70c56" type="radio">
+</input><label class="tabbed-label" for="e4f1ae5f-f594-4a1d-85e2-b53c4c78b335">
 Initialization</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.copula.Countermonotonic.__init__">
@@ -141,8 +141,8 @@ Initialization</label><div class="tabbed-content docutils">
 <dd></dd></dl>
 
 </div>
-<input id="09bdfca7-2455-4500-9b9f-10c2f502eda4" name="117c9d42-beb8-410f-8926-05140512ab66" type="radio">
-</input><label class="tabbed-label" for="09bdfca7-2455-4500-9b9f-10c2f502eda4">
+<input id="3c0ef705-72de-4358-bad1-7e24fed399d1" name="65fc2ef4-c596-4408-a364-a8d19be70c56" type="radio">
+</input><label class="tabbed-label" for="3c0ef705-72de-4358-bad1-7e24fed399d1">
 Properties</label><div class="tabbed-content docutils">
 <dl class="py attribute">
 <dt class="sig sig-object py" id="actuarial.copula.Countermonotonic.dim">
@@ -156,8 +156,8 @@ Properties</label><div class="tabbed-content docutils">
 </dd></dl>
 
 </div>
-<input id="73a41b0d-610d-442b-b263-0574b588342f" name="117c9d42-beb8-410f-8926-05140512ab66" type="radio">
-</input><label class="tabbed-label" for="73a41b0d-610d-442b-b263-0574b588342f">
+<input id="21cf4eb5-7bd1-43f5-9c7c-9952c5e8f402" name="65fc2ef4-c596-4408-a364-a8d19be70c56" type="radio">
+</input><label class="tabbed-label" for="21cf4eb5-7bd1-43f5-9c7c-9952c5e8f402">
 Methods</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.copula.Countermonotonic.cdf">
@@ -241,18 +241,18 @@ in last position.</p>
 </dd></dl>
 
 </div>
-<input id="2d042a22-4037-4e71-892a-2d37bdc2b207" name="117c9d42-beb8-410f-8926-05140512ab66" type="radio">
-</input><label class="tabbed-label" for="2d042a22-4037-4e71-892a-2d37bdc2b207">
+<input id="20efc2e5-4569-47e3-bed0-021f37ccf50a" name="65fc2ef4-c596-4408-a364-a8d19be70c56" type="radio">
+</input><label class="tabbed-label" for="20efc2e5-4569-47e3-bed0-021f37ccf50a">
 Special</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="f25bc275-19d8-40f5-a376-dd1521e29ece" name="117c9d42-beb8-410f-8926-05140512ab66" type="radio">
-</input><label class="tabbed-label" for="f25bc275-19d8-40f5-a376-dd1521e29ece">
+<input id="02002511-02cf-43b5-a2b6-696845b71485" name="65fc2ef4-c596-4408-a364-a8d19be70c56" type="radio">
+</input><label class="tabbed-label" for="02002511-02cf-43b5-a2b6-696845b71485">
 Technical sheet</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="91d04b0e-3c99-45c8-961d-9fe0846436be" name="117c9d42-beb8-410f-8926-05140512ab66" type="radio">
-</input><label class="tabbed-label" for="91d04b0e-3c99-45c8-961d-9fe0846436be">
+<input id="b79b6a5b-8d2a-4bb1-8c15-4812f1360ad1" name="65fc2ef4-c596-4408-a364-a8d19be70c56" type="radio">
+</input><label class="tabbed-label" for="b79b6a5b-8d2a-4bb1-8c15-4812f1360ad1">
 Examples</label><div class="tabbed-content docutils">
 <p>To be added.</p>
 </div>

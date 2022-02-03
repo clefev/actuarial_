@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -52,11 +52,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../distribution/index.html">Distribution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../copula/index.html">Copula</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Indexation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Indexation.html">Indexation <span class="sphinx-bs badge badge-dark badge-pill">ABC</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Flat.html">Flat</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Price index</a></li>
 </ul>
@@ -110,7 +111,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="actuarial.indexation.PriceIndex">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.indexation.</span></span><span class="sig-name descname"><span class="pre">PriceIndex</span></span><a class="reference internal" href="../_modules/actuarial/indexation/PriceIndex.html#PriceIndex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.indexation.PriceIndex" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="../superclass/Piecewise.html#actuarial.superclass.Piecewise" title="actuarial.superclass.Piecewise.Piecewise"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Piecewise.Piecewise</span></code></a>, <a class="reference internal" href="../superclass/TermStructure.html#actuarial.superclass.TermStructure" title="actuarial.superclass.TermStructure.TermStructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.TermStructure.TermStructure</span></code></a>, <a class="reference internal" href="index.html#actuarial.indexation.Indexation" title="actuarial.indexation.Indexation.Indexation"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.indexation.Indexation.Indexation</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../superclass/Piecewise.html#actuarial.superclass.Piecewise" title="actuarial.superclass.Piecewise.Piecewise"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Piecewise.Piecewise</span></code></a>, <a class="reference internal" href="../superclass/TermStructure.html#actuarial.superclass.TermStructure" title="actuarial.superclass.TermStructure.TermStructure"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.TermStructure.TermStructure</span></code></a>, <a class="reference internal" href="Indexation.html#actuarial.indexation.Indexation" title="actuarial.indexation.Indexation.Indexation"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.indexation.Indexation.Indexation</span></code></a></p>
 <p>A price index is a measure of how prices change over a period of time,
 or in other words, it is a way to measure inflation.</p>
 <p>We denote <span class="math notranslate nohighlight">\(PI_i\)</span> the value of the price index observed at maturity
@@ -118,8 +119,8 @@ or in other words, it is a way to measure inflation.</p>
 Between two consecutive maturities <span class="math notranslate nohighlight">\(\tau_i\)</span> and <span class="math notranslate nohighlight">\(\tau_{i+1}\)</span>,
 the value of the price index is interpolated.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="51690e18-e09a-4e77-be4a-5caeae0bdc9a" name="4b353f69-58eb-4248-95b2-0635b2f3099a" type="radio">
-</input><label class="tabbed-label" for="51690e18-e09a-4e77-be4a-5caeae0bdc9a">
+<input checked="checked" id="7a545f06-f37c-4bee-a77e-a98cece7c49a" name="05edf55c-fc7c-4c49-96f0-537ecba28da2" type="radio">
+</input><label class="tabbed-label" for="7a545f06-f37c-4bee-a77e-a98cece7c49a">
 Initialization</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.indexation.PriceIndex.__init__">
@@ -142,8 +143,8 @@ consecutive maturities. The default assumes a linear interpolation.</p></li>
 </dd></dl>
 
 </div>
-<input id="80cc5acb-9011-4b21-ad92-101415ca9bf6" name="4b353f69-58eb-4248-95b2-0635b2f3099a" type="radio">
-</input><label class="tabbed-label" for="80cc5acb-9011-4b21-ad92-101415ca9bf6">
+<input id="10833b00-b36a-460e-a92b-a251df26b28b" name="05edf55c-fc7c-4c49-96f0-537ecba28da2" type="radio">
+</input><label class="tabbed-label" for="10833b00-b36a-460e-a92b-a251df26b28b">
 Properties</label><div class="tabbed-content docutils">
 <dl class="py attribute">
 <dt class="sig sig-object py" id="actuarial.indexation.PriceIndex.maturities">
@@ -192,8 +193,8 @@ index between two consecutive maturities.</p>
 </dd></dl>
 
 </div>
-<input id="1e9913d6-ba4e-46bf-bd87-a48aaeee0b54" name="4b353f69-58eb-4248-95b2-0635b2f3099a" type="radio">
-</input><label class="tabbed-label" for="1e9913d6-ba4e-46bf-bd87-a48aaeee0b54">
+<input id="eec7e6db-c807-401b-aaf1-f7e356395aae" name="05edf55c-fc7c-4c49-96f0-537ecba28da2" type="radio">
+</input><label class="tabbed-label" for="eec7e6db-c807-401b-aaf1-f7e356395aae">
 Methods</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.indexation.PriceIndex.price_index">
@@ -396,7 +397,7 @@ reference maturity <span class="math notranslate nohighlight">\(\tau^*\)</span>.
 and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code>.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../yield_curve/index.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting">Discounting</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="../yield_curve/Discounting.html#actuarial.yield_curve.Discounting" title="actuarial.yield_curve.Discounting">Discounting</a></p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><p><strong>ValueError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities1</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">maturities2</span></code> cannot be broadcast with the instance.</p>
@@ -405,18 +406,18 @@ and <code class="xref py py-obj docutils literal notranslate"><span class="pre">
 </dd></dl>
 
 </div>
-<input id="891b4036-143d-48ec-856f-f9e117ff7faf" name="4b353f69-58eb-4248-95b2-0635b2f3099a" type="radio">
-</input><label class="tabbed-label" for="891b4036-143d-48ec-856f-f9e117ff7faf">
+<input id="09074096-ac3c-42f4-8f95-c0ff0450232d" name="05edf55c-fc7c-4c49-96f0-537ecba28da2" type="radio">
+</input><label class="tabbed-label" for="09074096-ac3c-42f4-8f95-c0ff0450232d">
 Special</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="0c69e5f7-13fb-4ba5-b08e-7958837e0ff0" name="4b353f69-58eb-4248-95b2-0635b2f3099a" type="radio">
-</input><label class="tabbed-label" for="0c69e5f7-13fb-4ba5-b08e-7958837e0ff0">
+<input id="8d4bb9ec-1f23-4829-882a-f54f35752d1f" name="05edf55c-fc7c-4c49-96f0-537ecba28da2" type="radio">
+</input><label class="tabbed-label" for="8d4bb9ec-1f23-4829-882a-f54f35752d1f">
 Technical sheet</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="4c3c89e7-8a5a-4074-ba4e-044f09335df0" name="4b353f69-58eb-4248-95b2-0635b2f3099a" type="radio">
-</input><label class="tabbed-label" for="4c3c89e7-8a5a-4074-ba4e-044f09335df0">
+<input id="32ec6e81-cba3-41cf-b00f-0e1fe72871d5" name="05edf55c-fc7c-4c49-96f0-537ecba28da2" type="radio">
+</input><label class="tabbed-label" for="32ec6e81-cba3-41cf-b00f-0e1fe72871d5">
 Examples</label><div class="tabbed-content docutils">
 <p>To be added.</p>
 </div>

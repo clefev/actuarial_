@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -55,7 +55,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../copula/index.html">Copula</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../yield_curve/index.html">Yield Curve</a></li>
@@ -104,16 +104,206 @@
            <div itemprop="articleBody">
              
   <section id="distribution">
-<h1>Distribution<a class="headerlink" href="#distribution" title="Permalink to this headline"></a></h1>
+<span id="actuarial-distribution"></span><h1>Distribution<a class="headerlink" href="#distribution" title="Permalink to this headline"></a></h1>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="univariate/index.html">Univariate</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multivariate/index.html">Multivariate</a><ul class="simple">
-</ul>
-</li>
-</ul>
 </div>
+<p>The distribution module provides all the tools needed to work with probability distributions (either discrete or continuous, univariate or multivariate).</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-12 col-sm-6 col-lg-3 text-center p-1 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+<p class="card-text"><span class="fa fa-puzzle-piece fa-4x"></span></p>
+<p class="card-text">Use various built-in distributions</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-12 col-sm-6 col-lg-3 text-center p-1 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+<p class="card-text"><span class="fa fa-crosshairs fa-4x"></span></p>
+<p class="card-text">Calibrate your distributions</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-12 col-sm-6 col-lg-3 text-center p-1 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+<p class="card-text"><span class="fa fa-dice fa-4x"></span></p>
+<p class="card-text">Generate random samples</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-12 col-sm-6 col-lg-3 text-center p-1 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+<p class="card-text"><span class="fa fa-tools fa-4x"></span></p>
+<p class="card-text">Build your own distribution classes</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class="rubric"><span class="subtitle">Importation</span></p>
+<p>The distribution module can be easily imported from the actuarial package:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">actuarial</span> <span class="kn">import</span> <span class="n">distribution</span>
+</pre></div>
+</div>
+<p class="rubric"><span class="subtitle">Content</span></p>
+<p>Several classes are implemented in this module:</p>
+<blockquote>
+<div><p>❶ Abstract univariate and multivariate distribution classes</p>
+<p>❷ Various univariate distribution models</p>
+<p>❸ Various multivariate distribution models</p>
+</div></blockquote>
+<p>First, we can find two <strong>abstract classes</strong> called <code class="xref py py-obj docutils literal notranslate"><span class="pre">UnivariateDistribution</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">MultivariateDistribution</span></code>.
+These abstract classes allow building univariate or multivariate distribution models in a standardized way and with various pre-implemented features.
+Therefore, all distribution models implemented in this package inherit from one of these abstract classes (depending on whether it is univariate or multivariate).
+Moreover, it also allows you to build and customize your own distribution models (by inheriting from this abstract class).
+Related documentation can be found here: <a class="reference internal" href="univariate/UnivariateDistribution.html#distribution-univariatedistribution"><span class="std std-ref">Univariate Distribution ABC</span></a>.</p>
+<p>Secondly, the module offers different <strong>univariate distribution models</strong> (either discrete or continuous).
+For example, it implements the normal distribution, Poisson distribution, Pareto distribution, …
+This also includes special distributions such as the empirical distribution, mixture distribution or truncated distribution.
+All these models inherit from the <code class="xref py py-obj docutils literal notranslate"><span class="pre">UnivariateDistribution</span></code> abstract class as described above.
+In this way, they all share a common set of features (properties and methods) and they can be easily identified as an univariate distribution
+(using Python’s built-in functions <code class="xref py py-obj docutils literal notranslate"><span class="pre">isinstance</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">issubclass</span></code>).
+The following univariate distribution models are implemented in this module (in alphabetical order):</p>
+<table class="colwidths-given docutils align-center" id="id1">
+<caption><span class="caption-text">List of univariate distribution models.</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="centered">
+<strong>Univariate distribution model</strong></p></th>
+<th class="head"><p class="centered">
+<strong>Parametric</strong></p></th>
+<th class="head"><p class="centered">
+<strong>Discrete</strong></p></th>
+<th class="head"><p class="centered">
+<strong>Continuous</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="univariate/Bernoulli.html#distribution-bernoulli"><span class="std std-ref">Bernoulli</span></a></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="univariate/Beta.html#distribution-beta"><span class="std std-ref">Beta</span></a></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="univariate/Empirical.html#distribution-empirical"><span class="std std-ref">Empirical</span></a></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="univariate/Exponential.html#distribution-exponential"><span class="std std-ref">Exponential</span></a></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="univariate/Gamma.html#distribution-gamma"><span class="std std-ref">Gamma</span></a></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="univariate/GeneralizedPareto.html#distribution-generalizedpareto"><span class="std std-ref">Generalized Pareto</span></a></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="univariate/Lognormal.html#distribution-lognormal"><span class="std std-ref">Lognormal</span></a></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="univariate/Mixture.html#distribution-mixture"><span class="std std-ref">Mixture</span></a></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="univariate/Normal.html#distribution-normal"><span class="std std-ref">Normal</span></a></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="univariate/Pareto.html#distribution-pareto"><span class="std std-ref">Pareto</span></a></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="univariate/Poisson.html#distribution-poisson"><span class="std std-ref">Poisson</span></a></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="univariate/Truncated.html#distribution-truncated"><span class="std std-ref">Truncated</span></a></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="univariate/Uniform.html#distribution-uniform"><span class="std std-ref">Uniform</span></a></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="univariate/Weibull.html#distribution-weibull"><span class="std std-ref">Weibull</span></a></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-x text-danger" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg></strong></p></td>
+<td><p class="centered">
+<strong><svg version="1.1" width="16" height="16" class="octicon octicon-check text-success" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></strong></p></td>
+</tr>
+</tbody>
+</table>
+<p>Finally, the module offers different <strong>multivariate distribution models</strong> (either discrete or continuous).
+<em>To be implemented</em>.</p>
 </section>
 
 

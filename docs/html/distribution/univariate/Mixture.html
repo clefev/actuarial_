@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/panels-variables.858f5f9fcdb3a1c68a50b6382fe5a8bc.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-variables.acc5db1a3ed8772649f49c25501a4437.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -24,8 +24,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Multivariate" href="../multivariate/index.html" />
-    <link rel="prev" title="Truncated" href="Truncated.html" /> 
+    <link rel="next" title="Normal" href="Normal.html" />
+    <link rel="prev" title="Lognormal" href="Lognormal.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,20 +51,21 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Distribution</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Univariate</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="UnivariateDistribution.html">Univariate Distribution <span class="sphinx-bs badge badge-dark badge-pill">ABC</span></a></li>
 <li class="toctree-l3"><a class="reference internal" href="Bernoulli.html">Bernoulli</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Beta.html">Beta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Empirical.html">Empirical</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Exponential.html">Exponential</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Gamma.html">Gamma</a></li>
 <li class="toctree-l3"><a class="reference internal" href="GeneralizedPareto.html">Generalized Pareto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Lognormal.html">Lognormal</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Mixture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Normal.html">Normal</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Pareto.html">Pareto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Poisson.html">Poisson</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Truncated.html">Truncated</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Uniform.html">Uniform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Weibull.html">Weibull</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Empirical.html">Empirical</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Truncated.html">Truncated</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Mixture</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../multivariate/index.html">Multivariate</a></li>
@@ -72,7 +73,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../copula/index.html">Copula</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FIXED INCOME</span></p>
+<p class="caption" role="heading"><span class="caption-text">ALM</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../fixed_income/index.html">Fixed Income</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../yield_curve/index.html">Yield Curve</a></li>
@@ -127,7 +128,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="actuarial.distribution.Mixture">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">actuarial.distribution.</span></span><span class="sig-name descname"><span class="pre">Mixture</span></span><a class="reference internal" href="../../_modules/actuarial/distribution/Mixture.html#Mixture"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#actuarial.distribution.Mixture" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="../../superclass/Mixture.html#actuarial.superclass.Mixture" title="actuarial.superclass.Mixture.Mixture"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Mixture.Mixture</span></code></a>, <a class="reference internal" href="index.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution.UnivariateDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.distribution.UnivariateDistribution.UnivariateDistribution</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../../superclass/Mixture.html#actuarial.superclass.Mixture" title="actuarial.superclass.Mixture.Mixture"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.superclass.Mixture.Mixture</span></code></a>, <a class="reference internal" href="UnivariateDistribution.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution.UnivariateDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">actuarial.distribution.UnivariateDistribution.UnivariateDistribution</span></code></a></p>
 <p>A mixture distribution is the probability distribution of a random variable
 that is derived from a collection of other random variables.
 It is constructed as follows: first, a random variable is selected by chance
@@ -135,7 +136,7 @@ from the collection according to given probabilities of selection, and then
 the value of the selected random variable is realized.</p>
 <p>The individual distributions <span class="math notranslate nohighlight">\(X_k\)</span> that are combined to form the mixture
 distribution are called the mixture components, and the probabilities (or weights)
-<span class="math notranslate nohighlight">\(w_k\)</span> associated with each component are called the mixture weights.
+<span class="math notranslate nohighlight">\(w_k \in (0,1)\)</span> associated with each component are called the mixture weights.
 The mixture distribution is then equal to</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}X = \begin{cases}
@@ -147,8 +148,8 @@ The mixture distribution is then equal to</p>
 <div class="math notranslate nohighlight">
 \[\sum_{k=1}^K w_k = 1.\]</div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="e516c2ce-7666-4712-b2e4-3334f231b2b6" name="687888dd-316e-4519-b238-d24b387310e5" type="radio">
-</input><label class="tabbed-label" for="e516c2ce-7666-4712-b2e4-3334f231b2b6">
+<input checked="checked" id="efe652ec-24bc-481a-a31b-3687e903fc6f" name="301e6ced-b11d-44ec-a991-f26b43bae8b1" type="radio">
+</input><label class="tabbed-label" for="efe652ec-24bc-481a-a31b-3687e903fc6f">
 Initialization</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.distribution.Mixture.__init__">
@@ -166,7 +167,7 @@ The default assumes equiprobability for each mixture component.</p></li>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>TypeError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">components</span></code> is not a list of <a class="reference internal" href="index.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnivariateDistribution</span></code></a> instances.</p></li>
+<li><p><strong>TypeError</strong> – If <code class="xref py py-obj docutils literal notranslate"><span class="pre">components</span></code> is not a list of <a class="reference internal" href="UnivariateDistribution.html#actuarial.distribution.UnivariateDistribution" title="actuarial.distribution.UnivariateDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnivariateDistribution</span></code></a> instances.</p></li>
 <li><p><strong>ValueError</strong> – If the length of <code class="xref py py-obj docutils literal notranslate"><span class="pre">weights</span></code> is different from the length of <code class="xref py py-obj docutils literal notranslate"><span class="pre">components</span></code>.
     If the elements of <code class="xref py py-obj docutils literal notranslate"><span class="pre">components</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">weights</span></code> cannot be broadcast together.
     If negative weights are provided.</p></li>
@@ -176,13 +177,13 @@ The default assumes equiprobability for each mixture component.</p></li>
 </dd></dl>
 
 </div>
-<input id="4d1935c7-67ad-47ce-8723-3ee0fe38d8d7" name="687888dd-316e-4519-b238-d24b387310e5" type="radio">
-</input><label class="tabbed-label" for="4d1935c7-67ad-47ce-8723-3ee0fe38d8d7">
+<input id="57ea20d3-97c3-4b1d-9d08-edf0950b0756" name="301e6ced-b11d-44ec-a991-f26b43bae8b1" type="radio">
+</input><label class="tabbed-label" for="57ea20d3-97c3-4b1d-9d08-edf0950b0756">
 Properties</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="19529bc9-063e-40cf-b31b-906fb21cea4d" name="687888dd-316e-4519-b238-d24b387310e5" type="radio">
-</input><label class="tabbed-label" for="19529bc9-063e-40cf-b31b-906fb21cea4d">
+<input id="483eda30-a737-44d3-871f-4e476d44ea61" name="301e6ced-b11d-44ec-a991-f26b43bae8b1" type="radio">
+</input><label class="tabbed-label" for="483eda30-a737-44d3-871f-4e476d44ea61">
 Methods</label><div class="tabbed-content docutils">
 <dl class="py method">
 <dt class="sig sig-object py" id="actuarial.distribution.Mixture.pdf">
@@ -317,18 +318,18 @@ random number generator associated with this instance.</p></li>
 </dd></dl>
 
 </div>
-<input id="ff5d05b2-6535-43df-be4d-5011a4571bec" name="687888dd-316e-4519-b238-d24b387310e5" type="radio">
-</input><label class="tabbed-label" for="ff5d05b2-6535-43df-be4d-5011a4571bec">
+<input id="369647a5-936f-4af2-a184-3aacc6bc91b1" name="301e6ced-b11d-44ec-a991-f26b43bae8b1" type="radio">
+</input><label class="tabbed-label" for="369647a5-936f-4af2-a184-3aacc6bc91b1">
 Special</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="fe23f41f-5d8b-4744-b652-3125079d1491" name="687888dd-316e-4519-b238-d24b387310e5" type="radio">
-</input><label class="tabbed-label" for="fe23f41f-5d8b-4744-b652-3125079d1491">
+<input id="5da97b00-1304-462c-8586-16b8b792a158" name="301e6ced-b11d-44ec-a991-f26b43bae8b1" type="radio">
+</input><label class="tabbed-label" for="5da97b00-1304-462c-8586-16b8b792a158">
 Technical sheet</label><div class="tabbed-content docutils">
 <p><code class="xref py py-obj docutils literal notranslate"></code></p>
 </div>
-<input id="5ea512fb-b170-497f-851d-98a32bfd3992" name="687888dd-316e-4519-b238-d24b387310e5" type="radio">
-</input><label class="tabbed-label" for="5ea512fb-b170-497f-851d-98a32bfd3992">
+<input id="c8cd9706-ba8b-4132-9f11-a0da9de3af4b" name="301e6ced-b11d-44ec-a991-f26b43bae8b1" type="radio">
+</input><label class="tabbed-label" for="c8cd9706-ba8b-4132-9f11-a0da9de3af4b">
 Examples</label><div class="tabbed-content docutils">
 <p>To be added.</p>
 </div>
@@ -341,8 +342,8 @@ Examples</label><div class="tabbed-content docutils">
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="Truncated.html" class="btn btn-neutral float-left" title="Truncated" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../multivariate/index.html" class="btn btn-neutral float-right" title="Multivariate" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Lognormal.html" class="btn btn-neutral float-left" title="Lognormal" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Normal.html" class="btn btn-neutral float-right" title="Normal" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
